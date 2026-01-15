@@ -99,4 +99,9 @@ class Pslzme_Admin {
 
 	}
 
+
+	public function add_pslzme_admin_settings_menu() {
+		add_menu_page("Pslzme", "Konfiguration", "manage_options", plugin_dir_path( __FILE__ ) . "partials/pslzme-admin-settings-display.php", null, "none");
+	}
+
 }
