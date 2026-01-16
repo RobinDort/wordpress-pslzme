@@ -13,8 +13,8 @@ class PslzmeAdminDatabaseConnection{
 
         $this->connection = new wpdb($username, $decryptedPassword, $dbname, $host);
 
-        if ($connection->last_error !== '') {
-            wp_send_json_error(['message' => 'Fehler beim Verbinden mit der Datenbank: ' . $connection->last_error]);
+        if ($this->connection->last_error !== '') {
+            wp_send_json_error(['message' => 'Fehler beim Verbinden mit der Datenbank: ' . $this->connection->last_error]);
         }
     }
 
