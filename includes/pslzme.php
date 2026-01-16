@@ -124,6 +124,15 @@ class Pslzme {
 			require_once $file;
 		}
 
+
+		/**
+		 * Load all admin database files
+		 */
+		$admin_database_path = plugin_dir_path(dirname(__FILE__)) . 'admin/database/';
+		foreach (glob($admin_database_path . '*.php') as $file) {
+			require_once $file;
+		}
+
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
