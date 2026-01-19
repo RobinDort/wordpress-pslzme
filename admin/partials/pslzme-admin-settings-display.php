@@ -43,28 +43,12 @@ $options = get_option('pslzme_settings', []);
                     <?php do_settings_sections('pslzme_settings'); ?>
                     <?php submit_button(__('Speichern', 'pslzme')); ?>
                 </form>
-
-                <div>
-                    <!-- Current values -->
-                    <table class="form-table">
-                        <tbody>
-                            <tr>
-                                <th scope="row">Aktuelle Datenbank:</th>
-                                <td><?= esc_html(get_option('pslzme_settings')['db_name'] ?? ''); ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Aktueller Datenbankuser</th>
-                                <td><?= esc_html(get_option('pslzme_settings')['db_user'] ?? ''); ?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
 
             <div class="pslzme-explanation">
                 <h3><span>Schritt 3: </span> pslz<strong>me</strong> Tabellen konfigurieren</h3>
                 <p>Zuletzt müssen die benötigten pslzme Datenbanktabellen angelegt werden. Dies erfolgt vollständig automatisiert nach Bestätigung des nachstehenden Buttons. Bitte prüfen Sie erneut, ob die Angaben im vorherigen Schritt keine Fehler enthalten.</p>
-                <button type="submit" onclick="event.preventDefault();createPslzmeTables();">Tabellen anlegen</button>
+                <button id="create-tables-smt" type="submit">Tabellen anlegen</button>
             </div>
         </div>
     </div>

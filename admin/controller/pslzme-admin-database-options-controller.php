@@ -12,31 +12,48 @@ class PslzmeAdminDatabaseOptionsController {
     }
 
     public function handle_create_pslzme_tables() {
-        global $wpdb;
 
-        $charset_collate = $wpdb->get_charset_collate();
+        $options = get_option('pslzme_settings', []);
+        $encryptedPassword = $options['db_password'] ?? '';
 
-        // create all needed pslzme tables by using the factory methods
-        $createPslzmeCustomerTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_customer_table_stmt();
-        $createEncryptionInfoTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_encryption_info_table_stmt();       
-        $createQueryLinkTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_query_link_table_stmt();
+        $pslzmeDBConnection = new PslzmeAdminDatabaseConnection($options);
+        $decryptedPassword = $pslzmeDBConnection->decrypt_password($encryptedPassword);
+        
 
-        $this->dbConnection->query($createPslzmeCustomerTableStmt);
-        if ($this->dbConnection->last_error !== '') {
-            wp_send_json_error(['message' => 'Fehler beim Erstellen der Tabelle pslzme_kunde: ' . $this->dbConnection->last_error]);
+        try {
+            //create all needed pslzme tables by using the factory methods
+            $createPslzmeCustomerTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_customer_table_stmt();
+            $createEncryptionInfoTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_encryption_info_table_stmt();       
+            $createQueryLinkTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_query_link_table_stmt();
+
+
+            $errors = [];
+            $createCustomerTableSuccess = $this->dbConnection->query($createPslzmeCustomerTableStmt);
+            if ($createCustomerTableSuccess === false || $this->dbConnection->last_error !== '') {
+                $errors[] = $this->dbConnection;
+            }
+
+            $this->dbConnection->query($createEncryptionInfoTableStmt);
+            if ($this->dbConnection->last_error !== '') {
+                $errors[] = 'encrypt_info: ' . $this->dbConnection->last_error;
+            }
+
+            $this->dbConnection->query($createQueryLinkTableStmt);
+            if ($this->dbConnection->last_error !== '') {
+                $errors[] = 'query_link: ' . $this->dbConnection->last_error;
+            }
+
+            if (!empty($errors)) {
+                wp_send_json_error([$errors]);
+            } else {
+                wp_send_json_success(['message' => "Tabellen erfolgreich erstellt."]);
+            }
+        } catch (Exception $e) {
+            wp_send_json_error(['message' => 'Exception beim Erstellen der Tabellen: ' . $e->getMessage()]);
+        } finally {
+            // Close the database connection
+            $this->dbConnection->close_connection();
         }
-
-        $this->dbConnection->query($createEncryptionInfoTableStmt);
-        if ($this->dbConnection->last_error !== '') {
-            wp_send_json_error(['message' => 'Fehler beim Erstellen der Tabelle encrypt_info: ' . $this->dbConnection->last_error]);
-        }
-
-        $this->dbConnection->query($createQueryLinkTableStmt);
-        if ($this->dbConnection->last_error !== '') {
-            wp_send_json_error(['message' => 'Fehler beim Erstellen der Tabelle query_link: ' . $this->dbConnection->last_error]);
-        }
-
-        wp_send_json_success(['message' => 'Alle Tabellen wurden erfolgreich erstellt.']);
 
     }
 }

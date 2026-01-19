@@ -121,7 +121,8 @@ class Pslzme_Admin {
 
 	public function register_pslzme_settings() {
 		// Register the option group, option name, and sanitize callback
-		register_setting("pslzme_settings_group", "pslzme_settings", [$this, "sanitize_pslzme_settings"]);
+		// register_setting("pslzme_settings_group", "pslzme_settings", [$this, "sanitize_pslzme_settings"]);
+		register_setting("pslzme_settings_group", "pslzme_settings", ['sanitize_callback' =>  array($this, "sanitize_pslzme_settings")]);
 		add_settings_section("pslzme_db_section", __("Datenbank Konfiguration"), null, "pslzme_settings");
 
 		// add fields
@@ -144,23 +145,39 @@ class Pslzme_Admin {
 
 	public function sanitize_pslzme_settings($input) {
 		$sanitized = [];
+		$existingOptions = get_option('pslzme_settings', []);
+
+		// Sanitize DB name and user
 		$sanitized['db_name'] = sanitize_text_field($input['db_name'] ?? '');
 		$sanitized['db_user'] = sanitize_text_field($input['db_user'] ?? '');
-		$sanitized['db_password'] = sanitize_text_field($input['db_password'] ?? '');
+		$password = sanitize_text_field($input['db_password'] ?? '');
+		
+
+		if (!empty($password)) {
+			// Encrypt the raw password
+			$encryptedData = PslzmeAdminCryptoService::encrypt($password);
+			$sanitized['db_password'] = $encryptedData;
+		} elseif (!empty($existingOptions['db_password'])) {
+			// User did NOT enter a new password → keep existing encrypted value
+			$sanitized['db_password'] = $existingOptions['db_password'];
+		} else {
+			$sanitized['db_password'] = ''; // fallback
+		}
+
 		return $sanitized;
 	}
 
 	public function render_pslzme_settings_field($args) {
-		$options = get_option('pslzme_settings', []);
 		$id = $args['id'];
 		$type = ($id === 'db_password') ? 'password' : 'text';
-		$value = $options[$id] ?? '';
+		$value = ($type === 'password') ? '' : (get_option('pslzme_settings', [])[$id] ?? '');
 
-		 printf(
-        '<input type="%1$s" name="pslzme_settings[%2$s]" value="%3$s" required>',
-        esc_attr($type),
-        esc_attr($id),
-        esc_attr($value)
+		printf(
+			'<input type="%1$s" name="pslzme_settings[%2$s]" value="%3$s" %4$s>',
+			esc_attr($type),
+			esc_attr($id),
+			esc_attr($value),
+			$type === 'password' ? 'autocomplete="new-password"' : ''
     	);
 	}
 
@@ -169,6 +186,19 @@ class Pslzme_Admin {
 		check_ajax_referer('pslzme_create_tables', 'nonce');
 		$settingsController = new PslzmeAdminDatabaseOptionsController();
 		$settingsController->handle_create_pslzme_tables();
+	}
+
+	private function encrypt_password($password, $timestamp) {
+		$secretKey = hash('sha256', (string)$timestamp, true); // binary key
+		$iv = random_bytes(16); // IV
+		
+		// Use RAW_DATA to get binary output
+		$ciphertext = openssl_encrypt($password, 'aes-256-cbc', $secretKey, OPENSSL_RAW_DATA, $iv);
+
+		// Store IV + ciphertext together, base64 encoded
+		$encryptedData = base64_encode($iv . $ciphertext);
+
+		return $encryptedData;
 	}
 
 }

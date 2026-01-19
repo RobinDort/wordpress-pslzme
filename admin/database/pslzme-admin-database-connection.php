@@ -7,9 +7,9 @@ class PslzmeAdminDatabaseConnection{
         $host = "localhost";
         $dbname = $dbOptions['db_name'] ?? '';
         $username = $dbOptions['db_user'] ?? '';
-        $createdAtTimestamp = $dbOptions['created_at'] ?? '';
+
         $encryptedPassword = $dbOptions['db_password'] ?? '';
-        $decryptedPassword = $this->decrypt_password($encryptedPassword, $createdAtTimestamp);
+        $decryptedPassword = PslzmeAdminCryptoService::decrypt($encryptedPassword);
 
         $this->connection = new wpdb($username, $decryptedPassword, $dbname, $host);
 
@@ -19,20 +19,21 @@ class PslzmeAdminDatabaseConnection{
     }
 
 
-    private function decrypt_password($encryptedPassword, $timestamp) {
-        $secretKey = hash('sha256', $timestamp, true); 
-        $data = base64_decode($encryptedPassword);
+    public function decrypt_password($encryptedPassword) {
+        $decryptedPassword = PslzmeAdminCryptoService::decrypt($encryptedPassword);
 
-        $iv = substr($data, 0, 16);
-        $ciphertext = substr($data, 16);
-        $decryptedPW = openssl_decrypt($ciphertext, 'aes-256-cbc', $secretKey, 0, $iv);
-
-        return $decryptedPW;
+        return $decryptedPassword;
     }
 
 
     public function get_connection() {
         return $this->connection;
+    }
+
+    public function close_connection() {
+        if ($this->connection) {
+            $this->connection->close();
+        }
     }
 }
 

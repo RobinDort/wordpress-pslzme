@@ -29,20 +29,29 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-	function createPlszmeTables() {
+	$(window).load(function () {
+		$("#create-tables-smt").on("click", function (e) {
+			e.preventDefault();
+			createPslzmeTables();
+		});
+	});
+
+	function createPslzmeTables() {
 		if (!confirm("Möchten Sie die Tabellen wirklich anlegen?")) return;
 
 		$.post(
 			pslzme_admin_ajax.ajax_url,
 			{
 				action: "pslzme_create_tables",
-				_ajax_nonce: pslzme_ajax.nonce,
+				_ajax_nonce: pslzme_admin_ajax.nonce,
 			},
 			function (response) {
 				if (response.success) {
+					console.log(response);
 					alert("Tabellen erfolgreich erstellt!");
 				} else {
-					alert("Fehler beim Erstellen der Tabellen: " + response.data);
+					console.log(response);
+					alert("Fehler beim Erstellen der Tabellen: " + response);
 				}
 			}
 		);
