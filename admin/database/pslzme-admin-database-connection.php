@@ -18,14 +18,6 @@ class PslzmeAdminDatabaseConnection{
         }
     }
 
-
-    public function decrypt_password($encryptedPassword) {
-        $decryptedPassword = PslzmeAdminCryptoService::decrypt($encryptedPassword);
-
-        return $decryptedPassword;
-    }
-
-
     public function get_connection() {
         return $this->connection;
     }

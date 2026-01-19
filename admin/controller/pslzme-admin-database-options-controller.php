@@ -17,9 +17,7 @@ class PslzmeAdminDatabaseOptionsController {
         $encryptedPassword = $options['db_password'] ?? '';
 
         $pslzmeDBConnection = new PslzmeAdminDatabaseConnection($options);
-        $decryptedPassword = $pslzmeDBConnection->decrypt_password($encryptedPassword);
         
-
         try {
             //create all needed pslzme tables by using the factory methods
             $createPslzmeCustomerTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_customer_table_stmt();
