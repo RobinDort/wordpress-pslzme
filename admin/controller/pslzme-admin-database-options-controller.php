@@ -14,8 +14,6 @@ class PslzmeAdminDatabaseOptionsController {
     public function handle_create_pslzme_tables() {
 
         $options = get_option('pslzme_settings', []);
-        $encryptedPassword = $options['db_password'] ?? '';
-
         $pslzmeDBConnection = new PslzmeAdminDatabaseConnection($options);
         
         try {
