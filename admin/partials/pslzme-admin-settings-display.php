@@ -48,7 +48,7 @@ $options = get_option('pslzme_settings', []);
             <div class="pslzme-explanation">
                 <h3><span>Schritt 3: </span> pslz<strong>me</strong> Tabellen konfigurieren</h3>
                 <p>Zuletzt müssen die benötigten pslzme Datenbanktabellen angelegt werden. Dies erfolgt vollständig automatisiert nach Bestätigung des nachstehenden Buttons. Bitte prüfen Sie erneut, ob die Angaben im vorherigen Schritt keine Fehler enthalten.</p>
-                <button id="create-tables-smt" type="submit">Tabellen anlegen</button>
+                <button id="create-tables-sbmt" type="submit">Tabellen anlegen</button>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ $options = get_option('pslzme_settings', []);
         <div class="pslzme-explanation">
             <p>Für die Nutzung von pslzme ist eine Lizenzierung Ihrer Domain erforderlich. Hierfür ist ein zugewiesener pslzme-Account erforderlich. Sollten Sie noch keinen Account besitzen, können Sie diesen unter <a href="https://www.pslzme.com/de/login">https://www.pslzme.com/de/login</a> anfordern.</p>
             <p>Nachdem Ihr Account bereitgestellt wurde, bestätigen Sie bitte abschließend den nachfolgenden Button zur Lizenzierung dieser Domain.</p>
-            <button trype="submit" onclick="event.preventDefault();licensePslzmeDomain();">Domain lizensieren</button>
+            <button id="license-domain-sbmt" trype="submit">Domain lizensieren</button>
     </div>
 
     <div class="pslzme-configuration-container">

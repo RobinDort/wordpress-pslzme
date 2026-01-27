@@ -43,5 +43,12 @@ final class PslzmeAdminPreparedStmtFactory {
 
         return $sqlQuery;
     }
+
+
+    public static function prepare_select_pslzme_customer_stmt() {
+        $sqlQuery = "SELECT KundenID FROM pslzme_kunde WHERE Name = %s";
+
+        return $sqlQuery;
+    }
 }
 ?>

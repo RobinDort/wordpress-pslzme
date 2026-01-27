@@ -12,9 +12,6 @@ class PslzmeAdminDatabaseOptionsController {
     }
 
     public function handle_create_pslzme_tables() {
-
-        $options = get_option('pslzme_settings', []);
-        $pslzmeDBConnection = new PslzmeAdminDatabaseConnection($options);
         
         try {
             //create all needed pslzme tables by using the factory methods
@@ -50,7 +47,48 @@ class PslzmeAdminDatabaseOptionsController {
             // Close the database connection
             $this->dbConnection->close_connection();
         }
+    }
 
+    public function handle_register_customer() {
+        $data = isset($_POST['data']) ? json_decode(stripslashes($_POST['data']), true) : null;
+
+		if (!$data || empty($data['customer']) || empty($data['key'])) {
+			wp_send_json_error(['message' => 'Missing customer or key'], 400);
+		}
+        $customer = sanitize_text_field($data['customer']);
+        $key      = sanitize_text_field($data['key']);
+
+        try {
+
+            $selectPslzmeCustomerStmt = PslzmeAdminPreparedStmtFactory::prepare_select_pslzme_customer_stmt();
+            $preparedSelectStmt = $this->dbConnection->prepare($selectPslzmeCustomerStmt, $customer);
+            $customerID = $this->dbConnection->get_var($preparedSelectStmt);
+
+            if ($customerID) {
+                wp_send_json_error(["message" => "Customer already saved"]);
+            } else {
+                $insertCustomerStmt = $this->dbConnection->insert("pslzme_kunde", ["Name" => $customer], ["%s"]);
+
+                if ($insertCustomerStmt === false) {
+                    wp_send_json_error(['message' => 'Customer insert failed']);
+                }
+
+                $customerID = $this->dbConnection->insert_id;
+                $insertKeyStmt = $this->dbConnection->insert("encrypt_info", ["EncryptionKey" => $key, "PslzmeKundenID" => $customerID], ["%s", "%d"]);
+
+                if ($insertKeyStmt === false) {
+                    wp_send_json_error(["message" => "Encryption key insert failed"]);
+                }
+
+                wp_send_json_success("Domain registration successful");
+            }
+
+
+        } catch (Exception $e) {
+           wp_send_json_error(['message' => 'Exception beim Registrieren der Domain: ' . $e->getMessage()]);
+        }
+
+        wp_send_json_success(["message" => "Data reveived: " . $customer . $key]);
     }
 }
 ?>

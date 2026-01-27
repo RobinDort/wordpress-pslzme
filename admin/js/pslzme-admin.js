@@ -30,9 +30,14 @@
 	 */
 
 	$(window).load(function () {
-		$("#create-tables-smt").on("click", function (e) {
+		$("#create-tables-sbmt").on("click", function (e) {
 			e.preventDefault();
 			createPslzmeTables();
+		});
+
+		$("#license-domain-sbmt").on("click", function (e) {
+			e.preventDefault();
+			registerDomain();
 		});
 	});
 
@@ -53,7 +58,56 @@
 					console.log(response);
 					alert("Fehler beim Erstellen der Tabellen: " + response);
 				}
-			}
+			},
 		);
+	}
+
+	function registerDomain() {
+		const domainName = window.location.origin;
+		const request = {
+			domain: domainName,
+			cms: "Wordpress",
+		};
+
+		const requestObject = {
+			data: JSON.stringify(request),
+		};
+
+		$.ajax({
+			url: "https://www.pslzme.com/api/v1/domain",
+			method: "post",
+			data: requestObject,
+			success: function (response) {
+				const customer = response.customer;
+				const key = response.key;
+
+				if (customer === "" || key === "") {
+					alert("No pslzme customer registered for this URL. Please visit www.pslzme.com to register.");
+					return;
+				}
+
+				const secondRequestData = {
+					customer,
+					key,
+				};
+
+				$.post(
+					pslzme_admin_ajax.ajax_url,
+					{
+						action: "pslzme_register_customer",
+						_ajax_nonce: pslzme_admin_ajax.nonce,
+						data: JSON.stringify(secondRequestData),
+					},
+					function (response) {
+						if (response.success) {
+							alert("Domain registration successful");
+						} else {
+							alert("Something went wrong. Are you sure you already have a pslzme account registered?");
+							console.log(response);
+						}
+					},
+				);
+			},
+		});
 	}
 })(jQuery);

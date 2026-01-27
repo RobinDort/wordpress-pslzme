@@ -188,6 +188,12 @@ class Pslzme_Admin {
 		$settingsController->handle_create_pslzme_tables();
 	}
 
+	public function handle_register_customer() {
+		check_ajax_referer('pslzme_create_tables', 'nonce');
+		$settingsController = new PslzmeAdminDatabaseOptionsController();
+		$settingsController->handle_register_customer();
+	}
+
 	private function encrypt_password($password, $timestamp) {
 		$secretKey = hash('sha256', (string)$timestamp, true); // binary key
 		$iv = random_bytes(16); // IV
