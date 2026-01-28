@@ -16,19 +16,19 @@ class PslzmePublicRouteController {
 
         switch ($requestFunction) {
             case 'query-acception':
-                $response = $api->handleQueryAcception($requestData);
+                $response = $api->handle_query_acception($requestData);
                 break;
 
             case 'query-lock-check':
-                $response = $api->handleQueryLockCheck($requestData);
+                $response = $api->handle_query_lock_check($requestData);
                 break;
 
             case 'extract-greeting-data':
-                $response = $api->handleGreetingDataExtraction($requestData);
+                $response = $api->handle_greeting_data_extraction($requestData);
                 break;
 
             case 'compare-link-owner':
-                $response = $api->handleCompareLinkOwner($requestData);
+                $response = $api->handle_compare_link_owner($requestData);
                 break;
 
             default:
