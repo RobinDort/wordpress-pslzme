@@ -96,9 +96,9 @@ class Pslzme_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->pslzme, plugin_dir_url( __FILE__ ) . 'js/pslzme-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->pslzme . "-public", plugin_dir_url( __FILE__ ) . 'js/pslzme-public.js', array( 'jquery' ), $this->version, false );
 
-		wp_enqueue_script( $this->pslzme, plugin_dir_url( __FILE__ ) . 'js/pslzme.min.js', array('jquery'), $this->version, false);
+		wp_enqueue_script( $this->pslzme . "-min", plugin_dir_url( __FILE__ ) . 'js/pslzme.min.js', array('jquery'), $this->version, false);
 
 	}
 

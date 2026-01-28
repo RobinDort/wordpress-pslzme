@@ -158,7 +158,7 @@ class Pslzme {
 		/**
 		 * Load public controller file
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/controller/pslzme-public-route-constroller.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/controller/pslzme-public-route-controller.php';
 			
 
 		$this->loader = new Pslzme_Loader();
