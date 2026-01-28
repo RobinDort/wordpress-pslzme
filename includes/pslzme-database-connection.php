@@ -1,5 +1,5 @@
 <?php
-class PslzmeAdminDatabaseConnection{
+class PslzmeDatabaseConnection {
 
     private $connection;
 

@@ -38,9 +38,9 @@ $options = get_option('pslzme_settings', []);
 
             <div class="pslzme-db-configuration">
                 <!-- SETTINGS FORM -->
-                <form method="post" action="options.php" class="pslzme-settings-form">
+               <form method="post" action="options.php" class="pslzme-settings-form">
                     <?php settings_fields('pslzme_settings_group'); ?>
-                    <?php do_settings_sections('pslzme_settings'); ?>
+                    <?php do_settings_fields('pslzme_settings', 'pslzme_db_section'); ?>
                     <?php submit_button(__('Speichern', 'pslzme')); ?>
                 </form>
             </div>
@@ -48,7 +48,11 @@ $options = get_option('pslzme_settings', []);
             <div class="pslzme-explanation">
                 <h3><span>Schritt 3: </span> pslz<strong>me</strong> Tabellen konfigurieren</h3>
                 <p>Zuletzt müssen die benötigten pslzme Datenbanktabellen angelegt werden. Dies erfolgt vollständig automatisiert nach Bestätigung des nachstehenden Buttons. Bitte prüfen Sie erneut, ob die Angaben im vorherigen Schritt keine Fehler enthalten.</p>
-                <button id="create-tables-sbmt" type="submit">Tabellen anlegen</button>
+                <?php if(!empty($options["tables_configured"])): ?>
+                    <p>Tabellen erfolgreich angelegt</p>
+                <?php else : ?>
+                    <button id="create-tables-sbmt" type="submit">Tabellen anlegen</button>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -58,7 +62,12 @@ $options = get_option('pslzme_settings', []);
         <div class="pslzme-explanation">
             <p>Für die Nutzung von pslzme ist eine Lizenzierung Ihrer Domain erforderlich. Hierfür ist ein zugewiesener pslzme-Account erforderlich. Sollten Sie noch keinen Account besitzen, können Sie diesen unter <a href="https://www.pslzme.com/de/login">https://www.pslzme.com/de/login</a> anfordern.</p>
             <p>Nachdem Ihr Account bereitgestellt wurde, bestätigen Sie bitte abschließend den nachfolgenden Button zur Lizenzierung dieser Domain.</p>
-            <button id="license-domain-sbmt" trype="submit">Domain lizensieren</button>
+
+            <?php if (!empty($options["url_licensed"])): ?>
+                <p>Domain erfolgreich lizensiert</p>
+            <?php else : ?>
+                <button id="license-domain-sbmt" trype="submit">Domain lizensieren</button>
+            <?php endif; ?>
     </div>
 
     <div class="pslzme-configuration-container">
@@ -66,5 +75,12 @@ $options = get_option('pslzme_settings', []);
         <p>Für einen reibungslosen und DSGVO-Konformen Ablauf nutzt pslzme interne Weiterleitungen zu bestimmten Unterseiten Ihrer Webseite.</p>
         <p>Beispielsweise benötigt der pslz<strong>me</strong> Cookiebanner, welcher als essentielles Bestandsteil fungiert, Angaben zu Impressum und Datenschutz.</p>
         <p>Damit die interne Weiterleitung problemlos genutzt werden kann, weissen Sie bitte die in den nachstehenden Feldern beschriebenen Seiten mit der entprechenden ID der passenden internen Seite zu. Die ID der jeweiligen Seite finden Sie im contao backend unter <strong>Seiten</strong> durch Aufruf der Detailinformation der jeweiligen Seite.</p>
+        <div class="pslzme-internal-pages-fields">
+        <form method="post" action="options.php" class="pslzme-settings-form">
+            <?php settings_fields('pslzme_settings_group'); ?>
+            <?php do_settings_fields('pslzme_settings', 'pslzme_ip_section'); ?>
+            <?php submit_button(__('Speichern', 'pslzme')); ?>
+        </form>
+    </div>
     </div>
 </div>

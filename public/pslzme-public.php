@@ -100,4 +100,18 @@ class Pslzme_Public {
 
 	}
 
+
+	public function register_rest_routes() {
+		register_rest_route("pslzme/v1", "/requestHandler", [
+			'methods' => 'POST',
+			'callback' => [$this, 'handle_rest_request'],
+			'permission_callback' => '__return true' // public access
+		]);
+	}
+
+	public function handle_rest_request($request) {
+		$publicRouteController = new PslzmePublicRouteController();
+		$publicRouteController->handleRoutes($request);
+	}
+
 }

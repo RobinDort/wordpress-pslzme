@@ -120,20 +120,58 @@ class Pslzme_Admin {
 	}
 
 	public function register_pslzme_settings() {
-		// Register the option group, option name, and sanitize callback
-		// register_setting("pslzme_settings_group", "pslzme_settings", [$this, "sanitize_pslzme_settings"]);
-		register_setting("pslzme_settings_group", "pslzme_settings", ['sanitize_callback' =>  array($this, "sanitize_pslzme_settings")]);
-		add_settings_section("pslzme_db_section", __("Datenbank Konfiguration"), null, "pslzme_settings");
+		// Single option for everything
+		register_setting("pslzme_settings_group", "pslzme_settings", [
+			'sanitize_callback' => [$this, "sanitize_pslzme_settings"]
+		]);
 
-		// add fields
-		$fields = [
+		// --- DB Section ---
+		add_settings_section(
+			"pslzme_db_section",
+			__("Datenbank Konfiguration"),
+			null,
+			"pslzme_settings"
+		);
+
+		$db_fields = [
 			'db_name' => __("Datenbankname", "pslzme"),
 			'db_user' => __("Datenbank-User", "pslzme"),
 			'db_password' => __("Datenbank-Passwort", "pslzme"),
 		];
 
-		foreach($fields as $id => $title) {
-			add_settings_field($id, $title, [$this, 'render_pslzme_settings_field'], 'pslzme_settings', 'pslzme_db_section', ['id' => $id]);
+		foreach ($db_fields as $id => $title) {
+			add_settings_field(
+				$id,
+				$title,
+				[$this, 'render_pslzme_settings_field'],
+				'pslzme_settings',
+				'pslzme_db_section',
+				['id' => $id]
+			);
+		}
+
+		// --- Internal Pages Section ---
+		add_settings_section(
+			"pslzme_ip_section",
+			__("Seiten Konfiguration"),
+			null,
+			"pslzme_settings"
+		);
+
+		$ip_fields = [
+			'db_imprint' => __("ID der Impressumsseite:"),
+			'db_privacy' => __("ID der Datenschutzseite"),
+		];
+
+		foreach ($ip_fields as $id => $title) {
+			add_settings_field(
+				$id,
+				$title,
+				[$this, 'render_pslzme_settings_field'],
+				'pslzme_settings',
+				'pslzme_ip_section',
+				['id' => $id]
+			);
 		}
 	}
 
@@ -144,24 +182,41 @@ class Pslzme_Admin {
 
 
 	public function sanitize_pslzme_settings($input) {
-		$sanitized = [];
-		$existingOptions = get_option('pslzme_settings', []);
 
-		// Sanitize DB name and user
-		$sanitized['db_name'] = sanitize_text_field($input['db_name'] ?? '');
-		$sanitized['db_user'] = sanitize_text_field($input['db_user'] ?? '');
-		$password = sanitize_text_field($input['db_password'] ?? '');
-		
+		// Start with existing settings so nothing gets lost
+		$sanitized = get_option('pslzme_settings', []);
 
-		if (!empty($password)) {
-			// Encrypt the raw password
-			$encryptedData = PslzmeAdminCryptoService::encrypt($password);
-			$sanitized['db_password'] = $encryptedData;
-		} elseif (!empty($existingOptions['db_password'])) {
-			// User did NOT enter a new password → keep existing encrypted value
-			$sanitized['db_password'] = $existingOptions['db_password'];
-		} else {
-			$sanitized['db_password'] = ''; // fallback
+		/* ---------------- DB FIELDS ---------------- */
+
+		if (isset($input['db_name'])) {
+			$sanitized['db_name'] = sanitize_text_field($input['db_name']);
+		}
+
+		if (isset($input['db_user'])) {
+			$sanitized['db_user'] = sanitize_text_field($input['db_user']);
+		}
+
+		if (isset($input['db_password'])) {
+			$password = sanitize_text_field($input['db_password']);
+
+			if (!empty($password)) {
+				$sanitized['db_password'] = PslzmeAdminCryptoService::encrypt($password);
+			}
+			// If empty → do NOT overwrite existing password
+		}
+
+		/* ------------- INTERNAL PAGE IDS ------------- */
+
+		if (!isset($sanitized['internal_pages'])) {
+			$sanitized['internal_pages'] = [];
+		}
+
+		if (isset($input['db_imprint'])) {
+			$sanitized['internal_pages']['imprint'] = intval($input['db_imprint']);
+		}
+
+		if (isset($input['db_privacy'])) {
+			$sanitized['internal_pages']['privacy'] = intval($input['db_privacy']);
 		}
 
 		return $sanitized;
@@ -170,7 +225,18 @@ class Pslzme_Admin {
 	public function render_pslzme_settings_field($args) {
 		$id = $args['id'];
 		$type = ($id === 'db_password') ? 'password' : 'text';
-		$value = ($type === 'password') ? '' : (get_option('pslzme_settings', [])[$id] ?? '');
+
+		// Load existing settings
+		$options = get_option('pslzme_settings', []);
+
+		// Default value
+		$value = ($type === 'password') ? '' : ($options[$id] ?? '');
+
+		// Handle internal pages specially
+		if (in_array($id, ['db_imprint','db_privacy'])) {
+			$key = str_replace('db_', '', $id); // db_imprint -> imprint
+			$value = $options['internal_pages'][$key] ?? '';
+		}
 
 		printf(
 			'<input type="%1$s" name="pslzme_settings[%2$s]" value="%3$s" %4$s>',
@@ -178,7 +244,7 @@ class Pslzme_Admin {
 			esc_attr($id),
 			esc_attr($value),
 			$type === 'password' ? 'autocomplete="new-password"' : ''
-    	);
+		);
 	}
 
 	public function handle_create_tables() {

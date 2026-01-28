@@ -2,3 +2,9 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+/* Make each settings field appear on its own line */
+.pslzme-settings-form input {
+	display: block;
+	margin-bottom: 15px;
+}

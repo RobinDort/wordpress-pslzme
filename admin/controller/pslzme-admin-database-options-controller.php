@@ -7,7 +7,7 @@ class PslzmeAdminDatabaseOptionsController {
     public function __construct() {
         // Connect to the new database with the credentials given from the pslzme admin settings panel
         $options = get_option('pslzme_settings', []);
-        $pslzmeDBConnection = new PslzmeAdminDatabaseConnection($options);
+        $pslzmeDBConnection = new PslzmeDatabaseConnection($options);
         $this->dbConnection = $pslzmeDBConnection->get_connection();
     }
 
@@ -39,6 +39,11 @@ class PslzmeAdminDatabaseOptionsController {
             if (!empty($errors)) {
                 wp_send_json_error([$errors]);
             } else {
+                // update options accordingly to set this step to true
+                $options = get_option("pslzme_settings", []);
+                $options["tables_configured"] = true;
+                update_option("pslzme_settings", $options);
+
                 wp_send_json_success(['message' => "Tabellen erfolgreich erstellt."]);
             }
         } catch (Exception $e) {
@@ -87,6 +92,11 @@ class PslzmeAdminDatabaseOptionsController {
         } catch (Exception $e) {
            wp_send_json_error(['message' => 'Exception beim Registrieren der Domain: ' . $e->getMessage()]);
         }
+
+        // update options accordingly to set this step to true
+		$options = get_option("pslzme_settings", []);
+		$options["url_licensed"] = true;
+		update_option("pslzme_settings", $options);
 
         wp_send_json_success(["message" => "Data reveived: " . $customer . $key]);
     }
