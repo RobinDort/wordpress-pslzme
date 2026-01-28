@@ -25,32 +25,38 @@ function pslzmeRedirection() {
 }
 
 function handleRedirectionToLockedPage(actualTargetPage) {
-	// the query is locked -> redirect to the QueryDeclined page.
-	window.location.href = window.location.origin + "/pslzme-decline.html?pslzme-follow=" + actualTargetPage;
-	return;
+	if (!pslzmeData.decline_url) {
+		console.error("Decline URL is not defined in pslzmeData");
+		return;
+	}
+
+	const redirectUrl = pslzmeData.decline_url + "?pslzme-follow=" + encodeURIComponent(actualTargetPage);
+	window.location.href = redirectUrl;
 }
 
 function handleRedirectionToAcceptionPage(userCameFromPslzmeLink, actualTargetPage) {
+	if (!userCameFromPslzmeLink.isSet) return;
+
 	const consentCookie = getCookie("consent_cookie");
-	let consentCookieAccepted = true;
+	let consentCookieAccepted = false;
 
-	if (consentCookie === undefined) {
-		consentCookieAccepted = false;
-	}
-
-	// This checks if the user used another/new pslzme link instead of the one he may have accepted before
-	if (consentCookie !== undefined) {
-		const decodedCookie = JSON.parse(consentCookie);
-		if (decodedCookie.queryTime !== userCameFromPslzmeLink.params.timestamp) {
-			consentCookieAccepted = false;
+	if (consentCookie) {
+		try {
+			const decodedCookie = JSON.parse(consentCookie);
+			consentCookieAccepted = decodedCookie.queryTime === userCameFromPslzmeLink.params.timestamp;
+		} catch (e) {
+			console.warn("Invalid consent cookie, ignoring.");
 		}
 	}
 
-	if (userCameFromPslzmeLink.isSet === true && consentCookieAccepted === false && !userCameFromPslzmeLink.params.hasOwnProperty("acceptionParam")) {
-		const queryParamsString = window.location.search.substring(1);
-		const plszmeAcceptionParam = "?plszme-follow=" + actualTargetPage + "&" + queryParamsString;
+	// Already on accept page? Then do nothing
+	if (window.location.href.startsWith(pslzmeData.accept_url)) return;
 
-		window.location.href = window.location.origin + "/pslzme-accept.html" + plszmeAcceptionParam;
+	if (!consentCookieAccepted && !userCameFromPslzmeLink.params.hasOwnProperty("acceptionParam")) {
+		const queryParamsString = window.location.search.substring(1);
+		const redirectUrl = pslzmeData.accept_url + "?pslzme-follow=" + encodeURIComponent(actualTargetPage) + (queryParamsString ? "&" + queryParamsString : "");
+
+		window.location.href = redirectUrl;
 	}
 }
 

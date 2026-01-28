@@ -98,8 +98,18 @@ class Pslzme_Public {
 
 		wp_enqueue_script( $this->pslzme . "-public", plugin_dir_url( __FILE__ ) . 'js/pslzme-public.js', array( 'jquery' ), $this->version, false );
 
-		wp_enqueue_script( $this->pslzme . "-min", plugin_dir_url( __FILE__ ) . 'js/pslzme.min.js', array('jquery'), $this->version, false);
+		wp_enqueue_script( $this->pslzme . "-min", plugin_dir_url( __FILE__ ) . 'js/pslzme.min.js', array('jquery'), $this->version, true);
 
+		wp_localize_script(
+			$this->pslzme . "-min", // JS handle
+			"pslzmeData",           // Object name in JS
+			[
+				'rest_url' => esc_url(rest_url("pslzme/v1/requestHandler")),
+				'nonce'    => wp_create_nonce('wp_rest'),
+				'accept_url' => home_url('/pslzme-accept'),
+				'decline_url' => home_url('/pslzme-decline')
+			]
+		);
 	}
 
 
@@ -107,13 +117,13 @@ class Pslzme_Public {
 		register_rest_route("pslzme/v1", "/requestHandler", [
 			'methods' => 'POST',
 			'callback' => [$this, 'handle_rest_request'],
-			'permission_callback' => '__return true' // public access
+			'permission_callback' => '__return_true' // public access
 		]);
 	}
 
 	public function handle_rest_request($request) {
 		$publicRouteController = new PslzmePublicRouteController();
-		$publicRouteController->handleRoutes($request);
+		return $publicRouteController->handleRoutes($request);
 	}
 
 }

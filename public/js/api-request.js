@@ -1,24 +1,29 @@
 function handleAPIRequest(requestObject) {
-	try {
-		return new Promise(function (resolve, reject) {
-			// Send the second AJAX request
-			$.ajax({
-				url: "/requestHandler",
-				type: "POST",
-				data: requestObject,
-				success: function (response) {
-					resolve(response);
+	console.log(requestObject);
+	return new Promise(function (resolve, reject) {
+		try {
+			fetch(pslzmeData.rest_url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"X-WP-Nonce": pslzmeData.nonce,
 				},
-				error: function (xhr, status, error) {
-					console.log("Action failed: " + requestObject.request);
-					console.log("Error Status:", status); // E.g. "error", "timeout", "abort", etc.
-					console.log("XHR Response:", xhr.responseText); // The response from the server
-					console.log("Error Thrown:", error); // Detailed error message
-					reject(status);
-				},
-			});
-		});
-	} catch (error) {
-		console.error(error);
-	}
+				body: JSON.stringify(requestObject),
+			})
+				.then((response) => {
+					if (!response.ok) {
+						throw new Error("Network response was not ok: " + response.status);
+					}
+					return response.json();
+				})
+				.then((data) => resolve(data))
+				.catch((error) => {
+					console.error("Action failed:", requestObject.request, error);
+					reject(error);
+				});
+		} catch (error) {
+			console.error("Unexpected error:", error);
+			reject(error);
+		}
+	});
 }
