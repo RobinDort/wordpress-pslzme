@@ -126,4 +126,8 @@ class Pslzme_Public {
 		return $publicRouteController->handleRoutes($request);
 	}
 
+	public function load_cookiebanner() {
+		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookiebanner.php';
+	}
+
 }
