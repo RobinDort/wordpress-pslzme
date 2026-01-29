@@ -158,9 +158,9 @@ class Pslzme {
 		}
 
 		/**
-		 * Load all public database files
+		 * Load all public apis
 		 */
-		$public_database_path = plugin_dir_path(dirname(__FILE__)) . 'public/database/';
+		$public_database_path = plugin_dir_path(dirname(__FILE__)) . 'public/api/';
 		foreach (glob($public_database_path . '*.php') as $file) {
 			require_once $file;
 		}

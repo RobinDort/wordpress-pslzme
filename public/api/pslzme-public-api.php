@@ -67,7 +67,50 @@ class PslzmePublicAPI {
         return $response;
     }
 
-    public function handle_greeting_data_extraction($requestData) {}
+    public function handle_greeting_data_extraction($requestData) {
+        $requestData = json_decode($requestData);
+
+        $encryptedFirstContact = str_replace(" ","+",rawurldecode($requestData->firstContact));
+        $encryptedLinkCreator = str_replace(" ","+",rawurldecode($requestData->linkCreator));
+        $timestamp = $requestData->timestamp;
+
+        $response = [
+            "decryptedFirstContact" => "",
+            "decryptedLinkCreator" => "",
+        ];
+
+        try {
+            $databaseOptionsController = new PslzmePublicDatabaseOptionsController($this->dbConnection);
+            $customerInfo = $databaseOptionsController->select_customer_with_key();
+
+            $encryptionKey = $customerInfo["encryptionKey"];
+
+            $cryptoController = new PslzmePublicCryptoController();
+            $decryptedFirstContact = $cryptoController->decrypt($encryptedFirstContact, $encryptionKey, $timestamp);
+            $decryptedLinkCreator = $cryptoController->decrypt($encryptedLinkCreator, $encryptionKey, $timestamp);
+
+            $response["decryptedFirstContact"] = $decryptedFirstContact;
+            $response["decryptedLinkCreator"] = $decryptedLinkCreator;
+
+         } catch (InvalidDataException $ide) {
+            $this->logger->error($ide->get_error_msg());
+            $response["msg"] = $ide->get_error_msg();
+
+        } catch (DatabaseException $dbe) {
+            $this->logger->error($dbe->get_error_msg());
+            $response["msg"] = $dbe->get_error_msg();
+
+        } catch (InvalidDecryptionException $idce) {
+            $this->logger->error($idce->get_error_msg());
+            $response["msg"] = $idce->get_error_msg();
+
+        } catch (Exception $e) {
+            $this->logger->error($e->getMessage());
+            $response["msg"] = $e->getMessage();
+        }
+
+        return $response;
+    }
 
     public function handle_compare_link_owner($requestData) {}
 
