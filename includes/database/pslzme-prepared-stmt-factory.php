@@ -1,5 +1,5 @@
 <?php
-final class PslzmeAdminPreparedStmtFactory {
+final class PslzmePreparedStmtFactory {
 
     //prevent direct instantiation
     private function __construct() {}
@@ -44,9 +44,27 @@ final class PslzmeAdminPreparedStmtFactory {
         return $sqlQuery;
     }
 
+    public static function prepare_select_all_pslzme_customer_stmt() {
+        $sqlQuery = "SELECT * from pslzme_kunde";
 
-    public static function prepare_select_pslzme_customer_stmt() {
+        return $sqlQuery;
+    }
+
+
+    public static function prepare_select_pslzme_customer_by_name_stmt() {
         $sqlQuery = "SELECT KundenID FROM pslzme_kunde WHERE Name = %s";
+
+        return $sqlQuery;
+    }
+
+    public static function prepare_select_pslzme_customer_key_stmt() {
+        $sqlQuery = "SELECT a.*, b.* FROM pslzme_kunde as a INNER JOIN encrypt_info as b ON a.KundenID=b.PslzmeKundenID WHERE a.KundenID = %d";
+
+        return $sqlQuery;
+    }
+
+    public static function prepare_select_pslzme_query_for_customer() {
+        $sqlQuery = "SELECT * from query_link WHERE CreationTime = %d AND PslzmeKundenID = %d AND EncryptInfoID = %d";
 
         return $sqlQuery;
     }

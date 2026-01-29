@@ -15,9 +15,9 @@ class PslzmeAdminDatabaseOptionsController {
         
         try {
             //create all needed pslzme tables by using the factory methods
-            $createPslzmeCustomerTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_customer_table_stmt();
-            $createEncryptionInfoTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_encryption_info_table_stmt();       
-            $createQueryLinkTableStmt = PslzmeAdminPreparedStmtFactory::prepare_create_pslzme_query_link_table_stmt();
+            $createPslzmeCustomerTableStmt = PslzmePreparedStmtFactory::prepare_create_pslzme_customer_table_stmt();
+            $createEncryptionInfoTableStmt = PslzmePreparedStmtFactory::prepare_create_pslzme_encryption_info_table_stmt();       
+            $createQueryLinkTableStmt = PslzmePreparedStmtFactory::prepare_create_pslzme_query_link_table_stmt();
 
 
             $errors = [];
@@ -65,7 +65,7 @@ class PslzmeAdminDatabaseOptionsController {
 
         try {
 
-            $selectPslzmeCustomerStmt = PslzmeAdminPreparedStmtFactory::prepare_select_pslzme_customer_stmt();
+            $selectPslzmeCustomerStmt = PslzmePreparedStmtFactory::prepare_select_pslzme_customer_by_name_stmt();
             $preparedSelectStmt = $this->dbConnection->prepare($selectPslzmeCustomerStmt, $customer);
             $customerID = $this->dbConnection->get_var($preparedSelectStmt);
 

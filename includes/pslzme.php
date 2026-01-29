@@ -123,6 +123,12 @@ class Pslzme {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/pslzme-logger.php';
 
+
+		/**
+		 * Prepared statement factory 
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/database/pslzme-prepared-stmt-factory.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
@@ -138,24 +144,18 @@ class Pslzme {
 
 
 		/**
-		 * Load all admin database files
-		 */
-		$admin_database_path = plugin_dir_path(dirname(__FILE__)) . 'admin/database/';
-		foreach (glob($admin_database_path . '*.php') as $file) {
-			require_once $file;
-		}
-
-		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/pslzme-public.php';
 
 		/**
-		 * Load public controller file
+		 * Load all public controller files
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/controller/pslzme-public-route-controller.php';
-
+		$public_controller_path = plugin_dir_path(dirname(__FILE__)) . 'public/controller/';
+		foreach (glob($public_controller_path . '*.php') as $file) {
+			require_once $file;
+		}
 
 		/**
 		 * Load all public database files

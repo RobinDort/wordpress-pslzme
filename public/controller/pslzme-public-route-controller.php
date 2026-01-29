@@ -35,7 +35,7 @@ class PslzmePublicRouteController {
                 return new WP_REST_Response(['error' => 'Unknown request'], 400);
         }
 
-        return new WP_REST_Response(['msg' => $requestData . "function" . $requestFunction]);
+        return new WP_REST_Response([$response]);
     }
 }
 ?>

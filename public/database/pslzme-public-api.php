@@ -2,7 +2,7 @@
 
 class PslzmePublicAPI {
 
-    private $db;
+    private $dbConnection;
     private $sqlExecutor;
 
     private $ciphering;
@@ -14,8 +14,9 @@ class PslzmePublicAPI {
 
     public function __construct() {
         $options = get_option('pslzme_settings', []);
-        $this->db = new PslzmeDatabaseConnection($options);
+        $pslzmeDBConnection = new PslzmeDatabaseConnection($options);
 
+        $this->dbConnection = $pslzmeDBConnection->get_connection();
         $this->ciphering = "AES-128-CTR";
         $this->ivLength = openssl_cipher_iv_length($this->ciphering);
         $this->options = 0;
@@ -30,11 +31,40 @@ class PslzmePublicAPI {
         $requestData = json_decode($requestData);
         $timestamp = $requestData->timestamp;
 
+        $response = array(
+            'msg' => "",
+            'queryIsLocked' => false
+        );
+
         try {
+            $databaseOptionsController = new PslzmePublicDatabaseOptionsController($this->dbConnection);
+            $customerInfo = $databaseOptionsController->select_customer_with_key();
+
+            $customerID = $customerInfo["customerID"];
+            $encryptID = $customerInfo["encryptionID"];
+
+            $queryAcceptanceInfo = $databaseOptionsController->select_pslzme_query_acceptance($customerID, $encryptID, $timestamp);
+
+            if ($queryAcceptanceInfo !== null) {
+                $queryLocked = $queryAcceptanceInfo["queryLocked"];
+                $response["queryIsLocked"] = $queryLocked;
+            }
+            
 
         } catch (InvalidDataException $ide) {
             $this->logger->error($ide->get_error_msg());
+            $response["msg"] = $ide->get_error_msg();
+
+        } catch (DatabaseException $dbe) {
+            $this->logger->error($dbe->get_error_msg());
+            $response["msg"] = $dbe->get_error_msg();
+
+        } catch (Exception $e) {
+            $this->logger->error($e->getMessage());
+            $response["msg"] = $e->getMessage();
         }
+
+        return $response;
     }
 
     public function handle_greeting_data_extraction($requestData) {}
