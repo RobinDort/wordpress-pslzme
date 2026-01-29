@@ -2,9 +2,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 	(function ($) {
 		pslzmeRedirection();
-		// pslzmeQueryClickListener();
-		// verifyNameAndGreeting();
-		// controlPslzmeCookiebar();
-		// controlPslzmeCookieCaller();
+		pslzmeQueryClickListener();
+		verifyNameAndGreeting();
+		controlPslzmeCookiebar();
+		//controlPslzmeCookieCaller();
 	})(jQuery);
 });

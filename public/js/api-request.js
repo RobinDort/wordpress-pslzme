@@ -1,5 +1,4 @@
 function handleAPIRequest(requestObject) {
-	console.log(requestObject);
 	return new Promise(function (resolve, reject) {
 		try {
 			fetch(pslzmeData.rest_url, {
@@ -16,7 +15,10 @@ function handleAPIRequest(requestObject) {
 					}
 					return response.json();
 				})
-				.then((data) => resolve(data))
+				.then((data) => {
+					console.log(data);
+					resolve(data);
+				})
 				.catch((error) => {
 					console.error("Action failed:", requestObject.request, error);
 					reject(error);

@@ -4,7 +4,7 @@
 				<button class="pslzme-cookiebar-close-btn btn-small icon-cancel" onClick="hideVisibility();"></button>
 			</div>
 			<div class="space-bottom20 block" style="text-align: center; width:100%">
-				<img id="pslzme-logo"  src="<?php echo plugins_url('admin/images/pslzme_logo.svg', __FILE__); ?>"alt="<?php echo esc_attr__('PSLZME Logo', 'robindort-pslzme'); ?>" style="max-height: 80px;"/>
+				<img id="pslzme-logo"  src="<?php echo plugins_url('../images/pslzme_logo.svg', __FILE__); ?>"alt="<?php echo esc_attr__('PSLZME Logo', 'robindort-pslzme'); ?>" style="max-height: 80px;"/>
 			</div>
 			<div class="pslzme-cookiebar-description ce_text block">
 				<p><h4 class="pslzme-heading">Sehr geehrte/r BesucherIn,</h4></p>

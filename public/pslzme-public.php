@@ -74,6 +74,7 @@ class Pslzme_Public {
 		 */
 
 		wp_enqueue_style( $this->pslzme, plugin_dir_url( __FILE__ ) . 'css/pslzme-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->pslzme . "-cookiebanner", plugin_dir_url( __FILE__ ) . 'css/pslzme-cookiebanner.css', array(), $this->version, 'all' );
 
 	}
 

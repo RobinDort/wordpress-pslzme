@@ -9,6 +9,8 @@ class PslzmePublicAPI {
     private $ivLength;
     private $options;
 
+    private $logger;
+
 
     public function __construct() {
         $options = get_option('pslzme_settings', []);
@@ -17,11 +19,23 @@ class PslzmePublicAPI {
         $this->ciphering = "AES-128-CTR";
         $this->ivLength = openssl_cipher_iv_length($this->ciphering);
         $this->options = 0;
+
+        $this->logger = PslzmeLogger::get_instance();
+
     }
 
     public function handle_query_acception($requestData) {} 
 
-    public function handle_query_lock_check($requestData){}
+    public function handle_query_lock_check($requestData){
+        $requestData = json_decode($requestData);
+        $timestamp = $requestData->timestamp;
+
+        try {
+
+        } catch (InvalidDataException $ide) {
+            $this->logger->error($ide->get_error_msg());
+        }
+    }
 
     public function handle_greeting_data_extraction($requestData) {}
 

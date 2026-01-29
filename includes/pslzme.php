@@ -117,6 +117,12 @@ class Pslzme {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/pslzme-database-connection.php';
 
+
+		/**
+		 * Logger class to log error, info and warnings
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/pslzme-logger.php';
+
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
@@ -157,7 +163,15 @@ class Pslzme {
 		$public_database_path = plugin_dir_path(dirname(__FILE__)) . 'public/database/';
 		foreach (glob($public_database_path . '*.php') as $file) {
 			require_once $file;
-		}	
+		}
+		
+		/**
+		 * Load public exceptions
+		 */
+		$public_exceptions_path = plugin_dir_path(dirname(__FILE__)) . 'public/exceptions/';
+		foreach (glob($public_exceptions_path . '*.php') as $file) {
+			require_once $file;
+		}
 			
 
 		$this->loader = new Pslzme_Loader();
@@ -215,7 +229,7 @@ class Pslzme {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );	
 		$this->loader->add_action( 'rest_api_init', $plugin_public, 'register_rest_routes');
-		$this->loader->add_action( 'wp_footer' , $plugin_public, 'load_cookiebanner');
+		$this->loader->add_action( 'wp_body_open' , $plugin_public, 'load_cookiebanner');
 
 	}
 

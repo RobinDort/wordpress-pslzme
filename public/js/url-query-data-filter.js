@@ -4,7 +4,7 @@ const queryParamsSet = () => {
 
 	if (!checkParams(queryParams)) return { isSet: false, params: {} };
 
-	if (queryParams.has("plszme-follow")) {
+	if (queryParams.has("pslzme-follow")) {
 		return {
 			isSet: true,
 			params: {
