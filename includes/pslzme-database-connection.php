@@ -13,19 +13,27 @@ class PslzmeDatabaseConnection {
 
         $this->connection = new wpdb($username, $decryptedPassword, $dbname, $host);
 
-        if ($this->connection->last_error !== '') {
-            wp_send_json_error(['message' => 'Fehler beim Verbinden mit der Datenbank: ' . $this->connection->last_error]);
+        if (!empty($this->connection->last_error)) {
+            throw new Exception(
+                'Database connection error: ' . $this->connection->last_error
+            );
         }
+    }
+
+    public function start_transaction() {
+        $this->connection->query("START TRANSACTION");
+    }
+
+    public function commit_transaction() {
+        $this->connection->query("COMMIT");
+    }
+
+    public function rollback_transaction() {
+        $this->connection->query("ROLLBACK");
     }
 
     public function get_connection() {
         return $this->connection;
-    }
-
-    public function close_connection() {
-        if ($this->connection) {
-            $this->connection->close();
-        }
     }
 }
 

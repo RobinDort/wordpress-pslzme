@@ -1,8 +1,8 @@
 function handleCookie(accepted, queryLocked = false) {
 	// first reset the inserted input from the name restriction.
-	const firstInput = $("#name-verifiyer input:eq(0)");
-	const secondInput = $("#name-verifiyer input:eq(1)");
-	const thirdInput = $("#name-verifiyer input:eq(2)");
+	const firstInput = document.querySelectorAll("#name-verifiyer input")[0];
+	const secondInput = document.querySelectorAll("#name-verifiyer input")[1];
+	const thirdInput = document.querySelectorAll("#name-verifiyer input")[2];
 
 	firstInput.value = "";
 	secondInput.value = "";

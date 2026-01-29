@@ -68,5 +68,23 @@ final class PslzmePreparedStmtFactory {
 
         return $sqlQuery;
     }
+
+    public static function prepare_select_pslzme_query_stmt() {
+        $sqlQuery = "SELECT * FROM query_link WHERE CreationTime = %d AND PslzmeKundenID = %d AND EncryptInfoID = %d";
+
+        return $sqlQuery;
+    }
+
+    public static function prepare_insert_pslzme_query_stmt() {
+        $sqlQuery = "INSERT INTO query_link (QueryString, CreationTime, AcceptionTime, Accepted, Locked, PslzmeKundenID, EncryptInfoID) VALUES(%s,%d,%d,%d,%d,%d,%d)";
+
+        return $sqlQuery;
+    }
+
+    public static function prepare_update_pslzme_query_stmt() {
+        $sqlQuery = "UPDATE query_link SET Accepted = %d, Locked = %d, ChangedOn = %d WHERE CreationTime = %d AND PslzmeKundenID = %d AND EncryptInfoID = %d";
+
+        return $sqlQuery;
+    } 
 }
 ?>

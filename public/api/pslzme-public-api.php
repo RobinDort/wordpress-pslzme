@@ -25,7 +25,73 @@ class PslzmePublicAPI {
 
     }
 
-    public function handle_query_acception($requestData) {} 
+    public function handle_query_acception($requestData) {
+        $requestData = json_decode($requestData);
+
+        $linkCreator = $requestData->linkCreator;
+        $title = $requestData->title;
+        $firstname = $requestData->firstname;
+        $lastname = $requestData->lastname;
+        $company = $requestData->company;
+        $companyGender = $requestData->companyGender;
+        $gender = $requestData->gender;
+        $address = $requestData->address;
+        $housenumber = $requestData->housenumber;
+        $postcode = $requestData->postcode;
+        $place = $requestData->place;
+        $country = $requestData->country;
+        $position = $requestData->position;
+        $curl = $requestData->curl;
+        $fc = $requestData->fc;
+        $cookieAccepted = $requestData->cookieAccepted;
+        $timestamp = $requestData->timestamp;
+        $acceptedOn = time();
+
+        $queryLocked = $requestData->queryIsLocked;
+
+        try {
+            $databaseOptionsController = new PslzmePublicDatabaseOptionsController($this->dbConnection);
+            $customerInfo = $databaseOptionsController->select_customer_with_key();
+
+            $customerID = $customerInfo["customerID"];
+            $encryptID = $customerInfo["encryptionID"];
+
+            $insertQueryData = array(
+                "query" => "?q1=" . $linkCreator . "&q2=" . $title . "&q3=" . $firstname . "&q4=" . $lastname . "&q5=" . $company . "&q6=" . $gender . "&q7=" . $position . "&q8=" . $curl . "&q9=" . $fc . "&q10=" . $timestamp . "&q11=" . $companyGender . "&q12=" . $address . "&q13=" . $housenumber . "&q14=" . $postcode . "&q15=" . $place . "&q16=" . $country,
+                "timestamp" => $timestamp,
+                "acceptedOn" => $acceptedOn,
+                "cookieAccepted" => $cookieAccepted,
+                "queryLocked" => $queryLocked,
+                "customerID" => $customerID,
+                "encryptID" => $encryptID
+            );
+
+            $this->dbConnection->start_transaction();
+            $databaseOptionsController->insert_pslzme_query_data($insertQueryData);
+            $this->dbConnection->commit_transaction();
+
+
+        } catch (InvalidDataException $ide) {
+            $this->dbConnection->rollback_transaction();
+            $this->logger->error($ide->get_error_msg());
+            $response["msg"] = $ide->get_error_msg();
+
+        } catch (DatabaseException $dbe) {
+            $this->dbConnection->rollback_transaction();
+            $this->logger->error($dbe->get_error_msg());
+            $response["msg"] = $dbe->get_error_msg();
+
+        } catch (InvalidDecryptionException $idce) {
+            $this->dbConnection->rollback_transaction();
+            $this->logger->error($idce->get_error_msg());
+            $response["msg"] = $idce->get_error_msg();
+
+        } catch (Exception $e) {
+            $this->dbConnection->rollback_transaction();
+            $this->logger->error($e->getMessage());
+            $response["msg"] = $e->getMessage();
+        }
+    } 
 
     public function handle_query_lock_check($requestData){
         $requestData = json_decode($requestData);
@@ -92,7 +158,7 @@ class PslzmePublicAPI {
             $response["decryptedFirstContact"] = $decryptedFirstContact;
             $response["decryptedLinkCreator"] = $decryptedLinkCreator;
 
-         } catch (InvalidDataException $ide) {
+        } catch (InvalidDataException $ide) {
             $this->logger->error($ide->get_error_msg());
             $response["msg"] = $ide->get_error_msg();
 
@@ -112,10 +178,56 @@ class PslzmePublicAPI {
         return $response;
     }
 
-    public function handle_compare_link_owner($requestData) {}
+    public function handle_compare_link_owner($requestData) {
+        $requestData = json_decode($requestData);
+
+        $combinedNameInput = $requestData->firstInput . $requestData->secondInput . $requestData->thirdInput;
+        $timestamp = $requestData->timestamp;
+        $encryptedLastName = str_replace(" ","+",rawurldecode($requestData->encryptedLastName));
+
+        $response = array(
+            "msg" => "",
+            "nameMatchesOwner" => false,
+        );
+
+        try {
+            $databaseOptionsController = new PslzmePublicDatabaseOptionsController($this->dbConnection);
+            $customerInfo = $databaseOptionsController->select_customer_with_key();
+
+            $encryptionKey = $customerInfo["encryptionKey"];
+            $cryptoController = new PslzmePublicCryptoController();
+
+            $decryptedLastName = $cryptoController->decrypt($encryptedLastName, $encryptionKey, $timestamp);
+
+            if ($this->compare_strings($decryptedLastName, $combinedNameInput)) {
+                $response["nameMatchesOwner"] = true;
+            }
+
+        } catch (InvalidDataException $ide) {
+            $this->logger->error($ide->get_error_msg());
+            $response["msg"] = $ide->get_error_msg();
+
+        } catch (DatabaseException $dbe) {
+            $this->logger->error($dbe->get_error_msg());
+            $response["msg"] = $dbe->get_error_msg();
+
+        } catch (InvalidDecryptionException $idce) {
+            $this->logger->error($idce->get_error_msg());
+            $response["msg"] = $idce->get_error_msg();
+
+        } catch (Exception $e) {
+            $this->logger->error($e->getMessage());
+            $response["msg"] = $e->getMessage();
+        }
+
+        return $response;
+    }
 
 
     private function compare_strings($str1, $str2) {
+        $str1 = trim($str1);
+        $str2 = trim($str2);
+
         // Convert both strings to lowercase
         $strToLower1 = mb_strtolower($str1, "UTF-8");
         $strToLower2 = mb_strtolower($str2, "UTF-8");
