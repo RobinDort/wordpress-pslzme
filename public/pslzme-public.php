@@ -137,4 +137,12 @@ class Pslzme_Public {
 		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookie-caller.php';
 	}
 
+	public function register_elementor_pslzme_text_widget() {
+		if ( ! did_action( 'elementor/loaded' ) ) {
+			return;
+		}
+		
+		\Elementor\Plugin::instance()->widgets_manager->register( new ElementorWidgetPslzmeText() );
+	}
+
 }

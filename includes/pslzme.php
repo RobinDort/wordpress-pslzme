@@ -231,6 +231,7 @@ class Pslzme {
 		$this->loader->add_action( 'rest_api_init', $plugin_public, 'register_rest_routes');
 		$this->loader->add_action( 'wp_body_open' , $plugin_public, 'load_cookiebanner');
 		$this->loader->add_action( 'wp_body_open' , $plugin_public, 'load_cookie_caller');
+		$this->loader->add_action( 'elementor/widgets/register', $plugin_public, 'register_elementor_pslzme_text_widget');
 	}
 
 	/**
