@@ -16,7 +16,7 @@ class PslzmePublicAPI {
         $options = get_option('pslzme_settings', []);
         $pslzmeDBConnection = new PslzmeDatabaseConnection($options);
 
-        $this->dbConnection = $pslzmeDBConnection->get_connection();
+        $this->dbConnection = $pslzmeDBConnection->get_connection();;
         $this->ciphering = "AES-128-CTR";
         $this->ivLength = openssl_cipher_iv_length($this->ciphering);
         $this->options = 0;
@@ -49,6 +49,10 @@ class PslzmePublicAPI {
 
         $queryLocked = $requestData->queryIsLocked;
 
+        $response = [
+            "msg" => ""
+        ];
+
         try {
             $databaseOptionsController = new PslzmePublicDatabaseOptionsController($this->dbConnection);
             $customerInfo = $databaseOptionsController->select_customer_with_key();
@@ -66,31 +70,27 @@ class PslzmePublicAPI {
                 "encryptID" => $encryptID
             );
 
-            $this->dbConnection->start_transaction();
             $databaseOptionsController->insert_pslzme_query_data($insertQueryData);
-            $this->dbConnection->commit_transaction();
 
 
         } catch (InvalidDataException $ide) {
-            $this->dbConnection->rollback_transaction();
             $this->logger->error($ide->get_error_msg());
             $response["msg"] = $ide->get_error_msg();
 
         } catch (DatabaseException $dbe) {
-            $this->dbConnection->rollback_transaction();
             $this->logger->error($dbe->get_error_msg());
             $response["msg"] = $dbe->get_error_msg();
 
         } catch (InvalidDecryptionException $idce) {
-            $this->dbConnection->rollback_transaction();
             $this->logger->error($idce->get_error_msg());
             $response["msg"] = $idce->get_error_msg();
 
         } catch (Exception $e) {
-            $this->dbConnection->rollback_transaction();
             $this->logger->error($e->getMessage());
             $response["msg"] = $e->getMessage();
         }
+
+        return $response;
     } 
 
     public function handle_query_lock_check($requestData){

@@ -52,7 +52,6 @@ function handleCookie(accepted, queryLocked = false) {
 
 			handleAPIRequest(requestObject).then(() => {
 				const noQueryFollowPage = urlParams.params.acceptionParam;
-
 				// user does not want to be personalized. The "no" answer has been saved to the database.
 				// Now we need to redirect to the normal website.
 				if (accepted === false) {

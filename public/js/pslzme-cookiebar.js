@@ -83,5 +83,5 @@ function saveConsentCookie(cookieAccepted) {
 	expirationDate.setTime(expirationDate.getTime() + 1 * 60 * 60 * 1000); // One hour from now
 	var expires = "expires=" + expirationDate.toUTCString();
 
-	document.cookie = "consent_cookie=" + JSON.stringify(cookieValue) + ";" + expires + ";secure;sameSite=Lax";
+	document.cookie = "consent_cookie=" + JSON.stringify(cookieValue) + ";" + expires + ";path=/;secure;sameSite=Lax";
 }

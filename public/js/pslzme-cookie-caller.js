@@ -11,15 +11,14 @@ const addHiddenClassesToPslzmeElement = (element) => {
 };
 
 const addCookieCallerClickListener = () => {
-	const $caller = $("#pslzme-cookie-caller");
-	if (!$caller || $caller.length === 0) return;
+	const caller = document.querySelector("#pslzme-cookie-caller");
+	const cookieBar = document.querySelector("#pslzme-cookiebar");
+	if (!caller || !cookieBar) return;
 
-	$caller.click(function () {
-		$("#pslzme-cookiebar").css({
-			display: "flex",
-			"align-items": "center",
-			"justify-content": "center",
-		});
+	caller.addEventListener("click", () => {
+		cookieBar.style.display = "flex";
+		cookieBar.style.alignItems = "center";
+		cookieBar.style.justifyContent = "center";
 	});
 };
 

@@ -10,6 +10,9 @@ function pslzmeQueryClickListener() {
 			// cookiebar gets closed -> no need to pass the pslzme queries
 			if (eventTarget.classList.contains("pslzme-cookiebar-close-btn")) return;
 
+			//cookiebar gets accepted or declined
+			if (eventTarget.classList.contains("pslzme-cookiebar-save-btn")) return;
+
 			if (eventTarget.tagName === "A" || eventTarget.tagName === "IMG" || eventTarget.tagName === "CANVAS" || eventTarget.tagName === "BUTTON") {
 				// Check if the anchor has target = _blank. In this case the function does not need to pass the pslzme queries.
 				const linkElement = eventTarget.closest("a");

@@ -75,6 +75,8 @@ class Pslzme_Public {
 
 		wp_enqueue_style( $this->pslzme, plugin_dir_url( __FILE__ ) . 'css/pslzme-public.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->pslzme . "-cookiebanner", plugin_dir_url( __FILE__ ) . 'css/pslzme-cookiebanner.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->pslzme . "-cookie-caller", plugin_dir_url( __FILE__ ) . 'css/pslzme-cookie-caller.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->pslzme . "-animations", plugin_dir_url( __FILE__ ) . 'css/pslzme-animations.css', array(), $this->version, 'all' );
 
 	}
 
@@ -129,6 +131,10 @@ class Pslzme_Public {
 
 	public function load_cookiebanner() {
 		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookiebanner.php';
+	}
+
+	public function load_cookie_caller() {
+		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookie-caller.php';
 	}
 
 }

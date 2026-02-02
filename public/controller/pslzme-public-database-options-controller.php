@@ -110,7 +110,7 @@ class PslzmePublicDatabaseOptionsController {
         if (!$selectPslzmeQueryRslt) {
             // the query is not present -> insert new query
             $insertPslzmeQueryStmt = PslzmePreparedStmtFactory::prepare_insert_pslzme_query_stmt();
-            $preparedInsertStmt = $this->connection->prepare($insertPslzmeQueryStmt, $query, $timestamp, $acceptedOn, $cookieAccepted, $customerID, $encryptID, $queryLocked);
+            $preparedInsertStmt = $this->connection->prepare($insertPslzmeQueryStmt, $query, $timestamp, $acceptedOn, $cookieAccepted, $queryLocked, $customerID, $encryptID);
             $insertStmtRslt = $this->connection->query($preparedInsertStmt);
 
              if ($insertStmtRslt === false) {
@@ -119,7 +119,7 @@ class PslzmePublicDatabaseOptionsController {
         } else {
             // query is present and must be overwritten
             $updatePslzmeQueryStmt = PslzmePreparedStmtFactory::prepare_update_pslzme_query_stmt();
-            $preparedUpdateStmt = $this->connection->prepare($updatePslzmeQueryStmt, $timestamp, $acceptedOn, $cookieAccepted, $customerID, $encryptID, $queryLocked);
+            $preparedUpdateStmt = $this->connection->prepare($updatePslzmeQueryStmt, $cookieAccepted, $queryLocked, $acceptedOn, $timestamp, $customerID, $encryptID);
             $updateStmtRslt = $this->connection->query($preparedUpdateStmt);
 
             if ($updateStmtRslt === false) {

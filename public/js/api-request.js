@@ -16,7 +16,6 @@ function handleAPIRequest(requestObject) {
 					return response.json();
 				})
 				.then((data) => {
-					console.log(data);
 					resolve(data);
 				})
 				.catch((error) => {
