@@ -145,4 +145,14 @@ class Pslzme_Public {
 		\Elementor\Plugin::instance()->widgets_manager->register( new ElementorWidgetPslzmeText() );
 	}
 
+	public function add_elementor_widget_categories( $elements_manager) {
+        $elements_manager->add_category(
+            "Pslzme",
+            [
+                "title" => esc_html__("Pslzme", "pslzme"),
+                "icon"  => "eicon-navigator",
+            ]
+        );
+    }
+
 }
