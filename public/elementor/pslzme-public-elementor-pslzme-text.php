@@ -28,7 +28,7 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
 
     protected function render(): void {
         $settings = $this->get_settings_for_display();
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/pslzme-public-elementor-pslzme-text.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-text.php';
     }
 
     private function add_content_controls(): void {

@@ -39,6 +39,7 @@ class DecryptionController {
     private $decryptedCurl = "";
     private $decryptedFC = "";
 
+
     public function __construct($connection) {
         $this->connection = $connection;
         $this->sqlExecutor = new PslzmePublicDatabaseOptionsController($this->connection);
@@ -141,11 +142,11 @@ class DecryptionController {
                 if ($cookie === null) {
                     throw new InvalidDataException("No consent cookie found!");
                 }
-
-                $cookieData = json_decode($cookie, true);
+                
+                $cookieData = json_decode(stripslashes($cookie), true);
 
                 //only decrypt when the user has given permission and the cookie is set
-                if ($cookieAccepted === true && $cookieData["accepted"] === true) {
+                if ((bool)$cookieAccepted === true && (bool)$cookieData["accepted"] === true) {
                     //decrypt the params
 
                     $this->decryptedLinkCreator = PslzmePublicCryptoService::decrypt($this->encryptedLinkCreator, $encryptionKey, $this->timestamp);
@@ -190,6 +191,13 @@ class DecryptionController {
         return true;
     }
 
+    public function vars_set() {
+        if ($this->get_decrypted_link_creator() !== "" && $this->get_decrypted_first_name() !== "" && $this->get_decrypted_last_name() !== "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function get_decrypted_link_creator() {
         return $this->decryptedLinkCreator;

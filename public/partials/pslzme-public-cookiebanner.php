@@ -42,13 +42,6 @@
                 </section>					
 			</div>
 			<div class="pslzme-cookiebar-info space-top20 block">
-				<?php if($this->imprintUrl): ?>
-					<a href="<?= $this->imprintUrl ?>" target="_blank" rel="norefferer noopener">Impressum</a>
-				<?php endif; ?>
-
-				<?php if($this->privacyUrl): ?>
-					<a href="<?= $this->privacyUrl ?>" target="_blank" rel="norefferer noopener">Datenschutz</a>
-				<?php endif; ?>
 			</div>
 		</div>
 	</div>
