@@ -27,63 +27,63 @@
 
 
     if ($decryptedLinkCreator !== null && $decryptedLinkCreator !== "") {
-        $GLOBALS['decryptedVars']['linkCreator'] = $decryptedLinkCreator;  
+        $GLOBALS['pslzme_decryptedVars']['linkCreator'] = $decryptedLinkCreator;  
     }
     
     if ($decryptedTitle !== null && $decryptedTitle !== "") {
-        $GLOBALS['decryptedVars']['title'] = $decryptedTitle;  
+        $GLOBALS['pslzme_decryptedVars']['title'] = $decryptedTitle;  
     }
     
     if ($decryptedFirstName !== null && $decryptedFirstName !== "") {
-        $GLOBALS['decryptedVars']['firstName'] = $decryptedFirstName;  
+        $GLOBALS['pslzme_decryptedVars']['firstName'] = $decryptedFirstName;  
     }
     
     if ($decryptedLastName !== null && $decryptedLastName !== "") {
-        $GLOBALS['decryptedVars']['lastName'] = $decryptedLastName;  
+        $GLOBALS['pslzme_decryptedVars']['lastName'] = $decryptedLastName;  
     }
     
     if ($decryptedCompanyName !== null && $decryptedCompanyName !== "") {
-        $GLOBALS['decryptedVars']['company'] = $decryptedCompanyName;  
+        $GLOBALS['pslzme_decryptedVars']['company'] = $decryptedCompanyName;  
     }
     
     if ($decryptedCompanyGender !== null) {
-        $GLOBALS['decryptedVars']['companyGender'] = $decryptedCompanyGender;  
+        $GLOBALS['pslzme_decryptedVars']['companyGender'] = $decryptedCompanyGender;  
     }
     
     if ($decryptedGender !== null && $decryptedGender !== "") {
-        $GLOBALS['decryptedVars']['gender'] = $decryptedGender;  
+        $GLOBALS['pslzme_decryptedVars']['gender'] = $decryptedGender;  
     }
 
     if ($decryptedAddress !== null && $decryptedAddress !== "") {
-        $GLOBALS['decryptedVars']['address'] = $decryptedAddress;  
+        $GLOBALS['pslzme_decryptedVars']['address'] = $decryptedAddress;  
     }
 
     if ($decryptedHousenumber !== null && $decryptedHousenumber !== "") {
-        $GLOBALS['decryptedVars']['housenumber'] = $decryptedHousenumber;  
+        $GLOBALS['pslzme_decryptedVars']['housenumber'] = $decryptedHousenumber;  
     }
     
     if ($decryptedPostcode !== null && $decryptedPostcode !== "") {
-        $GLOBALS['decryptedVars']['postcode'] = $decryptedPostcode;  
+        $GLOBALS['pslzme_decryptedVars']['postcode'] = $decryptedPostcode;  
     }
 
     if ($decryptedPlace !== null && $decryptedPlace !== "") {
-        $GLOBALS['decryptedVars']['place'] = $decryptedPlace;  
+        $GLOBALS['pslzme_decryptedVars']['place'] = $decryptedPlace;  
     }
     
     if ($decryptedCountry !== null && $decryptedCountry !== "") {
-        $GLOBALS['decryptedVars']['country'] = $decryptedCountry;  
+        $GLOBALS['pslzme_decryptedVars']['country'] = $decryptedCountry;  
     }
     
     if ($decryptedPosition !== null && $decryptedPosition !== "") {
-        $GLOBALS['decryptedVars']['position'] = $decryptedPosition;  
+        $GLOBALS['pslzme_decryptedVars']['position'] = $decryptedPosition;  
     }
     
     if ($decryptedCurl !== null && $decryptedCurl !== "") {
-        $GLOBALS['decryptedVars']['curl'] = $decryptedCurl;  
+        $GLOBALS['pslzme_decryptedVars']['curl'] = $decryptedCurl;  
     }
     
     if ($decryptedFC !== null && $decryptedFC !== "") {
-        $GLOBALS['decryptedVars']['fc'] = $decryptedFC;  
+        $GLOBALS['pslzme_decryptedVars']['fc'] = $decryptedFC;  
     }
     
     
