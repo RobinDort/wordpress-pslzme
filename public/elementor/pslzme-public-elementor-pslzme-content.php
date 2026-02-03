@@ -55,8 +55,14 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
 
         $this->end_controls_section();
 
-        /***************** content type = image *****************/ 
-        $this->start_controls_section(
+        $this->add_pslzme_content_image_controls();
+        $this->add_pslzme_content_video_controls();       
+     }
+
+    
+    private function add_pslzme_content_image_controls() {
+
+         $this->start_controls_section(
             'section_personalized_image_settings',
             [
                 'label' => esc_html__('Pslzme content personalized image settings', 'pslzme'),
@@ -175,7 +181,139 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
         );
 
         $this->end_controls_section();
-     }
+
+    }
+
+
+    private function add_pslzme_content_video_controls() {
+        $this->start_controls_section(
+            'section_personalized_video_settings',
+            [
+                'label' => esc_html__('Pslzme content personalized video settings', 'pslzme'),
+                'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'pslzme_content_type' => 'video',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_personalized_video',
+            [
+                'label' => esc_html__('Pslzme content personalized video', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'media_types' => ['video'],
+                'label_block' => true,
+            ]   
+        );
+
+        $this->add_control(
+            'pslzme_content_personalized_video_width',
+            [
+                'label'   => esc_html__('Pslzme content personalized video width', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 100,
+                'max' => 1920,
+                'step' => 1,
+                'default' => 640,
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_personalized_video_height',
+            [
+                'label'   => esc_html__('Pslzme content personalized video height', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 100,
+                'max' => 1080,
+                'step' => 1,
+                'default' => 360,
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_personalized_video_options',
+            [
+                'label' => esc_html__('Pslzme content personalized video options', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options' => [
+                    'autoplay'     => esc_html__('Autoplay', 'pslzme'),
+                    'controls_hidden' => esc_html__('Hide control options', 'pslzme'),
+                    'loop'         => esc_html__('Play in loop', 'pslzme'),
+                    'playsinline'  => esc_html__('Inline play (no fullscreen mode)', 'pslzme'),
+                    'muted'        => esc_html__('Mute audio output', 'pslzme'),
+                ],
+                'label_block' => true,
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_unpersonalized_video_settings',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized video settings', 'pslzme'),
+                'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'pslzme_content_type' => 'video',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_video',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized video', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'media_types' => ['video'],
+                'label_block' => true,
+            ]   
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_video_width',
+            [
+                'label'   => esc_html__('Pslzme content unpersonalized video width', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 100,
+                'max' => 1920,
+                'step' => 1,
+                'default' => 640,
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_video_height',
+            [
+                'label'   => esc_html__('Pslzme content unpersonalized video height', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 100,
+                'max' => 1080,
+                'step' => 1,
+                'default' => 360,
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_video_options',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized video options', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options' => [
+                    'autoplay'     => esc_html__('Autoplay', 'pslzme'),
+                    'controls_hidden' => esc_html__('Hide control options', 'pslzme'),
+                    'loop'         => esc_html__('Play in loop', 'pslzme'),
+                    'playsinline'  => esc_html__('Inline play (no fullscreen mode)', 'pslzme'),
+                    'muted'        => esc_html__('Mute audio output', 'pslzme'),
+                ],
+                'label_block' => true,
+            ]
+        );
+
+        $this->end_controls_section();
+    }
 
 
     private function get_available_image_sizes(): array {
