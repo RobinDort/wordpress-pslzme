@@ -177,6 +177,13 @@ class Pslzme {
 		foreach (glob($public_exceptions_path . '*.php') as $file) {
 			require_once $file;
 		}
+
+
+		/**
+		 * The file responsible for setting up the global decryption vars
+		 */
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/context/pslzme-public-decryption-vars.php';
 			
 
 		$this->loader = new Pslzme_Loader();
