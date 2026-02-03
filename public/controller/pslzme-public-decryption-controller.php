@@ -1,6 +1,8 @@
 <?php
 
 class DecryptionController {
+    private static ?DecryptionController $instance = null;
+
     private $connection;
     private $sqlExecutor;
     private $logger;
@@ -40,11 +42,24 @@ class DecryptionController {
     private $decryptedFC = "";
 
 
-    public function __construct($connection) {
+    private function __construct($connection) {
         $this->connection = $connection;
         $this->sqlExecutor = new PslzmePublicDatabaseOptionsController($this->connection);
 
         $this->logger = PslzmeLogger::get_instance();
+    }
+
+    public static function get_instance($connection = null): DecryptionController {
+        if (self::$instance === null) {
+            if ($connection === null) {
+                $options = get_option('pslzme_settings', []);
+                $dbConn = new PslzmeDatabaseConnection($options);
+                $connection = $dbConn->get_connection();
+            }
+            self::$instance = new DecryptionController($connection);
+            self::$instance->decrypt();
+        }
+        return self::$instance;
     }
 
     public function decrypt() {

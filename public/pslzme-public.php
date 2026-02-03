@@ -156,4 +156,32 @@ class Pslzme_Public {
         );
     }
 
+	public function register_pslzme_shortcodes() {
+        $controller = DecryptionController::get_instance();
+
+		$shortcodes = [
+			'pslzme-linkcreator' => 'get_decrypted_link_creator',
+			'pslzme-title' => 'get_decrypted_title',
+			'pslzme-firstname' => 'get_decrypted_first_name',
+			'pslzme-lastname' => 'get_decrypted_last_name',
+			'pslzme-companyname' => 'get_decrypted_company_name',
+			'pslzme-companygender' => 'get_decrypted_company_gender',
+			'pslzme-gender' => 'get_decrypted_gender',
+			'pslzme-address' => 'get_decrypted_address',
+			'pslzme-housenumber' => 'get_decrypted_housenumber',
+			'pslzme-postcode' => 'get_decrypted_postcode',
+			'pslzme-place' => 'get_decrypted_place',
+			'pslzme-country' => 'get_decrypted_country',
+			'pslzme-position' => 'get_decrypted_position',
+			'pslzme-curl' => 'get_decrypted_curl',
+			'pslzme-fc' => 'get_decrypted_fc',
+		];
+
+		foreach ($shortcodes as $shortcode => $getter) {
+			add_shortcode($shortcode, function() use ($controller, $getter) {
+				return esc_html($controller->$getter());
+			});
+		}
+	}
+
 }
