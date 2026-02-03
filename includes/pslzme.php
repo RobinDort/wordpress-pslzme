@@ -150,6 +150,11 @@ class Pslzme {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/pslzme-public.php';
 
 		/**
+		 * The class responsible for the decryption of data
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/service/pslzme-public-crypto-service.php';
+
+		/**
 		 * Load all public controller files
 		 */
 		$public_controller_path = plugin_dir_path(dirname(__FILE__)) . 'public/controller/';

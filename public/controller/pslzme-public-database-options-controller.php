@@ -66,6 +66,37 @@ class PslzmePublicDatabaseOptionsController {
 
     }
 
+
+    public function select_query_acceptance($data) {
+        $customerID = $data["customerID"];
+        if ($customerID === null) {
+            throw new InvalidDataException("Unable to extract customer ID out of data object");
+        }
+
+        $encryptID = $data["encryptID"];
+        if ($encryptID === null) {
+            throw new InvalidDataException("Unable to extract encryption ID out of data object");
+        }
+
+        $timestamp = $data["timestamp"];
+        if ($timestamp === null) {
+            throw new InvalidDataException("Unable to extract timestamp out of data object");
+        }
+
+        // select the query by params
+        $selectQueryStmt = PslzmePreparedStmtFactory::prepare_select_pslzme_query_for_customer();
+        $preparedSelectQueryStmt = $this->connection->prepare($selectQueryStmt, $timestamp, $customerID, $encryptID);
+        $selectQueryStmtRslt = $this->connection->get_row($preparedSelectQueryStmt);
+
+        if (!$selectQueryStmtRslt) {
+            throw new DatabaseException("No query found for customer ID " . $customerID . " and encrypt ID " . $encryptID . " at timestamp " . $timestamp);
+        }
+
+        $cookieAccepted = $selectQueryStmtRslt->Accepted;
+
+        return ["cookieAccepted" => $cookieAccepted];
+    }
+
     public function insert_pslzme_query_data($data) {
         $query = $data["query"];
         if ($query === null) {
