@@ -137,12 +137,13 @@ class Pslzme_Public {
 		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookie-caller.php';
 	}
 
-	public function register_elementor_pslzme_text_widget() {
+	public function register_elementor_pslzme_text_widget( $widgets_manager) {
 		if ( ! did_action( 'elementor/loaded' ) ) {
 			return;
 		}
 		
-		\Elementor\Plugin::instance()->widgets_manager->register( new ElementorWidgetPslzmeText() );
+		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-text.php';
+		$widgets_manager->register( new ElementorWidgetPslzmeText() );
 	}
 
 	public function add_elementor_widget_categories( $elements_manager) {
