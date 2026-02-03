@@ -57,9 +57,9 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
 
         /***************** content type = image *****************/ 
         $this->start_controls_section(
-            'section_image_settings',
+            'section_personalized_image_settings',
             [
-                'label' => esc_html__('Image Settings', 'pslzme'),
+                'label' => esc_html__('Pslzme content personalized image settings', 'pslzme'),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
                 'condition' => [
                     'pslzme_content_type' => 'image',
@@ -108,8 +108,68 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             'pslzme_content_personalized_image_link',
             [
                 'label' => esc_html__('Pslzme content personalized image link', 'pslzme'),
-                'type' => \Elementor\Controls_Manager::URL,
-                'options' => [ 'url', 'is_external', 'nofollow' ],
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->get_pages_options(),
+                'label_block' => true,
+            ]
+        );
+
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_unpersonalized_image_settings',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized image settings', 'pslzme'),
+                'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'pslzme_content_type' => 'image',
+                ],
+            ]
+        );
+
+         $this->add_control(
+            'pslzme_content_unpersonalized_image',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized image', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'media_types' => [ 'image' ],
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_image_alt',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized image alt text', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_image_size',
+            [
+                'label'   => esc_html__('Pslzme content unpersonalized image size', 'pslzme'),
+                'type'    => \Elementor\Controls_Manager::SELECT,
+                'default' => 'full',
+                'options' => $this->get_available_image_sizes(),
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_image_caption',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized image caption', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
+                'rows' => 2,
+            ]
+        );
+
+        $this->add_control(
+            'pslzme_content_unpersonalized_image_link',
+            [
+                'label' => esc_html__('Pslzme content unpersonalized image link', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->get_pages_options(),
                 'label_block' => true,
             ]
         );
@@ -135,6 +195,17 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
         }
 
         return $sizes;
+    }
+
+    private function get_pages_options() {
+        $pages = get_pages();
+        $options = [ '' => esc_html__('— No Link —', 'pslzme') ];
+
+        foreach ($pages as $page) {
+            $options[$page->ID] = $page->post_title;
+        }
+
+        return $options;
     }
 
 }
