@@ -155,6 +155,11 @@ class Pslzme {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/service/pslzme-public-crypto-service.php';
 
 		/**
+		 * The class responsible for the shortcode handling
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/service/pslzme-public-shortcode-service.php';
+
+		/**
 		 * Load all public controller files
 		 */
 		$public_controller_path = plugin_dir_path(dirname(__FILE__)) . 'public/controller/';
