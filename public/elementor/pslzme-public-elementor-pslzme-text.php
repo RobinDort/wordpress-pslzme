@@ -63,7 +63,6 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Personalized Text', 'pslzme' ),
 				'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'required' => true,
 			]
 		);
 
@@ -76,7 +75,6 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
 				'label_off' => esc_html__( 'No', 'pslzme' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
-                'required' => true,
 			]
 		);
 
