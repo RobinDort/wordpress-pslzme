@@ -201,8 +201,6 @@ class Pslzme {
 		$plugin_i18n = new Pslzme_i18n();
 
 		$this->loader->add_action( 'init', $plugin_i18n, 'load_plugin_textdomain' );
-		//$this->loader->add_filter( 'load_textdomain_mofile', $plugin_i18n, 'filter_plugin_mo_file', 10, 2 );
-
 	}
 
 	/**
