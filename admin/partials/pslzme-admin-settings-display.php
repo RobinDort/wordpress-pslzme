@@ -41,7 +41,7 @@ $options = get_option('pslzme_settings', []);
                <form method="post" action="options.php" class="pslzme-settings-form">
                     <?php settings_fields('pslzme_settings_group'); ?>
                     <?php do_settings_fields('pslzme_settings', 'pslzme_db_section'); ?>
-                    <?php submit_button(__('Speichern', 'pslzme')); ?>
+                    <?php submit_button(__('Save', 'pslzme')); ?>
                 </form>
             </div>
 
@@ -79,7 +79,7 @@ $options = get_option('pslzme_settings', []);
         <form method="post" action="options.php" class="pslzme-settings-form">
             <?php settings_fields('pslzme_settings_group'); ?>
             <?php do_settings_fields('pslzme_settings', 'pslzme_ip_section'); ?>
-            <?php submit_button(__('Speichern', 'pslzme')); ?>
+            <?php submit_button(__('Save', 'pslzme')); ?>
         </form>
     </div>
     </div>

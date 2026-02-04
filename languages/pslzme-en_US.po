@@ -3,299 +3,305 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pslzme 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-pslzme\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-"
+"pslzme\n"
+"POT-Creation-Date: 2026-02-04T13:30:55+00:00\n"
+"PO-Revision-Date: 2026-02-04 14:56+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-04T13:30:55+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: Poedit 3.8\n"
 "X-Domain: pslzme\n"
 
 #. Plugin Name of the plugin
 #: pslzme.php
 msgid "pslzme"
-msgstr ""
+msgstr "pslzme"
 
 #. Plugin URI of the plugin
 #: pslzme.php
 msgid "https://www.pslzme.com"
-msgstr ""
+msgstr "https://www.pslzme.com"
 
 #. Description of the plugin
 #: pslzme.php
-msgid "This is a short description of what the plugin does. It's displayed in the WordPress admin area."
+msgid ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
 msgstr ""
+"This is a short description of what the plugin does. It's displayed in the "
+"WordPress admin area."
 
 #. Author of the plugin
 #: pslzme.php
 msgid "Alexander Dort GmbH"
-msgstr ""
+msgstr "Alexander Dort GmbH"
 
 #. Author URI of the plugin
 #: pslzme.php
 msgid "https://www.alexanderdort.com"
-msgstr ""
+msgstr "https://www.alexanderdort.com"
 
 #: admin/partials/pslzme-admin-settings-display.php:44
 #: admin/partials/pslzme-admin-settings-display.php:82
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 #: admin/pslzme-admin.php:137
 msgid "Database name"
-msgstr ""
+msgstr "Database name"
 
 #: admin/pslzme-admin.php:138
 msgid "Database user"
-msgstr ""
+msgstr "Database user"
 
 #: admin/pslzme-admin.php:139
 msgid "Database password"
-msgstr ""
+msgstr "Database password"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:10
 msgid "Pslzme Content Widget"
-msgstr ""
+msgstr "Pslzme Content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:38
 msgid "Content Type"
-msgstr ""
+msgstr "Content Type"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:46
 msgid "Pslzme content type"
-msgstr ""
+msgstr "Pslzme Content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:50
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:51
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:68
 msgid "Pslzme content personalized image settings"
-msgstr ""
+msgstr "Personalized image content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:79
 msgid "Pslzme content personalized image"
-msgstr ""
+msgstr "Personalized image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:88
 msgid "Pslzme content personalized image alt text"
-msgstr ""
+msgstr "Alternative text for the personalized image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:97
 msgid "Pslzme content personalized image size"
-msgstr ""
+msgstr "Personalized image size"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:107
 msgid "Pslzme content personalized image caption"
-msgstr ""
+msgstr "Caption for the personalized image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:116
 msgid "Pslzme content personalized image link"
-msgstr ""
+msgstr "Personalized image link"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:128
 msgid "Pslzme content unpersonalized image settings"
-msgstr ""
+msgstr "Unpersonalized image content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:139
 msgid "Pslzme content unpersonalized image"
-msgstr ""
+msgstr "Unpersonalized image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:148
 msgid "Pslzme content unpersonalized image alt text"
-msgstr ""
+msgstr "Alternative text for the unpersonalized image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:157
 msgid "Pslzme content unpersonalized image size"
-msgstr ""
+msgstr "Unpersonalized image size"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:167
 msgid "Pslzme content unpersonalized image caption"
-msgstr ""
+msgstr "Caption for the unpersonalized image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:176
 msgid "Pslzme content unpersonalized image link"
-msgstr ""
+msgstr "Unpersonalized image link"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:192
 msgid "Pslzme content personalized video settings"
-msgstr ""
+msgstr "Personalized video content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:203
 msgid "Pslzme content personalized video"
-msgstr ""
+msgstr "Personalized video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:213
 msgid "Pslzme content personalized video width"
-msgstr ""
+msgstr "Personalized video width"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:225
 msgid "Pslzme content personalized video height"
-msgstr ""
+msgstr "Personalized video height"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:237
 msgid "Pslzme content personalized video options"
-msgstr ""
+msgstr "Personalized video options"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:241
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:305
 msgid "Autoplay"
-msgstr ""
+msgstr "Autoplay"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:242
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:306
 msgid "Hide control options"
-msgstr ""
+msgstr "Hide control options"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:243
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:307
 msgid "Play in loop"
-msgstr ""
+msgstr "Play in loop"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:244
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:308
 msgid "Inline play (no fullscreen mode)"
-msgstr ""
+msgstr "Inline play (no fullscreen mode)"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:245
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:309
 msgid "Mute audio output"
-msgstr ""
+msgstr "Mute audio output"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:256
 msgid "Pslzme content unpersonalized video settings"
-msgstr ""
+msgstr "Unpersonalized video content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:267
 msgid "Pslzme content unpersonalized video"
-msgstr ""
+msgstr "Unpersonalized video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:277
 msgid "Pslzme content unpersonalized video width"
-msgstr ""
+msgstr "Unpersonalized video width"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:289
 msgid "Pslzme content unpersonalized video height"
-msgstr ""
+msgstr "Unpersonalized video height"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:301
 msgid "Pslzme content unpersonalized video options"
-msgstr ""
+msgstr "Unpersonalized video options"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:323
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:163
 msgid "Thumbnail"
-msgstr ""
+msgstr "Thumbnail"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:324
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:164
 msgid "Medium"
-msgstr ""
+msgstr "Medium"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:325
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:165
 msgid "Large"
-msgstr ""
+msgstr "Large"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:326
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:166
 msgid "Full"
-msgstr ""
+msgstr "Full"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:340
 msgid "— No Link —"
-msgstr ""
+msgstr "— No Link —"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:10
 msgid "Pslzme Image Widget"
-msgstr ""
+msgstr "Pslzme Image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:39
 msgid "Pslzme Image Section"
-msgstr ""
+msgstr "Personalized image content"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:46
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:46
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:64
 msgid "Personalized Text"
-msgstr ""
+msgstr "Personalized Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:54
 msgid "Unpersonalized Text"
-msgstr ""
+msgstr "Unpersonalized Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:62
 msgid "Pslzme image dimensions"
-msgstr ""
+msgstr "Personalized image dimensions"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:82
 msgid "Pslzme image background"
-msgstr ""
+msgstr "Personalized image background"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:93
 msgid "Pslzme image background size"
-msgstr ""
+msgstr "Personalized image background size"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:103
 msgid "Pslzme image background alt text"
-msgstr ""
+msgstr "Alternative text for the background image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:112
 msgid "Pslzme image background title"
-msgstr ""
+msgstr "Title for the background image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:121
 msgid "Pslzme image foreground"
-msgstr ""
+msgstr "Foreground image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:132
 msgid "Pslzme image foreground size"
-msgstr ""
+msgstr "Foreground image size"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:142
 msgid "Pslzme image foreground alt text"
-msgstr ""
+msgstr "Alternative text for the foreground image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:151
 msgid "Pslzme image foreground title"
-msgstr ""
+msgstr "Title for the foreground image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:10
 msgid "Pslzme Text Widget"
-msgstr ""
+msgstr "Pslzme Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:38
 msgid "Personalized Text Section"
-msgstr ""
+msgstr "Personalized Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:56
 msgid "Unpersonalized Text Section"
-msgstr ""
+msgstr "Unpersonalized Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:72
 msgid "Show unpersonalized text"
-msgstr ""
+msgstr "Show unpersonalized text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
 msgid "Yes"
-msgstr ""
+msgstr "Yes"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:75
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:112
 #: public/partials/pslzme-public-elementor-pslzme-content.php:149
 msgid "Your browser does not support the video tag."
-msgstr ""
+msgstr "Your browser does not support the video tag."
 
 #: public/pslzme-public.php:158
 msgid "Pslzme"
-msgstr ""
+msgstr "Pslzme"

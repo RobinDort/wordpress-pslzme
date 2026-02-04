@@ -42,6 +42,14 @@ class Pslzme_i18n {
 
 	}
 
+	public function filter_plugin_mo_file($mofile, $domain) {
+		if ( 'wordpress-pslzme' === $domain && false !== strpos( $mofile, WP_LANG_DIR . '/plugins/' ) ) {
+			$locale = apply_filters( 'plugin_locale', determine_locale(), $domain );
+			$mofile = WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) . '/languages/' . $domain . '-' . $locale . '.mo';
+		}
+		return $mofile;
+	}
+
 
 
 }

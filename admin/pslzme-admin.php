@@ -134,9 +134,9 @@ class Pslzme_Admin {
 		);
 
 		$db_fields = [
-			'db_name' => __("Datenbankname", "pslzme"),
-			'db_user' => __("Datenbank-User", "pslzme"),
-			'db_password' => __("Datenbank-Passwort", "pslzme"),
+			'db_name' => __("Database name", "pslzme"),
+			'db_user' => __("Database user", "pslzme"),
+			'db_password' => __("Database password", "pslzme"),
 		];
 
 		foreach ($db_fields as $id => $title) {
