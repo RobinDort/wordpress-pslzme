@@ -75,7 +75,7 @@ class Pslzme {
 		$this->pslzme = 'pslzme';
 
 		$this->load_dependencies();
-		$this->set_locale();
+		//$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
@@ -109,7 +109,7 @@ class Pslzme {
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/pslzme-i18n.php';
+		//require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/pslzme-i18n.php';
 
 
 		/**
@@ -200,7 +200,7 @@ class Pslzme {
 
 		$plugin_i18n = new Pslzme_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
+		$this->loader->add_action( 'init', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
 

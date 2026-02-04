@@ -146,6 +146,12 @@ class Pslzme_Public {
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-content.php';
 		$widgets_manager->register( new ElementorWidgetPslzmeText() );
 		$widgets_manager->register( new ElementorWidgetPslzmeContent() );
+
+		wp_set_script_translations(
+			'pslzme-elementor-translations',
+			'pslzme',
+			plugin_dir_path(dirname(__FILE__)) . 'languages/'
+		);
 	}
 
 	public function add_elementor_widget_categories( $elements_manager) {

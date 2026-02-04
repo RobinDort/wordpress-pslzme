@@ -31,7 +31,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-content.php';
     }
 
-     private function add_content_controls(): void {
+    private function add_content_controls(): void {
         $this->start_controls_section(
             'section_content_type',
             [
@@ -62,7 +62,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
     
     private function add_pslzme_content_image_controls() {
 
-         $this->start_controls_section(
+        $this->start_controls_section(
             'section_personalized_image_settings',
             [
                 'label' => esc_html__('Pslzme content personalized image settings', 'pslzme'),
