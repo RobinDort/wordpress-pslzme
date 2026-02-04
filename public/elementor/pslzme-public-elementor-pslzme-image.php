@@ -33,6 +33,14 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
 
     private function add_content_controls(): void {
 
+        $this->start_controls_section(
+            'content_section_pslzme_image',
+            [
+                'label' => esc_html__('Pslzme Image Section', 'pslzme'),
+                'tab' 	=> \Elementor\Controls_Manager::TAB_CONTENT, 
+            ]
+        );
+
         $this->add_control('pslzme_image_personalized_text',
             [
                 'label' => esc_html__( 'Personalized Text', 'pslzme' ),
@@ -63,7 +71,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
 					'isLinked' => false,
 				],
                 'selectors' => [
-					'{{WRAPPER}} .pslzme-image-wrapper' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .pslzme-ov-image-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				],
             ]
         );
@@ -83,8 +91,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
             'pslzme_image_background_size',
             [
                 'label' => esc_html__( 'Pslzme image background size', 'pslzme' ),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                 'type'    => \Elementor\Controls_Manager::SELECT,
+                'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'full',
                 'options' => $this->get_available_image_sizes(),
             ]
@@ -123,8 +130,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
             'pslzme_image_foreground_size',
             [
                 'label' => esc_html__( 'Pslzme image foreground size', 'pslzme' ),
-                'type' => \Elementor\Controls_Manager::SLIDER,
-                 'type'    => \Elementor\Controls_Manager::SELECT,
+                'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'full',
                 'options' => $this->get_available_image_sizes(),
             ]
@@ -147,7 +153,28 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                 'label_block' => true,
             ]
         );
+        $this->end_controls_section();
     }
+
+    private function get_available_image_sizes(): array {
+        global $_wp_additional_image_sizes;
+
+        $sizes = [
+            'thumbnail' => esc_html__('Thumbnail', 'pslzme'),
+            'medium'    => esc_html__('Medium', 'pslzme'),
+            'large'     => esc_html__('Large', 'pslzme'),
+            'full'      => esc_html__('Full', 'pslzme'),
+        ];
+
+        if (!empty($_wp_additional_image_sizes)) {
+            foreach ($_wp_additional_image_sizes as $key => $value) {
+                $sizes[$key] = ucfirst(str_replace('_', ' ', $key));
+            }
+        }
+
+        return $sizes;
+    }
+
 }
 
 ?>
