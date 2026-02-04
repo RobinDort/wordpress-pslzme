@@ -43,13 +43,15 @@ $unpersonalized_video_options = $settings['pslzme_content_unpersonalized_video_o
             }
         ?>
 
-        <a href="<?= esc_url($link_url) ?>">
-            <img src="<?= esc_url($img_src) ?>" alt="<?= esc_attr($personalized_image_alt) ?>" />
-            <?php if ( $personalized_image_caption ) : ?>
-                <figcaption><?= esc_html( $personalized_image_caption ); ?>
-                </figcaption>
-            <?php endif; ?>
-        </a>
+        <div class="ce_image pslzme-image">
+            <a href="<?= esc_url($link_url) ?>">
+                <img src="<?= esc_url($img_src) ?>" alt="<?= esc_attr($personalized_image_alt) ?>" />
+                <?php if ( $personalized_image_caption ) : ?>
+                    <figcaption><?= esc_html( $personalized_image_caption ); ?>
+                    </figcaption>
+                <?php endif; ?>
+            </a>
+        </div>
     
     <?php else : ?>
         <?php
@@ -61,13 +63,15 @@ $unpersonalized_video_options = $settings['pslzme_content_unpersonalized_video_o
             }
         ?>
 
-        <a href="<?= esc_url($link_url) ?>">
-            <img src="<?= esc_url($img_src) ?>" alt="<?= esc_attr($unpersonalized_image_alt) ?>" />
-            <?php if ( $unpersonalized_image_caption ) : ?>
-                <figcaption><?= esc_html( $unpersonalized_image_caption ); ?>
-                </figcaption>
-            <?php endif; ?>
-        </a>
+        <div class="ce_image pslzme-image">
+            <a href="<?= esc_url($link_url) ?>">
+                <img src="<?= esc_url($img_src) ?>" alt="<?= esc_attr($unpersonalized_image_alt) ?>" />
+                <?php if ( $unpersonalized_image_caption ) : ?>
+                    <figcaption><?= esc_html( $unpersonalized_image_caption ); ?>
+                    </figcaption>
+                <?php endif; ?>
+            </a>
+        </div>
     <?php endif; ?>
 
 <?php elseif ($settings['pslzme_content_type'] === 'video'): ?>
@@ -102,10 +106,12 @@ $unpersonalized_video_options = $settings['pslzme_content_unpersonalized_video_o
             }
         ?>
 
-        <video width="<?= esc_attr($width) ?>" height="<?= esc_attr($height) ?>" <?= $attrs ?>>
-            <source src="<?= esc_url($video_src) ?>" type="video/mp4">
-            <?= esc_html__('Your browser does not support the video tag.', 'pslzme') ?>
-        </video>
+        <div class="ce_video pslzme-video">
+            <video width="<?= esc_attr($width) ?>" height="<?= esc_attr($height) ?>" <?= $attrs ?>>
+                <source src="<?= esc_url($video_src) ?>" type="video/mp4">
+                <?= esc_html__('Your browser does not support the video tag.', 'pslzme') ?>
+            </video>
+        </div>
 
     <?php else : ?>
         <?php
@@ -137,10 +143,12 @@ $unpersonalized_video_options = $settings['pslzme_content_unpersonalized_video_o
             }
         ?>
 
-        <video width="<?= esc_attr($width) ?>" height="<?= esc_attr($height) ?>" <?= $attrs ?>>
-            <source src="<?= esc_url($video_src) ?>" type="video/mp4">
-            <?= esc_html__('Your browser does not support the video tag.', 'pslzme') ?>
-        </video>
+        <div class="ce_video pslzme-video">
+            <video width="<?= esc_attr($width) ?>" height="<?= esc_attr($height) ?>" <?= $attrs ?>>
+                <source src="<?= esc_url($video_src) ?>" type="video/mp4">
+                <?= esc_html__('Your browser does not support the video tag.', 'pslzme') ?>
+            </video>
+        </div>
         
     <?php endif; ?>
 
