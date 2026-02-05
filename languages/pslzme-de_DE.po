@@ -1,10 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pslzme 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-"
-"pslzme\n"
-"POT-Creation-Date: 2026-02-04T13:30:55+00:00\n"
-"PO-Revision-Date: 2026-02-04 14:43+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-pslzme\n"
+"POT-Creation-Date: 2026-02-05T07:01:39+00:00\n"
+"PO-Revision-Date: 2026-02-05 08:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -43,10 +42,137 @@ msgstr "Alexander Dort GmbH"
 msgid "https://www.alexanderdort.com"
 msgstr "https://www.alexanderdort.com"
 
+#: admin/partials/pslzme-admin-settings-display.php:19
+msgid "Pslzme Configuration"
+msgstr "Pslzme Konfiguration"
+
+#: admin/partials/pslzme-admin-settings-display.php:21
+msgid "Pslzme configuration 1"
+msgstr "1: Datenbank Konfiguration"
+
+#: admin/partials/pslzme-admin-settings-display.php:23
+msgid "explanation 1"
+msgstr ""
+"Zur erfolgreichen Nutzung von pslzme ist eine separate unabhängige "
+"Datenbankanbindung notwendig."
+
+#: admin/partials/pslzme-admin-settings-display.php:24
+msgid "explanation 2"
+msgstr ""
+"Um Ihnen die Konfiguration so einfach wie möglich zu gestalten, finden Sie "
+"im weiteren Abschnitt eine detaillierte Beschreibung der benötigten Schritte "
+"zur Erstellung und Konfiguration der Datenbank."
+
+#: admin/partials/pslzme-admin-settings-display.php:28
+msgid "configuration step 1"
+msgstr "Schritt 1: Erstellung der Datenbank"
+
+#: admin/partials/pslzme-admin-settings-display.php:30
+msgid "explanation 3"
+msgstr ""
+"Zur Erstellung einer Datenbank loggen Sie sich bitte in Ihrem gewählten "
+"Serverhosting-Tool ein und navigieren dort zum bereitgestellten Abschnitt "
+"Datenbanken. Anschließend wählen Sie die Option Neue Datenbank erstellen und "
+"geben dann Ihre gewünschten Konfigurationdaten für Datenbankname, Username "
+"und Passwort an."
+
+#: admin/partials/pslzme-admin-settings-display.php:31
+msgid "explanation 4"
+msgstr ""
+"Sollten Sie noch keinen Datenbank-User erstellt haben, so muss dies im "
+"Idealfall vor der Erstellung der Datenbank getan werden. Dieser kann jedoch "
+"auch nachträglich erstellt und der Datenbank zugewiesen werden. Zur "
+"Erstellung des Users, navigieren sie zum Abschnitt Datenbank-Nutzer "
+"erstellen und weisen Sie dann die gewünschten Konfigurationdaten wie "
+"Username und Passwort zu. Nach beidiger Erstellung muss zuletzt - wenn nicht "
+"bereits getan - der erstellte User noch der Datenbank zugewiesen werden."
+
+#: admin/partials/pslzme-admin-settings-display.php:35
+msgid "configuration step 2"
+msgstr "Schritt 2: Datenbank an pslzme plugin Anbinden"
+
+#: admin/partials/pslzme-admin-settings-display.php:36
+msgid "explanation 5"
+msgstr ""
+"Als nächstes tragen Sie bitte die Verbindungsdaten der soeben erstellten "
+"Datenbank in die nachstehenden Felder ein und bestätigen dies durch Klick "
+"des Speichern buttons."
+
 #: admin/partials/pslzme-admin-settings-display.php:44
 #: admin/partials/pslzme-admin-settings-display.php:82
 msgid "Save"
 msgstr "Speichern"
+
+#: admin/partials/pslzme-admin-settings-display.php:49
+msgid "configuration step 3"
+msgstr "Schritt 3: pslzme Tabellen konfigurieren"
+
+#: admin/partials/pslzme-admin-settings-display.php:50
+msgid "explanation 6"
+msgstr ""
+"Zuletzt müssen die benötigten pslzme Datenbanktabellen angelegt werden. Dies "
+"erfolgt vollständig automatisiert nach Bestätigung des nachstehenden "
+"Buttons. Bitte prüfen Sie erneut, ob die Angaben im vorherigen Schritt keine "
+"Fehler enthalten."
+
+#: admin/partials/pslzme-admin-settings-display.php:52
+msgid "tables configured"
+msgstr "Tabellen erfolgreich konfiguriert"
+
+#: admin/partials/pslzme-admin-settings-display.php:54
+msgid "configure tables"
+msgstr "Tabellen anlegen"
+
+#: admin/partials/pslzme-admin-settings-display.php:61
+msgid "Pslzme configuration 2"
+msgstr "2: Domain lizensieren"
+
+#: admin/partials/pslzme-admin-settings-display.php:63
+msgid "explanation 7"
+msgstr ""
+"Für die Nutzung von pslzme ist eine Lizenzierung Ihrer Domain erforderlich. "
+"Hierfür ist ein zugewiesener pslzme-Account erforderlich. Sollten Sie noch "
+"keinen Account besitzen, können Sie diesen unter https://www.pslzme.com/de/"
+"login anfordern."
+
+#: admin/partials/pslzme-admin-settings-display.php:64
+msgid "explanation 8"
+msgstr ""
+"Nachdem Ihr Account bereitgestellt wurde, bestätigen Sie bitte abschließend "
+"den nachfolgenden Button zur Lizenzierung dieser Domain."
+
+#: admin/partials/pslzme-admin-settings-display.php:67
+msgid "url licensed"
+msgstr "Domain erfolgreich lizensiert"
+
+#: admin/partials/pslzme-admin-settings-display.php:69
+msgid "license domain"
+msgstr "Domain lizensieren"
+
+#: admin/partials/pslzme-admin-settings-display.php:74
+msgid "Pslzme configuration 3"
+msgstr "3: Interne Seiten Konfiguration"
+
+#: admin/partials/pslzme-admin-settings-display.php:75
+msgid "explanation 9"
+msgstr ""
+"Für einen reibungslosen und DSGVO-Konformen Ablauf nutzt pslzme interne "
+"Weiterleitungen zu bestimmten Unterseiten Ihrer Webseite."
+
+#: admin/partials/pslzme-admin-settings-display.php:76
+msgid "explanation 10"
+msgstr ""
+"Beispielsweise benötigt der pslz<strong>me</strong> Cookiebanner, welcher "
+"als essentielles Bestandsteil fungiert, Angaben zu Impressum und Datenschutz."
+
+#: admin/partials/pslzme-admin-settings-display.php:77
+msgid "explanation 11"
+msgstr ""
+"Damit die interne Weiterleitung problemlos genutzt werden kann, weissen Sie "
+"bitte die in den nachstehenden Feldern beschriebenen Seiten mit der "
+"entprechenden ID der passenden internen Seite zu. Die ID der jeweiligen "
+"Seite finden Sie im contao backend unter Seiten durch Aufruf der "
+"Detailinformation der jeweiligen Seite."
 
 #: admin/pslzme-admin.php:137
 msgid "Database name"

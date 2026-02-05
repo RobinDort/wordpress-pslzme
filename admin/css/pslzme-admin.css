@@ -3,6 +3,122 @@
  * included in this file.
  */
 
+:root {
+	--pslzme-fs-h1: 2rem;
+	--pslzme-fs-h2: 1.3rem;
+	--pslzme-fs-h3: 1.1rem;
+	--pslzme-red: #ff0000;
+}
+
+#pslzme-configuration {
+	padding: 20px;
+}
+
+#pslzme-configuration h1 {
+	font-size: var(--pslzme-fs-h1);
+}
+
+#pslzme-configuration h2 {
+	font-size: var(--pslzme-fs-h2);
+	padding: 20px 0;
+}
+
+#pslzme-configuration h3 {
+	font-size: var(--pslzme-fs-h3);
+	padding: 10px 0;
+}
+
+#pslzme-configuration h1 span {
+	color: var(--pslzme-red);
+}
+
+#pslzme-configuration p {
+	font-size: 0.9rem;
+	line-height: 1.1rem;
+}
+
+#pslzme-configuration button[type="submit"] {
+	padding: 5px;
+}
+
+#urlLicensedInfo {
+	width: 200px;
+	text-align: center;
+	padding: 20px;
+	background-color: #3bb143;
+	color: #ffffff;
+	border: 1px solid #ededed;
+	border-radius: 10px;
+}
+
+.pslzme-configuration-container {
+	margin-top: 2em;
+	border: 1px solid #ededed;
+	padding: 10px;
+}
+
+.pslzme-configuration-step h3 span {
+	color: #ff4d00;
+	font-weight: normal;
+}
+
+.pslzme-configuration-step .pslzme-explanation,
+.pslzme-configuration-step .tl_formbody_edit {
+	margin-bottom: 2em;
+}
+
+.pslzme-explanation span {
+	font-weight: bold;
+}
+
+.pslzme-explanation strong {
+	color: var(--pslzme-red);
+}
+
+.pslzme-db-configuration {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+}
+
+.pslzme-db-configuration .current-config-header {
+	margin-bottom: 8px;
+}
+
+.pslzme-db-configuration label {
+	display: block;
+	width: 100%;
+	max-width: 200px;
+	font-size: 0.9rem;
+	margin-bottom: 0.4em;
+	font-weight: 500;
+}
+
+.pslzme-db-configuration input {
+	border-radius: 8px;
+	padding: 5px;
+	margin-bottom: 1em;
+}
+
+.pslzme-db-configuration input:focus,
+.pslzme-db-configuration input:focus-visible {
+	outline: none;
+	border-color: #000;
+}
+
+.pslzme-pw-container {
+	display: flex;
+}
+
+.pslzme-pw-container img {
+	width: 20px;
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+	margin-left: 5px;
+	top: 5px;
+}
+
 /* Make each settings field appear on its own line */
 .pslzme-settings-form input {
 	display: block;
