@@ -261,14 +261,22 @@ class Pslzme_Admin {
 	}
 
 
-	public function add_pslzme_page_template($templates) {
-		$templates['pslzme-page.php'] = 'pslzme page';
-		return $templates;
+	public function register_pslzme_template($page_templates, $theme, $post) {
+		$templates = $this->pslzme_template_array();
+		foreach ($templates as $tk=>$tv) {
+			$page_templates[$tk] = $tv;
+		}
+		return $page_templates;
 	}
 
 	public function load_pslzme_page_template($template) {
-		 if ( get_page_template_slug() === 'pslzme-page.php' ) {
-			//$template = plugin_dir_path( __FILE__ ) . 'templates/pslzme-page.php';
+		global $post,$wp_query,$wpdb;
+		$page_temp_slug = get_page_template_slug($post->ID);
+
+		$templates = $this->pslzme_template_array();
+
+		if ( isset($templates[$page_temp_slug]) ) {
+			$template = plugin_dir_path( __FILE__ ) . 'templates/' . $page_temp_slug;
 		}
 		return $template;
 	}
@@ -297,6 +305,13 @@ class Pslzme_Admin {
             	exit;
 			}
 		}
+	}
+
+
+	private function pslzme_template_array() {
+		$templates = [];
+		$templates['pslzme-page.php'] = 'pslzme';
+		return $templates;
 	}
 
 	private function encrypt_password($password, $timestamp) {

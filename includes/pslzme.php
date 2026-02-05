@@ -221,9 +221,9 @@ class Pslzme {
 		$this->loader->add_action( 'wp_ajax_pslzme_register_customer', $plugin_admin, 'handle_register_customer');
 
 		// Protect direct access to pslzme pages
-		$this->loader->add_action( 'template_redirect', $plugin_admin, 'protect_pslzme_page_direct_access' );
+		//$this->loader->add_action( 'template_redirect', $plugin_admin, 'protect_pslzme_page_direct_access' );
 		// Handle custom pslzme pages 
-		$this->loader->add_filter( 'theme_page_templates', $plugin_admin, 'add_pslzme_page_template' );
+		$this->loader->add_filter( 'theme_page_templates', $plugin_admin, 'register_pslzme_template', 10, 3 );
 		//Load plugin template for pslzme pages
 		$this->loader->add_filter( 'template_include', $plugin_admin, 'load_pslzme_page_template' );
 		//Hide pslzme pages in menus if decryption not valid
