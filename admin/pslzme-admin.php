@@ -116,7 +116,7 @@ class Pslzme_Admin {
 
 		// Create the data URI
 		$svg_data_uri = 'data:image/svg+xml;base64,' . $svg_base64;
-		add_menu_page("Pslzme Settings", "Pslzme", "manage_options", "pslzme_settings", [$this, 'display_pslzme_settings_menu'], $svg_data_uri);
+		add_menu_page("Pslzme Settings", "pslzme", "manage_options", "pslzme_settings", [$this, 'display_pslzme_settings_menu'], $svg_data_uri);
 	}
 
 	public function register_pslzme_settings() {

@@ -30,7 +30,9 @@ $options = get_option('pslzme_settings', []);
                 <p><?= esc_html__("explanation 3", "pslzme") ?></p>
                 <p><?= esc_html__("explanation 4", "pslzme") ?></p>
             </div>
+        </div>
 
+        <div class="pslzme-configuration-step">
             <div class="pslzme-explanation">
                 <h3><?= esc_html__("configuration step 2", "pslzme") ?></h3>
                 <p><?= esc_html__("explanation 5", "pslzme") ?></p>
@@ -44,7 +46,9 @@ $options = get_option('pslzme_settings', []);
                     <?php submit_button(__('Save', 'pslzme')); ?>
                 </form>
             </div>
+        </div>
 
+        <div class="pslzme-configuration-step">
             <div class="pslzme-explanation">
                 <h3><?= esc_html__("configuration step 3", "pslzme") ?></h3>
                 <p><?= esc_html__("explanation 6", "pslzme") ?></p>
@@ -68,6 +72,7 @@ $options = get_option('pslzme_settings', []);
             <?php else : ?>
                 <button id="license-domain-sbmt" type="submit"><?= esc_html__("license domain", "pslzme") ?></button>
             <?php endif; ?>
+        </div>
     </div>
 
     <div class="pslzme-configuration-container">
@@ -76,11 +81,11 @@ $options = get_option('pslzme_settings', []);
         <p><?= esc_html__("explanation 10", "pslzme") ?></p>
         <p><?= esc_html__("explanation 11", "pslzme") ?></p>
         <div class="pslzme-internal-pages-fields">
-        <form method="post" action="options.php" class="pslzme-settings-form">
-            <?php settings_fields('pslzme_settings_group'); ?>
-            <?php do_settings_fields('pslzme_settings', 'pslzme_ip_section'); ?>
-            <?php submit_button(__('Save', 'pslzme')); ?>
-        </form>
-    </div>
+            <form method="post" action="options.php" class="pslzme-settings-form">
+                <?php settings_fields('pslzme_settings_group'); ?>
+                <?php do_settings_fields('pslzme_settings', 'pslzme_ip_section'); ?>
+                <?php submit_button(__('Save', 'pslzme')); ?>
+            </form>
+        </div>
     </div>
 </div>
