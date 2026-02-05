@@ -9,7 +9,6 @@ function pslzmeRedirection() {
 	if (userCameFromPslzmeLink.isSet === true) {
 		const actualTargetPage = window.location.pathname.replace("/", "");
 		const consentCookie = getCookie("consent_cookie");
-		console.log(consentCookie);
 		if (!consentCookie) {
 			checkQueryIsLocked(userCameFromPslzmeLink).then((queryLocked) => {
 				if (queryLocked) {
@@ -23,7 +22,6 @@ function pslzmeRedirection() {
 			});
 		} else {
 			const decodedCookie = JSON.parse(consentCookie);
-			console.log(decodedCookie.accepted === true && decodedCookie.queryTime === userCameFromPslzmeLink.params.timestamp);
 			if (decodedCookie.accepted === true && decodedCookie.queryTime === userCameFromPslzmeLink.params.timestamp) return;
 
 			//before anything else, check if the query is locked because someone has inserted the name wrongly for three times.

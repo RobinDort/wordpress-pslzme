@@ -260,6 +260,45 @@ class Pslzme_Admin {
 		$settingsController->handle_register_customer();
 	}
 
+
+	public function add_pslzme_page_template($templates) {
+		$templates['pslzme-page.php'] = 'pslzme page';
+		return $templates;
+	}
+
+	public function load_pslzme_page_template($template) {
+		 if ( get_page_template_slug() === 'pslzme-page.php' ) {
+			//$template = plugin_dir_path( __FILE__ ) . 'templates/pslzme-page.php';
+		}
+		return $template;
+	}
+
+	public function hide_pslzme_pages_in_menus($menu_objects, $args) {
+		$dc = DecryptionController::get_instance();
+		$pslzme_slug = 'pslzme-page.php';
+
+		foreach ($menu_objects as $key => $menu_object) {
+			$template_slug = get_page_template_slug($menu_object->object_id);
+
+			// Only remove if it's a pslzme page AND vars are not set
+			if ($template_slug === $pslzme_slug && !$dc->vars_set()) {
+				unset($menu_objects[$key]);
+			}
+		}
+
+		return $menu_objects;
+	}
+
+	public function protect_pslzme_page_direct_access() {
+		if (is_page() && get_page_template_slug() === 'pslzme-page.php') {
+			$dc = DecryptionController::get_instance();
+			if (!$dc->vars_set()) {
+				wp_redirect(home_url());
+            	exit;
+			}
+		}
+	}
+
 	private function encrypt_password($password, $timestamp) {
 		$secretKey = hash('sha256', (string)$timestamp, true); // binary key
 		$iv = random_bytes(16); // IV

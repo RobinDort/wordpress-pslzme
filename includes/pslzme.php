@@ -142,7 +142,6 @@ class Pslzme {
 			require_once $file;
 		}
 
-
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
@@ -220,6 +219,15 @@ class Pslzme {
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_pslzme_settings' );
 		$this->loader->add_action( 'wp_ajax_pslzme_create_tables', $plugin_admin, 'handle_create_tables' );
 		$this->loader->add_action( 'wp_ajax_pslzme_register_customer', $plugin_admin, 'handle_register_customer');
+
+		// Protect direct access to pslzme pages
+		$this->loader->add_action( 'template_redirect', $plugin_admin, 'protect_pslzme_page_direct_access' );
+		// Handle custom pslzme pages 
+		$this->loader->add_filter( 'theme_page_templates', $plugin_admin, 'add_pslzme_page_template' );
+		//Load plugin template for pslzme pages
+		$this->loader->add_filter( 'template_include', $plugin_admin, 'load_pslzme_page_template' );
+		//Hide pslzme pages in menus if decryption not valid
+		$this->loader->add_filter( 'wp_nav_menu_objects', $plugin_admin, 'hide_pslzme_pages_in_menus', 10, 2 );
 
 	}
 
