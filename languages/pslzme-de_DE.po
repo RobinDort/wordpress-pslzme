@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pslzme 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-pslzme\n"
-"POT-Creation-Date: 2026-02-05T14:37:33+00:00\n"
-"PO-Revision-Date: 2026-02-06 07:53+0100\n"
+"POT-Creation-Date: 2026-02-06T07:55:35+00:00\n"
+"PO-Revision-Date: 2026-02-06 08:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -414,34 +414,34 @@ msgid "Show unpersonalized text"
 msgstr "Unpersonalisierten Text anzeigen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
-#: public/partials/pslzme-public-cookiebanner.php:30
+#: public/partials/pslzme-public-cookiebanner.php:43
 msgid "Yes"
 msgstr "Ja"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:75
-#: public/partials/pslzme-public-cookiebanner.php:31
+#: public/partials/pslzme-public-cookiebanner.php:44
 msgid "No"
 msgstr "Nein"
 
-#: public/partials/pslzme-public-cookiebanner.php:10
+#: public/partials/pslzme-public-cookiebanner.php:23
 msgid "pslzme cookiebar heading 1"
 msgstr "Sehr geehrte/r BesucherIn,"
 
-#: public/partials/pslzme-public-cookiebanner.php:11
+#: public/partials/pslzme-public-cookiebanner.php:24
 msgid "pslzme cookiebar heading 2"
 msgstr ""
 "Sie sind über <span id=\"pslzme-cookiebar-first-contact\"></span> einem "
 "persönlichen pslz<b>me</b> Einladungslink von <span id=\"pslzme-cookiebar-"
 "link-creator\"></span> gefolgt."
 
-#: public/partials/pslzme-public-cookiebanner.php:12
+#: public/partials/pslzme-public-cookiebanner.php:25
 msgid "pslzme cookiebar explanation 1"
 msgstr ""
 "Hierdurch sind wir in der Lage, Sie auf unserer Webseite DSGVO-konform "
 "persönlich anzusprechen und Ihnen unsere Webseite mit persönlich für Sie "
 "zugeschnittenen Inhalten zu präsentieren, sofern Sie uns dies gestatten."
 
-#: public/partials/pslzme-public-cookiebanner.php:13
+#: public/partials/pslzme-public-cookiebanner.php:26
 msgid "pslzme cookiebar explanation 2"
 msgstr ""
 "Um dies zu tun, geben Sie bitte hier die ersten drei Buchstaben Ihres "
@@ -452,26 +452,26 @@ msgstr ""
 "klicken, werden wir Sie auf die unpersonalisierte Version unserer Webseite "
 "weiterleiten."
 
-#: public/partials/pslzme-public-cookiebanner.php:19
+#: public/partials/pslzme-public-cookiebanner.php:32
 msgid "pslzme cookiebar name verification"
 msgstr "Geben Sie hier nun die ersten drei Buchstaben Ihres Nachnamens ein:"
 
-#: public/partials/pslzme-public-cookiebanner.php:25
+#: public/partials/pslzme-public-cookiebanner.php:38
 msgid "pslzme cookiebar attempts text"
 msgstr "Restliche Versuche: <span id=\"remaining-attempts\">3</span>"
 
-#: public/partials/pslzme-public-cookiebanner.php:26
+#: public/partials/pslzme-public-cookiebanner.php:39
 msgid "pslzme cookiebar confirmation text"
 msgstr ""
 "Bestätigen Sie nachfolgend dann mit einem Klick auf <strong>Ja</strong>, "
 "dass wir Ihre Daten entschlüsseln und zur persönlichen Ansprache und "
 "personalisierten Inhalten auf unserer Webseite verwenden dürfen."
 
-#: public/partials/pslzme-public-cookiebanner.php:35
-msgid "pslzme cookiebar more informarion"
+#: public/partials/pslzme-public-cookiebanner.php:50
+msgid "pslzme cookiebar more information"
 msgstr "Weiterführende Informationen zu pslz<b>me</b>"
 
-#: public/partials/pslzme-public-cookiebanner.php:38
+#: public/partials/pslzme-public-cookiebanner.php:54
 msgid "pslzme cookiebar explanation 3"
 msgstr ""
 "Bei pslz<b>me</b> (ausgesprochen: personalize <b>me</b>) handelt es sich um "
@@ -481,7 +481,7 @@ msgstr ""
 "Weise, erstmals Personalisierung, Individualisierung und persönliche "
 "Ansprache auch im Web ermöglicht."
 
-#: public/partials/pslzme-public-cookiebanner.php:39
+#: public/partials/pslzme-public-cookiebanner.php:55
 msgid "pslzme cookiebar explanation 4"
 msgstr ""
 "Unser System ist dabei so aufgebaut, dass alle Informationen unter Einsatz "

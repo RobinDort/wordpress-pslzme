@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T14:37:33+00:00\n"
+"POT-Creation-Date: 2026-02-06T07:55:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
@@ -372,52 +372,52 @@ msgid "Show unpersonalized text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
-#: public/partials/pslzme-public-cookiebanner.php:30
+#: public/partials/pslzme-public-cookiebanner.php:43
 msgid "Yes"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:75
-#: public/partials/pslzme-public-cookiebanner.php:31
+#: public/partials/pslzme-public-cookiebanner.php:44
 msgid "No"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:10
+#: public/partials/pslzme-public-cookiebanner.php:23
 msgid "pslzme cookiebar heading 1"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:11
+#: public/partials/pslzme-public-cookiebanner.php:24
 msgid "pslzme cookiebar heading 2"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:12
+#: public/partials/pslzme-public-cookiebanner.php:25
 msgid "pslzme cookiebar explanation 1"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:13
+#: public/partials/pslzme-public-cookiebanner.php:26
 msgid "pslzme cookiebar explanation 2"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:19
+#: public/partials/pslzme-public-cookiebanner.php:32
 msgid "pslzme cookiebar name verification"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:25
+#: public/partials/pslzme-public-cookiebanner.php:38
 msgid "pslzme cookiebar attempts text"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:26
+#: public/partials/pslzme-public-cookiebanner.php:39
 msgid "pslzme cookiebar confirmation text"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:35
-msgid "pslzme cookiebar more informarion"
+#: public/partials/pslzme-public-cookiebanner.php:50
+msgid "pslzme cookiebar more information"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:38
+#: public/partials/pslzme-public-cookiebanner.php:54
 msgid "pslzme cookiebar explanation 3"
 msgstr ""
 
-#: public/partials/pslzme-public-cookiebanner.php:39
+#: public/partials/pslzme-public-cookiebanner.php:55
 msgid "pslzme cookiebar explanation 4"
 msgstr ""
 

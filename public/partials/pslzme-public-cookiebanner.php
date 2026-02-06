@@ -1,3 +1,11 @@
+<?php
+$options = get_option('pslzme_settings', []);
+$internal_pages = $options['internal_pages'] ?? [];
+
+$imprint_id = ! empty($internal_pages['imprint']) ? (int) $internal_pages['imprint'] : 0;
+$privacy_id = ! empty($internal_pages['privacy']) ? (int) $internal_pages['privacy'] : 0;
+?>
+
 <div id="pslzme-cookiebar">
 		<div class="pslzme-cookiebar-inner">
 			<div class="block">
@@ -43,8 +51,27 @@
 						</div>
 					</details>
 				</section>	
-			</div>
-			<div class="pslzme-cookiebar-info space-top20 block">
+				<div class="pslzme-cookiebar-info space-top20 block">
+					<?php if ($imprint_id || $privacy_id): ?>
+						<p class="pslzme-cookiebar-legal">
+							<?php if ($imprint_id): ?>
+								<a href="<?= esc_url(get_permalink($imprint_id)) ?>">
+									<?= esc_html(get_the_title($imprint_id)) ?>
+								</a>
+							<?php endif; ?>
+
+							<?php if ($imprint_id && $privacy_id): ?>
+								<span class="pslzme-separator"> · </span>
+							<?php endif; ?>
+
+							<?php if ($privacy_id): ?>
+								<a href="<?= esc_url(get_permalink($privacy_id)) ?>">
+									<?= esc_html(get_the_title($privacy_id)) ?>
+								</a>
+							<?php endif; ?>
+						</p>
+					<?php endif; ?>
+				</div>
 			</div>
 		</div>
 	</div>
