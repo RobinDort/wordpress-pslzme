@@ -3,10 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: pslzme 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-"
-"pslzme\n"
-"POT-Creation-Date: 2026-02-05T07:01:39+00:00\n"
-"PO-Revision-Date: 2026-02-05 08:07+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-pslzme\n"
+"POT-Creation-Date: 2026-02-05T14:37:33+00:00\n"
+"PO-Revision-Date: 2026-02-06 08:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -82,97 +81,97 @@ msgstr ""
 msgid "explanation 4"
 msgstr ""
 "If you have not yet created a database user, this should ideally be done "
-"before the database is created. However, this can also be created later "
-"and assigned to the database. To create the user, navigate to the <Create "
+"before the database is created. However, this can also be created later and "
+"assigned to the database. To create the user, navigate to the <Create "
 "database user> section and then enter the required configuration data such "
 "as username and password. Once both the database and the user have been "
 "created, the created user must finally be assigned to the database if this "
 "has not already been done."
 
-#: admin/partials/pslzme-admin-settings-display.php:35
+#: admin/partials/pslzme-admin-settings-display.php:37
 msgid "configuration step 2"
 msgstr "Step 2: Connect database to plszme plugin"
 
-#: admin/partials/pslzme-admin-settings-display.php:36
+#: admin/partials/pslzme-admin-settings-display.php:38
 msgid "explanation 5"
 msgstr ""
-"Next, please enter the connection data of the database you have just "
-"created in the fields below and confirm this by clicking the Save button."
+"Next, please enter the connection data of the database you have just created "
+"in the fields below and confirm this by clicking the Save button."
 
-#: admin/partials/pslzme-admin-settings-display.php:44
-#: admin/partials/pslzme-admin-settings-display.php:82
+#: admin/partials/pslzme-admin-settings-display.php:46
+#: admin/partials/pslzme-admin-settings-display.php:87
 msgid "Save"
 msgstr "Save"
 
-#: admin/partials/pslzme-admin-settings-display.php:49
+#: admin/partials/pslzme-admin-settings-display.php:53
 msgid "configuration step 3"
 msgstr "Step 3: Configure pslzme tables"
 
-#: admin/partials/pslzme-admin-settings-display.php:50
+#: admin/partials/pslzme-admin-settings-display.php:54
 msgid "explanation 6"
 msgstr ""
-"Finally, the required pslzme database tables must be created. This is "
-"fully automated after clicking the button below. Please check again that "
-"the details in the previous step do not contain any errors."
+"Finally, the required pslzme database tables must be created. This is fully "
+"automated after clicking the button below. Please check again that the "
+"details in the previous step do not contain any errors."
 
-#: admin/partials/pslzme-admin-settings-display.php:52
+#: admin/partials/pslzme-admin-settings-display.php:56
 msgid "tables configured"
 msgstr "Tables successfully configured"
 
-#: admin/partials/pslzme-admin-settings-display.php:54
+#: admin/partials/pslzme-admin-settings-display.php:58
 msgid "configure tables"
 msgstr "Configure tables"
 
-#: admin/partials/pslzme-admin-settings-display.php:61
+#: admin/partials/pslzme-admin-settings-display.php:65
 msgid "Pslzme configuration 2"
 msgstr "2: License domain"
 
-#: admin/partials/pslzme-admin-settings-display.php:63
+#: admin/partials/pslzme-admin-settings-display.php:67
 msgid "explanation 7"
 msgstr ""
 "Your domain must be licensed in order to use pslzme. First of all, an "
-"assigned pslzme account is required. If you do not yet have an account, "
-"you can request one at https://www.pslzme.com/en/login. "
+"assigned pslzme account is required. If you do not yet have an account, you "
+"can request one at https://www.pslzme.com/en/login. "
 
-#: admin/partials/pslzme-admin-settings-display.php:64
+#: admin/partials/pslzme-admin-settings-display.php:68
 msgid "explanation 8"
 msgstr ""
-"After your account has been provided, please confirm the following button "
-"to license this domain."
+"After your account has been provided, please confirm the following button to "
+"license this domain."
 
-#: admin/partials/pslzme-admin-settings-display.php:67
+#: admin/partials/pslzme-admin-settings-display.php:71
 msgid "url licensed"
 msgstr "URL successfully licensed"
 
-#: admin/partials/pslzme-admin-settings-display.php:69
+#: admin/partials/pslzme-admin-settings-display.php:73
 msgid "license domain"
 msgstr "License Domain"
 
-#: admin/partials/pslzme-admin-settings-display.php:74
+#: admin/partials/pslzme-admin-settings-display.php:79
 msgid "Pslzme configuration 3"
 msgstr "3: Internal page configuration"
 
-#: admin/partials/pslzme-admin-settings-display.php:75
+#: admin/partials/pslzme-admin-settings-display.php:80
 msgid "explanation 9"
 msgstr ""
 "For a smooth and GDPR-compliant process, pslzme uses internal redirects to "
 "certain subpages of your website."
 
-#: admin/partials/pslzme-admin-settings-display.php:76
+#: admin/partials/pslzme-admin-settings-display.php:81
 msgid "explanation 10"
 msgstr ""
 "For example, the pslzme cookie banner, which functions as an essential "
 "component, requires information on the site's legal notice and data "
 "protection."
 
-#: admin/partials/pslzme-admin-settings-display.php:77
+#: admin/partials/pslzme-admin-settings-display.php:82
 msgid "explanation 11"
 msgstr ""
-"To ensure that internal forwarding can be used without any problems, "
-"please assign the pages described in the fields below with the "
-"corresponding ID to the appropriate internal page. You can find the ID of "
-"the respective page in the contao backend under <Pages> by calling up the "
-"detailed information of the respective page."
+"To ensure that internal forwarding can be used without any problems, please "
+"assign the pages described in the fields below with the corresponding ID to "
+"the appropriate internal page. You can find the ID of the respective page in "
+"the contao backend under <Pages> by calling up the detailed information of "
+"the respective page."
 
 #: admin/pslzme-admin.php:137
 msgid "Database name"
@@ -414,12 +413,80 @@ msgid "Show unpersonalized text"
 msgstr "Show unpersonalized text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
+#: public/partials/pslzme-public-cookiebanner.php:30
 msgid "Yes"
 msgstr "Yes"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:75
+#: public/partials/pslzme-public-cookiebanner.php:31
 msgid "No"
 msgstr "No"
+
+#: public/partials/pslzme-public-cookiebanner.php:10
+msgid "pslzme cookiebar heading 1"
+msgstr "Dear visitor,"
+
+#: public/partials/pslzme-public-cookiebanner.php:11
+msgid "pslzme cookiebar heading 2"
+msgstr ""
+"You have followed a personal pslzme invitation link from <span id=\"pslzme-"
+"cookiebar-link-creator\"></span> via <span id=\"pslzme-cookiebar-first-"
+"contact\"></span>."
+
+#: public/partials/pslzme-public-cookiebanner.php:12
+msgid "pslzme cookiebar explanation 1"
+msgstr ""
+"This enables us to address you personally and GDPR-compliant on our website "
+"and to present our website to you with content tailored to you personally, "
+"provided you allow us to do so."
+
+#: public/partials/pslzme-public-cookiebanner.php:13
+msgid "pslzme cookiebar explanation 2"
+msgstr ""
+"To do this, please enter the first three letters of your surname here and "
+"then click on the <b>Yes</b> button to confirm that we may receive you "
+"personally on our website and deliver personalized content and offers to "
+"you. Or click No to reject personalization. If you click <b>No</b>, we will "
+"redirect you to the non-personalized version of our website."
+
+#: public/partials/pslzme-public-cookiebanner.php:19
+msgid "pslzme cookiebar name verification"
+msgstr "Enter the first three letters of your surname here:"
+
+#: public/partials/pslzme-public-cookiebanner.php:25
+msgid "pslzme cookiebar attempts text"
+msgstr "Remaining attempts: <span id=\"remaining-attempts\">3</span>"
+
+#: public/partials/pslzme-public-cookiebanner.php:26
+msgid "pslzme cookiebar confirmation text"
+msgstr ""
+"Click <strong>Yes</strong> to confirm that we may decrypt your data and use "
+"it to address you personally and personalize content on our website. "
+
+#: public/partials/pslzme-public-cookiebanner.php:35
+msgid "pslzme cookiebar more informarion"
+msgstr "Further information on pslz<b>me</b>"
+
+#: public/partials/pslzme-public-cookiebanner.php:38
+msgid "pslzme cookiebar explanation 3"
+msgstr ""
+"pslz<b>me</b> (pronounced: personalize <b>me</b>) is a GDPR-compliant and "
+"absolutely secure personalization framework developed by us, which can "
+"already be described as a groundbreaking development in the programmatic web "
+"and enables personalization, individualization and a personal approach on "
+"the web for the first time in a secure and data-saving manner."
+
+#: public/partials/pslzme-public-cookiebanner.php:39
+msgid "pslzme cookiebar explanation 4"
+msgstr ""
+"Our system is structured in such a way that all information is packed into a "
+"simple link using the highest security measures at different security "
+"levels. So secure that our system itself does not know your data and we "
+"cannot track it either. At no time does unencrypted data transmission or "
+"storage take place. We also work exclusively with personal data that you "
+"have published voluntarily. There is neither tracking based on your data nor "
+"profiling. And pslz<b>me</b> only decrypts and processes your personal data "
+"if you expressly allow us to do so."
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:112
 #: public/partials/pslzme-public-elementor-pslzme-content.php:149

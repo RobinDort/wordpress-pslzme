@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-05T07:01:39+00:00\n"
+"POT-Creation-Date: 2026-02-05T14:37:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
@@ -67,68 +67,68 @@ msgstr ""
 msgid "explanation 4"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:35
+#: admin/partials/pslzme-admin-settings-display.php:37
 msgid "configuration step 2"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:36
+#: admin/partials/pslzme-admin-settings-display.php:38
 msgid "explanation 5"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:44
-#: admin/partials/pslzme-admin-settings-display.php:82
+#: admin/partials/pslzme-admin-settings-display.php:46
+#: admin/partials/pslzme-admin-settings-display.php:87
 msgid "Save"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:49
+#: admin/partials/pslzme-admin-settings-display.php:53
 msgid "configuration step 3"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:50
+#: admin/partials/pslzme-admin-settings-display.php:54
 msgid "explanation 6"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:52
+#: admin/partials/pslzme-admin-settings-display.php:56
 msgid "tables configured"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:54
+#: admin/partials/pslzme-admin-settings-display.php:58
 msgid "configure tables"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:61
+#: admin/partials/pslzme-admin-settings-display.php:65
 msgid "Pslzme configuration 2"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:63
+#: admin/partials/pslzme-admin-settings-display.php:67
 msgid "explanation 7"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:64
+#: admin/partials/pslzme-admin-settings-display.php:68
 msgid "explanation 8"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:67
+#: admin/partials/pslzme-admin-settings-display.php:71
 msgid "url licensed"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:69
+#: admin/partials/pslzme-admin-settings-display.php:73
 msgid "license domain"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:74
+#: admin/partials/pslzme-admin-settings-display.php:79
 msgid "Pslzme configuration 3"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:75
+#: admin/partials/pslzme-admin-settings-display.php:80
 msgid "explanation 9"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:76
+#: admin/partials/pslzme-admin-settings-display.php:81
 msgid "explanation 10"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:77
+#: admin/partials/pslzme-admin-settings-display.php:82
 msgid "explanation 11"
 msgstr ""
 
@@ -372,11 +372,53 @@ msgid "Show unpersonalized text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
+#: public/partials/pslzme-public-cookiebanner.php:30
 msgid "Yes"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:75
+#: public/partials/pslzme-public-cookiebanner.php:31
 msgid "No"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:10
+msgid "pslzme cookiebar heading 1"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:11
+msgid "pslzme cookiebar heading 2"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:12
+msgid "pslzme cookiebar explanation 1"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:13
+msgid "pslzme cookiebar explanation 2"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:19
+msgid "pslzme cookiebar name verification"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:25
+msgid "pslzme cookiebar attempts text"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:26
+msgid "pslzme cookiebar confirmation text"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:35
+msgid "pslzme cookiebar more informarion"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:38
+msgid "pslzme cookiebar explanation 3"
+msgstr ""
+
+#: public/partials/pslzme-public-cookiebanner.php:39
+msgid "pslzme cookiebar explanation 4"
 msgstr ""
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:112

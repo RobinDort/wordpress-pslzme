@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pslzme 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-pslzme\n"
-"POT-Creation-Date: 2026-02-05T07:01:39+00:00\n"
-"PO-Revision-Date: 2026-02-05 08:10+0100\n"
+"POT-Creation-Date: 2026-02-05T14:37:33+00:00\n"
+"PO-Revision-Date: 2026-02-06 07:53+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -87,27 +87,27 @@ msgstr ""
 "Username und Passwort zu. Nach beidiger Erstellung muss zuletzt - wenn nicht "
 "bereits getan - der erstellte User noch der Datenbank zugewiesen werden."
 
-#: admin/partials/pslzme-admin-settings-display.php:35
+#: admin/partials/pslzme-admin-settings-display.php:37
 msgid "configuration step 2"
 msgstr "Schritt 2: Datenbank an pslzme plugin Anbinden"
 
-#: admin/partials/pslzme-admin-settings-display.php:36
+#: admin/partials/pslzme-admin-settings-display.php:38
 msgid "explanation 5"
 msgstr ""
 "Als nächstes tragen Sie bitte die Verbindungsdaten der soeben erstellten "
 "Datenbank in die nachstehenden Felder ein und bestätigen dies durch Klick "
 "des Speichern buttons."
 
-#: admin/partials/pslzme-admin-settings-display.php:44
-#: admin/partials/pslzme-admin-settings-display.php:82
+#: admin/partials/pslzme-admin-settings-display.php:46
+#: admin/partials/pslzme-admin-settings-display.php:87
 msgid "Save"
 msgstr "Speichern"
 
-#: admin/partials/pslzme-admin-settings-display.php:49
+#: admin/partials/pslzme-admin-settings-display.php:53
 msgid "configuration step 3"
 msgstr "Schritt 3: pslzme Tabellen konfigurieren"
 
-#: admin/partials/pslzme-admin-settings-display.php:50
+#: admin/partials/pslzme-admin-settings-display.php:54
 msgid "explanation 6"
 msgstr ""
 "Zuletzt müssen die benötigten pslzme Datenbanktabellen angelegt werden. Dies "
@@ -115,19 +115,19 @@ msgstr ""
 "Buttons. Bitte prüfen Sie erneut, ob die Angaben im vorherigen Schritt keine "
 "Fehler enthalten."
 
-#: admin/partials/pslzme-admin-settings-display.php:52
+#: admin/partials/pslzme-admin-settings-display.php:56
 msgid "tables configured"
 msgstr "Tabellen erfolgreich konfiguriert"
 
-#: admin/partials/pslzme-admin-settings-display.php:54
+#: admin/partials/pslzme-admin-settings-display.php:58
 msgid "configure tables"
 msgstr "Tabellen anlegen"
 
-#: admin/partials/pslzme-admin-settings-display.php:61
+#: admin/partials/pslzme-admin-settings-display.php:65
 msgid "Pslzme configuration 2"
 msgstr "2: Domain lizensieren"
 
-#: admin/partials/pslzme-admin-settings-display.php:63
+#: admin/partials/pslzme-admin-settings-display.php:67
 msgid "explanation 7"
 msgstr ""
 "Für die Nutzung von pslzme ist eine Lizenzierung Ihrer Domain erforderlich. "
@@ -135,37 +135,37 @@ msgstr ""
 "keinen Account besitzen, können Sie diesen unter https://www.pslzme.com/de/"
 "login anfordern."
 
-#: admin/partials/pslzme-admin-settings-display.php:64
+#: admin/partials/pslzme-admin-settings-display.php:68
 msgid "explanation 8"
 msgstr ""
 "Nachdem Ihr Account bereitgestellt wurde, bestätigen Sie bitte abschließend "
 "den nachfolgenden Button zur Lizenzierung dieser Domain."
 
-#: admin/partials/pslzme-admin-settings-display.php:67
+#: admin/partials/pslzme-admin-settings-display.php:71
 msgid "url licensed"
 msgstr "Domain erfolgreich lizensiert"
 
-#: admin/partials/pslzme-admin-settings-display.php:69
+#: admin/partials/pslzme-admin-settings-display.php:73
 msgid "license domain"
 msgstr "Domain lizensieren"
 
-#: admin/partials/pslzme-admin-settings-display.php:74
+#: admin/partials/pslzme-admin-settings-display.php:79
 msgid "Pslzme configuration 3"
 msgstr "3: Interne Seiten Konfiguration"
 
-#: admin/partials/pslzme-admin-settings-display.php:75
+#: admin/partials/pslzme-admin-settings-display.php:80
 msgid "explanation 9"
 msgstr ""
 "Für einen reibungslosen und DSGVO-Konformen Ablauf nutzt pslzme interne "
 "Weiterleitungen zu bestimmten Unterseiten Ihrer Webseite."
 
-#: admin/partials/pslzme-admin-settings-display.php:76
+#: admin/partials/pslzme-admin-settings-display.php:81
 msgid "explanation 10"
 msgstr ""
 "Beispielsweise benötigt der pslz<strong>me</strong> Cookiebanner, welcher "
 "als essentielles Bestandsteil fungiert, Angaben zu Impressum und Datenschutz."
 
-#: admin/partials/pslzme-admin-settings-display.php:77
+#: admin/partials/pslzme-admin-settings-display.php:82
 msgid "explanation 11"
 msgstr ""
 "Damit die interne Weiterleitung problemlos genutzt werden kann, weissen Sie "
@@ -414,12 +414,86 @@ msgid "Show unpersonalized text"
 msgstr "Unpersonalisierten Text anzeigen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
+#: public/partials/pslzme-public-cookiebanner.php:30
 msgid "Yes"
 msgstr "Ja"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:75
+#: public/partials/pslzme-public-cookiebanner.php:31
 msgid "No"
 msgstr "Nein"
+
+#: public/partials/pslzme-public-cookiebanner.php:10
+msgid "pslzme cookiebar heading 1"
+msgstr "Sehr geehrte/r BesucherIn,"
+
+#: public/partials/pslzme-public-cookiebanner.php:11
+msgid "pslzme cookiebar heading 2"
+msgstr ""
+"Sie sind über <span id=\"pslzme-cookiebar-first-contact\"></span> einem "
+"persönlichen pslz<b>me</b> Einladungslink von <span id=\"pslzme-cookiebar-"
+"link-creator\"></span> gefolgt."
+
+#: public/partials/pslzme-public-cookiebanner.php:12
+msgid "pslzme cookiebar explanation 1"
+msgstr ""
+"Hierdurch sind wir in der Lage, Sie auf unserer Webseite DSGVO-konform "
+"persönlich anzusprechen und Ihnen unsere Webseite mit persönlich für Sie "
+"zugeschnittenen Inhalten zu präsentieren, sofern Sie uns dies gestatten."
+
+#: public/partials/pslzme-public-cookiebanner.php:13
+msgid "pslzme cookiebar explanation 2"
+msgstr ""
+"Um dies zu tun, geben Sie bitte hier die ersten drei Buchstaben Ihres "
+"Nachnamens ein und bestätigen Sie dann zusätzlich mit einem Klick auf den "
+"<b>Ja-Button</b>, dass wir Sie persönlich auf unserer Webseite empfangen und "
+"Ihnen individuelle Inhalte und Angebote ausliefern dürfen. Oder lehnen Sie "
+"die Personalisierung mit Klick auf <strong>Nein</strong> ab. Sofern Sie Nein "
+"klicken, werden wir Sie auf die unpersonalisierte Version unserer Webseite "
+"weiterleiten."
+
+#: public/partials/pslzme-public-cookiebanner.php:19
+msgid "pslzme cookiebar name verification"
+msgstr "Geben Sie hier nun die ersten drei Buchstaben Ihres Nachnamens ein:"
+
+#: public/partials/pslzme-public-cookiebanner.php:25
+msgid "pslzme cookiebar attempts text"
+msgstr "Restliche Versuche: <span id=\"remaining-attempts\">3</span>"
+
+#: public/partials/pslzme-public-cookiebanner.php:26
+msgid "pslzme cookiebar confirmation text"
+msgstr ""
+"Bestätigen Sie nachfolgend dann mit einem Klick auf <strong>Ja</strong>, "
+"dass wir Ihre Daten entschlüsseln und zur persönlichen Ansprache und "
+"personalisierten Inhalten auf unserer Webseite verwenden dürfen."
+
+#: public/partials/pslzme-public-cookiebanner.php:35
+msgid "pslzme cookiebar more informarion"
+msgstr "Weiterführende Informationen zu pslz<b>me</b>"
+
+#: public/partials/pslzme-public-cookiebanner.php:38
+msgid "pslzme cookiebar explanation 3"
+msgstr ""
+"Bei pslz<b>me</b> (ausgesprochen: personalize <b>me</b>) handelt es sich um "
+"ein von uns entwickeltes, DSGVO-konformes und absolut sicheres "
+"Personalisierungs-Framework, das schon jetzt als bahnbrechende Entwicklung "
+"im Programmatic Web bezeichnet werden darf und auf sichere und datensparsame "
+"Weise, erstmals Personalisierung, Individualisierung und persönliche "
+"Ansprache auch im Web ermöglicht."
+
+#: public/partials/pslzme-public-cookiebanner.php:39
+msgid "pslzme cookiebar explanation 4"
+msgstr ""
+"Unser System ist dabei so aufgebaut, dass alle Informationen unter Einsatz "
+"höchster Sicherheitsmaßnahmen auf unterschiedlichen Sicherheitsebenen in "
+"einen einfachen Link gepackt werden. So sicher, dass unser System selbst "
+"Ihre Daten nicht kennt und ebenso wir diese nicht tracken können. Es findet "
+"auch zu keinem Zeitpunkt eine unverschlüsselte Datenübertragung und "
+"-speicherung statt. Wir arbeiten hier ausschließlich mit personengebundenen "
+"Daten, die Sie freiwillig veröffentlicht haben. Es findet weder ein Tracking "
+"auf Basis Ihrer Daten, noch ein Profiling statt. Und pslz<b>me</b> "
+"entschlüsselt und verarbeitet Ihre personengebundenen Daten erst und "
+"ausschließlich dann, wenn Sie uns dies ausdrücklich erlauben."
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:112
 #: public/partials/pslzme-public-elementor-pslzme-content.php:149
