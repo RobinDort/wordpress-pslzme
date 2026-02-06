@@ -229,6 +229,9 @@ class Pslzme {
 		//Hide pslzme pages in menus if decryption not valid
 		$this->loader->add_filter( 'wp_nav_menu_objects', $plugin_admin, 'hide_pslzme_pages_in_menus', 10, 2 );
 
+		// Add custom Gutenberg category for pslzme blocks
+		$this->loader->add_filter( 'block_categories_all', $plugin_admin, 'add_custom_gutenberg_category', 10,2);
+
 	}
 
 	/**
@@ -243,6 +246,7 @@ class Pslzme {
 		$plugin_public = new Pslzme_Public( $this->get_pslzme(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_public, 'register_pslzme_shortcodes');
+		$this->loader->add_action( 'init', $plugin_public, 'register_pslzme_text_gutenberg_block');
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );	
 		$this->loader->add_action( 'rest_api_init', $plugin_public, 'register_rest_routes');

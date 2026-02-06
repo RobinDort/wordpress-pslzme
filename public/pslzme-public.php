@@ -115,6 +115,17 @@ class Pslzme_Public {
 		);
 	}
 
+	public function register_pslzme_text_gutenberg_block() {
+
+		register_block_type(plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-text');
+
+		wp_set_script_translations(
+			'pslzme-text-block-editor-script',
+			'pslzme',
+			plugin_dir_path(dirname(__FILE__)) . 'languages'
+		);
+	}
+
 
 	public function register_rest_routes() {
 		register_rest_route("pslzme/v1", "/requestHandler", [

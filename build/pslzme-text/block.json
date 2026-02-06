@@ -1,0 +1,26 @@
+{
+  "apiVersion": 3,
+  "name": "pslzme-text/block",
+  "icon": "games",
+  "title": "Pslzme Text",
+  "category": "Pslzme",
+  "description": "",
+  "keywords": [
+    "Pslzme",
+    "pslzme",
+    "Text",
+    "text",
+    "Pslzme Text",
+    "pslzme text"
+  ],
+  "textdomain": "pslzme",
+  "attributes": {
+    "personalized_text": {
+      "type": "string",
+      "source": "html",
+      "selector": ".pslzme-text-content"
+    }
+  },
+  "supports": {},
+  "editorScript": "file:./index.js"
+}

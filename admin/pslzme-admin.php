@@ -307,6 +307,18 @@ class Pslzme_Admin {
 		}
 	}
 
+	public function add_custom_gutenberg_category($categories, $post) {
+		return array_merge(
+			$categories,
+			[
+				[
+					'slug'  => 'Pslzme',
+					'title' => __('Pslzme', 'pslzme'),
+					'icon'  => null, // Optional, could be a dashicon slug or SVG
+				],
+			]
+    	);
+	}
 
 	private function pslzme_template_array() {
 		$templates = [];
