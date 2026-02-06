@@ -76,7 +76,11 @@ function checkQueryIsLocked(urlParams) {
 
 	return new Promise(function (resolve) {
 		handleAPIRequest(requestObject).then((response) => {
-			resolve(response.queryIsLocked);
+			if (Array.isArray(response) && response.length > 0) {
+				resolve(response[0].queryIsLocked);
+			} else {
+				resolve(null); // or reject(new Error("Invalid response"))
+			}
 		});
 	});
 }

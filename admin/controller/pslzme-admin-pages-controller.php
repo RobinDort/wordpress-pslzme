@@ -19,7 +19,7 @@ class PslzmeAdminPagesController {
         <p style='text-align: left;'><strong>Best regards,</strong><br><strong>Your team at Alexander Dort GmbH</strong></p>";
 
         $existing_page = get_page_by_title($pageTitle);
-        if ($existing_page) {
+        if ($existing_page && $existing_page->post_status !== 'trash') {
             return $existing_page->ID; // page already exists
         }
 
@@ -53,14 +53,13 @@ class PslzmeAdminPagesController {
         $pageSlug = "pslzme-decline";
 
         $pageContent = 
-        "<h1 style='text-align: center;'><strong>Dear visitor,</strong></h1>
-        <p style='text-align: center;'>For your security, the pslz<strong>me</strong> link you used was blocked after entering incorrect initials three or more times.</p>
-        <p style='text-align: center;'>If this was not your fault and you wish to continue using our pslz<strong>me</strong> personalization link, please contact us and we will send you a new link.</p>
-        <p style='text-align: center;'>[nbsp]</p>
-        <p style='text-align: center;'><strong>Of course, you can continue to use our non-personalized website without any restrictions.</strong></p>";
+        "<h1 style='text-align: left;'><strong>Dear visitor,</strong></h1>
+        <p style='text-align: left;'>For your security, the pslz<strong>me</strong> link you used was blocked after entering incorrect initials three or more times.</p>
+        <p style='text-align: left;'>If this was not your fault and you wish to continue using our pslz<strong>me</strong> personalization link, please contact us and we will send you a new link.</p>
+        <p style='text-align: left;'><strong>Of course, you can continue to use our non-personalized website without any restrictions.</strong></p>";
 
         $existing_page = get_page_by_title($pageTitle);
-        if ($existing_page) {
+        if ($existing_page && $existing_page->post_status !== 'trash') {
             return $existing_page->ID; // page already exists
         }
 
