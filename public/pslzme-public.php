@@ -115,7 +115,7 @@ class Pslzme_Public {
 		);
 	}
 
-	public function register_pslzme_text_gutenberg_block() {
+	public function register_gutenberg_blocks() {
 		$decryptionController = DecryptionController::get_instance();
     	$varsSet = $decryptionController->vars_set();
 
@@ -126,8 +126,15 @@ class Pslzme_Public {
         ]);
 
 
+		register_block_type(
+			plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-content',
+        [
+            'render_callback' => [$this, 'render_pslzme_content_block']
+        ]);
+
+
 		wp_set_script_translations(
-			'pslzme-text-block-editor-script',
+			'pslzme-block-editor-script',
 			'pslzme',
 			plugin_dir_path(dirname(__FILE__)) . 'languages'
 		);
@@ -206,6 +213,17 @@ class Pslzme_Public {
 				</div>
 			<?php endif; ?>
 		</div>
+		<?php
+		return ob_get_clean();
+	}
+
+	public function render_pslzme_content_block() {
+		ob_start();
+		?>
+
+		<div <?= get_block_wrapper_attributes(); ?>>
+		</div>
+		
 		<?php
 		return ob_get_clean();
 	}
