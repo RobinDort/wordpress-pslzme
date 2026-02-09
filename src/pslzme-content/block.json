@@ -8,6 +8,10 @@
 	"keywords": ["Pslzme", "pslzme", "Content", "content", "Pslzme Content", "pslzme content"],
 	"textdomain": "pslzme",
 	"attributes": {
+		"content_type": {
+			"type": "string",
+			"default": "image"
+		},
 		"personalized_image": {
 			"type": "object",
 			"default": {

@@ -15,6 +15,10 @@
   ],
   "textdomain": "pslzme",
   "attributes": {
+    "content_type": {
+      "type": "string",
+      "default": "image"
+    },
     "personalized_image": {
       "type": "object",
       "default": {
