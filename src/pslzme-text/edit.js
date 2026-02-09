@@ -25,7 +25,7 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(value) => setAttributes({ unpersonalized_text: value })}
 						/>
 						<CheckboxControl
-							label={__("Show Unpersonalized Text", "pslzme")}
+							label={__("Show unpersonalized Text", "pslzme")}
 							checked={attributes.show_unpersonalized_text}
 							onChange={(checked) => setAttributes({ show_unpersonalized_text: checked })}
 						/>

@@ -33,6 +33,28 @@
 		"personalized_image_link": {
 			"type": "number",
 			"default": 0
+		},
+		"unpersonalized_image": {
+			"type": "object",
+			"default": {
+				"id": 0
+			}
+		},
+		"unpersonalized_image_alt": {
+			"type": "string",
+			"default": ""
+		},
+		"unpersonalized_image_size": {
+			"type": "string",
+			"default": "full"
+		},
+		"unpersonalized_image_caption": {
+			"type": "string",
+			"default": ""
+		},
+		"unpersonalized_image_link": {
+			"type": "number",
+			"default": 0
 		}
 	},
 	"supports": { "html": false },

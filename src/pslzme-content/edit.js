@@ -46,7 +46,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{attributes.content_type === "image" && (
 					<Panel>
-						<PanelBody title={__("Pslzme content personalized image settings", "pslzme")}>
+						<PanelBody title={__("Pslzme content personalized image settings", "pslzme")} initialOpen={false}>
 							<MediaUploadCheck>
 								<MediaUpload
 									onSelect={(image) => {
@@ -105,13 +105,73 @@ export default function Edit({ attributes, setAttributes }) {
 								}
 							/>
 						</PanelBody>
+
+						<PanelBody title={__("Pslzme content unpersonalized image settings", "pslzme")} initialOpen={false}>
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={(image) => {
+										setAttributes({ unpersonalized_image: { id: image.id, url: image.url } });
+									}}
+									allowedTypes={["image/jpeg", "image/png", "image/svg"]}
+									value={attributes.unpersonalized_image.id}
+									render={({ open }) => (
+										<>
+											{!attributes.unpersonalized_image.id && (
+												<Button isSecondary onClick={open}>
+													{__("Pslzme content unpersonalized image", "pslzme")}
+												</Button>
+											)}
+											{!!attributes.unpersonalized_image.id && attributes.unpersonalized_image.id && (
+												<>
+													<img src={attributes.unpersonalized_image.url} onClick={open} />
+													<Button isLink isDestructive onClick={() => setAttributes({ unpersonalized_image: { id: 0, url: "" } })}>
+														{__("Delete image", "pslzme")}
+													</Button>
+												</>
+											)}
+										</>
+									)}
+								/>
+							</MediaUploadCheck>
+
+							<TextControl
+								label={__("Pslzme content unpersonalized image alt text", "pslzme")}
+								value={attributes.unpersonalized_image_alt}
+								onChange={(value) => setAttributes({ unpersonalized_image_alt: value })}
+							/>
+
+							<SelectControl
+								label={__("Pslzme content unpersonalized image size", "pslzme")}
+								value={attributes.unpersonalized_image_size}
+								options={[...imageSizeOptions]}
+								onChange={(value) => setAttributes({ unpersonalized_image_size: value })}
+							/>
+
+							<TextareaControl
+								label={__("Pslzme content unpersonalized image caption", "pslzme")}
+								rows={2}
+								value={attributes.unpersonalized_image_caption}
+								onChange={(value) => setAttributes({ unpersonalized_image_caption: value })}
+							/>
+
+							<SelectControl
+								label={__("Pslzme content unpersonalized image link", "pslzme")}
+								value={attributes.unpersonalized_image_link}
+								options={pageOptions}
+								onChange={(value) =>
+									setAttributes({
+										unpersonalized_image_link: parseInt(value),
+									})
+								}
+							/>
+						</PanelBody>
 					</Panel>
 				)}
 
 				{attributes.content_type === "video" && (
 					<Panel>
 						<PanelBody title={__("Pslzme content personalized video settings", "pslzme")}>
-							<TextControl label={__("Pslzme content personalized video URL", "pslzme")} value="" />
+							<TextControl label={__("Pslzme content personalized video", "pslzme")} value="" />
 						</PanelBody>
 					</Panel>
 				)}
