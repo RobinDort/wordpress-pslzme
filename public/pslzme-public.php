@@ -116,8 +116,8 @@ class Pslzme_Public {
 	}
 
 	public function register_gutenberg_blocks() {
-		$decryptionController = DecryptionController::get_instance();
-    	$varsSet = $decryptionController->vars_set();
+		$availableImageSizes = $this->get_available_image_sizes();
+
 
 		register_block_type(
 			plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-text',
@@ -131,6 +131,14 @@ class Pslzme_Public {
         [
             'render_callback' => [$this, 'render_pslzme_content_block']
         ]);
+
+		wp_localize_script(
+			'pslzme-content-block-editor-script',
+			'pslzmeGutenbergData',
+			[
+				'imageSizes' => $availableImageSizes,
+			]
+		);
 
 
 		wp_set_script_translations(
@@ -223,9 +231,40 @@ class Pslzme_Public {
 
 		<div <?= get_block_wrapper_attributes(); ?>>
 		</div>
-		
+
 		<?php
 		return ob_get_clean();
+	}
+
+	private function get_available_image_sizes() {
+		global $_wp_additional_image_sizes;
+
+		$sizes = [];
+
+		foreach ( get_intermediate_image_sizes() as $size ) {
+
+			if ( in_array( $size, ['thumbnail','medium','large'] ) ) {
+				$width  = get_option( "{$size}_size_w" );
+				$height = get_option( "{$size}_size_h" );
+			} elseif ( isset( $_wp_additional_image_sizes[ $size ] ) ) {
+				$width  = $_wp_additional_image_sizes[ $size ]['width'];
+				$height = $_wp_additional_image_sizes[ $size ]['height'];
+			} else {
+				$width = $height = '';
+			}
+
+			$label = ucfirst($size);
+
+			if ($width && $height) {
+				$label .= " ({$width}x{$height})";
+			}
+
+			$sizes[] = [
+				'label' => $label,
+				'value' => $size,
+			];
+		}
+		return $sizes;
 	}
 
 }

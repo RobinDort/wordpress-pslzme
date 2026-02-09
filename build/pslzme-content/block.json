@@ -14,7 +14,30 @@
     "pslzme content"
   ],
   "textdomain": "pslzme",
-  "attributes": {},
+  "attributes": {
+    "personalized_image": {
+      "type": "object",
+      "default": {
+        "id": 0
+      }
+    },
+    "personalized_image_alt": {
+      "type": "string",
+      "default": ""
+    },
+    "personalized_image_size": {
+      "type": "string",
+      "default": "full"
+    },
+    "personalized_image_caption": {
+      "type": "string",
+      "default": ""
+    },
+    "personalized_image_link": {
+      "type": "number",
+      "default": 0
+    }
+  },
   "supports": {
     "html": false
   },
