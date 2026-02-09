@@ -1,0 +1,13 @@
+{
+	"apiVersion": 3,
+	"name": "pslzme-content/block",
+	"icon": "games",
+	"title": "Pslzme Content",
+	"category": "Pslzme",
+	"description": "",
+	"keywords": ["Pslzme", "pslzme", "Content", "content", "Pslzme Content", "pslzme content"],
+	"textdomain": "pslzme",
+	"attributes": {},
+	"supports": { "html": false },
+	"editorScript": "file:./index.js"
+}
