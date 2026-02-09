@@ -116,8 +116,15 @@ class Pslzme_Public {
 	}
 
 	public function register_pslzme_text_gutenberg_block() {
+		$decryptionController = DecryptionController::get_instance();
+    	$varsSet = $decryptionController->vars_set();
 
-		register_block_type(plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-text');
+		register_block_type(
+			plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-text',
+        [
+            'render_callback' => [$this, 'render_pslzme_text_block']
+        ]);
+
 
 		wp_set_script_translations(
 			'pslzme-text-block-editor-script',
@@ -134,6 +141,7 @@ class Pslzme_Public {
 			'permission_callback' => '__return_true' // public access
 		]);
 	}
+
 
 	public function handle_rest_request($request) {
 		$publicRouteController = new PslzmePublicRouteController();
@@ -175,6 +183,31 @@ class Pslzme_Public {
 	public function register_pslzme_shortcodes() {
         $shortcodeService = new PslzmeShortcodeService();
 		$shortcodeService->register_shortcodes();
+	}
+
+	public function render_pslzme_text_block( $attributes ) {
+		$decryptionController = DecryptionController::get_instance();
+		$varsSet = $decryptionController->vars_set();
+
+		$personalized_text   = $attributes['personalized_text'] ?? '';
+		$unpersonalized_text = $attributes['unpersonalized_text'] ?? '';
+		$show_unpersonalized = $attributes['show_unpersonalized_text'] ?? true;
+
+		ob_start();
+		?>
+		<div <?= get_block_wrapper_attributes(); ?>>
+			<?php if ($varsSet): ?>
+				<div class="personalized-text-content">
+					<?= wp_kses_post($personalized_text); ?>
+				</div>
+			<?php elseif ($show_unpersonalized): ?>
+				<div class="unpersonalized-text-content">
+					<?= wp_kses_post($unpersonalized_text); ?>
+				</div>
+			<?php endif; ?>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 
 }

@@ -9,11 +9,16 @@
 	"textdomain": "pslzme",
 	"attributes": {
 		"personalized_text": {
-			"type": "string",
-			"source": "html",
-			"selector": ".pslzme-text-content"
+			"type": "string"
+		},
+		"unpersonalized_text": {
+			"type": "string"
+		},
+		"show_unpersonalized_text": {
+			"type": "boolean",
+			"default": true
 		}
 	},
-	"supports": {},
+	"supports": { "html": false },
 	"editorScript": "file:./index.js"
 }
