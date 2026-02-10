@@ -1,5 +1,5 @@
 import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
-import { Panel, PanelBody, TextControl, SelectControl, Flex, FlexItem, Button, __experimentalSpacer as Spacer } from "@wordpress/components";
+import { Panel, PanelBody, TextControl, SelectControl, BaseControl, Flex, FlexItem, Button, __experimentalSpacer as Spacer } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
 export default function Edit({ attributes, setAttributes }) {
@@ -22,36 +22,38 @@ export default function Edit({ attributes, setAttributes }) {
 							value={attributes.unpersonalized_text}
 							onChange={(value) => setAttributes({ unpersonalized_text: value })}
 						/>
-						<Flex expanded>
-							<FlexItem>
-								<TextControl
-									label={__("Pslzme image dimension Top", "pslzme")}
-									value={attributes.image_dimension_top}
-									onChange={(value) => setAttributes({ image_dimension_top: value })}
-								/>
-							</FlexItem>
-							<FlexItem>
-								<TextControl
-									label={__("Pslzme image dimension Right", "pslzme")}
-									value={attributes.image_dimension_right}
-									onChange={(value) => setAttributes({ image_dimension_right: value })}
-								/>
-							</FlexItem>
-							<FlexItem>
-								<TextControl
-									label={__("Pslzme image dimension Bottom", "pslzme")}
-									value={attributes.image_dimension_bottom}
-									onChange={(value) => setAttributes({ image_dimension_bottom: value })}
-								/>
-							</FlexItem>
-							<FlexItem>
-								<TextControl
-									label={__("Pslzme image dimension Left", "pslzme")}
-									value={attributes.image_dimension_left}
-									onChange={(value) => setAttributes({ image_dimension_left: value })}
-								/>
-							</FlexItem>
-						</Flex>
+						<BaseControl label={__("Pslzme image container spacing", "pslzme")}>
+							<Flex expanded>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme image dimension Top", "pslzme")}
+										value={attributes.image_dimension_top}
+										onChange={(value) => setAttributes({ image_dimension_top: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme image dimension Right", "pslzme")}
+										value={attributes.image_dimension_right}
+										onChange={(value) => setAttributes({ image_dimension_right: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme image dimension Bottom", "pslzme")}
+										value={attributes.image_dimension_bottom}
+										onChange={(value) => setAttributes({ image_dimension_bottom: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme image dimension Left", "pslzme")}
+										value={attributes.image_dimension_left}
+										onChange={(value) => setAttributes({ image_dimension_left: value })}
+									/>
+								</FlexItem>
+							</Flex>
+						</BaseControl>
 
 						<Spacer marginY={5} />
 
