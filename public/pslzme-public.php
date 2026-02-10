@@ -225,11 +225,110 @@ class Pslzme_Public {
 		return ob_get_clean();
 	}
 
-	public function render_pslzme_content_block() {
+	public function render_pslzme_content_block( $attributes ) {
+		$decryptionController = DecryptionController::get_instance();
+		$varsSet = $decryptionController->vars_set();
+
+		$contentType = $attributes['content_type'] ?? '';
+
+		$personalizedImage = $attributes['personalized_image'] ?? null;
+		$personalizedImageAlt = $attributes['personalized_image_alt'] ?? '';
+		$personalizedImageSize = $attributes['personalized_image_size'] ?? 'full';
+		$personalizedImageCaption = $attributes['personalized_image_caption'] ?? '';
+		$personalizedImageLinkID = $attributes['personalized_image_link'] ?? '';
+		$personalizedImageLinkUrl = $personalizedImageLinkID ? get_permalink($personalizedImageLinkID) : '';
+
+		$unpersonalizedImage = $attributes['unpersonalized_image'] ?? null;
+		$unpersonalizedImageAlt = $attributes['unpersonalized_image_alt'] ?? '';
+		$unpersonalizedImageSize = $attributes['unpersonalized_image_size'] ?? 'full';
+		$unpersonalizedImageCaption = $attributes['unpersonalized_image_caption'] ?? '';
+		$unpersonalizedImageLinkID = $attributes['unpersonalized_image_link'] ?? '';
+		$unpersonalizedImageLinkUrl = $unpersonalizedImageLinkID ? get_permalink($unpersonalizedImageLinkID) : '';
+
+		$personalizedVideo = $attributes['personalized_video'] ?? null;
+		$personalizedVideoWidth = $attributes['personalized_video_width'] ?? '';
+		$personalizedVideoHeight = $attributes['personalized_video_height'] ?? '';
+		$personalizedVideoOptions = $attributes['personalized_video_options'] ?? [];
+		$personalizedVideoAttributes = [];
+
+		$availableOptions = ['autoplay', 'loop', 'muted', 'playsinline'];
+
+		foreach ($personalizedVideoOptions as $option) {
+			if (in_array($option, $availableOptions, true)) {
+				$personalizedVideoAttributes[] = $option;
+			}
+		}
+
+		// Add controls if not hidden
+		if (!in_array('controls_hidden', $personalizedVideoOptions, true)) {
+			$personalizedVideoAttributes[] = 'controls';
+		}
+		$personalizedVideoAttributes = implode(' ', $personalizedVideoAttributes);
+
+		$unpersonalizedVideo = $attributes['unpersonalized_video'] ?? null;
+		$unpersonalizedVideoWidth = $attributes['unpersonalized_video_width'] ?? '';
+		$unpersonalizedVideoHeight = $attributes['unpersonalized_video_height'] ?? '';
+		$unpersonalizedVideoOptions = $attributes['unpersonalized_video_options'] ?? [];
+		$unpersonalizedVideoAttributes = [];
+
+		foreach ($unpersonalizedVideoOptions as $option) {
+			if (in_array($option, $availableOptions, true)) {
+				$unpersonalizedVideoAttributes[] = $option;
+			}
+		}
+
+		// Add controls if not hidden
+		if (!in_array('controls_hidden', $unpersonalizedVideoOptions, true)) {
+			$unpersonalizedVideoAttributes[] = 'controls';
+		}
+		$unpersonalizedVideoAttributes = implode(' ', $unpersonalizedVideoAttributes);
+
+		error_log($personalizedVideoAttributes);
+		error_log($unpersonalizedVideoAttributes);
+
 		ob_start();
 		?>
 
 		<div <?= get_block_wrapper_attributes(); ?>>
+			<?php if ($varsSet) :?>
+				<?php if ($contentType === "image") :?>
+					<div class="ce_image pslzme-image">
+						<a href="<?= esc_url($personalizedImageLinkUrl); ?>">
+							<img src="<?= esc_url($personalizedImage['url']); ?>" alt="<?= esc_attr($personalizedImageAlt); ?>" />
+							<?php if ( $personalizedImageCaption ) : ?>
+								<figcaption><?= esc_html( $personalizedImageCaption ); ?></figcaption>
+							<?php endif; ?>
+						</a>
+					</div>
+				<?php elseif ($contentType === "video") :?>
+					<div class="ce_video pslzme-video">
+						<video width="<?= esc_attr($personalizedVideoWidth); ?>" height="<?= esc_attr($personalizedVideoHeight); ?>" <?= $personalizedVideoAttributes; ?>>
+							<source src="<?= esc_url($personalizedVideo['url']); ?>">
+							<?= esc_html__('Your browser does not support the video tag.', 'pslzme') ?>
+						</video>
+					</div>
+				<?php endif; ?>
+
+			<?php else: ?>
+				<?php if ($contentType === "image") :?>
+					<div class="ce_image pslzme-image">
+						<a href="<?= esc_url($unpersonalizedImageLinkUrl); ?>">
+							<img src="<?= esc_url($unpersonalizedImage['url']); ?>" alt="<?= esc_attr($unpersonalizedImageAlt); ?>" />
+							<?php if ( $unpersonalizedImageCaption ) : ?>
+								<figcaption><?= esc_html( $unpersonalizedImageCaption ); ?></figcaption>
+							<?php endif; ?>
+						</a>
+					</div>
+					
+				<?php elseif ($contentType === "video") :?>
+					<div class="ce_video pslzme-video">
+						<video width="<?= esc_attr($unpersonalizedVideoWidth); ?>" height="<?= esc_attr($unpersonalizedVideoHeight); ?>" <?= $unpersonalizedVideoAttributes; ?>>
+							<source src="<?= esc_url($unpersonalizedVideo['url']); ?>">
+							<?= esc_html__('Your browser does not support the video tag.', 'pslzme') ?>
+						</video>
+					</div>
+				<?php endif; ?>
+			<?php endif; ?>
 		</div>
 
 		<?php

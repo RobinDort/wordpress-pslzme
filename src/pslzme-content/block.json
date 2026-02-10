@@ -55,6 +55,40 @@
 		"unpersonalized_image_link": {
 			"type": "number",
 			"default": 0
+		},
+		"personalized_video": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"url": ""
+			}
+		},
+		"personalized_video_width": {
+			"type": "string"
+		},
+		"personalized_video_height": {
+			"type": "string"
+		},
+		"personalized_video_options": {
+			"type": "array",
+			"default": []
+		},
+		"unpersonalized_video": {
+			"type": "object",
+			"default": {
+				"id": 0,
+				"url": ""
+			}
+		},
+		"unpersonalized_video_width": {
+			"type": "string"
+		},
+		"unpersonalized_video_height": {
+			"type": "string"
+		},
+		"unpersonalized_video_options": {
+			"type": "array",
+			"default": []
 		}
 	},
 	"supports": { "html": false },

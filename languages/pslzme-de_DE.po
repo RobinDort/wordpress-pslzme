@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-09T14:47:40+00:00\n"
-"PO-Revision-Date: 2026-02-09 15:55+0100\n"
+"POT-Creation-Date: 2026-02-10T08:26:53+00:00\n"
+"PO-Revision-Date: 2026-02-10 09:28+0100\n"
 "Language: de\n"
 "X-Generator: Poedit 3.8\n"
 "X-Domain: pslzme\n"
@@ -158,111 +158,115 @@ msgstr "Inhaltstyp"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:46
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:36
+#: src/pslzme-content/edit.js:44
 msgid "Pslzme content type"
 msgstr "Inhaltstyp"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:50
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:39
+#: src/pslzme-content/edit.js:47
 msgid "Image"
 msgstr "Bild"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:51
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:40
+#: src/pslzme-content/edit.js:48
 msgid "Video"
 msgstr "Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:68
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:49
+#: src/pslzme-content/edit.js:57
 msgid "Pslzme content personalized image settings"
 msgstr "Personalisierter Bild Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:79
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:61
+#: src/pslzme-content/edit.js:70
 msgid "Pslzme content personalized image"
 msgstr "Personalisiertes Bild"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:88
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:78
+#: src/pslzme-content/edit.js:89
 msgid "Pslzme content personalized image alt text"
 msgstr "Alternativer Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:97
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:84
+#: src/pslzme-content/edit.js:95
 msgid "Pslzme content personalized image size"
 msgstr "Bildgröße"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:107
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:91
+#: src/pslzme-content/edit.js:102
 msgid "Pslzme content personalized image caption"
 msgstr "Bildunterschrift"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:116
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:98
+#: src/pslzme-content/edit.js:109
 msgid "Pslzme content personalized image link"
 msgstr "Bildlink-Adresse"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:128
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:109
+#: src/pslzme-content/edit.js:120
 msgid "Pslzme content unpersonalized image settings"
 msgstr "Unpersonalisierter Bild Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:139
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:121
+#: src/pslzme-content/edit.js:133
 msgid "Pslzme content unpersonalized image"
 msgstr "Unpersonalisiertes Bild"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:148
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:138
+#: src/pslzme-content/edit.js:152
 msgid "Pslzme content unpersonalized image alt text"
 msgstr "Alternativer Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:157
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:144
+#: src/pslzme-content/edit.js:158
 msgid "Pslzme content unpersonalized image size"
 msgstr "Bildgröße"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:167
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:151
+#: src/pslzme-content/edit.js:165
 msgid "Pslzme content unpersonalized image caption"
 msgstr "Bildunterschrift"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:176
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:158
+#: src/pslzme-content/edit.js:172
 msgid "Pslzme content unpersonalized image link"
 msgstr "Bildlink-Adresse"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:192
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:173
+#: src/pslzme-content/edit.js:187
 msgid "Pslzme content personalized video settings"
 msgstr "Personalisierter Video Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:203
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:174
+#: src/pslzme-content/edit.js:199
 msgid "Pslzme content personalized video"
 msgstr "Personalisiertes Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:213
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:218
 msgid "Pslzme content personalized video width"
 msgstr "Video-Player Breite"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:225
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:224
 msgid "Pslzme content personalized video height"
 msgstr "Video-Player Höhe"
 
@@ -272,42 +276,60 @@ msgstr "Player-Optionen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:241
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:305
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:29
 msgid "Autoplay"
 msgstr "Autoplay"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:242
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:306
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:30
 msgid "Hide control options"
 msgstr "Steuerelemente verbergen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:243
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:307
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:31
 msgid "Play in loop"
 msgstr "In einer Schleife abspielen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:244
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:308
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:32
 msgid "Inline play (no fullscreen mode)"
 msgstr "Inline abspielen (kein Vollbildmodus)"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:245
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:309
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:33
 msgid "Mute audio output"
 msgstr "Die Audioausgabe Stummschalten"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:256
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:245
 msgid "Pslzme content unpersonalized video settings"
 msgstr "Unpersonalisierter Video Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:267
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:258
 msgid "Pslzme content unpersonalized video"
 msgstr "Unpersonalisiertes Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:277
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:277
 msgid "Pslzme content unpersonalized video width"
 msgstr "Video-Player Breite"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:289
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:283
 msgid "Pslzme content unpersonalized video height"
 msgstr "Video-Player Höhe"
 
