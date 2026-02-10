@@ -1,0 +1,13 @@
+{
+	"apiVersion": 3,
+	"name": "pslzme-image/block",
+	"icon": "games",
+	"title": "Pslzme Image",
+	"category": "Pslzme",
+	"description": "",
+	"keywords": ["Pslzme", "pslzme", "Image", "image", "Pslzme Image", "pslzme image"],
+	"textdomain": "pslzme",
+	"attributes": {},
+	"supports": { "html": false },
+	"editorScript": "file:./index.js"
+}

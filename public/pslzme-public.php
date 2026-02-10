@@ -283,9 +283,6 @@ class Pslzme_Public {
 		}
 		$unpersonalizedVideoAttributes = implode(' ', $unpersonalizedVideoAttributes);
 
-		error_log($personalizedVideoAttributes);
-		error_log($unpersonalizedVideoAttributes);
-
 		ob_start();
 		?>
 
@@ -319,7 +316,7 @@ class Pslzme_Public {
 							<?php endif; ?>
 						</a>
 					</div>
-					
+
 				<?php elseif ($contentType === "video") :?>
 					<div class="ce_video pslzme-video">
 						<video width="<?= esc_attr($unpersonalizedVideoWidth); ?>" height="<?= esc_attr($unpersonalizedVideoHeight); ?>" <?= $unpersonalizedVideoAttributes; ?>>
