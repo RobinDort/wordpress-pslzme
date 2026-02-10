@@ -339,9 +339,15 @@ class Pslzme_Public {
 	}
 
 	public function render_pslzme_image_block( $attributes ) {
-		// This block is currently empty and can be implemented as needed
-		return '';
+		$decryptionController = DecryptionController::get_instance();
+		$varsSet = $decryptionController->vars_set();
+		ob_start();
+		?>
 
+		<div></div>
+		
+		<?php
+		return ob_get_clean();
 	}
 
 	private function get_available_image_sizes() {

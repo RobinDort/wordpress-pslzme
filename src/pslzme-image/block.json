@@ -8,6 +8,28 @@
 	"keywords": ["Pslzme", "pslzme", "Image", "image", "Pslzme Image", "pslzme image"],
 	"textdomain": "pslzme",
 	"attributes": {
+		"personalized_text": {
+			"type": "string"
+		},
+		"unpersonalized_text": {
+			"type": "string"
+		},
+		"image_dimension_top": {
+			"type": "string"
+		},
+		"image_dimension_bottom": {
+			"type": "string"
+		},
+		"image_dimension_left": {
+			"type": "string"
+		},
+		"image_dimension_right": {
+			"type": "string"
+		},
+		"image_dimension_unit": {
+			"type": "string",
+			"default": "px"
+		},
 		"background_image": {
 			"type": "object",
 			"default": {
