@@ -132,6 +132,12 @@ class Pslzme_Public {
             'render_callback' => [$this, 'render_pslzme_content_block']
         ]);
 
+		register_block_type(
+			plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-image',
+		[
+			'render_callback' => [$this, 'render_pslzme_image_block']
+		]);
+
 		wp_localize_script(
 			'pslzme-content-block-editor-script',
 			'pslzmeGutenbergData',
@@ -330,6 +336,12 @@ class Pslzme_Public {
 
 		<?php
 		return ob_get_clean();
+	}
+
+	public function render_pslzme_image_block( $attributes ) {
+		// This block is currently empty and can be implemented as needed
+		return '';
+
 	}
 
 	private function get_available_image_sizes() {
