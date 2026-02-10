@@ -51,22 +51,23 @@ export default function Edit({ attributes, setAttributes }) {
 									onChange={(value) => setAttributes({ image_dimension_left: value })}
 								/>
 							</FlexItem>
-							<FlexItem>
-								<SelectControl
-									label={__("Pslzme image dimension Unit", "pslzme")}
-									value={attributes.image_dimension_unit}
-									options={[
-										{ label: "px", value: "px" },
-										{ label: "%", value: "%" },
-										{ label: "em", value: "em" },
-										{ label: "rem", value: "rem" },
-									]}
-									onChange={(value) => setAttributes({ image_dimension_unit: value })}
-								/>
-							</FlexItem>
 						</Flex>
 
 						<Spacer marginY={5} />
+
+						<SelectControl
+							label={__("Pslzme image dimension Unit", "pslzme")}
+							value={attributes.image_dimension_unit}
+							options={[
+								{ label: "px", value: "px" },
+								{ label: "%", value: "%" },
+								{ label: "em", value: "em" },
+								{ label: "rem", value: "rem" },
+							]}
+							onChange={(value) => setAttributes({ image_dimension_unit: value })}
+						/>
+
+						<Spacer marginY={10} />
 
 						<MediaUploadCheck>
 							<MediaUpload
@@ -113,6 +114,8 @@ export default function Edit({ attributes, setAttributes }) {
 							value={attributes.background_image_title}
 							onChange={(value) => setAttributes({ background_image_title: value })}
 						/>
+
+						<Spacer marginY={10} />
 
 						<MediaUploadCheck>
 							<MediaUpload

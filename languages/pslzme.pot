@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-10T08:26:53+00:00\n"
+"POT-Creation-Date: 2026-02-10T14:03:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
@@ -145,7 +145,7 @@ msgid "Database password"
 msgstr ""
 
 #: admin/pslzme-admin.php:316
-#: public/pslzme-public.php:192
+#: public/pslzme-public.php:198
 msgid "Pslzme"
 msgstr ""
 
@@ -183,91 +183,91 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:79
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:70
+#: src/pslzme-content/edit.js:68
 msgid "Pslzme content personalized image"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:88
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:89
+#: src/pslzme-content/edit.js:85
 msgid "Pslzme content personalized image alt text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:97
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:95
+#: src/pslzme-content/edit.js:91
 msgid "Pslzme content personalized image size"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:107
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:102
+#: src/pslzme-content/edit.js:98
 msgid "Pslzme content personalized image caption"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:116
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:109
+#: src/pslzme-content/edit.js:105
 msgid "Pslzme content personalized image link"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:128
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:120
+#: src/pslzme-content/edit.js:116
 msgid "Pslzme content unpersonalized image settings"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:139
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:133
+#: src/pslzme-content/edit.js:127
 msgid "Pslzme content unpersonalized image"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:148
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:152
+#: src/pslzme-content/edit.js:144
 msgid "Pslzme content unpersonalized image alt text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:157
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:158
+#: src/pslzme-content/edit.js:150
 msgid "Pslzme content unpersonalized image size"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:167
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:165
+#: src/pslzme-content/edit.js:157
 msgid "Pslzme content unpersonalized image caption"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:176
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:172
+#: src/pslzme-content/edit.js:164
 msgid "Pslzme content unpersonalized image link"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:192
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:187
+#: src/pslzme-content/edit.js:179
 msgid "Pslzme content personalized video settings"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:203
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:199
+#: src/pslzme-content/edit.js:191
 msgid "Pslzme content personalized video"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:213
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:218
+#: src/pslzme-content/edit.js:210
 msgid "Pslzme content personalized video width"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:225
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:224
+#: src/pslzme-content/edit.js:216
 msgid "Pslzme content personalized video height"
 msgstr ""
 
@@ -312,25 +312,25 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:256
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:245
+#: src/pslzme-content/edit.js:237
 msgid "Pslzme content unpersonalized video settings"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:267
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:258
+#: src/pslzme-content/edit.js:250
 msgid "Pslzme content unpersonalized video"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:277
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:277
+#: src/pslzme-content/edit.js:269
 msgid "Pslzme content unpersonalized video width"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:289
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:283
+#: src/pslzme-content/edit.js:275
 msgid "Pslzme content unpersonalized video height"
 msgstr ""
 
@@ -367,19 +367,25 @@ msgid "Pslzme Image Widget"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:39
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:14
 msgid "Pslzme Image Section"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:46
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:46
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:64
+#: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
+#: src/pslzme-image/edit.js:16
 #: src/pslzme-text/edit.js:14
 msgid "Personalized Text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:54
+#: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
+#: src/pslzme-image/edit.js:21
 #: src/pslzme-text/edit.js:23
 msgid "Unpersonalized Text"
 msgstr ""
@@ -389,34 +395,50 @@ msgid "Pslzme image dimensions"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:82
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:80
 msgid "Pslzme image background"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:93
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:99
 msgid "Pslzme image background size"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:103
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:106
 msgid "Pslzme image background alt text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:112
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:112
 msgid "Pslzme image background title"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:121
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:126
 msgid "Pslzme image foreground"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:132
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:145
 msgid "Pslzme image foreground size"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:142
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:152
 msgid "Pslzme image foreground alt text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:151
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:158
 msgid "Pslzme image foreground title"
 msgstr ""
 
@@ -492,6 +514,8 @@ msgstr ""
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:112
 #: public/partials/pslzme-public-elementor-pslzme-content.php:149
+#: public/pslzme-public.php:310
+#: public/pslzme-public.php:330
 msgid "Your browser does not support the video tag."
 msgstr ""
 
@@ -501,15 +525,50 @@ msgid "Select personalized page"
 msgstr ""
 
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:77
-#: src/pslzme-content/edit.js:140
+#: src/pslzme-content/edit.js:73
+#: src/pslzme-content/edit.js:132
 msgid "Delete image"
 msgstr ""
 
 #: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:206
-#: src/pslzme-content/edit.js:265
+#: src/pslzme-content/edit.js:198
+#: src/pslzme-content/edit.js:257
 msgid "Delete video"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:28
+msgid "Pslzme image dimension Top"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:35
+msgid "Pslzme image dimension Right"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:42
+msgid "Pslzme image dimension Bottom"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:49
+msgid "Pslzme image dimension Left"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:56
+msgid "Pslzme image dimension Unit"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:87
+msgid "Delete Background Image"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:133
+msgid "Delete Foreground Image"
 msgstr ""
 
 #: build/pslzme-text/index.js:1
@@ -524,16 +583,20 @@ msgid "Pslzme Content"
 msgstr ""
 
 #: build/pslzme-content/block.json
+#: build/pslzme-image/block.json
 #: build/pslzme-text/block.json
 #: src/pslzme-content/block.json
+#: src/pslzme-image/block.json
 #: src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "Pslzme"
 msgstr ""
 
 #: build/pslzme-content/block.json
+#: build/pslzme-image/block.json
 #: build/pslzme-text/block.json
 #: src/pslzme-content/block.json
+#: src/pslzme-image/block.json
 #: src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "pslzme"
@@ -561,6 +624,36 @@ msgstr ""
 #: src/pslzme-content/block.json
 msgctxt "block keyword"
 msgid "pslzme content"
+msgstr ""
+
+#: build/pslzme-image/block.json
+#: src/pslzme-image/block.json
+msgctxt "block title"
+msgid "Pslzme Image"
+msgstr ""
+
+#: build/pslzme-image/block.json
+#: src/pslzme-image/block.json
+msgctxt "block keyword"
+msgid "Image"
+msgstr ""
+
+#: build/pslzme-image/block.json
+#: src/pslzme-image/block.json
+msgctxt "block keyword"
+msgid "image"
+msgstr ""
+
+#: build/pslzme-image/block.json
+#: src/pslzme-image/block.json
+msgctxt "block keyword"
+msgid "Pslzme Image"
+msgstr ""
+
+#: build/pslzme-image/block.json
+#: src/pslzme-image/block.json
+msgctxt "block keyword"
+msgid "pslzme image"
 msgstr ""
 
 #: build/pslzme-text/block.json
