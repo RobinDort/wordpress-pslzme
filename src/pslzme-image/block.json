@@ -7,7 +7,38 @@
 	"description": "",
 	"keywords": ["Pslzme", "pslzme", "Image", "image", "Pslzme Image", "pslzme image"],
 	"textdomain": "pslzme",
-	"attributes": {},
+	"attributes": {
+		"background_image": {
+			"type": "object",
+			"default": {
+				"id": 0
+			}
+		},
+		"background_image_size": {
+			"type": "string"
+		},
+		"background_image_alt": {
+			"type": "string"
+		},
+		"background_image_title": {
+			"type": "string"
+		},
+		"foreground_image": {
+			"type": "object",
+			"default": {
+				"id": 0
+			}
+		},
+		"foreground_image_size": {
+			"type": "string"
+		},
+		"foreground_image_alt": {
+			"type": "string"
+		},
+		"foreground_image_title": {
+			"type": "string"
+		}
+	},
 	"supports": { "html": false },
 	"editorScript": "file:./index.js"
 }
