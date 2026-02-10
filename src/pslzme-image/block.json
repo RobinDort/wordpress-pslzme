@@ -33,7 +33,8 @@
 		"background_image": {
 			"type": "object",
 			"default": {
-				"id": 0
+				"id": 0,
+				"url": ""
 			}
 		},
 		"background_image_size": {
@@ -48,7 +49,8 @@
 		"foreground_image": {
 			"type": "object",
 			"default": {
-				"id": 0
+				"id": 0,
+				"url": ""
 			}
 		},
 		"foreground_image_size": {
