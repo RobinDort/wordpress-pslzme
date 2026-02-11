@@ -191,6 +191,7 @@ export default function Edit({ attributes, setAttributes }) {
 				</Panel>
 			</InspectorControls>
 
+			<h1>{__("Pslzme Image Widget", "pslzme")}</h1>
 			<BlockControls>
 				{activeEditor && (
 					<AlignmentToolbar

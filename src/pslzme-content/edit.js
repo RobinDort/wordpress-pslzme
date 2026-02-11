@@ -21,7 +21,7 @@ export default function Edit({ attributes, setAttributes }) {
 			? pages.map((page) => ({
 					label: page.title.rendered,
 					value: page.id,
-				}))
+			  }))
 			: []),
 	];
 
@@ -54,7 +54,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{attributes.content_type === "image" && (
 					<Panel>
-						<PanelBody title={__("Pslzme content personalized image settings", "pslzme")} initialOpen={false}>
+						<PanelBody title={__("Pslzme content personalized image settings", "pslzme")} initialOpen={true}>
 							<MediaUploadCheck>
 								<Spacer marginY={5} />
 								<MediaUpload
@@ -176,7 +176,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{attributes.content_type === "video" && (
 					<Panel>
-						<PanelBody title={__("Pslzme content personalized video settings", "pslzme")} initialOpen={false}>
+						<PanelBody title={__("Pslzme content personalized video settings", "pslzme")} initialOpen={true}>
 							<MediaUploadCheck>
 								<MediaUpload
 									onSelect={(video) => {
@@ -295,6 +295,9 @@ export default function Edit({ attributes, setAttributes }) {
 					</Panel>
 				)}
 			</InspectorControls>
+
+			<h1>{__("Pslzme Content Widget", "pslzme")}</h1>
+			<img src={attributes.unpersonalized_image.url} />
 		</div>
 	);
 }

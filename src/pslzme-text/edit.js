@@ -1,4 +1,4 @@
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls, RichText } from "@wordpress/block-editor";
 import { Panel, PanelBody, CheckboxControl, TextareaControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
@@ -32,6 +32,9 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
+
+			<h1>{__("Pslzme Text Widget", "pslzme")}</h1>
+			<RichText.Content tagName="div" value={attributes.unpersonalized_text} />
 		</div>
 	);
 }
