@@ -1,4 +1,4 @@
-import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck, RichText, BlockControls, AlignmentToolbar } from "@wordpress/block-editor";
 import { Panel, PanelBody, TextControl, SelectControl, BaseControl, Flex, FlexItem, Button, __experimentalSpacer as Spacer } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
@@ -12,16 +12,6 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<Panel>
 					<PanelBody title={__("Pslzme Image Section", "pslzme")} initialOpen={true}>
-						<TextControl
-							label={__("Personalized Text", "pslzme")}
-							value={attributes.personalized_text}
-							onChange={(value) => setAttributes({ personalized_text: value })}
-						/>
-						<TextControl
-							label={__("Unpersonalized Text", "pslzme")}
-							value={attributes.unpersonalized_text}
-							onChange={(value) => setAttributes({ unpersonalized_text: value })}
-						/>
 						<BaseControl label={__("Pslzme image container spacing", "pslzme")}>
 							<Flex expanded>
 								<FlexItem>
@@ -167,6 +157,32 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
+
+			<div className="pslzme-richtext-wrapper">
+				<h1>{__("Personalized Text", "pslzme")}</h1>
+				<BlockControls>
+					<AlignmentToolbar value={attributes.personalized_text_alignment} onChange={(value) => setAttributes({ personalized_text_alignment: value })} />
+				</BlockControls>
+				<RichText
+					tagname="div"
+					value={attributes.personalized_text}
+					style={{ textAlign: attributes.personalized_text_alignment }}
+					onChange={(value) => setAttributes({ personalized_text: value })}
+				/>
+			</div>
+
+			<div className="pslzme-richtext-wrapper">
+				<h1>{__("Unpersonalized Text", "pslzme")}</h1>
+				<BlockControls>
+					<AlignmentToolbar value={attributes.unpersonalized_text_alignment} onChange={(value) => setAttributes({ unpersonalized_text_alignment: value })} />
+				</BlockControls>
+				<RichText
+					tagname="div"
+					value={attributes.unpersonalized_text}
+					style={{ textAlign: attributes.unpersonalized_text_alignment }}
+					onChange={(value) => setAttributes({ unpersonalized_text: value })}
+				/>
+			</div>
 		</div>
 	);
 }

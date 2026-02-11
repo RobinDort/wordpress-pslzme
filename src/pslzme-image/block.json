@@ -11,8 +11,16 @@
 		"personalized_text": {
 			"type": "string"
 		},
+		"personalized_text_alignment": {
+			"type": "string",
+			"default": "left"
+		},
 		"unpersonalized_text": {
 			"type": "string"
+		},
+		"unpersonalized_text_alignment": {
+			"type": "string",
+			"default": "left"
 		},
 		"image_dimension_top": {
 			"type": "string"
@@ -64,5 +72,6 @@
 		}
 	},
 	"supports": { "html": false },
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }
