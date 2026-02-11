@@ -341,10 +341,71 @@ class Pslzme_Public {
 	public function render_pslzme_image_block( $attributes ) {
 		$decryptionController = DecryptionController::get_instance();
 		$varsSet = $decryptionController->vars_set();
+
+		$personalizedText = $attributes['personalized_text'] ?? '';
+		$unpersonalizedText = $attributes['unpersonalized_text'] ?? '';
+
+		$imageDimensionTop = $attributes['image_dimension_top'] ?? "0";
+		$imageDimensionRight = $attributes['image_dimension_right'] ?? "0";
+		$imageDimensionBottom = $attributes['image_dimension_bottom'] ?? "0";
+		$imageDimensionLeft = $attributes['image_dimension_left'] ?? "0";
+		$imageDimensionUnit = $attributes['image_dimension_unit'] ?? "px";
+
+		$backgroundImageID = $attributes['background_image']['id'] ?? '';
+		$backgroundImageSize = $attributes['background_image_size'] ?? '';
+		$backgroundImageAlt = $attributes['background_image_alt'] ?? '';
+		$backgroundImageTitle = $attributes['background_image_title'] ?? '';
+
+		$foregroundImageID = $attributes['foreground_image']['id'] ?? '';
+		$foregroundImageSize = $attributes['foreground_image_size'] ?? '';
+		$foregroundImageAlt = $attributes['foreground_image_alt'] ?? '';
+		$foregroundImageTitle = $attributes['foreground_image_title'] ?? '';
+
 		ob_start();
 		?>
 
-		<div></div>
+		<?php if ($backgroundImageID && $foregroundImageID) : ?>
+			<div class="pslzme-ov-image-container">
+				<div class="pslzme-background-figure">
+					<?= wp_get_attachment_image(
+						$backgroundImageID,
+						$backgroundImageSize,
+						false,
+						[
+							'alt'   => esc_attr($backgroundImageAlt),
+							'title' => esc_attr($backgroundImageTitle),
+							'loading' => 'lazy',
+						]
+					); ?>
+				</div>
+
+				<?php if ($varsSet && $personalized_text) : ?>
+					<div class="ce_text block layered-text">
+						<?= esc_html($personalizedText) ?>
+					</div>
+
+				<?php else : ?>
+					<?php if ($unpersonalizedText) : ?>
+						<div class="ce_text block layered-text">
+							<?= esc_html($unpersonalizedText) ?>
+						</div>
+					<?php endif; ?>
+				<?php endif; ?>
+
+				<div class="pslzme-foreground-figure">
+					<?= wp_get_attachment_image(
+						$foregroundImageID,
+						$foregroundImageSize,
+						false,
+						[
+							'alt'   => esc_attr($foregroundImageAlt),
+							'title' => esc_attr($foregroundImageTitle),
+							'loading' => 'lazy',
+						]
+					); ?>
+				</div>
+			</div>
+		<?php endif; ?>
 		
 		<?php
 		return ob_get_clean();
