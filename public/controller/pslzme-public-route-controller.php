@@ -1,8 +1,19 @@
 <?php
+
+/**
+ * Class that handles all requests to the pslzme routes.
+ */
 class PslzmePublicRouteController {
 
     public function __construct() {}
 
+    /**
+     * This function handles all request for the pslzme/v1 route.
+     * @request Object containing data that is needed to handle the request. Object always contains both requestData and requestFunction.
+     * @requestData contains all data needed for the request.
+     * @requestFunction contains the operation key that is requested to handle.
+     * @return REST_Response with the handled request server message.
+     */
     public function handleRoutes($request) {
         $requestData = $request->get_param('data');
         $requestFunction = $request->get_param("request");
