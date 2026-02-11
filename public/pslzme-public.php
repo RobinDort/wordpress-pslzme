@@ -342,6 +342,12 @@ class Pslzme_Public {
 		$decryptionController = DecryptionController::get_instance();
 		$varsSet = $decryptionController->vars_set();
 
+		$containerDimensionTop = $attributes['image_dimension_top'] ?? '';
+		$containerDimensionRight = $attributes['image_dimension_right'] ?? '';
+		$containerDimensionBottom = $attributes['image_dimension_bottom'] ?? '';
+		$containerDimensionLeft = $attributes['image_dimension_left'] ?? '';
+		$containerDimensionUnit = $attributes['image_dimension_unit'] ?? 'px';
+
 		$personalizedText = $attributes['personalized_text'] ?? '';
 		$personalizedTextFontSize = $attributes['personalized_text_font_size'] ?? '';
 		$personalizedTextAlignment = $attributes['personalized_text_alignment'] ?? 'left';
@@ -372,7 +378,13 @@ class Pslzme_Public {
 		?>
 
 		<?php if ($backgroundImageID && $foregroundImageID) : ?>
-			<div class="pslzme-ov-image-container">
+			<div class="pslzme-ov-image-container" 
+			style="margin: 
+				<?= esc_attr($imageDimensionTop). esc_attr($imageDimensionUnit) . " " .
+				esc_attr($imageDimensionRight) . esc_attr($imageDimensionUnit) . " " .
+				esc_attr($imageDimensionBottom) . esc_attr($imageDimensionUnit) . " " .
+				esc_attr($imageDimensionLeft) . esc_attr($imageDimensionUnit) ?>"
+			>
 				<div class="pslzme-background-figure">
 					<?= wp_get_attachment_image(
 						$backgroundImageID,
