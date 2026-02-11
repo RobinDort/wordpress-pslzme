@@ -1,9 +1,21 @@
-import { useBlockProps, InspectorControls, MediaUpload, MediaUploadCheck, RichText, BlockControls, AlignmentToolbar } from "@wordpress/block-editor";
+import {
+	useBlockProps,
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+	BlockControls,
+	AlignmentToolbar,
+	FontSizePicker,
+} from "@wordpress/block-editor";
 import { Panel, PanelBody, TextControl, SelectControl, BaseControl, Flex, FlexItem, Button, __experimentalSpacer as Spacer } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import { useState } from "@wordpress/element";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({});
+
+	const [activeEditor, setActiveEditor] = useState(null);
 
 	const imageSizeOptions = window.pslzmeGutenbergData?.imageSizes || [];
 
@@ -12,6 +24,17 @@ export default function Edit({ attributes, setAttributes }) {
 			<InspectorControls>
 				<Panel>
 					<PanelBody title={__("Pslzme Image Section", "pslzme")} initialOpen={true}>
+						<FontSizePicker
+							fontSize={activeEditor === "personalized" ? attributes.personalized_text_font_size : attributes.unpersonalized_text_font_size}
+							onChange={(value) =>
+								activeEditor === "personalized"
+									? setAttributes({ personalized_text_font_size: value })
+									: setAttributes({ unpersonalized_text_font_size: value })
+							}
+						/>
+
+						<Spacer marginY={5} />
+
 						<BaseControl label={__("Pslzme image container spacing", "pslzme")}>
 							<Flex expanded>
 								<FlexItem>
@@ -158,29 +181,36 @@ export default function Edit({ attributes, setAttributes }) {
 				</Panel>
 			</InspectorControls>
 
+			<BlockControls>
+				{activeEditor && (
+					<AlignmentToolbar
+						value={activeEditor === "personalized" ? attributes.personalized_text_alignment : attributes.unpersonalized_text_alignment}
+						onChange={(value) =>
+							activeEditor === "personalized" ? setAttributes({ personalized_text_alignment: value }) : setAttributes({ unpersonalized_text_alignment: value })
+						}
+					/>
+				)}
+			</BlockControls>
+
 			<div className="pslzme-richtext-wrapper">
 				<h1>{__("Personalized Text", "pslzme")}</h1>
-				<BlockControls>
-					<AlignmentToolbar value={attributes.personalized_text_alignment} onChange={(value) => setAttributes({ personalized_text_alignment: value })} />
-				</BlockControls>
 				<RichText
-					tagname="div"
+					tagName="div"
 					value={attributes.personalized_text}
-					style={{ textAlign: attributes.personalized_text_alignment }}
+					style={{ textAlign: attributes.personalized_text_alignment, fontSize: attributes.personalized_text_font_size }}
 					onChange={(value) => setAttributes({ personalized_text: value })}
+					onFocus={() => setActiveEditor("personalized")}
 				/>
 			</div>
 
 			<div className="pslzme-richtext-wrapper">
 				<h1>{__("Unpersonalized Text", "pslzme")}</h1>
-				<BlockControls>
-					<AlignmentToolbar value={attributes.unpersonalized_text_alignment} onChange={(value) => setAttributes({ unpersonalized_text_alignment: value })} />
-				</BlockControls>
 				<RichText
-					tagname="div"
+					tagName="div"
 					value={attributes.unpersonalized_text}
-					style={{ textAlign: attributes.unpersonalized_text_alignment }}
+					style={{ textAlign: attributes.unpersonalized_text_alignment, fontSize: attributes.unpersonalized_text_font_size }}
 					onChange={(value) => setAttributes({ unpersonalized_text: value })}
+					onFocus={() => setActiveEditor("unpersonalized")}
 				/>
 			</div>
 		</div>

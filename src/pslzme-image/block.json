@@ -15,12 +15,18 @@
 			"type": "string",
 			"default": "left"
 		},
+		"personalized_text_font_size": {
+			"type": "string"
+		},
 		"unpersonalized_text": {
 			"type": "string"
 		},
 		"unpersonalized_text_alignment": {
 			"type": "string",
 			"default": "left"
+		},
+		"unpersonalized_text_font_size": {
+			"type": "string"
 		},
 		"image_dimension_top": {
 			"type": "string"
