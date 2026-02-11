@@ -1,4 +1,18 @@
 <?php
+
+/**
+ * Provide a public-facing view for the pslzme cookiebar.
+ *
+ *
+ * @link       https://www.pslzme.com
+ * @since      1.0.0
+ *
+ * @package    pslzme
+ * @subpackage pslzme/public/partials
+ */
+?>
+
+<?php
 $options = get_option('pslzme_settings', []);
 $internal_pages = $options['internal_pages'] ?? [];
 
