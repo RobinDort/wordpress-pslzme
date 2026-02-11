@@ -1,22 +1,37 @@
 <?php
 
+/**
+ * Class that handles the creation of custom shortcodes for pslzme
+ */
 class PslzmeShortcodeService {
 
     private $controller;
     private $browserLanguage;
 
+    /**
+     * constructor.
+     * @controller A controller that contains functions to handle different kinds of decryption.
+     * Located in /public/controller/pslzme-public-decryption-controller.php.
+     */
     public function __construct() {
         $this->controller = DecryptionController::get_instance();
         $browserLanguage = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'en';
         $this->browserLanguage = substr($browserLanguage, 0, 2);
     }
 
+    /**
+     * This function registers static and dynamic shortcodes for pslzme.
+     */
     public function register_shortcodes() {
         $this->register_static_shortcodes();
         $this->register_dynamic_shortcodes();
     }
 
 
+    /**
+     * This function handles the creation of static shortcodes for pslzme.
+     * For each key inside the staticShortcodes array a new shortcode is created by using the getter function of the DecryptionController class.
+     */
     private function register_static_shortcodes() {
         $staticShortcodes = [
             'pslzme-link-creator'   => 'get_decrypted_link_creator',
@@ -36,7 +51,12 @@ class PslzmeShortcodeService {
 		}
     }
 
-
+    
+    /**
+     * This function handles the creation of dynamic shortcodes for pslzme.
+     * For each key inside the dynamicShortcodes array a new shortcode is created.
+     * Instead of the DecryptionControllers getter functions, individual functions that return a special output are used.
+     */
     private function register_dynamic_shortcodes() {
         $dynamicShortcodes = [
             'pslzme-greeting1-capital'              => 'get_greeting1_capital',
@@ -63,6 +83,10 @@ class PslzmeShortcodeService {
 		}
     }
 
+    /**
+     * This function creates a special output for the pslzme-greeting1-capital shortcode. The output starts in capital.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_greeting1_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "Sehr geehrter Herr";
@@ -86,6 +110,10 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-greeting1-lowercase shortcode. The output starts in lowercase.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_greeting1_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "sehr geehrter Herr";
@@ -109,6 +137,10 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-greeting2-capital shortcode. The output starts in capital.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_greeting2_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "Werter Herr";
@@ -132,6 +164,10 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-greeting2-lowercase shortcode. The output starts in lowercase.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_greeting2_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "werter Herr";
@@ -155,6 +191,10 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-greeting3-capital shortcode. The output starts in capital.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_greeting3_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "Lieber Herr";
@@ -178,6 +218,10 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-greeting3-lowercase shortcode. The output starts in lowercase.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_greeting3_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "lieber Herr";
@@ -201,6 +245,10 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-Mr-Ms shortcode. The output starts in capital.
+     * @return A german or english string depending on the browser language and the decrypted gender from the pslzme param.
+     */
     private function get_mr_ms() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "m") {
             return "Herr";
@@ -224,6 +272,11 @@ class PslzmeShortcodeService {
         } 
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-akk-capital shortcode. The output starts in capital.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Akkusativ.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_akk_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "Den";
@@ -231,7 +284,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "Die";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "Das";
 
         } else if ($this->browserLanguage === 'en') {
@@ -243,6 +296,12 @@ class PslzmeShortcodeService {
         }
     }
 
+
+    /**
+     * This function creates a special output for the pslzme-company-gender-akk-lowercase shortcode. The output starts in lowercase.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Akkusativ.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_akk_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "den";
@@ -250,7 +309,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "die";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "das";
 
         } else if ($this->browserLanguage === 'en') {
@@ -262,6 +321,11 @@ class PslzmeShortcodeService {
         }
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-dat-capital shortcode. The output starts in capital.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Dativ.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_dat_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "Dem";
@@ -269,7 +333,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "Der";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "Dem";
 
         } else if ($this->browserLanguage === 'en') {
@@ -281,6 +345,11 @@ class PslzmeShortcodeService {
         }
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-dat-lowercase shortcode. The output starts in lowercase.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Dativ.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_dat_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "dem";
@@ -288,7 +357,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "der";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "dem";
 
         } else if ($this->browserLanguage === 'en') {
@@ -300,6 +369,11 @@ class PslzmeShortcodeService {
         }
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-gen-capital shortcode. The output starts in capital.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Genitiv.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_gen_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "Des";
@@ -307,7 +381,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "Der";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "Des";
 
         } else if ($this->browserLanguage === 'en') {
@@ -319,6 +393,11 @@ class PslzmeShortcodeService {
         }
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-gen-lowercase shortcode. The output starts in lowercase.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Genitiv.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_gen_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "des";
@@ -326,7 +405,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "der";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "des";
 
         } else if ($this->browserLanguage === 'en') {
@@ -338,6 +417,11 @@ class PslzmeShortcodeService {
         }
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-nom-capital shortcode. The output starts in capital.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Nominativ.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_nom_capital() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "Der";
@@ -345,7 +429,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "Die";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "Das";
 
         } else if ($this->browserLanguage === 'en') {
@@ -357,6 +441,11 @@ class PslzmeShortcodeService {
         }
     }
 
+    /**
+     * This function creates a special output for the pslzme-company-gender-nom-lowercase shortcode. The output starts in lowercase.
+     * This is used especially in german websites where nouns are build using the 'kasus' that defined the article before the word. The 'kasus' used here is Nominativ.
+     * @return A german or english string depending on the browser language and the decrypted company gender from the pslzme param.
+     */
     private function get_company_gender_nom_lowercase() {
         if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "m") {
             return "der";
@@ -364,7 +453,7 @@ class PslzmeShortcodeService {
         } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "f") {
             return "die";
 
-        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_gender() === "d") {
+        } else if ($this->browserLanguage === 'de' && $this->controller->get_decrypted_company_gender() === "d") {
             return "das";
 
         } else if ($this->browserLanguage === 'en') {
