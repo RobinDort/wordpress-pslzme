@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class that is responsible for the whole decryption process of the pslzme URL parameters and providing different functions to retreive the decrypted values. 
+ * Class that is responsible for the whole decryption process of the pslzme URL parameters and providing different functions to retrieve the decrypted values. 
  * This class uses the Singleton pattern to avoid multiple instances and have a clear connection to the decrypted parameters throughout the whole plugin.
  */
 class DecryptionController {

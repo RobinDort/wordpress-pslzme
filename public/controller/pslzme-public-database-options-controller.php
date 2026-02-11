@@ -1,14 +1,26 @@
 <?php
 
+/**
+ * Class that is responsible for handling database operations that are used for public site requests.
+ */
 class PslzmePublicDatabaseOptionsController {
 
     private $connection;
 
+    /**
+     * constructor
+     * @connection Database connection created by PslzmeDatabaseConnection class located in /includes/pslzme-database-connection.php
+     */
     public function __construct($connection) {
         $this->connection = $connection;
     }
 
 
+    /**
+     * This function selects the current customers ID and encryption key.
+     * @return an array containing the customers ID encryption key and encryption ID.
+     * @throws DatabaseException When on of the declared statements cannot be executed.
+     */
     public function select_customer_with_key() {
         // Get the only customer row (assuming one)
         $selectPslzmeCustomerStmt = PslzmePreparedStmtFactory::prepare_select_all_pslzme_customer_stmt();
@@ -41,6 +53,14 @@ class PslzmePublicDatabaseOptionsController {
     }
 
 
+    /**
+     * This function checks if a query / pslzme link has been accepted by a customer or not.
+     * @customerID The customers ID.
+     * @encryptionID The customers encryption ID.
+     * @timestamp A timestamp that is located in the pslzme URL parameters.
+     * @return an array containing cookieAccepted param that declares if the cookie has been accepted and queryLocked param that declares if the query has been locked already.
+     * @throws InvalidDataException When one of the function parameters does not exist.
+     */
     public function select_pslzme_query_acceptance($customerID, $encryptionID, $timestamp) {
         if (!$customerID || !$encryptionID || !$timestamp) {
             throw new InvalidDataException("Params for select_pslzme_query_acceptance uncomplete! Params: " . $customerID . " " . $encryptionID . " " . $timestamp);
@@ -67,6 +87,9 @@ class PslzmePublicDatabaseOptionsController {
     }
 
 
+    /**
+     * Remove because not needed anymore?
+     */
     public function select_query_acceptance($data) {
         $customerID = $data["customerID"];
         if ($customerID === null) {
@@ -97,6 +120,12 @@ class PslzmePublicDatabaseOptionsController {
         return ["cookieAccepted" => $cookieAccepted];
     }
 
+    /**
+     * This function inserts a new pslzme link into the database.
+     * @data Array containing all information that is needed for a pslzme link like the URL parameters as query.
+     * @throws InvalidDataException When one of the needed parameters inside the data array does not exist.
+     * @throws DatabaseException When on of the used statements cannot be executed. 
+     */
     public function insert_pslzme_query_data($data) {
         $query = $data["query"];
         if ($query === null) {
