@@ -65,11 +65,15 @@ export default function Edit({ attributes, setAttributes }) {
 									value={attributes.personalized_image.id}
 									render={({ open }) => (
 										<>
-											{!attributes.personalized_image.id && <Button onClick={open}>{__("Pslzme content personalized image", "pslzme")}</Button>}
+											{!attributes.personalized_image.id && (
+												<Button variant="primary" onClick={open}>
+													{__("Pslzme content personalized image", "pslzme")}
+												</Button>
+											)}
 											{!!attributes.personalized_image.id && attributes.personalized_image.id && (
 												<>
 													<img src={attributes.personalized_image.url} onClick={open} />
-													<Button isDestructive onClick={() => setAttributes({ personalized_image: { id: 0, url: "" } })}>
+													<Button isLink isDestructive onClick={() => setAttributes({ personalized_image: { id: 0, url: "" } })}>
 														{__("Delete image", "pslzme")}
 													</Button>
 												</>
@@ -124,7 +128,11 @@ export default function Edit({ attributes, setAttributes }) {
 									value={attributes.unpersonalized_image.id}
 									render={({ open }) => (
 										<>
-											{!attributes.unpersonalized_image.id && <Button onClick={open}>{__("Pslzme content unpersonalized image", "pslzme")}</Button>}
+											{!attributes.unpersonalized_image.id && (
+												<Button variant="primary" onClick={open}>
+													{__("Pslzme content unpersonalized image", "pslzme")}
+												</Button>
+											)}
 											{!!attributes.unpersonalized_image.id && attributes.unpersonalized_image.id && (
 												<>
 													<img src={attributes.unpersonalized_image.url} onClick={open} />
@@ -187,7 +195,7 @@ export default function Edit({ attributes, setAttributes }) {
 									render={({ open }) => (
 										<>
 											{!attributes.personalized_video.id && (
-												<Button isSecondary onClick={open}>
+												<Button variant="primary" onClick={open}>
 													{__("Pslzme content personalized video", "pslzme")}
 												</Button>
 											)}
@@ -246,7 +254,7 @@ export default function Edit({ attributes, setAttributes }) {
 									render={({ open }) => (
 										<>
 											{!attributes.unpersonalized_video.id && (
-												<Button isSecondary onClick={open}>
+												<Button variant="primary" onClick={open}>
 													{__("Pslzme content unpersonalized video", "pslzme")}
 												</Button>
 											)}

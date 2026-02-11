@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-10T14:27:04+00:00\n"
-"PO-Revision-Date: 2026-02-10 15:30+0100\n"
+"POT-Creation-Date: 2026-02-11T12:18:47+00:00\n"
+"PO-Revision-Date: 2026-02-11 13:23+0100\n"
 "Language: en\n"
 "X-Generator: Poedit 3.8\n"
 "X-Domain: pslzme\n"
@@ -149,6 +149,8 @@ msgid "Pslzme"
 msgstr "Pslzme"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:10
+#: build/pslzme-content/index.js:1
+#: src/pslzme-content/edit.js:299
 msgid "Pslzme Content Widget"
 msgstr "Pslzme Content"
 
@@ -362,12 +364,14 @@ msgid "— No Link —"
 msgstr "— No Link —"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:10
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:194
 msgid "Pslzme Image Widget"
 msgstr "Pslzme Image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:39
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:14
+#: src/pslzme-image/edit.js:27
 msgid "Pslzme Image Section"
 msgstr "Personalized image content"
 
@@ -376,7 +380,7 @@ msgstr "Personalized image content"
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:64
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:16
+#: src/pslzme-image/edit.js:207
 #: src/pslzme-text/edit.js:14
 msgid "Personalized Text"
 msgstr "Personalized Text"
@@ -384,7 +388,7 @@ msgstr "Personalized Text"
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:54
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:21
+#: src/pslzme-image/edit.js:222
 #: src/pslzme-text/edit.js:23
 msgid "Unpersonalized Text"
 msgstr "Unpersonalized Text"
@@ -395,53 +399,55 @@ msgstr "Personalized image dimensions"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:82
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:83
+#: src/pslzme-image/edit.js:106
 msgid "Pslzme image background"
 msgstr "Personalized image background"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:93
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:102
+#: src/pslzme-image/edit.js:125
 msgid "Pslzme image background size"
 msgstr "Personalized image background size"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:103
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:109
+#: src/pslzme-image/edit.js:132
 msgid "Pslzme image background alt text"
 msgstr "Alternative text for the background image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:112
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:115
+#: src/pslzme-image/edit.js:138
 msgid "Pslzme image background title"
 msgstr "Title for the background image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:121
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:131
+#: src/pslzme-image/edit.js:154
 msgid "Pslzme image foreground"
 msgstr "Foreground image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:132
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:150
+#: src/pslzme-image/edit.js:173
 msgid "Pslzme image foreground size"
 msgstr "Foreground image size"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:142
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:157
+#: src/pslzme-image/edit.js:180
 msgid "Pslzme image foreground alt text"
 msgstr "Alternative text for the foreground image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:151
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:163
+#: src/pslzme-image/edit.js:186
 msgid "Pslzme image foreground title"
 msgstr "Title for the foreground image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:10
+#: build/pslzme-text/index.js:1
+#: src/pslzme-text/edit.js:36
 msgid "Pslzme Text Widget"
 msgstr "Pslzme Text"
 
