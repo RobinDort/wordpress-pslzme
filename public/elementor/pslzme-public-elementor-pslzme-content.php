@@ -1,36 +1,65 @@
 <?php
 
+/**
+ * Class that creates a custom elementor widget as pslzme content.
+ */
 class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
 
+    /**
+     * This function returns the name of the widget.
+     */
     public function get_name(): string {
         return 'pslzme_content';
     }
 
+     /**
+     * This function returns the title of the widget.
+     */
     public function get_title(): string {
         return esc_html__("Pslzme Content Widget", "pslzme");
     }
 
+    /**
+     * This function returns the icon of the widget.
+     */
     public function get_icon(): string {
         return 'eicon-clone';
     }
 
+    /**
+     * This function returns the categories of the widget.
+     */
     public function get_categories(): array {
 		return [ 'Pslzme' ];
 	}
 
+    /**
+     * This function returns the keywords of the widget.
+     */
     public function get_keywords(): array {
 		return [ 'Pslzme', 'pslzme', 'Content', 'content', 'Pslzme Content', 'pslzme content' ];
 	}
 
+    /**
+     * This function registers custom controls for the widget.
+     */
     protected function register_controls(): void {
         $this->add_content_controls();
     }
 
+    /**
+     * This function renders the widget and outputs its content.
+     * @location /public/partials/pslzme-public-elementor-pslzme-content.php
+     */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-content.php';
     }
 
+    /**
+     * This functions adds sections and control options to the widget.
+     * Depending on a content type 'image' or 'video' different controls are displayed.
+     */
     private function add_content_controls(): void {
         $this->start_controls_section(
             'section_content_type',
@@ -60,6 +89,9 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
      }
 
     
+    /**
+     * This function adds the controls for the image content type.
+     */
     private function add_pslzme_content_image_controls() {
 
         $this->start_controls_section(
@@ -185,6 +217,9 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
     }
 
 
+    /**
+     * This function adds the controls for the video content type.
+     */
     private function add_pslzme_content_video_controls() {
         $this->start_controls_section(
             'section_personalized_video_settings',
@@ -316,6 +351,10 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
     }
 
 
+    /**
+     * This function searches for available predefined image sizes.
+     * @return an array containing all available image sizes.
+     */
     private function get_available_image_sizes(): array {
         global $_wp_additional_image_sizes;
 
@@ -335,6 +374,11 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
         return $sizes;
     }
 
+
+    /**
+     * This function searches for all available pages.
+     * @return an array containing all defined pages.
+     */
     private function get_pages_options() {
         $pages = get_pages();
         $options = [ '' => esc_html__('— No Link —', 'pslzme') ];
