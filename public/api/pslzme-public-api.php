@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class that acts as the main pslzme API.
+ */
 class PslzmePublicAPI {
 
     private $dbConnection;
@@ -12,6 +15,12 @@ class PslzmePublicAPI {
     private $logger;
 
 
+    /**
+     * constructor.
+     * @options Information retreived by the wordpress database that has been saved in previous configuration.
+     * @pslzmeDBConnection Database connection created by PslzmeDatabaseConnection class located in /includes/pslzme-database-connection.php
+     * @logger Class responsible for logging info, debug, warning and error messages.
+     */
     public function __construct() {
         $options = get_option('pslzme_settings', []);
         $pslzmeDBConnection = new PslzmeDatabaseConnection($options);
@@ -25,6 +34,11 @@ class PslzmePublicAPI {
 
     }
 
+    /**
+     * This function handles the request inside the route controller where the request function key is set to query-acception.
+     * @requestData Data that is needed to save the pslzme link to the database including all URL parameters.
+     * @return An array containing a message that is only set when an exception gets thrown. In this case the array msg contains the error text of the exception.
+     */
     public function handle_query_acception($requestData) {
         $requestData = json_decode($requestData);
 
@@ -93,6 +107,13 @@ class PslzmePublicAPI {
         return $response;
     } 
 
+
+    /**
+     * This function handles the request inside the route controller where the request function key is set to query-lock-check.
+     * @requestData Data that is needed to check for database operations that check for the locked link.
+     * @return An array containing a message that is only set when an exception gets thrown and a boolean parameter that shows if the query is locked or not.
+     * In case of exception the msg parameters contains the error text of the exception.
+     */
     public function handle_query_lock_check($requestData){
         $requestData = json_decode($requestData);
         $timestamp = $requestData->timestamp;
@@ -133,6 +154,13 @@ class PslzmePublicAPI {
         return $response;
     }
 
+
+    /**
+     * This function handles the request inside the route controller where the request function key is set to extract-greeting-data.
+     * @requestData Data that is needed to decrypt the first contact parameter as well as the link creator parameter of the pslzme link inside the URL.
+     * @return An array containing a message that is only set when an exception gets thrown and the decrypted link creator and first contact.
+     * In case of exception the msg parameters contains the error text of the exception.
+     */
     public function handle_greeting_data_extraction($requestData) {
         $requestData = json_decode($requestData);
 
@@ -178,6 +206,14 @@ class PslzmePublicAPI {
         return $response;
     }
 
+    /**
+     * This function handles the request inside the route controller where the request function key is set to compare-link-owner.
+     * The function compares both the lastname inside the pslzme parameter with the input given by the customer inside the cookiebar.
+     * @requestData Data that is needed to decrypt the lastname parameter of the pslzme link inside the URL.
+     * @return An array containing a message that is only set when an exception gets thrown and a boolean parameters that is set to true when the
+     * input of the customer and the lastname matches.
+     * In case of exception the msg parameters contains the error text of the exception.
+     */
     public function handle_compare_link_owner($requestData) {
         $requestData = json_decode($requestData);
 
@@ -224,6 +260,12 @@ class PslzmePublicAPI {
     }
 
 
+    /**
+     * This function compares the first three characters of two strings with each other.
+     * @str1 The first string to compare
+     * @str2 The second string to compare
+     * @return true when the first three characters match with each other, false otherwise.
+     */
     private function compare_strings($str1, $str2) {
         $str1 = trim($str1);
         $str2 = trim($str2);
