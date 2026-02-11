@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class that is responsible for the whole decryption process of the pslzme URL parameters and providing different functions to retreive the decrypted values. 
+ * This class uses the Singleton pattern to avoid multiple instances and have a clear connection to the decrypted parameters throughout the whole plugin.
+ */
 class DecryptionController {
     private static ?DecryptionController $instance = null;
 
@@ -42,6 +46,12 @@ class DecryptionController {
     private $decryptedFC = "";
 
 
+    /**
+     * constructor
+     * @connection Database connection created by PslzmeDatabaseConnection class located in /includes/pslzme-database-connection.php
+     * @sqlExecutor Class responsible for handling public database operations located in public/controller/pslzme-public-database-options-controller.php
+     * @logger Class responsible for logging info, debug, warning and error messages.
+     */
     private function __construct($connection) {
         $this->connection = $connection;
         $this->sqlExecutor = new PslzmePublicDatabaseOptionsController($this->connection);
@@ -49,6 +59,10 @@ class DecryptionController {
         $this->logger = PslzmeLogger::get_instance();
     }
 
+    /**
+     * This function created the singleton instance that is used throughout the plugin.
+     * @return The created instance of this class.
+     */
     public static function get_instance($connection = null): DecryptionController {
         if (self::$instance === null) {
             if ($connection === null) {
@@ -62,6 +76,9 @@ class DecryptionController {
         return self::$instance;
     }
 
+    /**
+     * This function handles the process of decrypting the pslzme URL parameters while using different database operations to retrieve needed data.
+     */
     public function decrypt() {
         // Get the encrypted get parameters. Important!: => after the rawurldecode function all the "+" chars are converted to spaces " ". This is the current URL norm.
         // Because the decryption relies especially on the + char, we need to replace the spaces with the + chars again before decrypting.
@@ -197,6 +214,11 @@ class DecryptionController {
         }
     }
 
+    /**
+     * This functions checks if all the required and non optional parameters are set inside the URL.
+     * @requiredParams Array containing the required parameters.
+     * @return true when "q1", "q3", "q4", "q5", "q6", "q7", "q9", "q11" are set, false otherwise.
+     */
     private function check_for_required_params($requiredParams) {
         foreach($requiredParams as $key) {
             if(!isset($_GET[$key])) {
@@ -206,6 +228,10 @@ class DecryptionController {
         return true;
     }
 
+    /**
+     * This function is used to check if the URL parameters are successfully decrypted and currently available.
+     * @return true when the parameters have been decrypted and are available, false otherwise.
+     */
     public function vars_set() {
         if ($this->get_decrypted_link_creator() !== "" && $this->get_decrypted_first_name() !== "" && $this->get_decrypted_last_name() !== "") {
             return true;
