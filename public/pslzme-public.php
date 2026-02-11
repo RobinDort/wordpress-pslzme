@@ -62,7 +62,6 @@ class Pslzme_Public {
 	public function enqueue_styles() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Pslzme_Loader as all of the hooks are defined
@@ -86,7 +85,6 @@ class Pslzme_Public {
 	public function enqueue_scripts() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Pslzme_Loader as all of the hooks are defined
@@ -113,6 +111,9 @@ class Pslzme_Public {
 		);
 	}
 
+	/**
+	 * This function registers all available custom gutenberg blocks
+	 */
 	public function register_gutenberg_blocks() {
 		$availableImageSizes = $this->get_available_image_sizes();
 
@@ -153,6 +154,10 @@ class Pslzme_Public {
 	}
 
 
+	/**
+	 * This function registers the pslzme REST route to handle different API calls.
+	 * @Route pslzme/v1
+	 */
 	public function register_rest_routes() {
 		register_rest_route("pslzme/v1", "/requestHandler", [
 			'methods' => 'POST',
@@ -162,19 +167,35 @@ class Pslzme_Public {
 	}
 
 
+	/**
+	 * This function handles the REST request from the registered route pslzme/v1.
+	 * @handler PslzmePublicRouteController
+	 * @location /public/controller/pslzme-public-route-controller.php
+	 */
 	public function handle_rest_request($request) {
 		$publicRouteController = new PslzmePublicRouteController();
 		return $publicRouteController->handleRoutes($request);
 	}
 
+	/**
+	 * This function loads the partial file for the pslzme cookiebanner.
+	 * @location /public/partials/pslzme-public-cookiebanner.php
+	 */
 	public function load_cookiebanner() {
 		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookiebanner.php';
 	}
 
+	/**
+	 * This function loads the partial file for the pslzme cookie caller.
+	 * @location /public/partials/pslzme-public-cookie-caller.php
+	 */
 	public function load_cookie_caller() {
 		require_once plugin_dir_path(__FILE__) . 'partials/pslzme-public-cookie-caller.php';
 	}
 
+	/**
+	 * This function registers all available custom elementor widgets
+	 */
 	public function register_elementor_pslzme_widgets( $widgets_manager) {
 		if ( ! did_action( 'elementor/loaded' ) ) {
 			return;
@@ -189,6 +210,9 @@ class Pslzme_Public {
 		$widgets_manager->register( new ElementorWidgetPslzmeImage() );
 	}
 
+	/**
+	 * This function adds a new custom category "Pslzme" to the elementor editor. 
+	 */
 	public function add_elementor_widget_categories( $elements_manager) {
         $elements_manager->add_category(
             "Pslzme",
@@ -199,11 +223,22 @@ class Pslzme_Public {
         );
     }
 
+	/**
+	 * This function registers custom shortcodes for pslzme.
+	 * @handler PslzmeShortcodeService
+	 * @location /public/service/pslzme-public-shortcode-service.php
+	 */
 	public function register_pslzme_shortcodes() {
         $shortcodeService = new PslzmeShortcodeService();
 		$shortcodeService->register_shortcodes();
 	}
 
+
+	/**
+	 * This function renders the dynamic output for the pslzme text gutenberg block
+	 * @attributes Object containing predefined values for the pslzme text block.
+	 * @location src/pslzme-text
+	 */
 	public function render_pslzme_text_block( $attributes ) {
 		$decryptionController = DecryptionController::get_instance();
 		$varsSet = $decryptionController->vars_set();
@@ -229,6 +264,11 @@ class Pslzme_Public {
 		return ob_get_clean();
 	}
 
+	/**
+	 * This function renders the dynamic output for the pslzme content gutenberg block.
+	 * @attributes Object containing predefined values for the pslzme content block.
+	 * @location src/pslzme-content
+	 */
 	public function render_pslzme_content_block( $attributes ) {
 		$decryptionController = DecryptionController::get_instance();
 		$varsSet = $decryptionController->vars_set();
@@ -336,6 +376,11 @@ class Pslzme_Public {
 		return ob_get_clean();
 	}
 
+	/**
+	 * This function renders the dynamic output for the pslzme image gutenberg block.
+	 * @attributes Object containing predefined values for the pslzme image block.
+	 * @location src/pslzme-image
+	 */
 	public function render_pslzme_image_block( $attributes ) {
 		$decryptionController = DecryptionController::get_instance();
 		$varsSet = $decryptionController->vars_set();
@@ -430,6 +475,10 @@ class Pslzme_Public {
 		return ob_get_clean();
 	}
 
+	/**
+	 * This function searches for all the available image sizes that have been set in the Wordpress admin panel.
+	 * @returns An array containing all available sizes for images.
+	 */
 	private function get_available_image_sizes() {
 		global $_wp_additional_image_sizes;
 
