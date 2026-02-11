@@ -1,36 +1,64 @@
 <?php
 
+/**
+ * Class that creates a custom elementor widget as pslzme image.
+ */
 class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
 
+    /**
+     * This function returns the name of the widget.
+     */
     public function get_name(): string {
         return 'pslzme_image';
     }
 
+    /**
+     * This function returns the title of the widget.
+     */
     public function get_title(): string {
         return esc_html__("Pslzme Image Widget", "pslzme");
     }
 
+    /**
+     * This function returns the icon of the widget.
+     */
     public function get_icon(): string {
         return 'eicon-e-image';
     }
 
+    /**
+     * This function returns the categories of the widget.
+     */
     public function get_categories(): array {
 		return [ 'Pslzme' ];
 	}
 
+    /**
+     * This function returns the keywords of the widget.
+     */
     public function get_keywords(): array {
 		return [ 'Pslzme', 'pslzme', 'Image', 'image', 'Pslzme Image', 'pslzme image' ];
 	}
 
+    /**
+     * This function registers custom controls for the widget.
+     */
     protected function register_controls(): void {
         $this->add_content_controls();
     }
 
+    /**
+     * This function renders the widget and outputs its content.
+     * @location /public/partials/pslzme-public-elementor-pslzme-image.php
+     */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-image.php';
     }
 
+    /**
+     * This functions adds sections and control options to the widget.
+     */
     private function add_content_controls(): void {
 
         $this->start_controls_section(
@@ -156,6 +184,10 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
         $this->end_controls_section();
     }
 
+    /**
+     * This function searches for available predefined image sizes.
+     * @return an array containing all available image sizes.
+     */
     private function get_available_image_sizes(): array {
         global $_wp_additional_image_sizes;
 
