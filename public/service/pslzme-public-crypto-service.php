@@ -1,10 +1,20 @@
 <?php
-
+/**
+ * Class that handles the decryption of the pslzme link parameters.
+ */
 final class PslzmePublicCryptoService {
     private static $ciphering = "AES-128-CTR";
 
     private function __construct() {}
 
+    /**
+     * This function decrypts the encrypted link parameters of pslzme.
+     * @encryptedValue One of the pslzme paramters located inside the URL.
+     * @encryptionKey A passed key that is used to decrypt the params.
+     * @timestamp A timestamp that is located inside the URL params.
+     * @return A decrypted value.
+     * @throws InvalidDecryptionException when the value cannot be decrypted.
+     */
     public static function decrypt($encryptedValue, $encryptionKey, $timestamp) {
         $iv_length = openssl_cipher_iv_length(self::$ciphering);
         $options = 0;

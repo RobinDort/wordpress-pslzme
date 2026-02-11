@@ -477,7 +477,7 @@ class Pslzme_Public {
 
 	/**
 	 * This function searches for all the available image sizes that have been set in the Wordpress admin panel.
-	 * @returns An array containing all available sizes for images.
+	 * @return An array containing all available sizes for images.
 	 */
 	private function get_available_image_sizes() {
 		global $_wp_additional_image_sizes;
