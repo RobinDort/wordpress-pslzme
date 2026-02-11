@@ -7,6 +7,7 @@ import {
 	BlockControls,
 	AlignmentToolbar,
 	FontSizePicker,
+	ColorPalette,
 } from "@wordpress/block-editor";
 import { Panel, PanelBody, TextControl, SelectControl, BaseControl, Flex, FlexItem, Button, __experimentalSpacer as Spacer } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
@@ -30,6 +31,15 @@ export default function Edit({ attributes, setAttributes }) {
 								activeEditor === "personalized"
 									? setAttributes({ personalized_text_font_size: value })
 									: setAttributes({ unpersonalized_text_font_size: value })
+							}
+						/>
+
+						<Spacer marginY={5} />
+
+						<ColorPalette
+							value={activeEditor === "personalized" ? attributes.personalized_text_color : attributes.unpersonalized_text_color}
+							onChange={(value) =>
+								activeEditor === "personalized" ? setAttributes({ personalized_text_color: value }) : setAttributes({ unpersonalized_text_color: value })
 							}
 						/>
 
@@ -197,7 +207,11 @@ export default function Edit({ attributes, setAttributes }) {
 				<RichText
 					tagName="div"
 					value={attributes.personalized_text}
-					style={{ textAlign: attributes.personalized_text_alignment, fontSize: attributes.personalized_text_font_size }}
+					style={{
+						textAlign: attributes.personalized_text_alignment,
+						fontSize: attributes.personalized_text_font_size,
+						color: attributes.personalized_text_color,
+					}}
 					onChange={(value) => setAttributes({ personalized_text: value })}
 					onFocus={() => setActiveEditor("personalized")}
 				/>
@@ -208,7 +222,11 @@ export default function Edit({ attributes, setAttributes }) {
 				<RichText
 					tagName="div"
 					value={attributes.unpersonalized_text}
-					style={{ textAlign: attributes.unpersonalized_text_alignment, fontSize: attributes.unpersonalized_text_font_size }}
+					style={{
+						textAlign: attributes.unpersonalized_text_alignment,
+						fontSize: attributes.unpersonalized_text_font_size,
+						color: attributes.unpersonalized_text_color,
+					}}
 					onChange={(value) => setAttributes({ unpersonalized_text: value })}
 					onFocus={() => setActiveEditor("unpersonalized")}
 				/>

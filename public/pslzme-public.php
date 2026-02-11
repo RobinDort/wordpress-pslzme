@@ -343,7 +343,14 @@ class Pslzme_Public {
 		$varsSet = $decryptionController->vars_set();
 
 		$personalizedText = $attributes['personalized_text'] ?? '';
+		$personalizedTextFontSize = $attributes['personalized_text_font_size'] ?? '';
+		$personalizedTextAlignment = $attributes['personalized_text_alignment'] ?? 'left';
+		$personalizedTextColor = $attributes['personalized_text_color'] ?? '#000000';
+
 		$unpersonalizedText = $attributes['unpersonalized_text'] ?? '';
+		$unpersonalizedTextFontSize = $attributes['unpersonalized_text_font_size'] ?? '';
+		$unpersonalizedTextAlignment = $attributes['unpersonalized_text_alignment'] ?? 'left';
+		$unpersonalizedTextColor = $attributes['unpersonalized_text_color'] ?? '#000000';
 
 		$imageDimensionTop = $attributes['image_dimension_top'] ?? "0";
 		$imageDimensionRight = $attributes['image_dimension_right'] ?? "0";
@@ -379,14 +386,16 @@ class Pslzme_Public {
 					); ?>
 				</div>
 
-				<?php if ($varsSet && $personalized_text) : ?>
-					<div class="ce_text block layered-text">
-						<?= esc_html($personalizedText) ?>
-					</div>
+				<?php if ($varsSet) : ?>
+					<?php if ($personalizedText) : ?>
+						<div class="ce_text block layered-text" style="text-align: <?= esc_attr($personalizedTextAlignment) ?>; font-size: <?= esc_attr($personalizedTextFontSize); ?>; color: <?= esc_attr($personalizedTextColor) ?>">
+							<?= esc_html($personalizedText) ?>
+						</div>
+					<?php endif; ?>
 
 				<?php else : ?>
 					<?php if ($unpersonalizedText) : ?>
-						<div class="ce_text block layered-text">
+						<div class="ce_text block layered-text" style="text-align: <?= esc_attr($unpersonalizedTextAlignment) ?>; font-size: <?= esc_attr($unpersonalizedTextFontSize); ?>; color: <?= esc_attr($unpersonalizedTextColor) ?>">
 							<?= esc_html($unpersonalizedText) ?>
 						</div>
 					<?php endif; ?>

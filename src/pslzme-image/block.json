@@ -18,6 +18,10 @@
 		"personalized_text_font_size": {
 			"type": "string"
 		},
+		"personalized_text_color": {
+			"type": "string",
+			"default": "#000000"
+		},
 		"unpersonalized_text": {
 			"type": "string"
 		},
@@ -27,6 +31,10 @@
 		},
 		"unpersonalized_text_font_size": {
 			"type": "string"
+		},
+		"unpersonalized_text_color": {
+			"type": "string",
+			"default": "#000000"
 		},
 		"image_dimension_top": {
 			"type": "string"
