@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Class that encryption and decryption functionality for admin side operations.
+ * Final class and private constructor to act as utility class and prevent inheritance and initialization.
+ */
 final class PslzmeAdminCryptoService {
 
     private const OPTION_KEY = "pslzme_crypto_key";
@@ -9,7 +13,12 @@ final class PslzmeAdminCryptoService {
     private function __construct() {}
 
 
-    // Generates a deterministic key based on WordPress secret keys
+    /**
+     * 
+     * This function generates a deterministic key based on WordPress secret keys
+     * @return The generated key for encryption and decryption.
+     * 
+     */
     private static function get_key() {
 
         $pluginKey = get_option(self::OPTION_KEY);
@@ -25,7 +34,13 @@ final class PslzmeAdminCryptoService {
 
     } 
 
-    // Encrypt plaintext
+    /**
+     * 
+     * This function encrypts a plaintext by using the generated key.
+     * @var plaintext The text/value that will be encrypted.
+     * @return The encrypted plaintext.
+     * 
+     */
     public static function encrypt(string $plaintext) {
         if ( ! extension_loaded( 'openssl' ) ) {
             return false;
@@ -50,7 +65,13 @@ final class PslzmeAdminCryptoService {
         return base64_encode($iv . $ciphertext);
     }
 
-    // Decrypt previously encrypted text
+    /**
+     * 
+     * This function decrypts a previously encrypted text/value again by using the same key.
+     * @var encryptedData The already encrypted data.
+     * @return The decrypted plaintext/data.
+     * 
+     */
     public static function decrypt(string $encryptedData): string {
         if ( ! extension_loaded( 'openssl' ) ) {
 		    return false;
