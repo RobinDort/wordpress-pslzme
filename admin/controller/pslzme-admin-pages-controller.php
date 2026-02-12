@@ -1,9 +1,25 @@
 <?php
 
+/**
+ * Class that is used to create special pslzme pages for handling cookie acception and locked pslzme queries.
+ */
 class PslzmeAdminPagesController {
 
+
+    /**
+     * 
+     * constructor.
+     * 
+     */
     public function __construct() {}
 
+    /**
+     * 
+     * This function creates a new page called pslzme-accept.
+     * The page is displayed as a intermediate step during the pslzme cookiebanner process until the user entered the right credentials and accepted the cookie.
+     * @return The newly created page ID. 
+     * 
+     */
     public function create_pslzme_acception_page() {
         $pageTitle = "Pslzme-Accept";
         $pageSlug = "pslzme-accept";
@@ -48,6 +64,14 @@ class PslzmeAdminPagesController {
     }
 
 
+
+    /**
+     * 
+     * This function creates a new page called pslzme-decline.
+     * The page is displayed whenever a plszme link has been locked because the user enter credentials wrong three times in a row.
+     * @return The newly created page ID. 
+     * 
+     */
     public function create_pslzme_decline_page() {
         $pageTitle = "Pslzme-Decline";
         $pageSlug = "pslzme-decline";
