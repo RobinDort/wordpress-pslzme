@@ -360,17 +360,6 @@ class Pslzme_Admin {
 	}
 
 
-	public function protect_pslzme_page_direct_access() {
-		if (is_page() && get_page_template_slug() === 'pslzme-page.php') {
-			$dc = DecryptionController::get_instance();
-			if (!$dc->vars_set()) {
-				wp_redirect(home_url());
-            	exit;
-			}
-		}
-	}
-
-
 	/**
 	 * 
 	 * This function adds a custom category to the gutenberg block editor
