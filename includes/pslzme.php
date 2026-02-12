@@ -79,6 +79,11 @@ class Pslzme {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+		// call to uninstaller class
+		if(function_exists('pslzme_fs')) {
+			$this->define_uninstall_hook();
+		}
+
 	}
 
 	/**
@@ -128,6 +133,11 @@ class Pslzme {
 		 * Prepared statement factory 
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/database/pslzme-prepared-stmt-factory.php';
+
+		/**
+		 * The class responsible for uninstalling the plugin
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) .  'includes/pslzme-uninstaller.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
@@ -252,6 +262,12 @@ class Pslzme {
 		$this->loader->add_action( 'wp_body_open' , $plugin_public, 'load_cookie_caller');
 		$this->loader->add_action( 'elementor/elements/categories_registered', $plugin_public, 'add_elementor_widget_categories');
 		$this->loader->add_action( 'elementor/widgets/register', $plugin_public, 'register_elementor_pslzme_widgets');
+	}
+	
+	private function define_uninstall_hook() {
+		$plugin_uninstall = new Pslzme_Uninstaller($this->get_pslzme(), $this->get_version());
+
+		pslzme_fs()->add_action('after_uninstall', [$plugin_uninstall, 'uninstall']);
 	}
 
 	/**
