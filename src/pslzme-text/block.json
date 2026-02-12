@@ -1,9 +1,9 @@
 {
 	"apiVersion": 3,
 	"name": "pslzme-text/block",
-	"icon": "games",
+	"icon": "text",
 	"title": "Pslzme Text",
-	"category": "Pslzme",
+	"category": "pslzme",
 	"description": "",
 	"keywords": ["Pslzme", "pslzme", "Text", "text", "Pslzme Text", "pslzme text"],
 	"textdomain": "pslzme",

@@ -1,9 +1,9 @@
 {
 	"apiVersion": 3,
 	"name": "pslzme-image/block",
-	"icon": "games",
+	"icon": "format-image",
 	"title": "Pslzme Image",
-	"category": "Pslzme",
+	"category": "pslzme",
 	"description": "",
 	"keywords": ["Pslzme", "pslzme", "Image", "image", "Pslzme Image", "pslzme image"],
 	"textdomain": "pslzme",

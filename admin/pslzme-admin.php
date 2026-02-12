@@ -372,7 +372,7 @@ class Pslzme_Admin {
 			$categories,
 			[
 				[
-					'slug'  => 'Pslzme',
+					'slug'  => 'pslzme',
 					'title' => __('Pslzme', 'pslzme'),
 					'icon'  => null, // Optional, could be a dashicon slug or SVG
 				],

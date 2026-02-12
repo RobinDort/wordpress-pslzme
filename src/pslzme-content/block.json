@@ -1,9 +1,9 @@
 {
 	"apiVersion": 3,
 	"name": "pslzme-content/block",
-	"icon": "games",
+	"icon": "format-gallery",
 	"title": "Pslzme Content",
-	"category": "Pslzme",
+	"category": "pslzme",
 	"description": "",
 	"keywords": ["Pslzme", "pslzme", "Content", "content", "Pslzme Content", "pslzme content"],
 	"textdomain": "pslzme",
