@@ -30,7 +30,7 @@ class Pslzme_Activator {
 	 */
 	public static function activate() {
 
-		// create a new pslzme pages so the navigation functionality works as intended
+		// create new pslzme pages so the navigation functionality works as intended
 		$pageController = new PslzmeAdminPagesController();
 		$pageController->create_pslzme_acception_page();
 		$pageController->create_pslzme_decline_page();

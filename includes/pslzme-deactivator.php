@@ -22,14 +22,15 @@
  */
 class Pslzme_Deactivator {
 	/**
-	 * Short Description. (use period)
 	 *
-	 * Long Description.
 	 *
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		// remove the created pslzme pages again
+		$pageController = new PslzmeAdminPagesController();
+		$pageController->remove_pslzme_acception_page();
+		$pageController->remove_pslzme_decline_page();
 	}
 
 }

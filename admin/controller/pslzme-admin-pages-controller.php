@@ -5,6 +5,9 @@
  */
 class PslzmeAdminPagesController {
 
+    private const ACCEPTION_PAGE_OPTION = "pslzme_accept_page_id";
+    private const DECLINE_PAGE_OPTION = "pslzme_decline_page_id";
+
 
     /**
      * 
@@ -58,7 +61,7 @@ class PslzmeAdminPagesController {
         }
 
         // 5. Save the page ID for later use
-        update_option( 'pslzme_accept_page_id', $pageID );
+        update_option( self::ACCEPTION_PAGE_OPTION, $pageID );
 
         return $pageID;
     }
@@ -105,10 +108,44 @@ class PslzmeAdminPagesController {
         }
 
         // 5. Save the page ID for later use
-        update_option( 'pslzme_decline_page_id', $pageID );
+        update_option( self::DECLINE_PAGE_OPTION, $pageID );
 
         return $pageID;
+    }
 
+    /**
+     * 
+     * This function removes the pslzme acception page again is called during the deactivation of the plugin.
+     * 
+     */
+    public function remove_pslzme_acception_page() {
+        $acceptionPageID = get_option(self::ACCEPTION_PAGE_OPTION);
+
+        // nothing to remove when the page does not exist anymore.
+        if (!$acceptionPageID) return;
+
+        wp_delete_post($acceptionPageID, true);
+        // remove the option
+        delete_option(self::ACCEPTION_PAGE_OPTION);
+
+    }
+
+
+    /**
+     * 
+     * This function removes the pslzme decline page again is called during the deactivation of the plugin.
+     * 
+     */
+    public function remove_pslzme_decline_page() {
+        $declinePageID = get_option(self::DECLINE_PAGE_OPTION);
+
+        // nothing to remove when the page does not exist anymore.
+        if (!$declinePageID) return;
+
+        wp_delete_post($declinePageID, true);
+        // remove the option
+        delete_option(self::DECLINE_PAGE_OPTION);
+        
     }
 
 }
