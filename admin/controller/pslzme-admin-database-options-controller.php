@@ -1,9 +1,18 @@
 <?php
 
+/**
+ * Class that handles admin side related database functionality.
+ */
 class PslzmeAdminDatabaseOptionsController {
 
     private $dbConnection;
 
+    /**
+     * 
+     * constructor.
+     * @var dbConnection Database connection created by PslzmeDatabaseConnection class located in /includes/pslzme-database-connection.php
+     * 
+     */
     public function __construct() {
         // Connect to the new database with the credentials given from the pslzme admin settings panel
         $options = get_option('pslzme_settings', []);
@@ -11,6 +20,13 @@ class PslzmeAdminDatabaseOptionsController {
         $this->dbConnection = $pslzmeDBConnection->get_connection();
     }
 
+
+    /**
+     * 
+     * This function creates new tables for the customers pslzme database by using predefined statements.
+     * @throws Exception When one or more of the tables could not been created.
+     * 
+     */
     public function handle_create_pslzme_tables() {
         
         try {
@@ -54,6 +70,12 @@ class PslzmeAdminDatabaseOptionsController {
         }
     }
 
+    /**
+     * 
+     * This function inserts a new customer with its generated encrypted ID into the customers pslzme database.
+     * The function is used to register the active domain under pslzme.com. Domain registration is required to use this plugin. 
+     * 
+     */
     public function handle_register_customer() {
         $data = isset($_POST['data']) ? json_decode(stripslashes($_POST['data']), true) : null;
 
