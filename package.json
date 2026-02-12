@@ -1,5 +1,5 @@
 {
-	"name": "wordpress-pslzme",
+	"name": "pslzme",
 	"version": "1.0.0",
 	"description": "A standardized, organized, object-oriented foundation for building high-quality WordPress Plugins.",
 	"main": "./src",
