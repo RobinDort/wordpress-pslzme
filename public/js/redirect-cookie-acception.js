@@ -11,7 +11,7 @@ function pslzmeRedirection() {
 		const consentCookie = getCookie("consent_cookie");
 		if (!consentCookie) {
 			checkQueryIsLocked(userCameFromPslzmeLink).then((queryLocked) => {
-				if (queryLocked) {
+				if (queryLocked === 1 || queryLocked === "1") {
 					handleRedirectionToLockedPage(actualTargetPage);
 					return;
 				} else {
@@ -26,7 +26,7 @@ function pslzmeRedirection() {
 
 			//before anything else, check if the query is locked because someone has inserted the name wrongly for three times.
 			checkQueryIsLocked(userCameFromPslzmeLink).then((queryLocked) => {
-				if (queryLocked) {
+				if (queryLocked === 1 || queryLocked === "1") {
 					handleRedirectionToLockedPage(actualTargetPage);
 					return;
 				} else {
