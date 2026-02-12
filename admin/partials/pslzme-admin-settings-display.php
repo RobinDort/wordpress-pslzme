@@ -54,7 +54,9 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
                 <h3><?= esc_html__("configuration step 3", "pslzme") ?></h3>
                 <p><?= esc_html__("explanation 6", "pslzme") ?></p>
                 <?php if(!empty($tablesConfigured)): ?>
-                    <p><?= esc_html__("tables configured", "pslzme") ?></p>
+                    <div class="configuration-container-success">
+                        <p><?= esc_html__("tables configured", "pslzme") ?></p>
+                    </div>
                 <?php else : ?>
                     <button id="create-tables-sbmt" type="submit"><?= esc_html__("configure tables", "pslzme") ?></button>
                 <?php endif; ?>
@@ -69,7 +71,9 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
             <p><?= esc_html__("explanation 8", "pslzme") ?></p>
 
             <?php if (!empty($urlLicensed)): ?>
-                <p><?= esc_html__("url licensed", "pslzme") ?></p>
+                <div class="configuration-container-success">
+                    <p><?= esc_html__("url licensed", "pslzme") ?></p>
+                </div>
             <?php else : ?>
                 <button id="license-domain-sbmt" type="submit"><?= esc_html__("license domain", "pslzme") ?></button>
             <?php endif; ?>
