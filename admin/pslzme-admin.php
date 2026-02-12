@@ -61,7 +61,6 @@ class Pslzme_Admin {
 	public function enqueue_styles() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Pslzme_Loader as all of the hooks are defined
@@ -84,7 +83,6 @@ class Pslzme_Admin {
 	public function enqueue_scripts() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Pslzme_Loader as all of the hooks are defined
@@ -105,6 +103,11 @@ class Pslzme_Admin {
 	}
 
 
+	/**
+	 * 
+	 * This function adds a new menu inside the Wordpress admin panel for the configuration of pslzme. 
+	 * 
+	 */
 	public function add_pslzme_admin_settings_menu() {
 		$svg_file = plugin_dir_path(__FILE__) . 'images/pslzme_fingerprint.svg';
 		$svg_content = file_get_contents($svg_file);
@@ -119,6 +122,11 @@ class Pslzme_Admin {
 		add_menu_page("Pslzme Settings", "pslzme", "manage_options", "pslzme_settings", [$this, 'display_pslzme_settings_menu'], $svg_data_uri);
 	}
 
+	/**
+	 * 
+	 * This function creates new settings to use inside the configuration forms inside the pslzme-admin-settings-display.php file.
+	 * 
+	 */
 	public function register_pslzme_settings() {
 		// Single option for everything
 		register_setting("pslzme_settings_group", "pslzme_settings", [
@@ -176,11 +184,24 @@ class Pslzme_Admin {
 	}
 
 
+	/**
+	 * 
+	 * This function loads the partial output file for the pslzme admin panel.
+	 * @location /admin/partials/pslzme-admin-settings-display.php
+	 * 
+	 */
 	public function display_pslzme_settings_menu() {
 		include_once plugin_dir_path(__FILE__) . 'partials/pslzme-admin-settings-display.php';
 	}
 
 
+	/**
+	 * 
+	 * This function sanitizes all the form inputs inside the pslzme admin panel before saving them into the database.
+	 * @input The value from the forms input field.
+	 * @return An array with sanitized form inputs that is saved to the database.
+	 * 
+	 */
 	public function sanitize_pslzme_settings($input) {
 
 		// Start with existing settings so nothing gets lost
@@ -222,6 +243,13 @@ class Pslzme_Admin {
 		return $sanitized;
 	}
 
+
+	/**
+	 * 
+	 * This function renders the pslzme admin panels forms and outputs the values as input fields.
+	 * @args Array that is passed by Wordpress when rendering a settings field. Contains info stored for this particular field.
+	 * 
+	 */
 	public function render_pslzme_settings_field($args) {
 		$id = $args['id'];
 		$type = ($id === 'db_password') ? 'password' : 'text';
@@ -247,6 +275,12 @@ class Pslzme_Admin {
 		);
 	}
 
+	/**
+	 * 
+	 * This function is used as callback for the wp_ajax_pslzme_create_tables hook.
+	 * It is responsible for handling an ajax request when a user fires an action=pslzme_create_tables.
+	 * 
+	 */
 	public function handle_create_tables() {
 		// Check nonce for security
 		check_ajax_referer('pslzme_create_tables', 'nonce');
@@ -254,13 +288,28 @@ class Pslzme_Admin {
 		$settingsController->handle_create_pslzme_tables();
 	}
 
+	/**
+	 * 
+	 * This function is used as callback for the wp_ajax_pslzme_register_customer hook.
+	 * It is responsible for handling an ajax when a user fires an action=pslzme_register_customer.
+	 * 
+	 */
 	public function handle_register_customer() {
 		check_ajax_referer('pslzme_create_tables', 'nonce');
 		$settingsController = new PslzmeAdminDatabaseOptionsController();
 		$settingsController->handle_register_customer();
 	}
 
-
+	/**
+	 * 
+	 * This function is used as callback for the theme_page_templates hook.
+	 * It registers a new template type for special pslzme pages.
+	 * @page_templates Array containing existing page templates for the current theme
+	 * @theme The current theme used.
+	 * @post The current post being edited. Used for conditionally adding specific post types.
+	 * @return The modified page_templates array containing a new key for pslzme page.
+	 * 
+	 */
 	public function register_pslzme_template($page_templates, $theme, $post) {
 		$templates = $this->pslzme_template_array();
 		foreach ($templates as $tk=>$tv) {
@@ -269,8 +318,14 @@ class Pslzme_Admin {
 		return $page_templates;
 	}
 
+	/**
+	 * This function is used as a callback for the template_include hook.
+	 * It loads the template file file for the current post type.
+	 * @template The path of the currently selected template
+	 * @return The rendered php file for the page.
+	 */
 	public function load_pslzme_page_template($template) {
-		global $post,$wp_query,$wpdb;
+		global $post;
 		$page_temp_slug = get_page_template_slug($post->ID);
 
 		$templates = $this->pslzme_template_array();
@@ -281,6 +336,13 @@ class Pslzme_Admin {
 		return $template;
 	}
 
+	/**
+	 * This function is used as a callback for the wp_nav_menu_objects hook.
+	 * It hides the special template pslzme page in navbars when the required pslzme URL parameters are not set.
+	 * @menu_objects Array containing information about the pages inside the nav menu.
+	 * @args arguments passed to wp_nav_menu() function like theme location etc.
+	 * @return the modified menu objects that will be displayed inside the menu.
+	 */
 	public function hide_pslzme_pages_in_menus($menu_objects, $args) {
 		$dc = DecryptionController::get_instance();
 		$pslzme_slug = 'pslzme-page.php';
@@ -297,6 +359,7 @@ class Pslzme_Admin {
 		return $menu_objects;
 	}
 
+
 	public function protect_pslzme_page_direct_access() {
 		if (is_page() && get_page_template_slug() === 'pslzme-page.php') {
 			$dc = DecryptionController::get_instance();
@@ -307,6 +370,14 @@ class Pslzme_Admin {
 		}
 	}
 
+
+	/**
+	 * 
+	 * This function adds a custom category to the gutenberg block editor
+	 * @categories All the currently available categories inside the editor.
+	 * @post The current post being edited.
+	 * 
+	 */
 	public function add_custom_gutenberg_category($categories, $post) {
 		return array_merge(
 			$categories,
@@ -320,12 +391,25 @@ class Pslzme_Admin {
     	);
 	}
 
+	/**
+	 * 
+	 * This function is used to add a new template type for pslzme pages.
+	 * @return An array containing the new page type.
+	 * 
+	 */
 	private function pslzme_template_array() {
 		$templates = [];
 		$templates['pslzme-page.php'] = 'pslzme';
 		return $templates;
 	}
 
+	/**
+	 * 
+	 * This function is used to encrypt a customers password before saving it into the database.
+	 * @password The password inserted into a form input field. Not encrypted before this funtion.
+	 * @timestamp A timestamp used as salt to encrypt the password.
+	 * 
+	 */
 	private function encrypt_password($password, $timestamp) {
 		$secretKey = hash('sha256', (string)$timestamp, true); // binary key
 		$iv = random_bytes(16); // IV
