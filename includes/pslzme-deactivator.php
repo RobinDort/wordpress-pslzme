@@ -31,6 +31,13 @@ class Pslzme_Deactivator {
 		$pageController = new PslzmeAdminPagesController();
 		$pageController->remove_pslzme_acception_page();
 		$pageController->remove_pslzme_decline_page();
+
+		// remove the pslzme_settings
+		$pslzmeSettings = get_option('pslzme_settings', []);
+
+		if (!empty($pslzmeSettings)) {
+			delete_option("pslzme_settings");
+		}
 	}
 
 }
