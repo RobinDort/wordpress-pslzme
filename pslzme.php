@@ -31,6 +31,43 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+if ( ! function_exists( 'pslzme_fs' ) ) {
+    // Create a helper function for easy SDK access.
+    function pslzme_fs() {
+        global $pslzme_fs;
+
+        if ( ! isset( $pslzme_fs ) ) {
+            // Include Freemius SDK.
+            require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
+
+            $pslzme_fs = fs_dynamic_init( array(
+                'id'                  => '24338',
+                'slug'                => 'pslzme',
+                'type'                => 'plugin',
+                'public_key'          => 'pk_93c67738670bd69b96e9e44713cf2',
+                'is_premium'          => false,
+                'has_addons'          => false,
+                'has_paid_plans'      => false,
+                'is_org_compliant'    => false,
+                'menu'                => array(
+                    'slug'           => 'pslzme_settings',
+                    'first-path'     => 'admin.php?page=pslzme_settings',
+                    'support'        => false,
+                ),
+            ) );
+        }
+
+        return $pslzme_fs;
+    }
+
+    // Init Freemius.
+    pslzme_fs();
+    // Signal that SDK was initiated.
+    do_action( 'pslzme_fs_loaded' );
+}
+
+
+
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
