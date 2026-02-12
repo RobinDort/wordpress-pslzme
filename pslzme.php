@@ -52,6 +52,8 @@ if ( ! function_exists( 'pslzme_fs' ) ) {
                 'menu'                => array(
                     'slug'           => 'pslzme_settings',
                     'first-path'     => 'admin.php?page=pslzme_settings',
+                    'account'        => false,
+                    'contact'        => false,
                     'support'        => false,
                 ),
             ) );
