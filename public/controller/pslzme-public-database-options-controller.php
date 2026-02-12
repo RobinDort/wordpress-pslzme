@@ -163,7 +163,7 @@ class PslzmePublicDatabaseOptionsController {
         }
 
         // first check if the query already exists -> user has declined or accepted the cookie before
-        $selectPslzmeQueryStmt = PslzmePreparedStmtFactory::prepare_select_pslzme_query_stmt();
+        $selectPslzmeQueryStmt = PslzmePreparedStmtFactory::prepare_select_pslzme_query_for_customer();
         $preparedPslzmeQueryStmt = $this->connection->prepare($selectPslzmeQueryStmt, $timestamp, $customerID, $encryptID);
         $selectPslzmeQueryRslt = $this->connection->get_row($preparedPslzmeQueryStmt);
 
