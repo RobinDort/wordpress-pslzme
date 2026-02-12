@@ -56,9 +56,7 @@ class PslzmeAdminDatabaseOptionsController {
                 wp_send_json_error([$errors]);
             } else {
                 // update options accordingly to set this step to true
-                $options = get_option("pslzme_settings", []);
-                $options["tables_configured"] = true;
-                update_option("pslzme_settings", $options);
+                update_option("pslzme_tables_configured", true);
 
                 wp_send_json_success(['message' => "Tabellen erfolgreich erstellt."]);
             }
@@ -106,21 +104,17 @@ class PslzmeAdminDatabaseOptionsController {
                 if ($insertKeyStmt === false) {
                     wp_send_json_error(["message" => "Encryption key insert failed"]);
                 }
+                // update options accordingly to set this step to true
+                update_option("pslzme_url_licensed", true);
 
                 wp_send_json_success("Domain registration successful");
+
             }
 
 
         } catch (Exception $e) {
            wp_send_json_error(['message' => 'Exception beim Registrieren der Domain: ' . $e->getMessage()]);
         }
-
-        // update options accordingly to set this step to true
-		$options = get_option("pslzme_settings", []);
-		$options["url_licensed"] = true;
-		update_option("pslzme_settings", $options);
-
-        wp_send_json_success(["message" => "Data reveived: " . $customer . $key]);
     }
 }
 ?>

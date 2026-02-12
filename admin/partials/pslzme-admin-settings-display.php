@@ -11,7 +11,8 @@
  * @subpackage pslzme/admin/partials
  */
 
-$options = get_option('pslzme_settings', []);
+$tablesConfigured = get_option('pslzme_tables_configured', []);
+$urlLicensed = get_option('pslzme_url_licensed', []);
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -52,7 +53,7 @@ $options = get_option('pslzme_settings', []);
             <div class="pslzme-explanation">
                 <h3><?= esc_html__("configuration step 3", "pslzme") ?></h3>
                 <p><?= esc_html__("explanation 6", "pslzme") ?></p>
-                <?php if(!empty($options["tables_configured"])): ?>
+                <?php if(!empty($tablesConfigured)): ?>
                     <p><?= esc_html__("tables configured", "pslzme") ?></p>
                 <?php else : ?>
                     <button id="create-tables-sbmt" type="submit"><?= esc_html__("configure tables", "pslzme") ?></button>
@@ -67,7 +68,7 @@ $options = get_option('pslzme_settings', []);
             <p><?= esc_html__("explanation 7", "pslzme") ?></p>
             <p><?= esc_html__("explanation 8", "pslzme") ?></p>
 
-            <?php if (!empty($options["url_licensed"])): ?>
+            <?php if (!empty($urlLicensed)): ?>
                 <p><?= esc_html__("url licensed", "pslzme") ?></p>
             <?php else : ?>
                 <button id="license-domain-sbmt" type="submit"><?= esc_html__("license domain", "pslzme") ?></button>

@@ -20,6 +20,8 @@ class PslzmeDatabaseConnection {
         $encryptedPassword = $dbOptions['db_password'] ?? '';
         $decryptedPassword = PslzmeAdminCryptoService::decrypt($encryptedPassword);
 
+        error_log("DECRYPT: " . $decryptedPassword);
+
         $this->connection = new wpdb($username, $decryptedPassword, $dbname, $host);
 
         if (!empty($this->connection->last_error)) {

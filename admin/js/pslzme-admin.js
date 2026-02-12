@@ -56,7 +56,7 @@
 					alert("Tabellen erfolgreich erstellt!");
 				} else {
 					console.log(response);
-					alert("Fehler beim Erstellen der Tabellen: " + response);
+					alert("Fehler beim Erstellen der Tabellen: " + JSON.stringify(response));
 				}
 			},
 		);
