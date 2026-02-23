@@ -52,10 +52,11 @@
 			},
 			function (response) {
 				if (response.success) {
-					console.log(response);
 					alert("Tabellen erfolgreich erstellt!");
+					setTimeout(() => {
+						window.location.reload();
+					}, 1000);
 				} else {
-					console.log(response);
 					alert("Fehler beim Erstellen der Tabellen: " + JSON.stringify(response));
 				}
 			},
@@ -69,14 +70,10 @@
 			cms: "Wordpress",
 		};
 
-		const requestObject = {
-			data: JSON.stringify(request),
-		};
-
 		$.ajax({
-			url: "https://www.pslzme.com/api/v1/domain",
+			url: "https://www.pslzme.com/api/v1/domains",
 			method: "post",
-			data: requestObject,
+			data: JSON.stringify(request),
 			success: function (response) {
 				const customer = response.customer;
 				const key = response.key;
@@ -101,6 +98,9 @@
 					function (response) {
 						if (response.success) {
 							alert("Domain registration successful");
+							setTimeout(() => {
+								window.location.reload();
+							}, 1000);
 						} else {
 							alert("Something went wrong. Are you sure you already have a pslzme account registered?");
 							console.log(response);
