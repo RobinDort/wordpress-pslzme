@@ -89,7 +89,7 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
          $this->add_control(
 			'unpersonalized_text',
 			[
-				'label' => esc_html__( 'Personalized Text', 'pslzme' ),
+				'label' => esc_html__( 'Unpersonalized Text', 'pslzme' ),
 				'type' => \Elementor\Controls_Manager::WYSIWYG,
 			]
 		);

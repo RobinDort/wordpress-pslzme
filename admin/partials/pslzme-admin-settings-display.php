@@ -83,7 +83,7 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
     <div class="pslzme-configuration-container">
         <h2><?= esc_html__("Pslzme configuration 3", "pslzme") ?></h2>
         <p><?= esc_html__("explanation 9", "pslzme") ?></p>
-        <p><?= esc_html__("explanation 10", "pslzme") ?></p>
+        <p><?= wp_kses(__("explanation 10", "pslzme"), ["strong" => []]) ?></p>
         <p><?= esc_html__("explanation 11", "pslzme") ?></p>
         <div class="pslzme-internal-pages-fields">
             <form method="post" action="options.php" class="pslzme-settings-form">

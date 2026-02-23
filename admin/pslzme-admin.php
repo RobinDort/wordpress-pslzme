@@ -161,14 +161,14 @@ class Pslzme_Admin {
 		// --- Internal Pages Section ---
 		add_settings_section(
 			"pslzme_ip_section",
-			__("Seiten Konfiguration"),
+			__("Seiten Konfiguration", "pslzme"),
 			null,
 			"pslzme_settings"
 		);
 
 		$ip_fields = [
-			'db_imprint' => __("ID der Impressumsseite:"),
-			'db_privacy' => __("ID der Datenschutzseite"),
+			'db_imprint' => __("ID der Impressumsseite:", "pslzme"),
+			'db_privacy' => __("ID der Datenschutzseite", "pslzme"),
 		];
 
 		foreach ($ip_fields as $id => $title) {
