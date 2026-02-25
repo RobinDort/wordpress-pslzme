@@ -229,7 +229,7 @@ class Pslzme_Public {
 	 * @location /public/service/pslzme-public-shortcode-service.php
 	 */
 	public function register_pslzme_shortcodes() {
-        $shortcodeService = new PslzmeShortcodeService();
+    	$shortcodeService = new PslzmeShortcodeService();
 		$shortcodeService->register_shortcodes();
 	}
 

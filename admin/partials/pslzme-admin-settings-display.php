@@ -58,7 +58,7 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
                         <p><?= esc_html__("tables configured", "pslzme") ?></p>
                     </div>
                 <?php else : ?>
-                    <button id="create-tables-sbmt" type="submit"><?= esc_html__("configure tables", "pslzme") ?></button>
+                    <button id="create-tables-sbmt" type="button"><?= esc_html__("configure tables", "pslzme") ?></button>
                 <?php endif; ?>
             </div>
         </div>
@@ -75,7 +75,7 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
                     <p><?= esc_html__("url licensed", "pslzme") ?></p>
                 </div>
             <?php else : ?>
-                <button id="license-domain-sbmt" type="submit"><?= esc_html__("license domain", "pslzme") ?></button>
+                <button id="license-domain-sbmt" type="button"><?= esc_html__("license domain", "pslzme") ?></button>
             <?php endif; ?>
         </div>
     </div>
@@ -87,8 +87,8 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
         <p><?= esc_html__("explanation 11", "pslzme") ?></p>
         <div class="pslzme-internal-pages-fields">
             <form method="post" action="options.php" class="pslzme-settings-form">
-                <?php settings_fields('pslzme_settings_group'); ?>
-                <?php do_settings_fields('pslzme_settings', 'pslzme_ip_section'); ?>
+                <?php settings_fields('pslzme_ip_settings_group'); ?>
+                <?php do_settings_fields('pslzme_ip_settings', 'pslzme_ip_section'); ?>
                 <?php submit_button(__('Save', 'pslzme')); ?>
             </form>
         </div>

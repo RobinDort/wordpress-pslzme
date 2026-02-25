@@ -223,12 +223,12 @@ class Pslzme {
 
 		$plugin_admin = new Pslzme_Admin( $this->get_pslzme(), $this->get_version() );
 
+		$this->loader->add_action( 'wp_ajax_pslzme_create_tables', $plugin_admin, 'handle_create_tables' );
+		$this->loader->add_action( 'wp_ajax_pslzme_register_customer', $plugin_admin, 'handle_register_customer');
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_pslzme_admin_settings_menu' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_pslzme_settings' );
-		$this->loader->add_action( 'wp_ajax_pslzme_create_tables', $plugin_admin, 'handle_create_tables' );
-		$this->loader->add_action( 'wp_ajax_pslzme_register_customer', $plugin_admin, 'handle_register_customer');
 
 		// Handle custom pslzme pages 
 		$this->loader->add_filter( 'theme_page_templates', $plugin_admin, 'register_pslzme_template', 10, 3 );

@@ -29,7 +29,7 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-	$(window).load(function () {
+	jQuery(document).ready(function ($) {
 		$("#create-tables-sbmt").on("click", function (e) {
 			e.preventDefault();
 			createPslzmeTables();
@@ -42,7 +42,7 @@
 	});
 
 	function createPslzmeTables() {
-		if (!confirm("Möchten Sie die Tabellen wirklich anlegen?")) return;
+		if (!confirm("Do you really wish to create the database tables?")) return;
 
 		$.post(
 			pslzme_admin_ajax.ajax_url,
@@ -52,12 +52,12 @@
 			},
 			function (response) {
 				if (response.success) {
-					alert("Tabellen erfolgreich erstellt!");
+					alert("Tables have been created successfully!");
 					setTimeout(() => {
 						window.location.reload();
 					}, 1000);
 				} else {
-					alert("Fehler beim Erstellen der Tabellen: " + JSON.stringify(response));
+					alert("Error while trying to create database tables:");
 				}
 			},
 		);

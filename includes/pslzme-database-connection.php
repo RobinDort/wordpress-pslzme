@@ -13,16 +13,13 @@ class PslzmeDatabaseConnection {
      * @throws DatabaseException When the connection could not be established.
      */
     public function __construct($dbOptions) {
+
         $host = "localhost";
         $dbname = $dbOptions['db_name'] ?? '';
         $username = $dbOptions['db_user'] ?? '';
+        $password = $dbOptions['db_password'] ?? '';
 
-        $encryptedPassword = $dbOptions['db_password'] ?? '';
-        $decryptedPassword = PslzmeAdminCryptoService::decrypt($encryptedPassword);
-
-        error_log("DECRYPT: " . $decryptedPassword);
-
-        $this->connection = new wpdb($username, $decryptedPassword, $dbname, $host);
+        $this->connection = new wpdb($username, $password, $dbname, $host);
 
         if (!empty($this->connection->last_error)) {
             throw new DatabaseException(

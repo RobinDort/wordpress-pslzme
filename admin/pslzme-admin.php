@@ -94,7 +94,7 @@ class Pslzme_Admin {
 		 */
 
 		wp_enqueue_script( $this->pslzme, plugin_dir_url( __FILE__ ) . 'js/pslzme-admin.js', array( 'jquery' ), $this->version, false );
-
+		
 		//enable AJAX requests
 		wp_localize_script($this->pslzme, 'pslzme_admin_ajax', [
 			'ajax_url' => admin_url('admin-ajax.php'),
@@ -158,12 +158,16 @@ class Pslzme_Admin {
 			);
 		}
 
+		register_setting("pslzme_ip_settings_group", "pslzme_ip_settings", [
+			'sanitize_callback' => [$this, "sanitize_pslzme_ip_settings"]
+		]);
+
 		// --- Internal Pages Section ---
 		add_settings_section(
 			"pslzme_ip_section",
 			__("Seiten Konfiguration", "pslzme"),
 			null,
-			"pslzme_settings"
+			"pslzme_ip_settings"
 		);
 
 		$ip_fields = [
@@ -175,8 +179,8 @@ class Pslzme_Admin {
 			add_settings_field(
 				$id,
 				$title,
-				[$this, 'render_pslzme_settings_field'],
-				'pslzme_settings',
+				[$this, 'render_pslzme_settings_ip_field'],
+				'pslzme_ip_settings',
 				'pslzme_ip_section',
 				['id' => $id]
 			);
@@ -203,9 +207,11 @@ class Pslzme_Admin {
 	 * 
 	 */
 	public function sanitize_pslzme_settings($input) {
+		wp_cache_delete('alloptions', 'options');
 
 		// Start with existing settings so nothing gets lost
-		$sanitized = get_option('pslzme_settings', []);
+		$existing = get_option('pslzme_settings');
+		$sanitized = is_array($existing) ? $existing : [];
 
 		/* ---------------- DB FIELDS ---------------- */
 
@@ -218,15 +224,21 @@ class Pslzme_Admin {
 		}
 
 		if (isset($input['db_password'])) {
-			$password = sanitize_text_field($input['db_password']);
+			//$password = sanitize_text_field($input['db_password']);
+			$password = $input['db_password'];
 
 			if (!empty($password)) {
-				$sanitized['db_password'] = PslzmeAdminCryptoService::encrypt($password);
+				$sanitized['db_password'] = $password;
 			}
 			// If empty → do NOT overwrite existing password
 		}
 
-		/* ------------- INTERNAL PAGE IDS ------------- */
+		return $sanitized;
+	}
+
+	public function sanitize_pslzme_ip_settings($input) {
+		$existing = get_option('pslzme_ip_settings');
+		$sanitized = is_array($existing) ? $existing : [];
 
 		if (!isset($sanitized['internal_pages'])) {
 			$sanitized['internal_pages'] = [];
@@ -260,6 +272,25 @@ class Pslzme_Admin {
 		// Default value
 		$value = ($type === 'password') ? '' : ($options[$id] ?? '');
 
+		printf(
+			'<input type="%1$s" name="pslzme_settings[%2$s]" value="%3$s" %4$s>',
+			esc_attr($type),
+			esc_attr($id),
+			esc_attr($value),
+			$type === 'password' ? 'autocomplete="new-password"' : ''
+		);
+	}
+
+	public function render_pslzme_settings_ip_field($args) {
+		$id = $args['id'];
+		$type = 'text';
+
+		// Load existing settings
+		$options = get_option('pslzme_ip_settings', []);
+
+		// Default value
+		$value = ($options[$id] ?? '');
+
 		// Handle internal pages specially
 		if (in_array($id, ['db_imprint','db_privacy'])) {
 			$key = str_replace('db_', '', $id); // db_imprint -> imprint
@@ -267,11 +298,10 @@ class Pslzme_Admin {
 		}
 
 		printf(
-			'<input type="%1$s" name="pslzme_settings[%2$s]" value="%3$s" %4$s>',
+			'<input type="%1$s" name="pslzme_ip_settings[%2$s]" value="%3$s">',
 			esc_attr($type),
 			esc_attr($id),
 			esc_attr($value),
-			$type === 'password' ? 'autocomplete="new-password"' : ''
 		);
 	}
 
@@ -390,6 +420,25 @@ class Pslzme_Admin {
 		$templates = [];
 		$templates['pslzme-page.php'] = 'pslzme';
 		return $templates;
+	}
+
+
+	private function write_db_credentials_file($credentials) {
+		$filePath = PSLZME_CREDENTIALS_FILE;
+
+		//ensure directory exists
+		$dir = dirname($filePath);
+		if (!file_exists($dir)) {
+			wp_mkdir_p($dir);
+		}
+
+		// Convert to PHP code
+		$phpContent = "<?php\nreturn " . var_export($credentials, true) . ";\n";
+
+		// Write to file securely
+    	file_put_contents($filePath, $phpContent, LOCK_EX);
+		chmod($filePath, 0600);
+
 	}
 
 	/**

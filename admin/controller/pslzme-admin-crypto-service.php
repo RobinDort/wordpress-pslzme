@@ -7,7 +7,7 @@
 final class PslzmeAdminCryptoService {
 
     private const OPTION_KEY = "pslzme_crypto_key";
-    private const CIPHER = "aes-256-cbc";
+    private const CIPHER = "AES-128-CTR";
     
 
     private function __construct() {}
@@ -21,17 +21,20 @@ final class PslzmeAdminCryptoService {
      */
     private static function get_key() {
 
-        $pluginKey = get_option(self::OPTION_KEY);
+       $keyInfo = get_option(self::OPTION_KEY);
 
-        if (!$pluginKey) {
-            $pluginKey = base64_encode(random_bytes(32));
-            update_option(self::OPTION_KEY, $pluginKey);
-        }
+       if (!$keyInfo) {
+            $keyBin = random_bytes(16);
+            $key = bin2hex($keyBin);
+            $timestamp = time();
+            $keyInfo = [
+                'key'       => $key,
+                'timestamp' => $timestamp
+            ];
+            update_option(self::OPTION_KEY, $keyInfo);
+       }
 
-       $wpSalt = defined("LOGGED_IN_KEY") ? LOGGED_IN_KEY : '';
-
-       return hash("sha256", base64_decode($pluginKey) . $wpSalt, true);
-
+       return $keyInfo;
     } 
 
     /**
@@ -41,28 +44,38 @@ final class PslzmeAdminCryptoService {
      * @return The encrypted plaintext.
      * 
      */
-    public static function encrypt(string $plaintext) {
+    public static function encrypt(string $plaintext): ?string {
         if ( ! extension_loaded( 'openssl' ) ) {
-            return false;
+            return null;
         }
 
-        $ivLength = openssl_cipher_iv_length(self::CIPHER);
-        $iv       = random_bytes($ivLength);
-        $key      = self::get_key();
+        $keyInfo      = self::get_key();
+        $key = $keyInfo['key'];
+        $timestamp = $keyInfo['timestamp'];
+
+        if (!$key || !$timestamp) {
+            error_log('Crypto key invalid');
+            return null;
+        }
+
+        // $ivLength = openssl_cipher_iv_length(self::CIPHER);
+        // $iv       = random_bytes($ivLength);
+        $keyBin = hex2bin($key);
+        $iv = substr(hash('sha256', $timestamp, true), 0, 16);
 
         $ciphertext = openssl_encrypt(
             $plaintext,
             self::CIPHER,
-            $key,
-            OPENSSL_RAW_DATA,
+            $keyBin,
+            0,
             $iv
         );
 
         if ($ciphertext === false) {
-            return false;
+            return null;
         }
-
-        return base64_encode($iv . $ciphertext);
+        
+        return $ciphertext;
     }
 
     /**
@@ -72,32 +85,34 @@ final class PslzmeAdminCryptoService {
      * @return The decrypted plaintext/data.
      * 
      */
-    public static function decrypt(string $encryptedData): string {
+    public static function decrypt(string $encryptedData): ?string {
         if ( ! extension_loaded( 'openssl' ) ) {
-		    return false;
-	    }
-
-        $data = base64_decode($encryptedData, true);
-        if ($data === false) {
-            return false;
+		    return null;
         }
 
-        $ivLength = openssl_cipher_iv_length(self::CIPHER);
-        if (strlen($data) <= $ivLength) {
-            return false;
+        $keyInfo        = self::get_key();
+        $key = $keyInfo['key'];
+        $timestamp = $keyInfo['timestamp'];
+
+        if (!$key || !$timestamp) {
+            error_log('Crypto key invalid');
+            return null;
         }
+        $keyBin = hex2bin($key);
+        $iv = substr(hash('sha256', $timestamp, true), 0, 16);
+        // $iv         = substr($data, 0, $ivLength);
+        // $ciphertext = substr($data, $ivLength);
 
-        $iv         = substr($data, 0, $ivLength);
-        $ciphertext = substr($data, $ivLength);
-        $key        = self::get_key();
 
-        return openssl_decrypt(
-            $ciphertext,
+        $plaintext = openssl_decrypt(
+            $encryptedData,
             self::CIPHER,
-            $key,
-            OPENSSL_RAW_DATA,
+            $keyBin,
+            0,
             $iv
         );
+
+        return ($plaintext === false) ? null : $plaintext;
 
     }
 }

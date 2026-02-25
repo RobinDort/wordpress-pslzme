@@ -100,14 +100,17 @@
 	font-weight: 500;
 }
 
-.pslzme-db-configuration input {
+.pslzme-db-configuration input,
+.pslzme-internal-pages-fields input {
 	border-radius: 8px;
 	padding: 5px;
 	margin-bottom: 1em;
 }
 
 .pslzme-db-configuration input:focus,
-.pslzme-db-configuration input:focus-visible {
+.pslzme-internal-pages-fields input:focus,
+.pslzme-db-configuration input:focus-visible,
+.pslzme-internal-pages-fields input:focus-visible {
 	outline: none;
 	border-color: #000;
 }

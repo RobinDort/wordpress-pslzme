@@ -62,9 +62,6 @@ class PslzmeAdminDatabaseOptionsController {
             }
         } catch (Exception $e) {
             wp_send_json_error(['message' => 'Exception beim Erstellen der Tabellen: ' . $e->getMessage()]);
-        } finally {
-            // Close the database connection
-            $this->dbConnection->close_connection();
         }
     }
 
