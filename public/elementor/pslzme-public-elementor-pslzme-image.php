@@ -102,6 +102,17 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
+            'pslzme_image_text_color',
+            [
+                'label' => esc_html__( 'Pslzme image text color', 'pslzme' ),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+					'{{WRAPPER}} .pslzme_image_ce_text' => 'color: {{VALUE}};',
+				],
+            ]
+        );
+
+        $this->add_control(
             'pslzme_image_dimensions',
             [
                 'label' => esc_html__( 'Pslzme image dimensions', 'pslzme' ),
