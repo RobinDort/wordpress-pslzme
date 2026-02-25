@@ -85,6 +85,23 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
+            'pslzme_image_text_align',
+            [
+                'label' => esc_html__( 'Pslzme image text align', 'pslzme' ),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'left',
+                'options' => [
+					'left' => esc_html__( 'Pslzme image text align left', 'pslzme' ),
+					'center'  => esc_html__( 'Pslzme image text align center', 'pslzme' ),
+					'right' => esc_html__( 'Pslzme image text align right', 'pslzme' ),
+				],
+                'selectors' => [
+					'{{WRAPPER}} .pslzme_image_ce_text' => 'text-align: {{VALUE}};',
+				],
+            ]
+        );
+
+        $this->add_control(
             'pslzme_image_dimensions',
             [
                 'label' => esc_html__( 'Pslzme image dimensions', 'pslzme' ),
