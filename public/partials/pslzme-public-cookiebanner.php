@@ -13,7 +13,7 @@
 ?>
 
 <?php
-$options = get_option('pslzme_settings', []);
+$options = get_option('pslzme_ip_settings', []);
 $internal_pages = $options['internal_pages'] ?? [];
 
 $imprint_id = ! empty($internal_pages['imprint']) ? (int) $internal_pages['imprint'] : 0;
