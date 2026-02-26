@@ -111,7 +111,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
 			]
 		);
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_image_dimensions',
             [
                 'label' => esc_html__( 'Pslzme image dimensions', 'pslzme' ),

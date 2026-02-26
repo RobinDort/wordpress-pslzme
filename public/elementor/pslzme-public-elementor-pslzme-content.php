@@ -123,7 +123,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_content_personalized_image_size',
             [
                 'label'   => esc_html__('Pslzme content personalized image size', 'pslzme'),
@@ -183,7 +183,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_content_unpersonalized_image_size',
             [
                 'label'   => esc_html__('Pslzme content unpersonalized image size', 'pslzme'),
@@ -242,7 +242,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             ]   
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_content_personalized_video_width',
             [
                 'label'   => esc_html__('Pslzme content personalized video width', 'pslzme'),
@@ -254,7 +254,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_content_personalized_video_height',
             [
                 'label'   => esc_html__('Pslzme content personalized video height', 'pslzme'),
@@ -306,7 +306,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             ]   
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_content_unpersonalized_video_width',
             [
                 'label'   => esc_html__('Pslzme content unpersonalized video width', 'pslzme'),
@@ -318,7 +318,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_content_unpersonalized_video_height',
             [
                 'label'   => esc_html__('Pslzme content unpersonalized video height', 'pslzme'),
