@@ -77,8 +77,9 @@
 			success: function (response) {
 				const customer = response.customer;
 				const key = response.key;
+				const apiKey = response.apiKey;
 
-				if (customer === "" || key === "") {
+				if (customer === "" || key === "" || apiKey == "") {
 					alert("No pslzme customer registered for this URL. Please visit www.pslzme.com to register.");
 					return;
 				}
@@ -86,6 +87,7 @@
 				const secondRequestData = {
 					customer,
 					key,
+					apiKey,
 				};
 
 				$.post(

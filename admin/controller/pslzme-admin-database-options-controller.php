@@ -74,11 +74,12 @@ class PslzmeAdminDatabaseOptionsController {
     public function handle_register_customer() {
         $data = isset($_POST['data']) ? json_decode(stripslashes($_POST['data']), true) : null;
 
-		if (!$data || empty($data['customer']) || empty($data['key'])) {
+		if (!$data || empty($data['customer']) || empty($data['key'] || empty($data['apiKey']))) {
 			wp_send_json_error(['message' => 'Missing customer or key'], 400);
 		}
         $customer = sanitize_text_field($data['customer']);
         $key      = sanitize_text_field($data['key']);
+        $apiKey   = sanitize_text_field($data['apiKey']);
 
         try {
 
@@ -89,11 +90,13 @@ class PslzmeAdminDatabaseOptionsController {
             if ($customerID) {
                 wp_send_json_error(["message" => "Customer already saved"]);
             } else {
-                $insertCustomerStmt = $this->dbConnection->insert("pslzme_kunde", ["Name" => $customer], ["%s"]);
+                $insertCustomerStmt = $this->dbConnection->insert("pslzme_kunde", ["Name" => $customer, "ApiKey" => $apiKey], ["%s", "%s"]);
 
                 if ($insertCustomerStmt === false) {
                     wp_send_json_error(['message' => 'Customer insert failed']);
                 }
+
+                update_option("pslzme_api_key", $apiKey);
 
                 $customerID = $this->dbConnection->insert_id;
                 $insertKeyStmt = $this->dbConnection->insert("encrypt_info", ["EncryptionKey" => $key, "PslzmeKundenID" => $customerID], ["%s", "%d"]);

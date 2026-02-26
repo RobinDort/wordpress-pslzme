@@ -19,7 +19,8 @@ final class PslzmePreparedStmtFactory {
     public static function prepare_create_pslzme_customer_table_stmt() {
         $sqlQuery = "CREATE TABLE IF NOT EXISTS pslzme_kunde (
             KundenID BIGINT AUTO_INCREMENT PRIMARY KEY,
-            Name varchar(255) NOT NULL
+            Name varchar(255) NOT NULL,
+            ApiKey varchar(255) NULL
         )";
 
         return $sqlQuery;

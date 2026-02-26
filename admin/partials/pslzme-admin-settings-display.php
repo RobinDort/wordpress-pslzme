@@ -13,6 +13,7 @@
 
 $tablesConfigured = get_option('pslzme_tables_configured', []);
 $urlLicensed = get_option('pslzme_url_licensed', []);
+$apiKey = get_option("pslzme_api_key", []);
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -94,13 +95,11 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
         </div>
     </div>
 
-    <?php if (!empty($urlLicensed)): ?>
-        <div class="pslzme-configuration-container">
-            <h2><?= esc_html__("Pslzme API Key", "pslzme") ?></h2>
-            <div class="pslzme-explanation">
-                    <label for="pslzme-user-api-key">API-KEY:</label>
-                    <input id="pslzme-user-api-key" name="pslzme-user-api-key" type="text" readonly/>
-            </div>
+    <div class="pslzme-configuration-container">
+        <h2><?= esc_html__("Pslzme API Key", "pslzme") ?></h2>
+        <div class="pslzme-explanation">
+                <label for="pslzme-user-api-key">API-KEY:</label>
+                <input id="pslzme-user-api-key" name="pslzme-user-api-key" type="text" value="<?= $apiKey ?>" readonly/>
         </div>
-    <?php endif; ?>
+    </div>
 </div>

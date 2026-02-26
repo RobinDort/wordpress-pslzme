@@ -41,6 +41,10 @@
 	padding: 5px;
 }
 
+#pslzme-user-api-key {
+	min-width: 40%;
+}
+
 .configuration-container-success {
 	width: 200px;
 	text-align: center;
