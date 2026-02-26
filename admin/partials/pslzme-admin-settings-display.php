@@ -93,4 +93,14 @@ $urlLicensed = get_option('pslzme_url_licensed', []);
             </form>
         </div>
     </div>
+
+    <?php if (!empty($urlLicensed)): ?>
+        <div class="pslzme-configuration-container">
+            <h2><?= esc_html__("Pslzme API Key", "pslzme") ?></h2>
+            <div class="pslzme-explanation">
+                    <label for="pslzme-user-api-key">API-KEY:</label>
+                    <input id="pslzme-user-api-key" name="pslzme-user-api-key" type="text" readonly/>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
