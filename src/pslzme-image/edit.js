@@ -26,12 +26,13 @@ export default function Edit({ attributes, setAttributes }) {
 				<Panel>
 					<PanelBody title={__("Pslzme Image Section", "pslzme")} initialOpen={true}>
 						<FontSizePicker
-							fontSize={activeEditor === "personalized" ? attributes.personalized_text_font_size : attributes.unpersonalized_text_font_size}
+							value={activeEditor === "personalized" ? attributes.personalized_text_font_size : attributes.unpersonalized_text_font_size}
 							onChange={(value) =>
 								activeEditor === "personalized"
 									? setAttributes({ personalized_text_font_size: value })
 									: setAttributes({ unpersonalized_text_font_size: value })
 							}
+							disableCustomFontSizes={false}
 						/>
 
 						<Spacer marginY={5} />
