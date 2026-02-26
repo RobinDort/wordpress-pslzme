@@ -85,32 +85,31 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
-            'pslzme_image_text_align',
-            [
-                'label' => esc_html__( 'Pslzme image text align', 'pslzme' ),
-                'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => 'left',
-                'options' => [
-					'left' => esc_html__( 'Pslzme image text align left', 'pslzme' ),
-					'center'  => esc_html__( 'Pslzme image text align center', 'pslzme' ),
-					'right' => esc_html__( 'Pslzme image text align right', 'pslzme' ),
+			'pslzme_image_font_size',
+			[
+				'label' => esc_html__( 'pslzme_image_font_size', 'pslzme' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 100,
+						'step' => 1,
+					],
+					'%' => [
+						'min' => 0,
+						'max' => 100,
+					],
 				],
-                'selectors' => [
-					'{{WRAPPER}} .pslzme_image_ce_text' => 'text-align: {{VALUE}};',
+				'default' => [
+					'unit' => 'px',
+					'size' => 16,
 				],
-            ]
-        );
-
-        $this->add_control(
-            'pslzme_image_text_color',
-            [
-                'label' => esc_html__( 'Pslzme image text color', 'pslzme' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-					'{{WRAPPER}} .pslzme_image_ce_text' => 'color: {{VALUE}};',
+				'selectors' => [
+					'{{WRAPPER}} .pslzme_image_ce_text' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
-            ]
-        );
+			]
+		);
 
         $this->add_control(
             'pslzme_image_dimensions',
