@@ -84,7 +84,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
 			'pslzme_image_font_size',
 			[
 				'label' => esc_html__( 'pslzme_image_font_size', 'pslzme' ),
@@ -142,7 +142,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_image_background_size',
             [
                 'label' => esc_html__( 'Pslzme image background size', 'pslzme' ),
@@ -181,7 +181,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_image_foreground_size',
             [
                 'label' => esc_html__( 'Pslzme image foreground size', 'pslzme' ),
