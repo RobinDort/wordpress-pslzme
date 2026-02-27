@@ -32,11 +32,27 @@ class Pslzme_Deactivator {
 		$pageController->remove_pslzme_acception_page();
 		$pageController->remove_pslzme_decline_page();
 
-		// remove the pslzme_settings
+		// remove various option values
 		$pslzmeSettings = get_option('pslzme_settings', []);
+		$pslzme_ip_settings = get_option("pslzme_ip_settings", []);
+		$pslzme_api_key = get_option("pslzme_api_key", []);
+		$pslzme_tables_configured = get_option("pslzme_tables_configured",[]);
+		$pslzme_url_licensed = get_option("pslzme_url_licensed",[]);
 
 		if (!empty($pslzmeSettings)) {
 			delete_option("pslzme_settings");
+		}
+		if (!empty($pslzme_ip_settings)) {
+			delete_option("pslzme_ip_settings");
+		}
+		if (!empty($pslzme_api_key)) {
+			delete_option("pslzme_api_key");
+		}
+		if (!empty($pslzme_tables_configured)) {
+			delete_option("pslzme_tables_configured");
+		}
+		if (!empty($pslzme_url_licensed)) {
+			delete_option("pslzme_url_licensed");
 		}
 	}
 
