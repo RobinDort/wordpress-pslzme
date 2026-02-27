@@ -99,7 +99,7 @@ $apiKey = get_option("pslzme_api_key", []);
         <h2><?= esc_html__("Pslzme API Key", "pslzme") ?></h2>
         <div class="pslzme-explanation">
                 <label for="pslzme-user-api-key">API-KEY:</label>
-                <input id="pslzme-user-api-key" name="pslzme-user-api-key" type="text" value="<?= $apiKey ?>" readonly/>
+                <input id="pslzme-user-api-key" name="pslzme-user-api-key" type="text" value="<?= !empty($apiKey) ? $apiKey : '' ?>" readonly/>
         </div>
     </div>
 </div>
