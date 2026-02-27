@@ -88,7 +88,10 @@ class PslzmeAdminDatabaseOptionsController {
             $customerID = $this->dbConnection->get_var($preparedSelectStmt);
 
             if ($customerID) {
-                wp_send_json_error(["message" => "Customer already saved"]);
+                // customer has been saved already. No need to insert again.
+                update_option("pslzme_api_key", $apiKey);
+                update_option("pslzme_url_licensed", true);
+                wp_send_json_success(["message" => "Customer was already saved. Domain registration successful"]);
             } else {
                 $insertCustomerStmt = $this->dbConnection->insert("pslzme_kunde", ["Name" => $customer, "ApiKey" => $apiKey], ["%s", "%s"]);
 

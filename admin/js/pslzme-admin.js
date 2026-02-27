@@ -99,7 +99,7 @@
 					},
 					function (response) {
 						if (response.success) {
-							alert("Domain registration successful");
+							alert(response.data.message);
 							setTimeout(() => {
 								window.location.reload();
 							}, 1000);
