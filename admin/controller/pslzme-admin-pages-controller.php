@@ -35,7 +35,7 @@ class PslzmeAdminPagesController {
         <p style='text-align: left;'><strong>Don't worry</strong>: pslz<strong>me</strong> runs exclusively on our servers in Germany and there is no data exchange with other servers.</p>
         <p style='text-align: left;'>If you object to the pslz<strong>me</strong> function, we will simply redirect you to our standard website and your data will not be used in any way.</p>
         <p style='text-align: left;'>However, if you agree, you will experience a <strong>veritable firework </strong>display of almost <strong>limitless possibilities</strong> that are available via our <strong>sophisticated system</strong> in the areas of <strong>programmatic web</strong> and even <strong>programmatic print</strong> and which we would also like to offer you for use <strong>on your own websites</strong>.</p>
-        <p style='text-align: left;'><strong>Best regards,</strong><br><strong>Your team at Alexander Dort GmbH</strong></p>";
+        ";
 
         $existing_page = get_page_by_title($pageTitle);
         if ($existing_page && $existing_page->post_status !== 'trash') {
