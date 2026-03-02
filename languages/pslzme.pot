@@ -9,14 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-23T11:40:17+00:00\n"
+"POT-Creation-Date: 2026-03-02T09:08:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
 
 #. Plugin Name of the plugin
 #: pslzme.php
-#: admin/pslzme-admin.php:376
+#: admin/pslzme-admin.php:406
 #: public/pslzme-public.php:220
 msgid "Pslzme"
 msgstr ""
@@ -41,97 +41,101 @@ msgstr ""
 msgid "https://www.alexanderdort.com"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:20
+#: admin/partials/pslzme-admin-settings-display.php:21
 msgid "Pslzme Configuration"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:22
+#: admin/partials/pslzme-admin-settings-display.php:23
 msgid "Pslzme configuration 1"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:24
+#: admin/partials/pslzme-admin-settings-display.php:25
 msgid "explanation 1"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:25
+#: admin/partials/pslzme-admin-settings-display.php:26
 msgid "explanation 2"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:29
+#: admin/partials/pslzme-admin-settings-display.php:30
 msgid "configuration step 1"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:31
+#: admin/partials/pslzme-admin-settings-display.php:32
 msgid "explanation 3"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:32
+#: admin/partials/pslzme-admin-settings-display.php:33
 msgid "explanation 4"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:38
+#: admin/partials/pslzme-admin-settings-display.php:39
 msgid "configuration step 2"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:39
+#: admin/partials/pslzme-admin-settings-display.php:40
 msgid "explanation 5"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:47
-#: admin/partials/pslzme-admin-settings-display.php:92
+#: admin/partials/pslzme-admin-settings-display.php:48
+#: admin/partials/pslzme-admin-settings-display.php:93
 msgid "Save"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:54
+#: admin/partials/pslzme-admin-settings-display.php:55
 msgid "configuration step 3"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:55
+#: admin/partials/pslzme-admin-settings-display.php:56
 msgid "explanation 6"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:58
+#: admin/partials/pslzme-admin-settings-display.php:59
 msgid "tables configured"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:61
+#: admin/partials/pslzme-admin-settings-display.php:62
 msgid "configure tables"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:68
+#: admin/partials/pslzme-admin-settings-display.php:69
 msgid "Pslzme configuration 2"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:70
+#: admin/partials/pslzme-admin-settings-display.php:71
 msgid "explanation 7"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:71
+#: admin/partials/pslzme-admin-settings-display.php:72
 msgid "explanation 8"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:75
+#: admin/partials/pslzme-admin-settings-display.php:76
 msgid "url licensed"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:78
+#: admin/partials/pslzme-admin-settings-display.php:79
 msgid "license domain"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:84
+#: admin/partials/pslzme-admin-settings-display.php:85
 msgid "Pslzme configuration 3"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:85
+#: admin/partials/pslzme-admin-settings-display.php:86
 msgid "explanation 9"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:86
+#: admin/partials/pslzme-admin-settings-display.php:87
 msgid "explanation 10"
 msgstr ""
 
-#: admin/partials/pslzme-admin-settings-display.php:87
+#: admin/partials/pslzme-admin-settings-display.php:88
 msgid "explanation 11"
+msgstr ""
+
+#: admin/partials/pslzme-admin-settings-display.php:99
+msgid "Pslzme API Key"
 msgstr ""
 
 #: admin/pslzme-admin.php:145
@@ -146,15 +150,15 @@ msgstr ""
 msgid "Database password"
 msgstr ""
 
-#: admin/pslzme-admin.php:164
+#: admin/pslzme-admin.php:168
 msgid "Seiten Konfiguration"
 msgstr ""
 
-#: admin/pslzme-admin.php:170
+#: admin/pslzme-admin.php:174
 msgid "ID der Impressumsseite:"
 msgstr ""
 
-#: admin/pslzme-admin.php:171
+#: admin/pslzme-admin.php:175
 msgid "ID der Datenschutzseite"
 msgstr ""
 
@@ -350,22 +354,22 @@ msgid "Pslzme content unpersonalized video options"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:362
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:195
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:222
 msgid "Thumbnail"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:363
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:196
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:223
 msgid "Medium"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:364
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:197
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:224
 msgid "Large"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:365
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:198
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:225
 msgid "Full"
 msgstr ""
 
@@ -375,7 +379,7 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:19
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:194
+#: src/pslzme-image/edit.js:195
 msgid "Pslzme Image Widget"
 msgstr ""
 
@@ -389,7 +393,7 @@ msgstr ""
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:207
+#: src/pslzme-image/edit.js:208
 #: src/pslzme-text/edit.js:14
 msgid "Personalized Text"
 msgstr ""
@@ -398,60 +402,64 @@ msgstr ""
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:92
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:222
+#: src/pslzme-image/edit.js:223
 #: src/pslzme-text/edit.js:23
 msgid "Unpersonalized Text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:90
+msgid "pslzme_image_font_size"
+msgstr ""
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:117
 msgid "Pslzme image dimensions"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:110
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:137
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:106
+#: src/pslzme-image/edit.js:107
 msgid "Pslzme image background"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:121
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:148
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:125
+#: src/pslzme-image/edit.js:126
 msgid "Pslzme image background size"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:131
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:158
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:132
+#: src/pslzme-image/edit.js:133
 msgid "Pslzme image background alt text"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:140
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:167
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:138
+#: src/pslzme-image/edit.js:139
 msgid "Pslzme image background title"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:149
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:176
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:154
+#: src/pslzme-image/edit.js:155
 msgid "Pslzme image foreground"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:160
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:187
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:173
+#: src/pslzme-image/edit.js:174
 msgid "Pslzme image foreground size"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:170
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:197
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:180
+#: src/pslzme-image/edit.js:181
 msgid "Pslzme image foreground alt text"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:179
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:206
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:186
+#: src/pslzme-image/edit.js:187
 msgid "Pslzme image foreground title"
 msgstr ""
 
@@ -538,10 +546,6 @@ msgstr ""
 msgid "Your browser does not support the video tag."
 msgstr ""
 
-#: admin/js/pslzme-admin.js:45
-msgid "Confirm database tables"
-msgstr ""
-
 #: build/pslzme-content/index.js:1
 #: src/pslzme-content/edit.js:19
 msgid "Select personalized page"
@@ -560,42 +564,42 @@ msgid "Delete video"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:48
+#: src/pslzme-image/edit.js:49
 msgid "Pslzme image container spacing"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:52
+#: src/pslzme-image/edit.js:53
 msgid "Pslzme image dimension Top"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:59
+#: src/pslzme-image/edit.js:60
 msgid "Pslzme image dimension Right"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:66
+#: src/pslzme-image/edit.js:67
 msgid "Pslzme image dimension Bottom"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:73
+#: src/pslzme-image/edit.js:74
 msgid "Pslzme image dimension Left"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:84
+#: src/pslzme-image/edit.js:85
 msgid "Pslzme image dimension Unit"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:113
+#: src/pslzme-image/edit.js:114
 msgid "Delete Background Image"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:161
+#: src/pslzme-image/edit.js:162
 msgid "Delete Foreground Image"
 msgstr ""
 

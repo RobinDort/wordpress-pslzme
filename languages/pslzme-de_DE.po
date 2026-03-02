@@ -7,15 +7,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-23T11:40:17+00:00\n"
-"PO-Revision-Date: 2026-02-23 12:42+0100\n"
+"POT-Creation-Date: 2026-03-02T09:08:59+00:00\n"
+"PO-Revision-Date: 2026-03-02 10:12+0100\n"
 "Language: de\n"
 "X-Generator: Poedit 3.8\n"
 "X-Domain: pslzme\n"
 
 #. Plugin Name of the plugin
 #: pslzme.php
-#: admin/pslzme-admin.php:376
+#: admin/pslzme-admin.php:406
 #: public/pslzme-public.php:220
 msgid "Pslzme"
 msgstr "Pslzme"
@@ -40,98 +40,102 @@ msgstr "Alexander Dort GmbH"
 msgid "https://www.alexanderdort.com"
 msgstr "https://www.alexanderdort.com"
 
-#: admin/partials/pslzme-admin-settings-display.php:20
+#: admin/partials/pslzme-admin-settings-display.php:21
 msgid "Pslzme Configuration"
 msgstr "pslzme Konfiguration"
 
-#: admin/partials/pslzme-admin-settings-display.php:22
+#: admin/partials/pslzme-admin-settings-display.php:23
 msgid "Pslzme configuration 1"
 msgstr "1: Datenbank Konfiguration"
 
-#: admin/partials/pslzme-admin-settings-display.php:24
+#: admin/partials/pslzme-admin-settings-display.php:25
 msgid "explanation 1"
 msgstr "Zur erfolgreichen Nutzung von pslzme ist eine separate unabhängige Datenbankanbindung notwendig."
 
-#: admin/partials/pslzme-admin-settings-display.php:25
+#: admin/partials/pslzme-admin-settings-display.php:26
 msgid "explanation 2"
 msgstr "Um Ihnen die Konfiguration so einfach wie möglich zu gestalten, finden Sie im weiteren Abschnitt eine detaillierte Beschreibung der benötigten Schritte zur Erstellung und Konfiguration der Datenbank."
 
-#: admin/partials/pslzme-admin-settings-display.php:29
+#: admin/partials/pslzme-admin-settings-display.php:30
 msgid "configuration step 1"
 msgstr "Schritt 1: Erstellung der Datenbank"
 
-#: admin/partials/pslzme-admin-settings-display.php:31
+#: admin/partials/pslzme-admin-settings-display.php:32
 msgid "explanation 3"
 msgstr "Zur Erstellung einer Datenbank loggen Sie sich bitte in Ihrem gewählten Serverhosting-Tool ein und navigieren dort zum bereitgestellten Abschnitt Datenbanken. Anschließend wählen Sie die Option Neue Datenbank erstellen und geben dann Ihre gewünschten Konfigurationdaten für Datenbankname, Username und Passwort an."
 
-#: admin/partials/pslzme-admin-settings-display.php:32
+#: admin/partials/pslzme-admin-settings-display.php:33
 msgid "explanation 4"
 msgstr "Sollten Sie noch keinen Datenbank-User erstellt haben, so muss dies im Idealfall vor der Erstellung der Datenbank getan werden. Dieser kann jedoch auch nachträglich erstellt und der Datenbank zugewiesen werden. Zur Erstellung des Users, navigieren sie zum Abschnitt Datenbank-Nutzer erstellen und weisen Sie dann die gewünschten Konfigurationdaten wie Username und Passwort zu. Nach beidiger Erstellung muss zuletzt - wenn nicht bereits getan - der erstellte User noch der Datenbank zugewiesen werden."
 
-#: admin/partials/pslzme-admin-settings-display.php:38
+#: admin/partials/pslzme-admin-settings-display.php:39
 msgid "configuration step 2"
 msgstr "Schritt 2: Datenbank an pslzme plugin Anbinden"
 
-#: admin/partials/pslzme-admin-settings-display.php:39
+#: admin/partials/pslzme-admin-settings-display.php:40
 msgid "explanation 5"
 msgstr "Als nächstes tragen Sie bitte die Verbindungsdaten der soeben erstellten Datenbank in die nachstehenden Felder ein und bestätigen dies durch Klick des Speichern buttons."
 
-#: admin/partials/pslzme-admin-settings-display.php:47
-#: admin/partials/pslzme-admin-settings-display.php:92
+#: admin/partials/pslzme-admin-settings-display.php:48
+#: admin/partials/pslzme-admin-settings-display.php:93
 msgid "Save"
 msgstr "Speichern"
 
-#: admin/partials/pslzme-admin-settings-display.php:54
+#: admin/partials/pslzme-admin-settings-display.php:55
 msgid "configuration step 3"
 msgstr "Schritt 3: pslzme Tabellen konfigurieren"
 
-#: admin/partials/pslzme-admin-settings-display.php:55
+#: admin/partials/pslzme-admin-settings-display.php:56
 msgid "explanation 6"
 msgstr "Zuletzt müssen die benötigten pslzme Datenbanktabellen angelegt werden. Dies erfolgt vollständig automatisiert nach Bestätigung des nachstehenden Buttons. Bitte prüfen Sie erneut, ob die Angaben im vorherigen Schritt keine Fehler enthalten."
 
-#: admin/partials/pslzme-admin-settings-display.php:58
+#: admin/partials/pslzme-admin-settings-display.php:59
 msgid "tables configured"
 msgstr "Tabellen erfolgreich konfiguriert"
 
-#: admin/partials/pslzme-admin-settings-display.php:61
+#: admin/partials/pslzme-admin-settings-display.php:62
 msgid "configure tables"
 msgstr "Tabellen anlegen"
 
-#: admin/partials/pslzme-admin-settings-display.php:68
+#: admin/partials/pslzme-admin-settings-display.php:69
 msgid "Pslzme configuration 2"
 msgstr "2: Domain lizensieren"
 
-#: admin/partials/pslzme-admin-settings-display.php:70
+#: admin/partials/pslzme-admin-settings-display.php:71
 msgid "explanation 7"
 msgstr "Für die Nutzung von pslzme ist eine Lizenzierung Ihrer Domain erforderlich. Hierfür ist ein zugewiesener pslzme-Account erforderlich. Sollten Sie noch keinen Account besitzen, können Sie diesen unter https://www.pslzme.com/de/login anfordern."
 
-#: admin/partials/pslzme-admin-settings-display.php:71
+#: admin/partials/pslzme-admin-settings-display.php:72
 msgid "explanation 8"
 msgstr "Nachdem Ihr Account bereitgestellt wurde, bestätigen Sie bitte abschließend den nachfolgenden Button zur Lizenzierung dieser Domain."
 
-#: admin/partials/pslzme-admin-settings-display.php:75
+#: admin/partials/pslzme-admin-settings-display.php:76
 msgid "url licensed"
 msgstr "Domain erfolgreich lizensiert"
 
-#: admin/partials/pslzme-admin-settings-display.php:78
+#: admin/partials/pslzme-admin-settings-display.php:79
 msgid "license domain"
 msgstr "Domain lizensieren"
 
-#: admin/partials/pslzme-admin-settings-display.php:84
+#: admin/partials/pslzme-admin-settings-display.php:85
 msgid "Pslzme configuration 3"
 msgstr "3: Interne Seiten Konfiguration"
 
-#: admin/partials/pslzme-admin-settings-display.php:85
+#: admin/partials/pslzme-admin-settings-display.php:86
 msgid "explanation 9"
 msgstr "Für einen reibungslosen und DSGVO-Konformen Ablauf nutzt pslzme interne Weiterleitungen zu bestimmten Unterseiten Ihrer Webseite."
 
-#: admin/partials/pslzme-admin-settings-display.php:86
+#: admin/partials/pslzme-admin-settings-display.php:87
 msgid "explanation 10"
 msgstr "Beispielsweise benötigt der pslz<strong>me</strong> Cookiebanner, welcher als essentielles Bestandsteil fungiert, Angaben zu Impressum und Datenschutz."
 
-#: admin/partials/pslzme-admin-settings-display.php:87
+#: admin/partials/pslzme-admin-settings-display.php:88
 msgid "explanation 11"
 msgstr "Damit die interne Weiterleitung problemlos genutzt werden kann, weissen Sie bitte die in den nachstehenden Feldern beschriebenen Seiten mit der entprechenden ID der passenden internen Seite zu. Die ID der jeweiligen Seite finden Sie im contao backend unter Seiten durch Aufruf der Detailinformation der jeweiligen Seite."
+
+#: admin/partials/pslzme-admin-settings-display.php:99
+msgid "Pslzme API Key"
+msgstr "Pslzme API Key"
 
 #: admin/pslzme-admin.php:145
 msgid "Database name"
@@ -145,18 +149,17 @@ msgstr "Datenbank Nutzer"
 msgid "Database password"
 msgstr "Datenbank Passwort"
 
-#: admin/pslzme-admin.php:164
-#, fuzzy
+#: admin/pslzme-admin.php:168
 msgid "Seiten Konfiguration"
-msgstr "pslzme Konfiguration"
+msgstr "Seiten Konfiguration"
 
-#: admin/pslzme-admin.php:170
+#: admin/pslzme-admin.php:174
 msgid "ID der Impressumsseite:"
-msgstr ""
+msgstr "ID der Impressumsseite:"
 
-#: admin/pslzme-admin.php:171
+#: admin/pslzme-admin.php:175
 msgid "ID der Datenschutzseite"
-msgstr ""
+msgstr "ID der Datenschutzseite"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:19
 #: build/pslzme-content/index.js:1
@@ -350,22 +353,22 @@ msgid "Pslzme content unpersonalized video options"
 msgstr "Player-Optionen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:362
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:195
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:222
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:363
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:196
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:223
 msgid "Medium"
 msgstr "Medium"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:364
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:197
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:224
 msgid "Large"
 msgstr "Groß"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:365
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:198
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:225
 msgid "Full"
 msgstr "Volle Breite"
 
@@ -375,7 +378,7 @@ msgstr "Keine Bildlink-Adresse"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:19
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:194
+#: src/pslzme-image/edit.js:195
 msgid "Pslzme Image Widget"
 msgstr "Pslzme Image"
 
@@ -389,7 +392,7 @@ msgstr "Personalisierter Bild Inhalt"
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:74
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:207
+#: src/pslzme-image/edit.js:208
 #: src/pslzme-text/edit.js:14
 msgid "Personalized Text"
 msgstr "Personalisierter Text"
@@ -398,60 +401,64 @@ msgstr "Personalisierter Text"
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:92
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:222
+#: src/pslzme-image/edit.js:223
 #: src/pslzme-text/edit.js:23
 msgid "Unpersonalized Text"
 msgstr "Unpersonalisierter Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:90
+msgid "pslzme_image_font_size"
+msgstr "Schriftgröße"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:117
 msgid "Pslzme image dimensions"
 msgstr "Bildabstände"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:110
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:137
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:106
+#: src/pslzme-image/edit.js:107
 msgid "Pslzme image background"
 msgstr "Hintergrundbild"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:121
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:148
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:125
+#: src/pslzme-image/edit.js:126
 msgid "Pslzme image background size"
 msgstr "Hintergrundbildgröße"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:131
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:158
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:132
+#: src/pslzme-image/edit.js:133
 msgid "Pslzme image background alt text"
 msgstr "Alternativer Text des Hintergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:140
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:167
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:138
+#: src/pslzme-image/edit.js:139
 msgid "Pslzme image background title"
 msgstr "Titel des Hintergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:149
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:176
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:154
+#: src/pslzme-image/edit.js:155
 msgid "Pslzme image foreground"
 msgstr "Vordergrundbild"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:160
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:187
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:173
+#: src/pslzme-image/edit.js:174
 msgid "Pslzme image foreground size"
 msgstr "Vordergrundbildgröße"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:170
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:197
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:180
+#: src/pslzme-image/edit.js:181
 msgid "Pslzme image foreground alt text"
 msgstr "Alternativer Text des Vordergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:179
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:206
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:186
+#: src/pslzme-image/edit.js:187
 msgid "Pslzme image foreground title"
 msgstr "Titel des Vordergrundbildes"
 
@@ -489,7 +496,7 @@ msgstr "Nein"
 
 #: public/partials/pslzme-public-cookiebanner.php:29
 msgid "PSLZME Logo"
-msgstr ""
+msgstr "PSLZME Logo"
 
 #: public/partials/pslzme-public-cookiebanner.php:32
 msgid "pslzme cookiebar heading 1"
