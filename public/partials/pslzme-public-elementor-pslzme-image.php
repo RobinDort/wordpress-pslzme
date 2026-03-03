@@ -50,13 +50,13 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
 
     <?php if($varsSet && $personalized_text) : ?>
 
-         <div class="pslzme_image_ce_text block layered-text">
+         <div class="pslzme_image ce_text block layered-text">
             <?= wp_kses_post($personalized_text) ?>
         </div>
 
     <?php else: ?>
 
-        <div class="pslzme_image_ce_text block layered-text">
+        <div class="pslzme_image ce_text block layered-text">
             <?= wp_kses_post($unpersonalized_text) ?>
         </div>
 

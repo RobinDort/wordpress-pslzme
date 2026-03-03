@@ -45,6 +45,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
      */
     protected function register_controls(): void {
         $this->add_content_controls();
+        $this->add_style_controls();
     }
 
     /**
@@ -106,7 +107,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
 					'size' => 16,
 				],
 				'selectors' => [
-					'{{WRAPPER}} .pslzme_image_ce_text' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pslzme_image' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -208,6 +209,87 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                 'label_block' => true,
             ]
         );
+        $this->end_controls_section();
+    }
+
+
+    private function add_style_controls(): void {
+        $this->start_controls_section(
+            'content_section_pslzme_image_styles',
+            [
+                'label' => esc_html__('Pslzme Image Style Section', 'pslzme'),
+                'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'pslzme_image_width',
+            [
+                'label' => esc_html__('Pslzme image width', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 0, 'max' => 2000],
+                    '%'  => ['min' => 0, 'max' => 100],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-ov-image-container' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'pslzme_image_max_width',
+            [
+                'label' => esc_html__('Pslzme image max width', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'rem'],
+                'range' => [
+                    'px' => ['min' => 0, 'max' => 2000],
+                    '%'  => ['min' => 0, 'max' => 100],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-ov-image-container' => 'max-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'pslzme_image_height',
+            [
+                'label' => esc_html__('Pslzme image height', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'rem', 'vh'],
+                'range' => [
+                    'px' => ['min' => 0, 'max' => 2000],
+                    '%'  => ['min' => 0, 'max' => 100],
+                    'vh' => ['min' => 0, 'max' => 100],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-ov-image-container' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+
+        $this->add_responsive_control(
+            'pslzme_image_border_radius',
+            [
+                'label' => esc_html__( 'Pslzme image border radius', 'pslzme' ),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em', 'rem' ],
+                'default' => [
+                    'top' => 0,
+                    'right' => 0,
+                    'bottom' => 0,
+                    'left' => 0,
+                ],
+                'selectors' => [
+					'{{WRAPPER}} .pslzme-background-figure img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+            ]
+        );
+
         $this->end_controls_section();
     }
 
