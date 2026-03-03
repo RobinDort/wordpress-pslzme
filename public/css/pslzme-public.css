@@ -40,6 +40,39 @@
 	font-weight: bold;
 }
 
+.marquee {
+	padding: 4.8rem 0px;
+	font-size: 4rem;
+}
+
+.marquee-text {
+	overflow: clip;
+}
+
+.marquee-text-track {
+	width: 200%; /* 2 items */
+	display: flex;
+	animation: marquee-content 20s linear infinite;
+}
+
+.marquee-item {
+	flex: 0 0 50%; /* each block = full container width */
+	display: flex;
+	justify-content: center; /* optional */
+}
+
+.marquee-item p {
+	padding: 2.8rem 0px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+@keyframes marquee-content {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
 @media (max-width: 1366px) {
 	.pslzme-video video {
 		width: 100%;

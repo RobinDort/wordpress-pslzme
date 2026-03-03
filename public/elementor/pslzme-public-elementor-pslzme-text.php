@@ -152,6 +152,39 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'enable_marquee',
+            [
+                'label' => esc_html__('Pslzme text enable marquee', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Yes', 'pslzme'),
+                'label_off' => esc_html__('No', 'pslzme'),
+                'return_value' => 'yes',
+                'default' => 'no',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'marquee_min_height',
+            [
+                'label' => esc_html__('Marquee Container Height', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%', 'em', 'rem' ],
+                'range' => [
+                    'px' => [ 'min' => 10, 'max' => 1000 ],
+                    '%'  => [ 'min' => 1, 'max' => 100 ],
+                    'em' => [ 'min' => 1, 'max' => 50 ],
+                    'rem'=> [ 'min' => 1, 'max' => 50 ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-marquee-container' => 'min-height: {{SIZE}}{{UNIT}};',
+                ],
+                'condition' => [
+                    'enable_marquee' => 'yes',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
     }
 
