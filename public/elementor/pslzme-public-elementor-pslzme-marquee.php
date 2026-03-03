@@ -102,10 +102,21 @@ class ElementorWidgetPslzmeMarquee extends \Elementor\Widget_Base {
         $this->add_control(
             'marque_text_color',
             [
-                'label' => esc_html__('Text Color', 'pslzme'),
+                'label' => esc_html__('Marquee Text Color', 'pslzme'),
                 'type'  => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pslzme-marquee' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'marquee_background_color',
+            [
+                'label' => esc_html__('MarqueeBackground Color', 'pslzme'),
+                'type'  => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-marquee' => 'background-color: {{VALUE}};',
                 ],
             ]
         );
