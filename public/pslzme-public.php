@@ -204,10 +204,12 @@ class Pslzme_Public {
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-text.php';
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-content.php';
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-image.php';
+		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-marquee.php';
 
 		$widgets_manager->register( new ElementorWidgetPslzmeText() );
 		$widgets_manager->register( new ElementorWidgetPslzmeContent() );
 		$widgets_manager->register( new ElementorWidgetPslzmeImage() );
+		$widgets_manager->register( new ElementorWidgetPslzmeMarquee() );
 	}
 
 	/**

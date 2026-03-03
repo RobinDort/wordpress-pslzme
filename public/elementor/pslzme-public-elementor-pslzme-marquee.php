@@ -1,29 +1,22 @@
 <?php
+class ElementorWidgetPslzmeMarquee extends \Elementor\Widget_Base {
 
-/**
- * Class that creates a custom elementor widget as pslzme text.
- */
-class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
-
-	/**
-     * This function returns the name of the widget.
-     */
     public function get_name(): string {
-        return 'pslzme_text';
+        return 'pslzme_marquee';
     }
 
 	/**
      * This function returns the title of the widget.
      */
     public function get_title(): string {
-        return esc_html__("Pslzme Text Widget", "pslzme");
+        return esc_html__("Pslzme Marquee Widget", "pslzme");
     }
 
 	/**
      * This function returns the icon of the widget.
      */
     public function get_icon(): string {
-        return 'eicon-t-letter-bold';
+        return 'eicon-animation';
     }
 
 	/**
@@ -37,7 +30,7 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
      * This function returns the keywords of the widget.
      */
     public function get_keywords(): array {
-		return [ 'Pslzme', 'pslzme', 'Text', 'text', 'Pslzme Text', 'pslzme text' ];
+		return [ 'Pslzme', 'pslzme', 'Marquee', 'marquee', 'Pslzme Marquee', 'pslzme marquee' ];
 	}
 
 	/**
@@ -54,37 +47,22 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
      */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
-
-        $personalizedText   = $settings['personalized_text'] ?? '';
-        $unpersonalizedText = $settings['unpersonalized_text'] ?? '';
-        $showUnpersonalized = $settings['show_unpersonalized_text'] ?? '';
-
-        $decryptionController = DecryptionController::get_instance();
-        $varsSet = $decryptionController->vars_set();
-
-        $shouldRender = false;
-
-        if ($varsSet && !empty($personalizedText)) {
-            $shouldRender = true;
-        }
-
-        if (!$varsSet && $showUnpersonalized === 'yes' && !empty($unpersonalizedText)) {
-            $shouldRender = true;
-        }
-
-        if (!$shouldRender) {
-            return;
-        }
-
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-text.php';
+        $this->add_render_attribute(
+            'wrapper',
+            'class',
+            [
+                'pslzme-marquee-widget',
+                'elementor-widget-' . $this->get_name(),
+            ]
+        );
+        $this->add_render_attribute( 'wrapper', 'data-widget_type', $this->get_name() );
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-marquee.php';
     }
 
-	/**
-     * This functions adds sections and control options to the widget.
-     */
+
     private function add_content_controls(): void {
         $this->start_controls_section(
-			'content_section_personalized_text',
+			'content_section_marquee',
 			[
 				'label' => esc_html__('Personalized Text Section', 'pslzme'),
 				'tab' 	=> \Elementor\Controls_Manager::TAB_CONTENT, 
@@ -92,46 +70,23 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
 		);
 
         $this->add_control(
-			'personalized_text',
+			'marquee_personalized_text',
 			[
 				'label' => esc_html__( 'Personalized Text', 'pslzme' ),
 				'type' => \Elementor\Controls_Manager::WYSIWYG,
 			]
 		);
 
-        $this->end_controls_section();
-
-        $this->start_controls_section(
-			'content_section_unpersonalized_text',
-			[
-				'label' => esc_html__('Unpersonalized Text Section', 'pslzme'),
-				'tab' 	=> \Elementor\Controls_Manager::TAB_CONTENT, 
-			]
-		);
-
          $this->add_control(
-			'unpersonalized_text',
+			'marquee_unpersonalized_text',
 			[
 				'label' => esc_html__( 'Unpersonalized Text', 'pslzme' ),
 				'type' => \Elementor\Controls_Manager::WYSIWYG,
 			]
 		);
 
-        $this->add_control(
-			'show_unpersonalized_text',
-			[
-				'label' => esc_html__( 'Show unpersonalized text', 'pslzme' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'pslzme' ),
-				'label_off' => esc_html__( 'No', 'pslzme' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
         $this->end_controls_section();
     }
-
 
     private function add_style_controls(): void {
 
@@ -143,12 +98,42 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
             ]
         );
 
+        // Text Color
+        $this->add_control(
+            'marque_text_color',
+            [
+                'label' => esc_html__('Text Color', 'pslzme'),
+                'type'  => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-marquee' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
         // Typography (includes font size)
         $this->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'text_typography',
-                'selector' => '{{WRAPPER}} .pslzme-text',
+                'selector' => '{{WRAPPER}} .pslzme-marquee',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'marquee_min_height',
+            [
+                'label' => esc_html__('Marquee container min height', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => [ 'px', '%', 'em', 'rem' ],
+                'range' => [
+                    'px' => [ 'min' => 10, 'max' => 1000 ],
+                    '%'  => [ 'min' => 1, 'max' => 100 ],
+                    'em' => [ 'min' => 1, 'max' => 50 ],
+                    'rem'=> [ 'min' => 1, 'max' => 50 ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-marquee ' => 'min-height: {{SIZE}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -156,5 +141,6 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
     }
 
 }
+
 
 ?>
