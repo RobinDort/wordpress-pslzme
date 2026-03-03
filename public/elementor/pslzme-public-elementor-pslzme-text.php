@@ -45,6 +45,7 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
      */
     protected function register_controls(): void {
         $this->add_content_controls();
+        $this->add_style_controls();
     }
 
 	/**
@@ -53,6 +54,16 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
      */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
+        $this->add_render_attribute(
+            'wrapper',
+            'class',
+            [
+                'pslzme-text',
+                'ce_text',
+                'block'
+            ]
+        );
+        $this->add_render_attribute( 'wrapper', 'data-widget_type', $this->get_name() );
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-text.php';
     }
 
@@ -105,6 +116,41 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
 				'default' => 'yes',
 			]
 		);
+
+        $this->end_controls_section();
+    }
+
+
+    private function add_style_controls(): void {
+
+        $this->start_controls_section(
+            'style_section_text',
+            [
+                'label' => esc_html__('Text Styling', 'pslzme'),
+                'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        // Text Color
+        $this->add_control(
+            'text_color',
+            [
+                'label' => esc_html__('Text Color', 'pslzme'),
+                'type'  => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-text' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        // Typography (includes font size)
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'text_typography',
+                'selector' => '{{WRAPPER}} .pslzme-text',
+            ]
+        );
 
         $this->end_controls_section();
     }
