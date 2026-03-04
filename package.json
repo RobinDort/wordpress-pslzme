@@ -6,6 +6,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "wp-scripts build",
+		"bundle-3d": "webpack --config webpack.config.js",
 		"start": "wp-scripts start",
 		"make-pot": "wp i18n make-pot . languages/pslzme.pot --exclude=vendor,node_modules,tests --domain=pslzme",
 		"make-json": "wp i18n make-json ./languages/ --no-purge"
@@ -13,6 +14,15 @@
 	"author": "Alexander Dort GmbH",
 	"license": "ISC",
 	"devDependencies": {
-		"@wordpress/scripts": "^30.18.0"
+		"@babel/core": "^7.29.0",
+		"@babel/preset-env": "^7.29.0",
+		"@wordpress/scripts": "^30.18.0",
+		"babel-loader": "^10.0.0",
+		"webpack": "^5.105.4",
+		"webpack-cli": "^6.0.1",
+		"webpack-merge": "^6.0.1"
+	},
+	"dependencies": {
+		"three": "^0.183.2"
 	}
 }

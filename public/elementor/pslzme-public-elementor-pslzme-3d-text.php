@@ -36,6 +36,10 @@ class ElementorWidgetPslzme3DText extends \Elementor\Widget_Base {
 		return [ 'Pslzme', 'pslzme', 'Text', 'text', '3D', '3d', 'Pslzme 3D Text', 'pslzme 3d text' ];
 	}
 
+    public function get_script_depends(): array {
+        return ['pslzme-3d'];
+    }
+
 	/**
      * This function registers custom controls for the widget.
      */

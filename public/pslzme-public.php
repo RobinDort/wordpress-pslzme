@@ -99,10 +99,9 @@ class Pslzme_Public {
 
 		wp_enqueue_script( $this->pslzme . "-min", plugin_dir_url( __FILE__ ) . 'js/pslzme/pslzme.min.js', array('jquery'), $this->version, true);
 
-		wp_enqueue_script( $this->pslzme . "-3d", plugin_dir_url( __FILE__ ) . 'js/3D/pslzme-3d.js', array(), $this->version, true );
-
 		// Import 3D script as module
-		wp_script_add_data('pslzme-3d', 'type', 'module');
+		wp_enqueue_script( $this->pslzme . "-3d", plugin_dir_url( __FILE__ ) . 'js/bundles/pslzme-3d.bundle.js', array(), $this->version, true );
+
 
 		wp_localize_script(
 			$this->pslzme . "-min", // JS handle
@@ -210,11 +209,13 @@ class Pslzme_Public {
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-content.php';
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-image.php';
 		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-marquee.php';
+		require_once plugin_dir_path(__FILE__) . 'elementor/pslzme-public-elementor-pslzme-3d-text.php';
 
 		$widgets_manager->register( new ElementorWidgetPslzmeText() );
 		$widgets_manager->register( new ElementorWidgetPslzmeContent() );
 		$widgets_manager->register( new ElementorWidgetPslzmeImage() );
 		$widgets_manager->register( new ElementorWidgetPslzmeMarquee() );
+		$widgets_manager->register( new ElementorWidgetPslzme3DText() );
 	}
 
 	/**
