@@ -113,7 +113,7 @@ class ElementorWidgetPslzmeMarquee extends \Elementor\Widget_Base {
         $this->add_control(
             'marquee_background_color',
             [
-                'label' => esc_html__('MarqueeBackground Color', 'pslzme'),
+                'label' => esc_html__('Marquee background Color', 'pslzme'),
                 'type'  => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pslzme-marquee' => 'background-color: {{VALUE}};',
@@ -131,19 +131,19 @@ class ElementorWidgetPslzmeMarquee extends \Elementor\Widget_Base {
         );
 
         $this->add_responsive_control(
-            'marquee_min_height',
+            'marquee_height',
             [
-                'label' => esc_html__('Marquee container min height', 'pslzme'),
+                'label' => esc_html__('Marquee container height', 'pslzme'),
                 'type' => \Elementor\Controls_Manager::SLIDER,
                 'size_units' => [ 'px', '%', 'em', 'rem' ],
                 'range' => [
-                    'px' => [ 'min' => 10, 'max' => 1000 ],
+                    'px' => [ 'min' => 280, 'max' => 500 ],
                     '%'  => [ 'min' => 1, 'max' => 100 ],
-                    'em' => [ 'min' => 1, 'max' => 50 ],
-                    'rem'=> [ 'min' => 1, 'max' => 50 ],
+                    'em' => [ 'min' => 1, 'max' => 5 ],
+                    'rem'=> [ 'min' => 1, 'max' => 30 ],
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .pslzme-marquee ' => 'min-height: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .pslzme-marquee ' => 'height: {{SIZE}}{{UNIT}};',
                 ],
             ]
         );
