@@ -113,6 +113,14 @@ class Pslzme_Public {
 				'decline_url' => home_url('/pslzme-decline')
 			]
 		);
+
+		wp_localize_script(
+			$this->pslzme . "-3d", // JS handle
+			"fonts",           // Object name in JS
+			[
+				'droidSans' => plugin_dir_url(__FILE__) . 'js/3D/droid_sans_bold.typeface.json',
+			]
+		);
 	}
 
 	/**

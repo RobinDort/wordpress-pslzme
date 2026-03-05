@@ -15,3 +15,5 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
+
+<div class="pslzme-3d-text"></div>
