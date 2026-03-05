@@ -21,8 +21,13 @@ class Pslzme3DText {
 	renderer;
 	particleLight;
 
-	constructor(container) {
+	constructor(container, usedText, sceneBackground, highlightColorOne, highlightColorTwo, highlightColorThree) {
 		this.container = container;
+		this.usedText = usedText;
+		this.sceneBackground = sceneBackground;
+		this.highlightColorOne = highlightColorOne;
+		this.highlightColorTwo = highlightColorTwo;
+		this.highlightColorThree = highlightColorThree;
 		this.bevelEnabled = true;
 		this.targetRotation = 0;
 		this.targetRotationOnPointerDown = 0;
@@ -45,7 +50,7 @@ class Pslzme3DText {
 
 		// SCENE
 		this.scene = new THREE.Scene();
-		this.scene.background = new THREE.Color(0x222222);
+		this.scene.background = new THREE.Color(this.sceneBackground);
 		this.scene.fog = new THREE.Fog(0x222222, 250, 1400);
 
 		// LIGHTS
@@ -53,15 +58,15 @@ class Pslzme3DText {
 		dirLight.position.set(0, 0, 1).normalize();
 		this.scene.add(dirLight);
 
-		const pointLight = new THREE.PointLight(0xa4dd46, 5.5, 0, 0);
+		const pointLight = new THREE.PointLight(this.highlightColorOne, 5.5, 0, 0);
 		pointLight.position.set(0, 100, 500);
 		this.scene.add(pointLight);
 
-		const pointLight2 = new THREE.PointLight(0x0000ff, 3.5, 0, 0);
+		const pointLight2 = new THREE.PointLight(this.highlightColorTwo, 3.5, 0, 0);
 		pointLight2.position.set(-100, 100, 0);
 		this.scene.add(pointLight2);
 
-		const pointLight3 = new THREE.PointLight(0xff0000, 3.5, 0, 0);
+		const pointLight3 = new THREE.PointLight(this.highlightColorThree, 3.5, 0, 0);
 		pointLight3.position.set(100, 100, 0);
 		this.scene.add(pointLight3);
 
@@ -111,7 +116,7 @@ class Pslzme3DText {
 	}
 
 	createText(font, mirror = true) {
-		const geometry = new TextGeometry("Max Mustermann", {
+		const geometry = new TextGeometry(this.usedText, {
 			font: font,
 			size: 60,
 			depth: 3,
@@ -217,9 +222,14 @@ class Pslzme3DText {
 }
 
 document.querySelectorAll(".pslzme-3d-text").forEach((textElement) => {
-	customize3DText(textElement);
+	const dataText = textElement.getAttribute("data-3d-text");
+	const dataBackground = textElement.getAttribute("data-background");
+	const dataHighlightColorOne = textElement.getAttribute("data-highlight-color-one");
+	const dataHighlightColorTwo = textElement.getAttribute("data-highlight-color-two");
+	const dataHighlightColorThree = textElement.getAttribute("data-highlight-color-three");
+	customize3DText(textElement, dataText, dataBackground, dataHighlightColorOne, dataHighlightColorTwo, dataHighlightColorThree);
 });
 
-function customize3DText(textElement) {
-	new Pslzme3DText(textElement);
+function customize3DText(textElement, usedText, sceneBackground, highlightColorOne, highlightColorTwo, highlightColorThree) {
+	new Pslzme3DText(textElement, usedText, sceneBackground, highlightColorOne, highlightColorTwo, highlightColorThree);
 }
