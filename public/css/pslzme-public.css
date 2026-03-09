@@ -83,6 +83,10 @@
 	display: block;
 }
 
+.pslzme-3d-text-draggable canvas {
+	cursor: pointer;
+}
+
 @keyframes marquee-content {
 	to {
 		transform: translateX(-50%);

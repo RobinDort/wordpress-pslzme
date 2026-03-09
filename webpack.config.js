@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-	mode: "development", // or 'development'
+	mode: "production", // or 'development'
 	entry: "./public/js/3D/pslzme-3d.js",
 	output: {
 		filename: "pslzme-3d.bundle.js",

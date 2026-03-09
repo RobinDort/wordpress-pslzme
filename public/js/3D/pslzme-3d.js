@@ -2,41 +2,35 @@ import * as THREE from "three";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 
-THREE.Cache.enabled = true;
 class Pslzme3DText {
-	container;
-	textMesh1;
-	textMesh2;
-	bevelEnabled;
-	font;
-	targetRotation;
-	targetRotationOnPointerDown;
-	pointerX;
-	pointerXOnPointerDown;
-	windowHalfX;
-	group;
-	camera;
-	cameraTarget;
-	scene;
-	renderer;
-	particleLight;
-
-	constructor(container, usedText, sceneBackground, highlightColorOne, highlightColorTwo, highlightColorThree) {
+	constructor(container, data) {
 		this.container = container;
-		this.usedText = usedText;
-		this.sceneBackground = sceneBackground;
-		this.highlightColorOne = highlightColorOne;
-		this.highlightColorTwo = highlightColorTwo;
-		this.highlightColorThree = highlightColorThree;
 		this.bevelEnabled = true;
 		this.targetRotation = 0;
 		this.targetRotationOnPointerDown = 0;
 		this.pointerX = 0;
 		this.pointerXOnPointerDown = 0;
 		this.windowHalfX = window.innerWidth / 2;
+		this.usedText = data.dataText;
+		this.sceneBackground = data.dataBackground;
+		this.highlightColorOne = data.dataHighlightColorOne;
+		this.highlightColorTwo = data.dataHighlightColorTwo;
+		this.highlightColorThree = data.dataHighlightColorThree;
+		this.fogEnabled = data.dataFogEnabled === "yes" ? true : false;
+		this.fogColor = data.dataFogColor;
+		this.mirrored = data.dataMirrored === "yes" ? true : false;
+		this.movingLight = data.dataMovingLight === "yes" ? true : false;
+		this.rotationEnabled = data.dataRotationEnabled === "yes" ? true : false;
+		this.rotationDirection = data.dataRotationDirection === "right" ? -1 : 1;
+		this.dataDraggable = data.dataDraggable === "yes" ? true : false;
+		this.cameraPositionX = parseFloat(data.dataCameraPosX) || 0;
+		this.cameraPositionY = parseFloat(data.dataCameraPosY) || 150;
+		this.cameraPositionZ = parseFloat(data.dataCameraPosZ) || 700;
+		this.cameraTargetX = parseFloat(data.dataCameraTargetX) || 0;
+		this.cameraTargetY = parseFloat(data.dataCameraTargetY) || 115;
+		this.cameraTargetZ = parseFloat(data.dataCameraTargetZ) || 0;
 
 		this.init();
-		this.animate();
 	}
 
 	init() {
@@ -45,13 +39,15 @@ class Pslzme3DText {
 
 		// CAMERA
 		this.camera = new THREE.PerspectiveCamera(35, width / height, 1, 1500);
-		this.camera.position.set(0, 150, 700);
-		this.cameraTarget = new THREE.Vector3(0, 50, 0);
+		this.camera.position.set(this.cameraPositionX, this.cameraPositionY, this.cameraPositionZ);
+		this.cameraTarget = new THREE.Vector3(this.cameraTargetX, this.cameraTargetY, this.cameraTargetZ);
 
 		// SCENE
 		this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color(this.sceneBackground);
-		this.scene.fog = new THREE.Fog(0x222222, 250, 1400);
+		if (this.fogEnabled) {
+			this.scene.fog = new THREE.Fog(this.fogColor, 250, 1400);
+		}
 
 		// LIGHTS
 		const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -77,7 +73,7 @@ class Pslzme3DText {
 
 		// LOAD FONT (await)
 		this.loadFont(fonts.droidSans).then((font) => {
-			this.createText(font);
+			this.createText(font, this.mirrored);
 		}); // get the font passed from wp_localize_script in pslzme-public.php
 
 		// CREATE PLANE
@@ -87,10 +83,12 @@ class Pslzme3DText {
 		this.scene.add(plane);
 
 		// MOVING PARTICLE LIGHT
-		this.particleLight = new THREE.Mesh(new THREE.SphereGeometry(2, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
-		this.particleLight.position.set(0, 150, 0);
-		this.particleLight.add(new THREE.PointLight(0xffffff, 100000 / 2));
-		this.scene.add(this.particleLight);
+		if (this.movingLight) {
+			this.particleLight = new THREE.Mesh(new THREE.SphereGeometry(2, 8, 8), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+			this.particleLight.position.set(0, 150, 0);
+			this.particleLight.add(new THREE.PointLight(0xffffff, 100000 / 2));
+			this.scene.add(this.particleLight);
+		}
 
 		// RENDERER
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -100,6 +98,7 @@ class Pslzme3DText {
 
 		// EVENTS
 		this.addEvents();
+		this.animate();
 	}
 
 	loadFont(url) {
@@ -164,18 +163,19 @@ class Pslzme3DText {
 	animate = () => {
 		requestAnimationFrame(this.animate);
 
-		// Automatic rotation
-		this.targetRotation -= 0.002;
-
 		const timer = Date.now() * 0.00025;
 
-		// Move particle light in a circle
-		this.particleLight.position.x = 0 + Math.sin(timer * 7) * 400;
-		this.particleLight.position.y = 150 + Math.cos(timer * 5) * 100;
-		this.particleLight.position.z = 0 + Math.cos(timer * 3) * 200;
+		if (this.movingLight) {
+			// Move particle light in a circle
+			this.particleLight.position.x = 0 + Math.sin(timer * 7) * 400;
+			this.particleLight.position.y = 150 + Math.cos(timer * 5) * 100;
+			this.particleLight.position.z = 0 + Math.cos(timer * 3) * 200;
+		}
 
 		// Smooth rotation
-		this.group.rotation.y += (this.targetRotation - this.group.rotation.y) * 0.05;
+		if (this.rotationEnabled) {
+			this.group.rotation.y += 0.0025 * this.rotationDirection;
+		}
 
 		this.camera.lookAt(this.cameraTarget);
 		this.renderer.clear();
@@ -184,28 +184,29 @@ class Pslzme3DText {
 
 	addEvents() {
 		this.container.style.touchAction = "none";
+		let isDragging = false;
+		let previousX = 0;
 
-		this.container.addEventListener("pointerdown", (event) => {
-			if (!event.isPrimary) return;
+		if (this.dataDraggable) {
+			this.container.addEventListener("mousedown", (event) => {
+				isDragging = true;
+				previousX = event.clientX;
+			});
 
-			this.pointerXOnPointerDown = event.clientX - this.windowHalfX;
+			this.container.addEventListener("mousemove", (event) => {
+				if (!isDragging) return;
 
-			this.targetRotationOnPointerDown = this.targetRotation;
-		});
+				const deltaX = event.clientX - previousX;
+				previousX = event.clientX;
 
-		this.container.addEventListener("pointermove", (event) => {
-			if (!event.isPrimary) return;
+				// rotate the group directly
+				this.group.rotation.y += deltaX * 0.01; // adjust 0.01 sensitivity if needed
+			});
 
-			this.pointerX = event.clientX - this.windowHalfX;
-
-			this.targetRotation = this.targetRotationOnPointerDown + (this.pointerX - this.pointerXOnPointerDown) * 0.02;
-		});
-
-		this.container.addEventListener("pointerup", (event) => {
-			if (!event.isPrimary) return;
-			this.container.removeEventListener("pointermove", this.onPointerMove);
-			this.container.removeEventListener("pointerup", this.onPointerUp);
-		});
+			this.container.addEventListener("mouseup", (event) => {
+				isDragging = false;
+			});
+		}
 
 		window.addEventListener("resize", () => this.onResize());
 	}
@@ -227,9 +228,43 @@ document.querySelectorAll(".pslzme-3d-text").forEach((textElement) => {
 	const dataHighlightColorOne = textElement.getAttribute("data-highlight-color-one");
 	const dataHighlightColorTwo = textElement.getAttribute("data-highlight-color-two");
 	const dataHighlightColorThree = textElement.getAttribute("data-highlight-color-three");
-	customize3DText(textElement, dataText, dataBackground, dataHighlightColorOne, dataHighlightColorTwo, dataHighlightColorThree);
+	const dataFogEnabled = textElement.getAttribute("data-fog-enabled");
+	const dataFogColor = textElement.getAttribute("data-fog-color");
+	const dataMirrored = textElement.getAttribute("data-mirrored");
+	const dataMovingLight = textElement.getAttribute("data-moving-light");
+	const dataRotationEnabled = textElement.getAttribute("data-rotation-enabled");
+	const dataRotationDirection = textElement.getAttribute("data-rotation-direction");
+	const dataDraggable = textElement.getAttribute("data-draggable");
+	const cameraPositionX = textElement.getAttribute("data-camera-pos-x");
+	const cameraPositionY = textElement.getAttribute("data-camera-pos-y");
+	const cameraPositionZ = textElement.getAttribute("data-camera-pos-z");
+	const cameraTargetX = textElement.getAttribute("data-camera-target-x");
+	const cameraTargetY = textElement.getAttribute("data-camera-target-y");
+	const cameraTargetZ = textElement.getAttribute("data-camera-target-z");
+
+	const data = {
+		dataText,
+		dataBackground,
+		dataHighlightColorOne,
+		dataHighlightColorTwo,
+		dataHighlightColorThree,
+		dataFogEnabled,
+		dataFogColor,
+		dataMirrored,
+		dataMovingLight,
+		dataRotationEnabled,
+		dataRotationDirection,
+		dataDraggable,
+		dataCameraPosX: cameraPositionX,
+		dataCameraPosY: cameraPositionY,
+		dataCameraPosZ: cameraPositionZ,
+		dataCameraTargetX: cameraTargetX,
+		dataCameraTargetY: cameraTargetY,
+		dataCameraTargetZ: cameraTargetZ,
+	};
+	customize3DText(textElement, data);
 });
 
-function customize3DText(textElement, usedText, sceneBackground, highlightColorOne, highlightColorTwo, highlightColorThree) {
-	new Pslzme3DText(textElement, usedText, sceneBackground, highlightColorOne, highlightColorTwo, highlightColorThree);
+function customize3DText(textElement, data) {
+	return new Pslzme3DText(textElement, data);
 }
