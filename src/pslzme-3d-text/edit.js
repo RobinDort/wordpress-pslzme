@@ -184,6 +184,14 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
+
+			<h1>Pslzme 3D Text</h1>
+			<div
+				className="pslzme-3d-text-placeholder"
+				style={{
+					backgroundColor: attributes.background_color || "#222222",
+					height: "500px",
+				}}></div>
 		</div>
 	);
 }
