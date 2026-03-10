@@ -439,6 +439,15 @@ class Pslzme_Public {
 		$foregroundImageAlt = $attributes['foreground_image_alt'] ?? '';
 		$foregroundImageTitle = $attributes['foreground_image_title'] ?? '';
 
+		$imageContainerWidth = $attributes['image_container_width'] ?? '0';
+		$imageContainerMaxWidth = $attributes['image_container_max_width'] ?? '0';
+		$imageContainerHeight = $attributes['image_container_height'] ?? '0';
+
+		$imageContainerBorderRadiusTopLeft = $attributes['image_container_border_radius_top_left'] ?? '0';
+		$imageContainerBorderRadiusTopRight = $attributes['image_container_border_radius_top_right'] ?? '0';
+		$imageContainerBorderRadiusBottomRight = $attributes['image_container_border_radius_bottom_right'] ?? '0';
+		$imageContainerBorderRadiusBottomLeft = $attributes['image_container_border_radius_bottom_left'] ?? '0';
+
 		ob_start();
 		?>
 
@@ -448,7 +457,11 @@ class Pslzme_Public {
 				<?= esc_attr($imageDimensionTop). esc_attr($imageDimensionUnit) . " " .
 				esc_attr($imageDimensionRight) . esc_attr($imageDimensionUnit) . " " .
 				esc_attr($imageDimensionBottom) . esc_attr($imageDimensionUnit) . " " .
-				esc_attr($imageDimensionLeft) . esc_attr($imageDimensionUnit) ?>"
+				esc_attr($imageDimensionLeft) . esc_attr($imageDimensionUnit) ?>;
+				width: <?= esc_attr($imageContainerWidth) ? esc_attr($imageContainerWidth) . "px" : 'auto' ?>;
+				max-width: <?= esc_attr($imageContainerMaxWidth) ? esc_attr($imageContainerMaxWidth) . "px" : 'none' ?>;
+				height: <?= esc_attr($imageContainerHeight) ? esc_attr($imageContainerHeight) . "px" : 'auto' ?>;
+				"
 			>
 				<div class="pslzme-background-figure">
 					<?= wp_get_attachment_image(
@@ -459,6 +472,11 @@ class Pslzme_Public {
 							'alt'   => esc_attr($backgroundImageAlt),
 							'title' => esc_attr($backgroundImageTitle),
 							'loading' => 'lazy',
+							'style' => "border-radius: 
+								" . esc_attr($imageContainerBorderRadiusTopLeft) . "px " .
+								esc_attr($imageContainerBorderRadiusTopRight) . "px " .
+								esc_attr($imageContainerBorderRadiusBottomRight) . "px " .
+								esc_attr($imageContainerBorderRadiusBottomLeft) . "px"
 						]
 					); ?>
 				</div>

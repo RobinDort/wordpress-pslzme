@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-10T07:26:50+00:00\n"
+"POT-Creation-Date: 2026-03-10T09:21:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
@@ -550,13 +550,13 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:19
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:195
+#: src/pslzme-image/edit.js:267
 msgid "Pslzme Image Widget"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:68
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:27
+#: src/pslzme-image/edit.js:38
 msgid "Pslzme Image Section"
 msgstr ""
 
@@ -565,7 +565,7 @@ msgstr ""
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:97
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:208
+#: src/pslzme-image/edit.js:280
 #: src/pslzme-text/edit.js:14
 msgid "Personalized Text"
 msgstr ""
@@ -575,7 +575,7 @@ msgstr ""
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:115
 #: build/pslzme-image/index.js:1
 #: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:223
+#: src/pslzme-image/edit.js:295
 #: src/pslzme-text/edit.js:23
 msgid "Unpersonalized Text"
 msgstr ""
@@ -590,49 +590,49 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:138
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:107
+#: src/pslzme-image/edit.js:118
 msgid "Pslzme image background"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:149
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:126
+#: src/pslzme-image/edit.js:137
 msgid "Pslzme image background size"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:159
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:133
+#: src/pslzme-image/edit.js:144
 msgid "Pslzme image background alt text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:168
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:139
+#: src/pslzme-image/edit.js:150
 msgid "Pslzme image background title"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:177
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:155
+#: src/pslzme-image/edit.js:166
 msgid "Pslzme image foreground"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:188
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:174
+#: src/pslzme-image/edit.js:185
 msgid "Pslzme image foreground size"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:198
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:181
+#: src/pslzme-image/edit.js:192
 msgid "Pslzme image foreground alt text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:207
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:187
+#: src/pslzme-image/edit.js:198
 msgid "Pslzme image foreground title"
 msgstr ""
 
@@ -774,43 +774,83 @@ msgid "Delete video"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:49
+#: src/pslzme-image/edit.js:60
 msgid "Pslzme image container spacing"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:53
+#: src/pslzme-image/edit.js:64
 msgid "Pslzme image dimension Top"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:60
+#: src/pslzme-image/edit.js:71
 msgid "Pslzme image dimension Right"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:67
+#: src/pslzme-image/edit.js:78
 msgid "Pslzme image dimension Bottom"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:74
+#: src/pslzme-image/edit.js:85
 msgid "Pslzme image dimension Left"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:85
+#: src/pslzme-image/edit.js:96
 msgid "Pslzme image dimension Unit"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:114
+#: src/pslzme-image/edit.js:125
 msgid "Delete Background Image"
 msgstr ""
 
 #: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:162
+#: src/pslzme-image/edit.js:173
 msgid "Delete Foreground Image"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:208
+msgid "Pslzme 3D image styles"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:210
+msgid "Pslzme image container width"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:218
+msgid "Pslzme 3D image container max width"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:226
+msgid "Pslzme 3D image container height"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:236
+msgid "Pslzme image container border radius top-left"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:243
+msgid "Pslzme image container border radius top-right"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:250
+msgid "Pslzme image container border radius bottom-right"
+msgstr ""
+
+#: build/pslzme-image/index.js:1
+#: src/pslzme-image/edit.js:257
+msgid "Pslzme image container border radius bottom-left"
 msgstr ""
 
 #: build/pslzme-text/index.js:1

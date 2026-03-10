@@ -9,7 +9,18 @@ import {
 	FontSizePicker,
 	ColorPalette,
 } from "@wordpress/block-editor";
-import { Panel, PanelBody, TextControl, SelectControl, BaseControl, Flex, FlexItem, Button, __experimentalSpacer as Spacer } from "@wordpress/components";
+import {
+	Panel,
+	PanelBody,
+	TextControl,
+	SelectControl,
+	BaseControl,
+	Flex,
+	FlexItem,
+	Button,
+	RangeControl,
+	__experimentalSpacer as Spacer,
+} from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { useState } from "@wordpress/element";
 
@@ -22,7 +33,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<div {...blockProps}>
-			<InspectorControls>
+			<InspectorControls group="settings">
 				<Panel>
 					<PanelBody title={__("Pslzme Image Section", "pslzme")} initialOpen={true}>
 						<FontSizePicker
@@ -188,6 +199,67 @@ export default function Edit({ attributes, setAttributes }) {
 							value={attributes.foreground_image_title}
 							onChange={(value) => setAttributes({ foreground_image_title: value })}
 						/>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
+
+			<InspectorControls group="styles">
+				<Panel>
+					<PanelBody title={__("Pslzme 3D image styles", "pslzme")} initialOpen={true}>
+						<RangeControl
+							label={__("Pslzme image container width", "pslzme")}
+							value={attributes.image_container_width}
+							onChange={(value) => setAttributes({ image_container_width: value })}
+							min={0}
+							max={2000}
+						/>
+
+						<RangeControl
+							label={__("Pslzme 3D image container max width", "pslzme")}
+							value={attributes.image_container_max_width}
+							onChange={(value) => setAttributes({ image_container_max_width: value })}
+							min={0}
+							max={2000}
+						/>
+
+						<RangeControl
+							label={__("Pslzme 3D image container height", "pslzme")}
+							value={attributes.image_container_height}
+							onChange={(value) => setAttributes({ image_container_height: value })}
+							min={0}
+							max={2000}
+						/>
+
+						<Flex>
+							<FlexItem>
+								<TextControl
+									label={__("Pslzme image container border radius top-left", "pslzme")}
+									value={attributes.image_container_border_radius_top_left}
+									onChange={(value) => setAttributes({ image_container_border_radius_top_left: value })}
+								/>
+							</FlexItem>
+							<FlexItem>
+								<TextControl
+									label={__("Pslzme image container border radius top-right", "pslzme")}
+									value={attributes.image_container_border_radius_top_right}
+									onChange={(value) => setAttributes({ image_container_border_radius_top_right: value })}
+								/>
+							</FlexItem>
+							<FlexItem>
+								<TextControl
+									label={__("Pslzme image container border radius bottom-right", "pslzme")}
+									value={attributes.image_container_border_radius_bottom_right}
+									onChange={(value) => setAttributes({ image_container_border_radius_bottom_right: value })}
+								/>
+							</FlexItem>
+							<FlexItem>
+								<TextControl
+									label={__("Pslzme image container border radius bottom-left", "pslzme")}
+									value={attributes.image_container_border_radius_bottom_left}
+									onChange={(value) => setAttributes({ image_container_border_radius_bottom_left: value })}
+								/>
+							</FlexItem>
+						</Flex>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>

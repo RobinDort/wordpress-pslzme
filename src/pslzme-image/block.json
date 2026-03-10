@@ -83,6 +83,27 @@
 		},
 		"foreground_image_title": {
 			"type": "string"
+		},
+		"image_container_width": {
+			"type": "number"
+		},
+		"image_container_max_width": {
+			"type": "number"
+		},
+		"image_container_height": {
+			"type": "number"
+		},
+		"image_container_border_radius_top_left": {
+			"type": "number"
+		},
+		"image_container_border_radius_top_right": {
+			"type": "number"
+		},
+		"image_container_border_radius_bottom_left": {
+			"type": "number"
+		},
+		"image_container_border_radius_bottom_right": {
+			"type": "number"
 		}
 	},
 	"supports": { "html": false },
