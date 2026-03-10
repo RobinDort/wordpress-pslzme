@@ -149,6 +149,12 @@ class Pslzme_Public {
 			'render_callback' => [$this, 'render_pslzme_image_block']
 		]);
 
+		register_block_type(
+			plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-3d-text',
+		[
+			'render_callback' => [$this, 'render_pslzme_3d_text_block']
+		]);
+
 		wp_localize_script(
 			'pslzme-content-block-editor-script',
 			'pslzmeGutenbergData',
@@ -487,6 +493,58 @@ class Pslzme_Public {
 			</div>
 		<?php endif; ?>
 		
+		<?php
+		return ob_get_clean();
+	}
+
+	public function render_pslzme_3d_text_block( $attributes ) {
+
+		$decryptionController = DecryptionController::get_instance();
+		$varsSet = $decryptionController->vars_set();
+
+		$personalized_text = $attributes['personalized_3d_text'] ?? '';
+		$unpersonalized_text = $attributes['unpersonalized_3d_text'] ?? '';
+		$usedText = $varsSet && !empty($personalized_text) ? $personalized_text : $unpersonalized_text;
+		$draggable = $attributes['text_draggable'] ?? 'yes';
+		$scene_background = $attributes['background_color'] ?? "#222222";
+		$highlight_color_one = $attributes['highlight_color_one'] ?? '#a4dd46';
+		$highlight_color_two = $attributes['highlight_color_two'] ?? '#0000ff';
+		$highlight_color_three = $attributes['highlight_color_three'] ?? '#ff0000';
+		$fogEnabled = $attributes['fog_enabled'] ?? 'yes';
+		$fogColor = $attributes['fog_color'] ?? "#222222";
+		$mirrored = $attributes['mirrored_text'] ?? 'yes';
+		$movingLight = $attributes['moving_light_enabled'] ?? 'no';
+		$rotationEnabled = $attributes['text_rotation'] ?? 'no';
+		$rotationDirection = $attributes['rotation_direction'] ?? 'left';
+		$cameraPositionX = $attributes['camera_position_x'] ?? 0;
+		$cameraPositionY = $attributes['camera_position_y'] ?? 150;
+		$cameraPositionZ = $attributes['camera_position_z'] ?? 700;
+		$cameraTargetX = $attributes['camera_target_x'] ?? 0;
+		$cameraTargetY = $attributes['camera_target_y'] ?? 115;
+		$cameraTargetZ = $attributes['camera_target_z'] ?? 0;
+
+		ob_start();
+		?>
+		<div class="pslzme-3d-text <?= $draggable === 'yes' ? 'pslzme-3d-text-draggable' : '' ?>" 
+			data-3d-text="<?= esc_attr( $usedText ) ?>"
+			data-background="<?= esc_attr( $scene_background ) ?>"
+			data-highlight-color-one="<?= esc_attr( $highlight_color_one ) ?>"
+			data-highlight-color-two="<?= esc_attr( $highlight_color_two ) ?>"
+			data-highlight-color-three="<?= esc_attr( $highlight_color_three ) ?>"
+			data-fog-enabled="<?= esc_attr( $fogEnabled ) ?>"
+			data-fog-color="<?= esc_attr( $fogColor ) ?>"
+			data-mirrored="<?= esc_attr( $mirrored ) ?>"
+			data-moving-light="<?= esc_attr( $movingLight ) ?>"
+			data-rotation-enabled="<?= esc_attr( $rotationEnabled) ?>"
+			data-rotation-direction="<?= esc_attr( $rotationDirection ) ?>"
+			data-draggable="<?= esc_attr( $draggable ) ?>"
+			data-camera-pos-x="<?= esc_attr( $cameraPositionX ) ?>"
+			data-camera-pos-y="<?= esc_attr( $cameraPositionY ) ?>"
+			data-camera-pos-z="<?= esc_attr( $cameraPositionZ ) ?>"
+			data-camera-target-x="<?= esc_attr( $cameraTargetX ) ?>"
+			data-camera-target-y="<?= esc_attr( $cameraTargetY ) ?>"
+			data-camera-target-z="<?= esc_attr( $cameraTargetZ ) ?>">
+		</div>
 		<?php
 		return ob_get_clean();
 	}

@@ -1,0 +1,82 @@
+{
+	"apiVersion": 3,
+	"name": "pslzme-3d-text/block",
+	"icon": "text",
+	"title": "Pslzme 3D Text",
+	"category": "pslzme",
+	"description": "",
+	"keywords": ["Pslzme", "pslzme", "Text", "text", "3D", "3d", "Pslzme 3D Text", "pslzme 3d text"],
+	"textdomain": "pslzme",
+	"attributes": {
+		"personalized_3d_text": {
+			"type": "string"
+		},
+		"unpersonalized_3d_text": {
+			"type": "string"
+		},
+		"background_color": {
+			"type": "string",
+			"default": "#222222"
+		},
+		"hightlight_color_one": {
+			"type": "string",
+			"default": "#a4dd46"
+		},
+		"hightlight_color_two": {
+			"type": "string",
+			"default": "#0000ff"
+		},
+		"hightlight_color_three": {
+			"type": "string",
+			"default": "#ff0000"
+		},
+		"camera_position_x": {
+			"type": "number",
+			"default": 0
+		},
+		"camera_position_y": {
+			"type": "number",
+			"default": 150
+		},
+		"camera_position_z": {
+			"type": "number",
+			"default": 700
+		},
+		"camera_target_x": {
+			"type": "number",
+			"default": 0
+		},
+		"camera_target_y": {
+			"type": "number",
+			"default": 115
+		},
+		"camera_target_z": {
+			"type": "number",
+			"default": 0
+		},
+		"fog_enabled": {
+			"type": "string"
+		},
+		"fog_color": {
+			"type": "string",
+			"default": "#222222"
+		},
+		"mirrored_text": {
+			"type": "string"
+		},
+		"text_draggable": {
+			"type": "string"
+		},
+		"moving_light_enabled": {
+			"type": "string"
+		},
+		"text_rotation": {
+			"type": "string"
+		},
+		"rotation_direction": {
+			"type": "string"
+		}
+	},
+	"supports": { "html": false },
+	"editorScript": "file:./index.js"
+}

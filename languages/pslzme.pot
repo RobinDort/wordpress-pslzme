@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-09T09:24:55+00:00\n"
+"POT-Creation-Date: 2026-03-10T07:26:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. Plugin Name of the plugin
 #: pslzme.php
 #: admin/pslzme-admin.php:406
-#: public/pslzme-public.php:236
+#: public/pslzme-public.php:242
 msgid "Pslzme"
 msgstr ""
 
@@ -167,30 +167,45 @@ msgid "Pslzme 3D Text Widget"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:64
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:42
 msgid "Pslzme 3D Text configuration"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:72
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:44
 msgid "Pslzme 3D personalized text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:80
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:50
 msgid "Pslzme 3D unpersonalized text"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:91
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:56
 msgid "Pslzme 3D Text color configuration"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:99
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:58
 msgid "Pslzme 3D scene background color"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:108
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:64
+#: src/pslzme-3d-text/edit.js:76
 msgid "Pslzme 3D highlight color 1"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:117
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:70
 msgid "Pslzme 3D highlight color 2"
 msgstr ""
 
@@ -199,38 +214,56 @@ msgid "Pslzme 3D highlight color 3"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:137
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:82
 msgid "Pslzme 3D Text camera configuration"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:145
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:84
 msgid "Pslzme 3D camera position x"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:156
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:91
 msgid "Pslzme 3D camera position y"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:167
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:98
 msgid "Pslzme 3D camera position z"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:179
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:106
 msgid "Pslzme 3D camera target x"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:190
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:114
 msgid "Pslzme 3D camera target y"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:201
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:122
 msgid "Pslzme 3D camera target z"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:214
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:130
 msgid "Pslzme 3D Text custom options"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:222
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:132
 msgid "Pslzme 3D fog enabled"
 msgstr ""
 
@@ -238,9 +271,11 @@ msgstr ""
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:251
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:264
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:277
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:290
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:291
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:125
 #: public/partials/pslzme-public-cookiebanner.php:52
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:34
 msgid "Yes"
 msgstr ""
 
@@ -248,13 +283,17 @@ msgstr ""
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:252
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:265
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:278
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:291
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:292
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:126
 #: public/partials/pslzme-public-cookiebanner.php:53
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:30
 msgid "No"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:235
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:140
 msgid "Pslzme 3D fog color"
 msgstr ""
 
@@ -263,26 +302,34 @@ msgid "Pslzme 3D mirrored"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:260
-msgid "Pslzme 3D moving light"
-msgstr ""
-
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:273
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:154
 msgid "Pslzme 3D draggable"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:286
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:273
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:161
+msgid "Pslzme 3D moving light"
+msgstr ""
+
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:287
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:168
 msgid "Pslzme 3D rotation"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:299
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:300
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:178
 msgid "Pslzme 3D rotation direction"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:303
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:304
 msgid "Right"
 msgstr ""
 
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:304
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:305
 msgid "Left"
 msgstr ""
 
@@ -699,9 +746,14 @@ msgstr ""
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:126
 #: public/partials/pslzme-public-elementor-pslzme-content.php:163
-#: public/pslzme-public.php:364
-#: public/pslzme-public.php:384
+#: public/pslzme-public.php:370
+#: public/pslzme-public.php:390
 msgid "Your browser does not support the video tag."
+msgstr ""
+
+#: build/pslzme-3d-text/index.js:1
+#: src/pslzme-3d-text/edit.js:147
+msgid "Pslzme 3D mirrored text"
 msgstr ""
 
 #: build/pslzme-content/index.js:1
@@ -766,15 +818,17 @@ msgstr ""
 msgid "Show unpersonalized Text"
 msgstr ""
 
-#: build/pslzme-content/block.json
-#: src/pslzme-content/block.json
+#: build/pslzme-3d-text/block.json
+#: src/pslzme-3d-text/block.json
 msgctxt "block title"
-msgid "Pslzme Content"
+msgid "Pslzme 3D Text"
 msgstr ""
 
+#: build/pslzme-3d-text/block.json
 #: build/pslzme-content/block.json
 #: build/pslzme-image/block.json
 #: build/pslzme-text/block.json
+#: src/pslzme-3d-text/block.json
 #: src/pslzme-content/block.json
 #: src/pslzme-image/block.json
 #: src/pslzme-text/block.json
@@ -782,14 +836,62 @@ msgctxt "block keyword"
 msgid "Pslzme"
 msgstr ""
 
+#: build/pslzme-3d-text/block.json
 #: build/pslzme-content/block.json
 #: build/pslzme-image/block.json
 #: build/pslzme-text/block.json
+#: src/pslzme-3d-text/block.json
 #: src/pslzme-content/block.json
 #: src/pslzme-image/block.json
 #: src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "pslzme"
+msgstr ""
+
+#: build/pslzme-3d-text/block.json
+#: build/pslzme-text/block.json
+#: src/pslzme-3d-text/block.json
+#: src/pslzme-text/block.json
+msgctxt "block keyword"
+msgid "Text"
+msgstr ""
+
+#: build/pslzme-3d-text/block.json
+#: build/pslzme-text/block.json
+#: src/pslzme-3d-text/block.json
+#: src/pslzme-text/block.json
+msgctxt "block keyword"
+msgid "text"
+msgstr ""
+
+#: build/pslzme-3d-text/block.json
+#: src/pslzme-3d-text/block.json
+msgctxt "block keyword"
+msgid "3D"
+msgstr ""
+
+#: build/pslzme-3d-text/block.json
+#: src/pslzme-3d-text/block.json
+msgctxt "block keyword"
+msgid "3d"
+msgstr ""
+
+#: build/pslzme-3d-text/block.json
+#: src/pslzme-3d-text/block.json
+msgctxt "block keyword"
+msgid "Pslzme 3D Text"
+msgstr ""
+
+#: build/pslzme-3d-text/block.json
+#: src/pslzme-3d-text/block.json
+msgctxt "block keyword"
+msgid "pslzme 3d text"
+msgstr ""
+
+#: build/pslzme-content/block.json
+#: src/pslzme-content/block.json
+msgctxt "block title"
+msgid "Pslzme Content"
 msgstr ""
 
 #: build/pslzme-content/block.json
@@ -850,18 +952,6 @@ msgstr ""
 #: src/pslzme-text/block.json
 msgctxt "block title"
 msgid "Pslzme Text"
-msgstr ""
-
-#: build/pslzme-text/block.json
-#: src/pslzme-text/block.json
-msgctxt "block keyword"
-msgid "Text"
-msgstr ""
-
-#: build/pslzme-text/block.json
-#: src/pslzme-text/block.json
-msgctxt "block keyword"
-msgid "text"
 msgstr ""
 
 #: build/pslzme-text/block.json

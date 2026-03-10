@@ -38,7 +38,9 @@ $cameraTargetX = $settings['pslzme_3d_camera_target_x'] ?? 0;
 $cameraTargetY = $settings['pslzme_3d_camera_target_y'] ?? 115;
 $cameraTargetZ = $settings['pslzme_3d_camera_target_z'] ?? 0;
 
-$usedText = $varsSet && $personalized_text ? $personalized_text : $unpersonalized_text;
+echo $rotationEnabled;
+
+$usedText = $varsSet && !empty($personalized_text) ? $personalized_text : $unpersonalized_text;
 ?>
 
 <div class="pslzme-3d-text <?= $draggable ? 'pslzme-3d-text-draggable' : '' ?>" 
