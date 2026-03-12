@@ -3,6 +3,10 @@
  * included in this file.
  */
 
+.pslzme-text * {
+	margin: 0;
+}
+
 .pslzme-video {
 	position: relative;
 	width: 100%;

@@ -54,7 +54,7 @@ class ElementorWidgetPslzme3DText extends \Elementor\Widget_Base {
      */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-3d-text.php';
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-3d-text.php';
     }
 
     private function add_content_controls(): void {

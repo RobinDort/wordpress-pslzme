@@ -54,7 +54,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
      */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-image.php';
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-image.php';
     }
 
     /**
@@ -86,33 +86,6 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
         );
 
         $this->add_responsive_control(
-			'pslzme_image_font_size',
-			[
-				'label' => esc_html__( 'pslzme_image_font_size', 'pslzme' ),
-				'type' => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%', 'em', 'rem' ],
-				'range' => [
-					'px' => [
-						'min' => 0,
-						'max' => 100,
-						'step' => 1,
-					],
-					'%' => [
-						'min' => 0,
-						'max' => 100,
-					],
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 16,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .pslzme_image' => 'font-size: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-        $this->add_responsive_control(
             'pslzme_image_dimensions',
             [
                 'label' => esc_html__( 'Pslzme image dimensions', 'pslzme' ),
@@ -131,6 +104,32 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
 				],
             ]
         );
+
+        $this->add_responsive_control(
+            'pslzme_image_text_spacing',
+            [
+                'label' => esc_html__( 'Pslzme image text spacing', 'pslzme' ),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em', 'rem' ],
+                'default' => [
+                    'top' => 0,
+                    'right' => 0,
+                    'bottom' => 0,
+                    'left' => 0,
+                    'unit' => 'px',
+                    'isLinked' => false,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-ov-image-container .layered-text' => '
+                        margin-top: {{TOP}}{{UNIT}};
+                        margin-right: {{RIGHT}}{{UNIT}};
+                        margin-bottom: {{BOTTOM}}{{UNIT}};
+                        margin-left: {{LEFT}}{{UNIT}};
+                    ',
+                ],
+            ]
+        );
+
 
         $this->add_control(
             'pslzme_image_background',
@@ -219,6 +218,14 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
             [
                 'label' => esc_html__('Pslzme Image Style Section', 'pslzme'),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'text_typography',
+                'selector' => '{{WRAPPER}} .layered-text p',
             ]
         );
 

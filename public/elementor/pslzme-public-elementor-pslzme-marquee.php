@@ -56,7 +56,7 @@ class ElementorWidgetPslzmeMarquee extends \Elementor\Widget_Base {
             ]
         );
         $this->add_render_attribute( 'wrapper', 'data-widget_type', $this->get_name() );
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-marquee.php';
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-marquee.php';
     }
 
 

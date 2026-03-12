@@ -76,7 +76,7 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
             return;
         }
 
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-text.php';
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-text.php';
     }
 
 	/**
@@ -148,7 +148,18 @@ class ElementorWidgetPslzmeText extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name' => 'text_typography',
-                'selector' => '{{WRAPPER}} .pslzme-text',
+                'selector' => '{{WRAPPER}} .pslzme-text *',
+            ]
+        );
+
+         $this->add_control(
+            'pslzme_text_color',
+            [
+                'label' => esc_html__('Pslzme Text Color', 'pslzme'),
+                'type'  => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-text *' => 'color: {{VALUE}};',
+                ],
             ]
         );
 

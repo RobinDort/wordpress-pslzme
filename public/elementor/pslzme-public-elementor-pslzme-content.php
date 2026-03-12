@@ -53,7 +53,7 @@ class ElementorWidgetPslzmeContent extends \Elementor\Widget_Base {
      */
     protected function render(): void {
         $settings = $this->get_settings_for_display();
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-content.php';
+        include plugin_dir_path( dirname( __FILE__ ) ) . 'partials/pslzme-public-elementor-pslzme-content.php';
     }
 
     /**
