@@ -313,7 +313,30 @@ class ElementorWidgetPslzme3DText extends \Elementor\Widget_Base {
         $this->end_controls_section();
     }
 
-    private function add_style_controls(): void {}
+    private function add_style_controls(): void {
+         $this->start_controls_section(
+            'content_section_pslzme_3d_text_styles',
+            [
+                'label' => esc_html__('Pslzme 3D Text Style Section', 'pslzme'),
+                'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'pslzme_3d_text_border_radius',
+            [
+                'label' => esc_html__('Pslzme 3D Text border radius', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em'],
+                'selectors' => [
+                    '{{WRAPPER}} .pslzme-3d-text canvas' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+    }
 }
 
 ?>
