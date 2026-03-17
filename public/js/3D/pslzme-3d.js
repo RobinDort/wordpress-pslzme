@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
+import GUI from "lil-gui";
 
 class Pslzme3DText {
 	constructor(container, data) {
@@ -23,12 +24,36 @@ class Pslzme3DText {
 		this.rotationEnabled = data.dataRotationEnabled === "yes" ? true : false;
 		this.rotationDirection = data.dataRotationDirection === "right" ? -1 : 1;
 		this.dataDraggable = data.dataDraggable === "yes" ? true : false;
+		this.debugUIEnabled = data.dataDebugUiEnabled === "yes" ? true : false;
+
 		this.cameraPositionX = parseFloat(data.dataCameraPosX) || 0;
 		this.cameraPositionY = parseFloat(data.dataCameraPosY) || 150;
 		this.cameraPositionZ = parseFloat(data.dataCameraPosZ) || 700;
 		this.cameraTargetX = parseFloat(data.dataCameraTargetX) || 0;
 		this.cameraTargetY = parseFloat(data.dataCameraTargetY) || 115;
 		this.cameraTargetZ = parseFloat(data.dataCameraTargetZ) || 0;
+
+		// init debug UI but hide it first
+		this.gui = new GUI();
+
+		this.container.appendChild(this.gui.domElement);
+		this.gui.domElement.style.position = "absolute";
+		this.gui.domElement.style.top = "10px";
+		this.gui.domElement.style.right = "10px";
+		this.gui.domElement.style.zIndex = 10;
+
+		this.cameraFolder = this.gui.addFolder("Camera Position");
+		this.cameraFolder.add(this, "cameraPositionX", 0, 3000).onChange(() => this.updateCamera());
+		this.cameraFolder.add(this, "cameraPositionY", 0, 3000).onChange(() => this.updateCamera());
+		this.cameraFolder.add(this, "cameraPositionZ", 0, 3000).onChange(() => this.updateCamera());
+		this.cameraFolder.open();
+
+		this.targetFolder = this.gui.addFolder("Camera Target");
+		this.targetFolder.add(this, "cameraTargetX", 0, 3000).onChange(() => this.updateCamera());
+		this.targetFolder.add(this, "cameraTargetY", 0, 3000).onChange(() => this.updateCamera());
+		this.targetFolder.add(this, "cameraTargetZ", 0, 3000).onChange(() => this.updateCamera());
+		this.targetFolder.open();
+		this.debugUIEnabled ? this.gui.show() : this.gui.hide();
 
 		this.init();
 	}
@@ -38,7 +63,7 @@ class Pslzme3DText {
 		const height = this.container.clientHeight || 300;
 
 		// CAMERA
-		this.camera = new THREE.PerspectiveCamera(35, width / height, 1, 1500);
+		this.camera = new THREE.PerspectiveCamera(35, width / height, 1, 3000);
 		this.camera.position.set(this.cameraPositionX, this.cameraPositionY, this.cameraPositionZ);
 		this.cameraTarget = new THREE.Vector3(this.cameraTargetX, this.cameraTargetY, this.cameraTargetZ);
 
@@ -216,9 +241,26 @@ class Pslzme3DText {
 
 		this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
 
-		this.camera.updateProjectionMatrix();
+		this.camera.position.set(
+			getResponsiveValue(this.container, "cameraPosX"),
+			getResponsiveValue(this.container, "cameraPosY"),
+			getResponsiveValue(this.container, "cameraPosZ"),
+		);
+		this.cameraTarget.set(
+			getResponsiveValue(this.container, "cameraTargetX"),
+			getResponsiveValue(this.container, "cameraTargetY"),
+			getResponsiveValue(this.container, "cameraTargetZ"),
+		);
 
+		this.camera.updateProjectionMatrix();
 		this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+	}
+
+	updateCamera() {
+		this.camera.position.set(this.cameraPositionX, this.cameraPositionY, this.cameraPositionZ);
+		this.cameraTarget.set(this.cameraTargetX, this.cameraTargetY, this.cameraTargetZ);
+		this.camera.lookAt(this.cameraTarget);
+		this.camera.updateProjectionMatrix();
 	}
 }
 
@@ -235,12 +277,7 @@ document.querySelectorAll(".pslzme-3d-text").forEach((textElement) => {
 	const dataRotationEnabled = textElement.getAttribute("data-rotation-enabled");
 	const dataRotationDirection = textElement.getAttribute("data-rotation-direction");
 	const dataDraggable = textElement.getAttribute("data-draggable");
-	const cameraPositionX = textElement.getAttribute("data-camera-pos-x");
-	const cameraPositionY = textElement.getAttribute("data-camera-pos-y");
-	const cameraPositionZ = textElement.getAttribute("data-camera-pos-z");
-	const cameraTargetX = textElement.getAttribute("data-camera-target-x");
-	const cameraTargetY = textElement.getAttribute("data-camera-target-y");
-	const cameraTargetZ = textElement.getAttribute("data-camera-target-z");
+	const dataDebugUiEnabled = textElement.getAttribute("data-debug-ui");
 
 	const data = {
 		dataText,
@@ -255,16 +292,31 @@ document.querySelectorAll(".pslzme-3d-text").forEach((textElement) => {
 		dataRotationEnabled,
 		dataRotationDirection,
 		dataDraggable,
-		dataCameraPosX: cameraPositionX,
-		dataCameraPosY: cameraPositionY,
-		dataCameraPosZ: cameraPositionZ,
-		dataCameraTargetX: cameraTargetX,
-		dataCameraTargetY: cameraTargetY,
-		dataCameraTargetZ: cameraTargetZ,
+		dataDebugUiEnabled,
+		dataCameraPosX: getResponsiveValue(textElement, "cameraPosX"),
+		dataCameraPosY: getResponsiveValue(textElement, "cameraPosY"),
+		dataCameraPosZ: getResponsiveValue(textElement, "cameraPosZ"),
+		dataCameraTargetX: getResponsiveValue(textElement, "cameraTargetX"),
+		dataCameraTargetY: getResponsiveValue(textElement, "cameraTargetY"),
+		dataCameraTargetZ: getResponsiveValue(textElement, "cameraTargetZ"),
 	};
 	customize3DText(textElement, data);
 });
 
 function customize3DText(textElement, data) {
 	return new Pslzme3DText(textElement, data);
+}
+
+function getResponsiveValue(el, key) {
+	let value;
+
+	if (window.innerWidth <= 767 && el.dataset[key + "Mobile"] !== undefined) {
+		value = el.dataset[key + "Mobile"];
+	} else if (window.innerWidth <= 1024 && el.dataset[key + "Tablet"] !== undefined) {
+		value = el.dataset[key + "Tablet"];
+	} else {
+		value = el.dataset[key];
+	}
+
+	return parseFloat(value) || 0; // fallback to 0 if NaN
 }

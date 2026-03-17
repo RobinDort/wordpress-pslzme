@@ -140,68 +140,81 @@ class ElementorWidgetPslzme3DText extends \Elementor\Widget_Base {
         );
 
         $this->add_control(
+            'pslzme_3d_debug_ui',
+            [
+                'label' => esc_html__('Pslzme 3D debug UI', 'pslzme'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'default' => 'no',
+                'options' => [
+                    'yes' => esc_html__('Yes', 'pslzme'),
+                    'no' => esc_html__('No', 'pslzme'),
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
             'pslzme_3d_camera_position_x',
             [
                 'label' => esc_html__("Pslzme 3D camera position x", "pslzme"),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
-                'max' => 500,
+                'max' => 3000,
                 'default' => 0,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_3d_camera_position_y',
             [
                 'label' => esc_html__("Pslzme 3D camera position y", "pslzme"),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
-                'max' => 500,
+                'max' => 3000,
                 'default' => 150,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_3d_camera_position_z',
             [
                 'label' => esc_html__("Pslzme 3D camera position z", "pslzme"),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
-                'max' => 1000,
+                'max' => 3000,
                 'default' => 700,
             ]
         );
 
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_3d_camera_target_x',
             [
                 'label' => esc_html__("Pslzme 3D camera target x", "pslzme"),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
-                'max' => 500,
+                'max' => 3000,
                 'default' => 0,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_3d_camera_target_y',
             [
                 'label' => esc_html__("Pslzme 3D camera target y", "pslzme"),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
-                'max' => 500,
+                'max' => 3000,
                 'default' => 115,
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'pslzme_3d_camera_target_z',
             [
                 'label' => esc_html__("Pslzme 3D camera target z", "pslzme"),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'min' => 0,
-                'max' => 500,
+                'max' => 3000,
                 'default' => 0,
             ]
         );
