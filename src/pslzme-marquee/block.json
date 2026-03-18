@@ -1,0 +1,33 @@
+{
+	"apiVersion": 3,
+	"name": "pslzme-marquee/block",
+	"icon": "text",
+	"title": "Pslzme Marquee",
+	"category": "pslzme",
+	"description": "",
+	"keywords": ["Pslzme", "pslzme", "Marquee", "marquee", "Pslzme Marquee", "pslzme marquee"],
+	"textdomain": "pslzme",
+	"attributes": {
+		"personalized_text": {
+			"type": "string"
+		},
+		"unpersonalized_text": {
+			"type": "string"
+		},
+		"text_color": {
+			"type": "string"
+		},
+		"background_color": {
+			"type": "string"
+		},
+		"container_height": {
+			"type": "number"
+		},
+		"container_height_unit": {
+			"type": "string",
+			"default": "px"
+		}
+	},
+	"supports": { "html": false },
+	"editorScript": "file:./index.js"
+}
