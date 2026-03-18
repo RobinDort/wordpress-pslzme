@@ -4,6 +4,9 @@ import {
 	PanelBody,
 	TextareaControl,
 	ColorPicker,
+	SelectControl,
+	Flex,
+	FlexItem,
 	__experimentalSpacer as Spacer,
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
@@ -46,11 +49,59 @@ export default function Edit({ attributes, setAttributes }) {
 							<ColorPicker color={attributes.background_color} onChangeComplete={(color) => setAttributes({ background_color: color.hex })} />
 						</div>
 
-						<NumberControl
-							label={__("Marquee container height", "pslzme")}
-							value={attributes.container_height}
-							onChange={(value) => setAttributes({ container_height: value })}
-						/>
+						<Flex>
+							<FlexItem>
+								<NumberControl
+									label={__("Marquee Text size", "pslzme")}
+									value={attributes.text_font_size}
+									onChange={(value) => setAttributes({ text_font_size: value })}
+								/>
+							</FlexItem>
+
+							<FlexItem>
+								<SelectControl
+									label={__("Marquee Text size unit", "pslzme")}
+									value={attributes.text_font_size_unit}
+									options={[
+										{ label: "px", value: "px" },
+										{ label: "em", value: "em" },
+										{ label: "rem", value: "rem" },
+										{ label: "%", value: "%" },
+										{ label: "vw", value: "vw" },
+										{ label: "vh", value: "vh" },
+									]}
+									onChange={(selected) => setAttributes({ text_font_size_unit: selected })}
+								/>
+							</FlexItem>
+						</Flex>
+
+						<Spacer marginY={5} />
+
+						<Flex>
+							<FlexItem>
+								<NumberControl
+									label={__("Marquee container height", "pslzme")}
+									value={attributes.container_height}
+									onChange={(value) => setAttributes({ container_height: value })}
+								/>
+							</FlexItem>
+
+							<FlexItem>
+								<SelectControl
+									label={__("Marquee container height unit", "pslzme")}
+									value={attributes.container_height_unit}
+									options={[
+										{ label: "px", value: "px" },
+										{ label: "em", value: "em" },
+										{ label: "rem", value: "rem" },
+										{ label: "%", value: "%" },
+										{ label: "vw", value: "vw" },
+										{ label: "vh", value: "vh" },
+									]}
+									onChange={(selected) => setAttributes({ container_height_unit: selected })}
+								/>
+							</FlexItem>
+						</Flex>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
@@ -60,10 +111,20 @@ export default function Edit({ attributes, setAttributes }) {
 				style={{ height: attributes.container_height + (attributes.container_height_unit || "px"), backgroundColor: attributes.background_color }}>
 				<div className="pslzme-marquee-text">
 					<div className="pslzme-marquee-text-track">
-						<div className="pslzme-marquee-item" style={{ color: attributes.text_color }}>
+						<div
+							className="pslzme-marquee-item"
+							style={{
+								fontSize: attributes.text_font_size ? `${attributes.text_font_size}${attributes.text_font_size_unit || "px"}` : undefined,
+								color: attributes.text_color,
+							}}>
 							<p>{attributes.unpersonalized_text}</p>
 						</div>
-						<div className="pslzme-marquee-item" style={{ color: attributes.text_color }}>
+						<div
+							className="pslzme-marquee-item"
+							style={{
+								fontSize: attributes.text_font_size ? `${attributes.text_font_size}${attributes.text_font_size_unit || "px"}` : undefined,
+								color: attributes.text_color,
+							}}>
 							<p>{attributes.unpersonalized_text}</p>
 						</div>
 					</div>

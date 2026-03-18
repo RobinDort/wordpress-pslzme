@@ -17,10 +17,19 @@
 		"text_color": {
 			"type": "string"
 		},
+		"text_font_size": {
+			"type": "string"
+		},
+		"text_font_size_unit": {
+			"type": "string"
+		},
 		"background_color": {
 			"type": "string"
 		},
 		"container_height": {
+			"type": "string"
+		},
+		"container_height_unit": {
 			"type": "string"
 		}
 	},

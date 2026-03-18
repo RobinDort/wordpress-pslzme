@@ -613,7 +613,11 @@ class Pslzme_Public {
 		$unpersonalizedText = $attributes['unpersonalized_text'];
 		$backgroundColor = $attributes['background_color'] ?? "#ffffff"; 
 		$textColor = $attributes['text_color'] ?? "#000000";
+		$textFontSize = $attributes['text_font_size'] ?? '16';
+		$textFontSizeUnit = $attributes['text_font_size_unit'] ?? 'px';
 		$containerHeight = $attributes['container_height'];
+		$containerHeightUnit = $attributes["container_height_unit"] ?? 'px';
+
 
 		$content = '';
 
@@ -628,13 +632,13 @@ class Pslzme_Public {
 		?>
 		
 			<?php if (!empty($content)) : ?>
-				<div class="pslzme-marquee" style="height: <?= esc_attr($containerHeight) ?>px; background-color: <?= esc_attr($backgroundColor) ?>; ">
+				<div class="pslzme-marquee" style="height: <?= esc_attr($containerHeight) ?><?= esc_attr($containerHeightUnit) ?>; background-color: <?= esc_attr($backgroundColor) ?>; ">
 					<div class="pslzme-marquee-text">
 						<div class="pslzme-marquee-text-track">
-							<div class="pslzme-marquee-item" style="color: <?= $textColor ?>;">
+							<div class="pslzme-marquee-item" style="font-size: <?= esc_attr($textFontSize) ?><?= esc_attr($textFontSizeUnit) ?>; color: <?= esc_attr($textColor) ?>;">
 								<?= esc_html($content) ?>
 							</div>
-							<div class="pslzme-marquee-item" style="color: <?= $textColor ?>;">
+							<div class="pslzme-marquee-item" style="font-size: <?= esc_attr($textFontSize) ?><?= esc_attr($textFontSizeUnit) ?>; color: <?= esc_attr($textColor) ?>;">
 								<?= esc_html($content) ?>
 							</div>
 						</div>

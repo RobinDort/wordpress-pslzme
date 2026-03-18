@@ -73,6 +73,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	white-space: nowrap;
 }
 
 .pslzme-marquee-item p {
