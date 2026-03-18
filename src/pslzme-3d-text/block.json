@@ -78,6 +78,18 @@
 		},
 		"rotation_direction": {
 			"type": "string"
+		},
+		"container_border_top_left_radius": {
+			"type": "number"
+		},
+		"container_border_top_right_radius": {
+			"type": "number"
+		},
+		"container_border_bottom_left_radius": {
+			"type": "number"
+		},
+		"container_border_bottom_right_radius": {
+			"type": "number"
 		}
 	},
 	"supports": { "html": false },

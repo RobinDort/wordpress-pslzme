@@ -559,10 +559,21 @@ class Pslzme_Public {
 		$cameraTargetX = $attributes['camera_target_x'] ?? 0;
 		$cameraTargetY = $attributes['camera_target_y'] ?? 115;
 		$cameraTargetZ = $attributes['camera_target_z'] ?? 0;
+		$borderRadiusTopLeft = $attributes['container_border_top_left_radius'] ?? 0;
+		$borderRadiusTopRight = $attributes['container_border_top_right_radius'] ?? 0;
+		$borderRadiusBottomLeft = $attributes['container_border_bottom_left_radius'] ?? 0;
+		$borderRadiusBottomRight = $attributes['container_border_bottom_right_radius'] ?? 0;
 
 		ob_start();
 		?>
-		<div class="pslzme-3d-text <?= $draggable === 'yes' ? 'pslzme-3d-text-draggable' : '' ?>" 
+		<div class="pslzme-3d-text <?= $draggable === 'yes' ? 'pslzme-3d-text-draggable' : '' ?>"
+			style="
+				border-top-left-radius: <?= esc_attr($borderRadiusTopLeft) ?>px;
+				border-top-right-radius: <?= esc_attr($borderRadiusTopRight) ?>px;
+				border-bottom-left-radius: <?= esc_attr($borderRadiusBottomLeft) ?>px;
+				border-bottom-right-radius: <?= esc_attr($borderRadiusBottomRight) ?>px;
+				overflow: hidden;
+			" 
 			data-3d-text="<?= esc_attr( $usedText ) ?>"
 			data-background="<?= esc_attr( $scene_background ) ?>"
 			data-highlight-color-one="<?= esc_attr( $highlight_color_one ) ?>"

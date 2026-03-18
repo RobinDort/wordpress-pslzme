@@ -5,6 +5,8 @@ import {
 	TextareaControl,
 	ColorPicker,
 	CustomSelectControl,
+	Flex,
+	FlexItem,
 	__experimentalSpacer as Spacer,
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
@@ -144,6 +146,8 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(value) => setAttributes({ fog_enabled: value.selectedItem.key })}
 						/>
 
+						<Spacer marginY={5} />
+
 						{attributes.fog_enabled === "yes" && (
 							<ColorPicker
 								label={__("Pslzme 3D fog color", "pslzme")}
@@ -152,12 +156,16 @@ export default function Edit({ attributes, setAttributes }) {
 							/>
 						)}
 
+						<Spacer marginY={5} />
+
 						<CustomSelectControl
 							label={__("Pslzme 3D mirrored text", "pslzme")}
 							options={boolOptions}
 							value={attributes.mirrored_text}
 							onChange={(value) => setAttributes({ mirrored_text: value.selectedItem.key })}
 						/>
+
+						<Spacer marginY={5} />
 
 						<CustomSelectControl
 							label={__("Pslzme 3D draggable", "pslzme")}
@@ -166,12 +174,16 @@ export default function Edit({ attributes, setAttributes }) {
 							onChange={(value) => setAttributes({ text_draggable: value.selectedItem.key })}
 						/>
 
+						<Spacer marginY={5} />
+
 						<CustomSelectControl
 							label={__("Pslzme 3D moving light", "pslzme")}
 							options={boolOptions}
 							value={attributes.moving_light_enabled}
 							onChange={(value) => setAttributes({ moving_light_enabled: value.selectedItem.key })}
 						/>
+
+						<Spacer marginY={5} />
 
 						<CustomSelectControl
 							label={__("Pslzme 3D rotation", "pslzme")}
@@ -190,6 +202,46 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(value) => setAttributes({ rotation_direction: value.selectedItem.key })}
 							/>
 						)}
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
+
+			<InspectorControls group="styles">
+				<Panel>
+					<PanelBody title={__("Pslzme 3D Text border radius", "pslzme")}>
+						<Flex>
+							<FlexItem>
+								<NumberControl
+									label={__("Pslzme 3D container border radius top left", "pslzme")}
+									value={attributes.container_border_top_left_radius}
+									onChange={(value) => setAttributes({ container_border_top_left_radius: value })}
+								/>
+							</FlexItem>
+
+							<FlexItem>
+								<NumberControl
+									label={__("Pslzme 3D container border radius top right", "pslzme")}
+									value={attributes.container_border_top_right_radius}
+									onChange={(value) => setAttributes({ container_border_top_right_radius: value })}
+								/>
+							</FlexItem>
+
+							<FlexItem>
+								<NumberControl
+									label={__("Pslzme 3D container border radius bottom left", "pslzme")}
+									value={attributes.container_border_bottom_left_radius}
+									onChange={(value) => setAttributes({ container_border_bottom_left_radius: value })}
+								/>
+							</FlexItem>
+
+							<FlexItem>
+								<NumberControl
+									label={__("Pslzme 3D container border radius bottom right", "pslzme")}
+									value={attributes.container_border_bottom_right_radius}
+									onChange={(value) => setAttributes({ container_border_bottom_right_radius: value })}
+								/>
+							</FlexItem>
+						</Flex>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
