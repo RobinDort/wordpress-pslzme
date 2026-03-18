@@ -17,8 +17,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $personalizedText = $settings['marquee_personalized_text'] ?? '';
 $unpersonalizedText = $settings['marquee_unpersonalized_text'] ?? '';
-$fontSize  = $settings['text_typography_font_size']['size'] ?? '';
-$fontUnit  = $settings['text_typography_font_size']['unit'] ?? 'px';
 
 $allowed_html['h1']['class'] = true;
 $allowed_html['h2']['class'] = true;

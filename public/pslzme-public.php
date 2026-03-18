@@ -155,6 +155,12 @@ class Pslzme_Public {
 			'render_callback' => [$this, 'render_pslzme_3d_text_block']
 		]);
 
+		register_block_type(
+			plugin_dir_path(dirname(__FILE__)) . 'build/pslzme-marquee',
+		[
+			'render_callback' => [$this, 'render_pslzme_marquee_block']
+		]);
+
 		wp_localize_script(
 			'pslzme-content-block-editor-script',
 			'pslzmeGutenbergData',
@@ -594,6 +600,48 @@ class Pslzme_Public {
 			data-camera-target-y="<?= esc_attr( $cameraTargetY ) ?>"
 			data-camera-target-z="<?= esc_attr( $cameraTargetZ ) ?>">
 		</div>
+		<?php
+		return ob_get_clean();
+	}
+
+
+	public function render_pslzme_marquee_block( $attributes) {
+		$decryptionController = DecryptionController::get_instance();
+		$varsSet = $decryptionController->vars_set();
+
+		$personalizedText = $attributes['personalized_text'];
+		$unpersonalizedText = $attributes['unpersonalized_text'];
+		$backgroundColor = $attributes['background_color'] ?? "#ffffff"; 
+		$textColor = $attributes['text_color'] ?? "#000000";
+		$containerHeight = $attributes['container_height'];
+
+		$content = '';
+
+		if ($varsSet && !empty($personalizedText)) {
+			$content = $personalizedText;
+		} else {
+			$content = $unpersonalizedText;
+		}
+
+		ob_start();
+
+		?>
+		
+			<?php if (!empty($content)) : ?>
+				<div class="pslzme-marquee" style="height: <?= esc_attr($containerHeight) ?>px; background-color: <?= esc_attr($backgroundColor) ?>; ">
+					<div class="pslzme-marquee-text">
+						<div class="pslzme-marquee-text-track">
+							<div class="pslzme-marquee-item" style="color: <?= $textColor ?>;">
+								<?= esc_html($content) ?>
+							</div>
+							<div class="pslzme-marquee-item" style="color: <?= $textColor ?>;">
+								<?= esc_html($content) ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php endif; ?>
+
 		<?php
 		return ob_get_clean();
 	}

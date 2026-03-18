@@ -21,13 +21,10 @@
 			"type": "string"
 		},
 		"container_height": {
-			"type": "number"
-		},
-		"container_height_unit": {
-			"type": "string",
-			"default": "px"
+			"type": "string"
 		}
 	},
 	"supports": { "html": false },
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"style": "file:../../public/css/pslzme-public.css"
 }
