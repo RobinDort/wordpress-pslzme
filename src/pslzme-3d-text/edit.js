@@ -1,11 +1,11 @@
-import { useBlockProps, InspectorControls, RichText } from "@wordpress/block-editor";
+import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
 import {
 	Panel,
 	PanelBody,
-	CheckboxControl,
 	TextareaControl,
 	ColorPicker,
 	CustomSelectControl,
+	__experimentalSpacer as Spacer,
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
@@ -73,13 +73,22 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 
 						<ColorPicker
-							label={__("Pslzme 3D highlight color 1", "pslzme")}
+							label={__("Pslzme 3D highlight color 3", "pslzme")}
 							color={attributes.highlight_color_three || "#ff0000"}
 							onChangeComplete={(value) => setAttributes({ highlight_color_three: value.hex })}
 						/>
 					</PanelBody>
 
 					<PanelBody title={__("Pslzme 3D Text camera configuration", "pslzme")} initialOpen={false}>
+						<CustomSelectControl
+							label={__("Pslzme 3D ui enabled", "pslzme")}
+							options={boolOptions}
+							value={attributes.debug_ui_enabled}
+							onChange={(value) => setAttributes({ debug_ui_enabled: value.selectedItem.key })}
+						/>
+
+						<Spacer marginY={5} />
+
 						<NumberControl
 							label={__("Pslzme 3D camera position x", "pslzme")}
 							value={attributes.camera_position_x}

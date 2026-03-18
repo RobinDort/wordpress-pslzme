@@ -30,6 +30,9 @@
 			"type": "string",
 			"default": "#ff0000"
 		},
+		"debug_ui_enabled": {
+			"type": "string"
+		},
 		"camera_position_x": {
 			"type": "number",
 			"default": 0

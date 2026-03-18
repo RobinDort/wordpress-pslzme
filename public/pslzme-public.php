@@ -552,6 +552,7 @@ class Pslzme_Public {
 		$movingLight = $attributes['moving_light_enabled'] ?? 'no';
 		$rotationEnabled = $attributes['text_rotation'] ?? 'no';
 		$rotationDirection = $attributes['rotation_direction'] ?? 'left';
+		$debugUIEnabled = $attributes['debug_ui_enabled'] ?? 'no';
 		$cameraPositionX = $attributes['camera_position_x'] ?? 0;
 		$cameraPositionY = $attributes['camera_position_y'] ?? 150;
 		$cameraPositionZ = $attributes['camera_position_z'] ?? 700;
@@ -574,6 +575,7 @@ class Pslzme_Public {
 			data-rotation-enabled="<?= esc_attr( $rotationEnabled) ?>"
 			data-rotation-direction="<?= esc_attr( $rotationDirection ) ?>"
 			data-draggable="<?= esc_attr( $draggable ) ?>"
+			data-debug-ui="<?= esc_attr( $debugUIEnabled) ?>"
 			data-camera-pos-x="<?= esc_attr( $cameraPositionX ) ?>"
 			data-camera-pos-y="<?= esc_attr( $cameraPositionY ) ?>"
 			data-camera-pos-z="<?= esc_attr( $cameraPositionZ ) ?>"
