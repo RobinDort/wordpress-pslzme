@@ -106,6 +106,55 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<Spacer marginY={10} />
 
+						<BaseControl label={__("Pslzme image text spacing", "pslzme")}>
+							<Flex expanded>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text dimension Top", "pslzme")}
+										value={attributes.text_dimension_top}
+										onChange={(value) => setAttributes({ text_dimension_top: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text dimension Right", "pslzme")}
+										value={attributes.text_dimension_right}
+										onChange={(value) => setAttributes({ text_dimension_right: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text dimension Bottom", "pslzme")}
+										value={attributes.text_dimension_bottom}
+										onChange={(value) => setAttributes({ text_dimension_bottom: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text dimension Left", "pslzme")}
+										value={attributes.text_dimension_left}
+										onChange={(value) => setAttributes({ text_dimension_left: value })}
+									/>
+								</FlexItem>
+							</Flex>
+						</BaseControl>
+
+						<Spacer marginY={5} />
+
+						<SelectControl
+							label={__("Pslzme text dimension Unit", "pslzme")}
+							value={attributes.image_dimension_unit}
+							options={[
+								{ label: "px", value: "px" },
+								{ label: "%", value: "%" },
+								{ label: "em", value: "em" },
+								{ label: "rem", value: "rem" },
+							]}
+							onChange={(value) => setAttributes({ text_dimension_unit: value })}
+						/>
+
+						<Spacer marginY={10} />
+
 						<MediaUploadCheck>
 							<MediaUpload
 								onSelect={(media) => setAttributes({ background_image: { id: media.id, url: media.url } })}

@@ -52,6 +52,22 @@
 			"type": "string",
 			"default": "px"
 		},
+		"text_dimension_top": {
+			"type": "string"
+		},
+		"text_dimension_bottom": {
+			"type": "string"
+		},
+		"text_dimension_left": {
+			"type": "string"
+		},
+		"text_dimension_right": {
+			"type": "string"
+		},
+		"text_dimension_unit": {
+			"type": "string",
+			"default": "px"
+		},
 		"background_image": {
 			"type": "object",
 			"default": {

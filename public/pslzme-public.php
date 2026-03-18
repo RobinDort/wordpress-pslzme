@@ -407,12 +407,6 @@ class Pslzme_Public {
 		$decryptionController = DecryptionController::get_instance();
 		$varsSet = $decryptionController->vars_set();
 
-		$containerDimensionTop = $attributes['image_dimension_top'] ?? '';
-		$containerDimensionRight = $attributes['image_dimension_right'] ?? '';
-		$containerDimensionBottom = $attributes['image_dimension_bottom'] ?? '';
-		$containerDimensionLeft = $attributes['image_dimension_left'] ?? '';
-		$containerDimensionUnit = $attributes['image_dimension_unit'] ?? 'px';
-
 		$personalizedText = $attributes['personalized_text'] ?? '';
 		$personalizedTextFontSize = $attributes['personalized_text_font_size'] ?? '';
 		$personalizedTextAlignment = $attributes['personalized_text_alignment'] ?? 'left';
@@ -428,6 +422,12 @@ class Pslzme_Public {
 		$imageDimensionBottom = $attributes['image_dimension_bottom'] ?? "0";
 		$imageDimensionLeft = $attributes['image_dimension_left'] ?? "0";
 		$imageDimensionUnit = $attributes['image_dimension_unit'] ?? "px";
+
+		$textDimensionTop = $attributes['text_dimension_top'] ?? '0';
+		$textDimensionRight = $attributes['text_dimension_right'] ?? '0';
+		$textDimensionBottom = $attributes['text_dimension_bottom'] ?? '0';
+		$textDimensionLeft = $attributes['text_dimension_left'] ?? '0';
+		$textDimensionUnit = $attributes['text_dimension_unit'] ?? 'px';
 
 		$backgroundImageID = $attributes['background_image']['id'] ?? '';
 		$backgroundImageSize = $attributes['background_image_size'] ?? '';
@@ -483,14 +483,32 @@ class Pslzme_Public {
 
 				<?php if ($varsSet) : ?>
 					<?php if ($personalizedText) : ?>
-						<div class="ce_text block layered-text" style="text-align: <?= esc_attr($personalizedTextAlignment) ?>; font-size: <?= esc_attr($personalizedTextFontSize); ?>; color: <?= esc_attr($personalizedTextColor) ?>">
+						<div class="ce_text block layered-text"
+						style="
+							text-align: <?= esc_attr($personalizedTextAlignment) ?>;
+							font-size: <?= esc_attr($personalizedTextFontSize); ?>;
+							color: <?= esc_attr($personalizedTextColor) ?>;
+							margin-top: <?= esc_attr($textDimensionTop) ?><?= esc_attr($textDimensionUnit)?>;
+							margin-right: <?= esc_attr($textDimensionRight) ?><?= esc_attr($textDimensionUnit)?>;
+							margin-bottom: <?= esc_attr($textDimensionBottom) ?><?= esc_attr($textDimensionUnit)?>;
+							margin-left: <?= esc_attr($textDimensionLeft) ?><?= esc_attr($textDimensionUnit)?>;
+						">
 							<?= esc_html($personalizedText) ?>
 						</div>
 					<?php endif; ?>
 
 				<?php else : ?>
 					<?php if ($unpersonalizedText) : ?>
-						<div class="ce_text block layered-text" style="text-align: <?= esc_attr($unpersonalizedTextAlignment) ?>; font-size: <?= esc_attr($unpersonalizedTextFontSize); ?>; color: <?= esc_attr($unpersonalizedTextColor) ?>">
+						<div class="ce_text block layered-text"
+						style="
+							text-align: <?= esc_attr($unpersonalizedTextAlignment) ?>;
+							font-size: <?= esc_attr($unpersonalizedTextFontSize) ?>;
+							color: <?= esc_attr($unpersonalizedTextColor) ?>;
+							margin-top: <?= esc_attr($textDimensionTop) ?><?= esc_attr($textDimensionUnit)?>;
+							margin-right: <?= esc_attr($textDimensionRight) ?><?= esc_attr($textDimensionUnit)?>;
+							margin-bottom: <?= esc_attr($textDimensionBottom) ?><?= esc_attr($textDimensionUnit)?>;
+							margin-left: <?= esc_attr($textDimensionLeft) ?><?= esc_attr($textDimensionUnit)?>;
+						">
 							<?= esc_html($unpersonalizedText) ?>
 						</div>
 					<?php endif; ?>
