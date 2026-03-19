@@ -11,9 +11,11 @@ import {
 	__experimentalNumberControl as NumberControl,
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import { useState } from "react";
 
 export default function Edit({ attributes, setAttributes }) {
 	const blockProps = useBlockProps({});
+	const [TagName, setTagName] = useState(attributes.text_element || "p");
 
 	return (
 		<div {...blockProps}>
@@ -37,7 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<InspectorControls group="styles">
 				<Panel>
-					<PanelBody title={__("Pslzme marquee style section", "pslzme")}>
+					<PanelBody title={__("Pslzme marquee color styles", "pslzme")}>
 						<div>
 							<strong>{__("Marquee Text Color", "pslzme")}</strong>
 							<Spacer marginY={3} />
@@ -48,7 +50,9 @@ export default function Edit({ attributes, setAttributes }) {
 							<strong>{__("Marquee Background Color", "pslzme")}</strong>
 							<ColorPicker color={attributes.background_color} onChangeComplete={(color) => setAttributes({ background_color: color.hex })} />
 						</div>
+					</PanelBody>
 
+					<PanelBody title={__("Pslzme marquee text styles ", "pslzme")} initialOpen={false}>
 						<Flex>
 							<FlexItem>
 								<NumberControl
@@ -75,8 +79,27 @@ export default function Edit({ attributes, setAttributes }) {
 							</FlexItem>
 						</Flex>
 
-						<Spacer marginY={5} />
+						<SelectControl
+							label={__("Marquee Text element", "pslzme")}
+							value={attributes.text_element}
+							options={[
+								{ label: "p", value: "p" },
+								{ label: "span", value: "span" },
+								{ label: "h1", value: "h1" },
+								{ label: "h2", value: "h2" },
+								{ label: "h3", value: "h3" },
+								{ label: "h4", value: "h4" },
+								{ label: "h5", value: "h6" },
+								{ label: "h6", value: "h6" },
+							]}
+							onChange={(value) => {
+								setTagName(value);
+								setAttributes({ text_element: value });
+							}}
+						/>
+					</PanelBody>
 
+					<PanelBody title={__("Marquee container styles", "pslzme")} initialOpen={false}>
 						<Flex>
 							<FlexItem>
 								<NumberControl
@@ -111,21 +134,23 @@ export default function Edit({ attributes, setAttributes }) {
 				style={{ height: attributes.container_height + (attributes.container_height_unit || "px"), backgroundColor: attributes.background_color }}>
 				<div className="pslzme-marquee-text">
 					<div className="pslzme-marquee-text-track">
-						<div
-							className="pslzme-marquee-item"
-							style={{
-								fontSize: attributes.text_font_size ? `${attributes.text_font_size}${attributes.text_font_size_unit || "px"}` : undefined,
-								color: attributes.text_color,
-							}}>
-							<p>{attributes.unpersonalized_text}</p>
+						<div className="pslzme-marquee-item">
+							<TagName
+								style={{
+									fontSize: attributes.text_font_size ? `${attributes.text_font_size}${attributes.text_font_size_unit || "px"}` : undefined,
+									color: attributes.text_color,
+								}}>
+								{attributes.unpersonalized_text}
+							</TagName>
 						</div>
-						<div
-							className="pslzme-marquee-item"
-							style={{
-								fontSize: attributes.text_font_size ? `${attributes.text_font_size}${attributes.text_font_size_unit || "px"}` : undefined,
-								color: attributes.text_color,
-							}}>
-							<p>{attributes.unpersonalized_text}</p>
+						<div className="pslzme-marquee-item">
+							<TagName
+								style={{
+									fontSize: attributes.text_font_size ? `${attributes.text_font_size}${attributes.text_font_size_unit || "px"}` : undefined,
+									color: attributes.text_color,
+								}}>
+								{attributes.unpersonalized_text}
+							</TagName>
 						</div>
 					</div>
 				</div>

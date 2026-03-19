@@ -615,9 +615,27 @@ class Pslzme_Public {
 		$textColor = $attributes['text_color'] ?? "#000000";
 		$textFontSize = $attributes['text_font_size'] ?? '16';
 		$textFontSizeUnit = $attributes['text_font_size_unit'] ?? 'px';
+		$textElement = $attributes['text_element'] ?? 'p';
 		$containerHeight = $attributes['container_height'];
 		$containerHeightUnit = $attributes["container_height_unit"] ?? 'px';
 
+		$allowed_elements = [ 'p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ];
+		if ( ! in_array( $textElement, $allowed_elements, true ) ) {
+			$textElement = 'p';
+		}
+
+
+		$style = sprintf('font-size: %s%s; color: %s',
+			esc_attr($textFontSize),
+			esc_attr($textFontSizeUnit),
+			esc_attr($textColor)
+		);
+
+		$allowed_tags = [
+			$textElement => [
+				'style' => []
+			],
+		];
 
 		$content = '';
 
@@ -636,10 +654,10 @@ class Pslzme_Public {
 					<div class="pslzme-marquee-text">
 						<div class="pslzme-marquee-text-track">
 							<div class="pslzme-marquee-item" style="font-size: <?= esc_attr($textFontSize) ?><?= esc_attr($textFontSizeUnit) ?>; color: <?= esc_attr($textColor) ?>;">
-								<?= esc_html($content) ?>
+								<?= wp_kses( "<{$textElement} style=\"{$style}\">{$content}</{$textElement}>", $allowed_tags ) ?>
 							</div>
 							<div class="pslzme-marquee-item" style="font-size: <?= esc_attr($textFontSize) ?><?= esc_attr($textFontSizeUnit) ?>; color: <?= esc_attr($textColor) ?>;">
-								<?= esc_html($content) ?>
+								<?= wp_kses( "<{$textElement} style=\"{$style}\">{$content}</{$textElement}>", $allowed_tags ) ?>
 							</div>
 						</div>
 					</div>
