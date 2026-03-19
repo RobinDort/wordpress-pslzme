@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-19T08:07:50+00:00\n"
+"POT-Creation-Date: 2026-03-19T08:32:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: pslzme\n"
@@ -186,37 +186,37 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:91
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:58
+#: src/pslzme-3d-text/edit.js:185
 msgid "Pslzme 3D Text color configuration"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:99
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:60
+#: src/pslzme-3d-text/edit.js:187
 msgid "Pslzme 3D scene background color"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:108
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:66
+#: src/pslzme-3d-text/edit.js:195
 msgid "Pslzme 3D highlight color 1"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:117
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:72
+#: src/pslzme-3d-text/edit.js:206
 msgid "Pslzme 3D highlight color 2"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:126
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:78
+#: src/pslzme-3d-text/edit.js:217
 msgid "Pslzme 3D highlight color 3"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:137
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:84
+#: src/pslzme-3d-text/edit.js:58
 msgid "Pslzme 3D Text camera configuration"
 msgstr ""
 
@@ -252,55 +252,55 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:158
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:95
+#: src/pslzme-3d-text/edit.js:69
 msgid "Pslzme 3D camera position x"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:169
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:102
+#: src/pslzme-3d-text/edit.js:76
 msgid "Pslzme 3D camera position y"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:180
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:109
+#: src/pslzme-3d-text/edit.js:83
 msgid "Pslzme 3D camera position z"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:192
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:117
+#: src/pslzme-3d-text/edit.js:91
 msgid "Pslzme 3D camera target x"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:203
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:125
+#: src/pslzme-3d-text/edit.js:99
 msgid "Pslzme 3D camera target y"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:214
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:133
+#: src/pslzme-3d-text/edit.js:107
 msgid "Pslzme 3D camera target z"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:227
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:141
+#: src/pslzme-3d-text/edit.js:115
 msgid "Pslzme 3D Text custom options"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:235
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:143
+#: src/pslzme-3d-text/edit.js:117
 msgid "Pslzme 3D fog enabled"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:248
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:153
+#: src/pslzme-3d-text/edit.js:127
 msgid "Pslzme 3D fog color"
 msgstr ""
 
@@ -310,25 +310,25 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:273
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:171
+#: src/pslzme-3d-text/edit.js:145
 msgid "Pslzme 3D draggable"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:286
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:180
+#: src/pslzme-3d-text/edit.js:154
 msgid "Pslzme 3D moving light"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:300
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:189
+#: src/pslzme-3d-text/edit.js:163
 msgid "Pslzme 3D rotation"
 msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:313
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:199
+#: src/pslzme-3d-text/edit.js:173
 msgid "Pslzme 3D rotation direction"
 msgstr ""
 
@@ -346,7 +346,7 @@ msgstr ""
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:341
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:211
+#: src/pslzme-3d-text/edit.js:225
 msgid "Pslzme 3D Text border radius"
 msgstr ""
 
@@ -785,32 +785,32 @@ msgid "Your browser does not support the video tag."
 msgstr ""
 
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:86
+#: src/pslzme-3d-text/edit.js:60
 msgid "Pslzme 3D ui enabled"
 msgstr ""
 
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:162
+#: src/pslzme-3d-text/edit.js:136
 msgid "Pslzme 3D mirrored text"
 msgstr ""
 
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:215
+#: src/pslzme-3d-text/edit.js:229
 msgid "Pslzme 3D container border radius top left"
 msgstr ""
 
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:223
+#: src/pslzme-3d-text/edit.js:237
 msgid "Pslzme 3D container border radius top right"
 msgstr ""
 
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:231
+#: src/pslzme-3d-text/edit.js:245
 msgid "Pslzme 3D container border radius bottom left"
 msgstr ""
 
 #: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:239
+#: src/pslzme-3d-text/edit.js:253
 msgid "Pslzme 3D container border radius bottom right"
 msgstr ""
 

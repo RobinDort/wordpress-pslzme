@@ -55,32 +55,6 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</PanelBody>
 
-					<PanelBody title={__("Pslzme 3D Text color configuration", "pslzme")} initialOpen={false}>
-						<ColorPicker
-							label={__("Pslzme 3D scene background color", "pslzme")}
-							color={attributes.background_color || "#222222"}
-							onChangeComplete={(value) => setAttributes({ background_color: value.hex })}
-						/>
-
-						<ColorPicker
-							label={__("Pslzme 3D highlight color 1", "pslzme")}
-							color={attributes.highlight_color_one || "#a4dd46"}
-							onChangeComplete={(value) => setAttributes({ highlight_color_one: value.hex })}
-						/>
-
-						<ColorPicker
-							label={__("Pslzme 3D highlight color 2", "pslzme")}
-							color={attributes.highlight_color_two || "#0000ff"}
-							onChangeComplete={(value) => setAttributes({ highlight_color_two: value.hex })}
-						/>
-
-						<ColorPicker
-							label={__("Pslzme 3D highlight color 3", "pslzme")}
-							color={attributes.highlight_color_three || "#ff0000"}
-							onChangeComplete={(value) => setAttributes({ highlight_color_three: value.hex })}
-						/>
-					</PanelBody>
-
 					<PanelBody title={__("Pslzme 3D Text camera configuration", "pslzme")} initialOpen={false}>
 						<CustomSelectControl
 							label={__("Pslzme 3D ui enabled", "pslzme")}
@@ -208,7 +182,47 @@ export default function Edit({ attributes, setAttributes }) {
 
 			<InspectorControls group="styles">
 				<Panel>
-					<PanelBody title={__("Pslzme 3D Text border radius", "pslzme")}>
+					<PanelBody title={__("Pslzme 3D Text color configuration", "pslzme")} initialOpen={false}>
+						<div>
+							<strong>{__("Pslzme 3D scene background color", "pslzme")}</strong>
+							<Spacer marginY={3} />
+							<ColorPicker color={attributes.background_color || "#222222"} onChangeComplete={(value) => setAttributes({ background_color: value.hex })} />
+						</div>
+
+						<Spacer marginY={5} />
+
+						<div>
+							<strong>{__("Pslzme 3D highlight color 1", "pslzme")}</strong>
+							<Spacer marginY={3} />
+							<ColorPicker
+								color={attributes.highlight_color_one || "#a4dd46"}
+								onChangeComplete={(value) => setAttributes({ highlight_color_one: value.hex })}
+							/>
+						</div>
+
+						<Spacer marginY={5} />
+
+						<div>
+							<strong>{__("Pslzme 3D highlight color 2", "pslzme")}</strong>
+							<Spacer marginY={3} />
+							<ColorPicker
+								color={attributes.highlight_color_two || "#0000ff"}
+								onChangeComplete={(value) => setAttributes({ highlight_color_two: value.hex })}
+							/>
+						</div>
+
+						<Spacer marginY={5} />
+
+						<div>
+							<strong>{__("Pslzme 3D highlight color 3", "pslzme")}</strong>#
+							<Spacer marginY={3} />
+							<ColorPicker
+								color={attributes.highlight_color_three || "#ff0000"}
+								onChangeComplete={(value) => setAttributes({ highlight_color_three: value.hex })}
+							/>
+						</div>
+					</PanelBody>
+					<PanelBody title={__("Pslzme 3D Text border radius", "pslzme")} initialOpen={false}>
 						<Flex>
 							<FlexItem>
 								<NumberControl
