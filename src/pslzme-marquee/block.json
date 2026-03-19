@@ -1,7 +1,7 @@
 {
 	"apiVersion": 3,
 	"name": "pslzme-marquee/block",
-	"icon": "text",
+	"icon": "editor-insertmore",
 	"title": "Pslzme Marquee",
 	"category": "pslzme",
 	"description": "",
