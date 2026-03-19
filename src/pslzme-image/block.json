@@ -124,5 +124,6 @@
 	},
 	"supports": { "html": false },
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css"
+	"editorStyle": "file:./index.css",
+	"style": "file:../../public/css/pslzme-public.css"
 }

@@ -354,6 +354,49 @@ export default function Edit({ attributes, setAttributes }) {
 					onFocus={() => setActiveEditor("unpersonalized")}
 				/>
 			</div>
+
+			<div
+				className="pslzme-ov-image-container"
+				style={{
+					margin: `
+						${attributes.image_dimension_top}${attributes.image_dimension_unit}
+						${attributes.image_dimension_right}${attributes.image_dimension_unit}
+						${attributes.image_dimension_bottom}${attributes.image_dimension_unit}
+						${attributes.image_dimension_left}${attributes.image_dimension_unit}`,
+					width: attributes.image_container_width ? `${attributes.image_container_width}px` : "auto",
+					maxWidth: attributes.image_container_max_width ? `${attributes.image_container_max_width}px` : "none",
+					height: attributes.image_container_height ? `${attributes.image_container_height}px` : "auto",
+				}}>
+				<div className="pslzme-background-figure">
+					{attributes.background_image?.url && (
+						<img
+							src={attributes.background_image.url}
+							style={{
+								borderRadius: `${attributes.image_container_border_radius_top_left}px
+								 ${attributes.image_container_border_radius_top_right}px
+								 ${attributes.image_container_border_radius_bottom_right}px
+								 ${attributes.image_container_border_radius_bottom_left}px
+								`,
+							}}
+						/>
+					)}
+				</div>
+				<div
+					className="ce_text block layered-text"
+					style={{
+						textAlign: attributes.unpersonalized_text_alignment || "left",
+						fontSize: attributes.unpersonalized_text_font_size,
+						color: attributes.unpersonalized_text_color,
+						marginTop: `${attributes.text_dimension_top}${attributes.text_dimension_unit}`,
+						marginRight: `${attributes.text_dimension_right}${attributes.text_dimension_unit}`,
+						marginBottom: `${attributes.text_dimension_bottom}${attributes.text_dimension_unit}`,
+						marginLeft: `${attributes.text_dimension_left}${attributes.text_dimension_unit}`,
+					}}>
+					{attributes.unpersonalized_text}
+				</div>
+
+				<div className="pslzme-foreground-figure">{attributes.foreground_image?.url && <img src={attributes.foreground_image.url} />}</div>
+			</div>
 		</div>
 	);
 }
