@@ -65,7 +65,14 @@
 	width: 200%; /* 2 items */
 	height: 100%;
 	display: flex;
-	animation: marquee-content 20s linear infinite;
+}
+
+.pslzme-marquee-text-anim-left {
+	animation: marquee-content-left 20s linear infinite;
+}
+
+.pslzme-marquee-text-anim-right {
+	animation: marquee-content-right 20s linear infinite;
 }
 
 .pslzme-marquee-item {
@@ -100,9 +107,18 @@
 	cursor: pointer;
 }
 
-@keyframes marquee-content {
+@keyframes marquee-content-left {
 	to {
 		transform: translateX(-50%);
+	}
+}
+
+@keyframes marquee-content-right {
+	from {
+		transform: translateX(-50%);
+	}
+	to {
+		transform: translateX(0%);
 	}
 }
 

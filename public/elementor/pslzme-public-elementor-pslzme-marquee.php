@@ -85,6 +85,19 @@ class ElementorWidgetPslzmeMarquee extends \Elementor\Widget_Base {
 			]
 		);
 
+        $this->add_control(
+            'marquee_text_direction', 
+            [
+                'label' => esc_html__('Marquee Text Direction', "'pslzme"),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'left' => esc_html__("Left", "pslzme"),
+                    'right' => esc_html__("Right", "pslzme")
+                ],
+				'default' => 'left'
+            ]
+        );
+
         $this->end_controls_section();
     }
 
