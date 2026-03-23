@@ -611,6 +611,7 @@ class Pslzme_Public {
 
 		$personalizedText = $attributes['personalized_text'];
 		$unpersonalizedText = $attributes['unpersonalized_text'];
+		$textDirection = $attributes['text_direction'] ?? 'left';
 		$backgroundColor = $attributes['background_color'] ?? "#ffffff"; 
 		$textColor = $attributes['text_color'] ?? "#000000";
 		$textFontSize = $attributes['text_font_size'] ?? '16';
@@ -652,7 +653,7 @@ class Pslzme_Public {
 			<?php if (!empty($content)) : ?>
 				<div class="pslzme-marquee" style="height: <?= esc_attr($containerHeight) ?><?= esc_attr($containerHeightUnit) ?>; background-color: <?= esc_attr($backgroundColor) ?>; ">
 					<div class="pslzme-marquee-text">
-						<div class="pslzme-marquee-text-track">
+						<div class="pslzme-marquee-text-track <?= $textDirection === 'left' ? 'pslzme-marquee-text-anim-left' : 'pslzme-marquee-text-anim-right' ?>">
 							<div class="pslzme-marquee-item" style="font-size: <?= esc_attr($textFontSize) ?><?= esc_attr($textFontSizeUnit) ?>; color: <?= esc_attr($textColor) ?>;">
 								<?= wp_kses( "<{$textElement} style=\"{$style}\">{$content}</{$textElement}>", $allowed_tags ) ?>
 							</div>

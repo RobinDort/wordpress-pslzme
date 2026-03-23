@@ -33,6 +33,16 @@ export default function Edit({ attributes, setAttributes }) {
 							value={attributes.unpersonalized_text}
 							onChange={(value) => setAttributes({ unpersonalized_text: value })}
 						/>
+
+						<SelectControl
+							label={__("Text Direction", "pslzme")}
+							value={attributes.text_direction}
+							options={[
+								{ label: __("Left", "pslzme"), value: "left" },
+								{ label: __("Right", "pslzme"), value: "right" },
+							]}
+							onChange={(value) => setAttributes({ text_direction: value })}
+						/>
 					</PanelBody>
 				</Panel>
 			</InspectorControls>
@@ -133,7 +143,10 @@ export default function Edit({ attributes, setAttributes }) {
 				className="pslzme-marquee"
 				style={{ height: attributes.container_height + (attributes.container_height_unit || "px"), backgroundColor: attributes.background_color }}>
 				<div className="pslzme-marquee-text">
-					<div className="pslzme-marquee-text-track">
+					<div
+						className={`pslzme-marquee-text-track ${
+							attributes.text_direction === "left" ? "pslzme-marquee-text-anim-left" : "pslzme-marquee-text-anim-right"
+						}`}>
 						<div className="pslzme-marquee-item">
 							<TagName
 								style={{

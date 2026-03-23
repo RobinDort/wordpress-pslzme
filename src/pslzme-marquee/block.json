@@ -14,6 +14,9 @@
 		"unpersonalized_text": {
 			"type": "string"
 		},
+		"text_direction": {
+			"type": "string"
+		},
 		"text_color": {
 			"type": "string"
 		},
