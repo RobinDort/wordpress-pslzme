@@ -208,11 +208,11 @@ class Pslzme3DText {
 	};
 
 	addEvents() {
-		this.container.style.touchAction = "none";
 		let isDragging = false;
 		let previousX = 0;
 
 		if (this.dataDraggable) {
+			//desktop events (mouse)
 			this.container.addEventListener("mousedown", (event) => {
 				isDragging = true;
 				previousX = event.clientX;
@@ -228,7 +228,32 @@ class Pslzme3DText {
 				this.group.rotation.y += deltaX * 0.01; // adjust 0.01 sensitivity if needed
 			});
 
-			this.container.addEventListener("mouseup", (event) => {
+			this.container.addEventListener("mouseup", () => {
+				isDragging = false;
+			});
+
+			//mobile events (touch)
+			this.container.addEventListener("touchstart", (event) => {
+				isDragging = true;
+				previousX = event.touches[0].clientX;
+			});
+
+			this.container.addEventListener(
+				"touchmove",
+				(event) => {
+					if (!isDragging) return;
+
+					event.preventDefault(); // prevent page scroll
+					const clientX = event.touches[0].clientX;
+					const deltaX = clientX - previousX;
+					previousX = clientX;
+
+					this.group.rotation.y += deltaX * 0.01;
+				},
+				{ passive: false },
+			);
+
+			this.container.addEventListener("touchend", () => {
 				isDragging = false;
 			});
 		}
