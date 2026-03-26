@@ -2,21 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pslzme 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wordpress-pslzme\n"
+"POT-Creation-Date: 2026-03-26T09:19:04+00:00\n"
+"PO-Revision-Date: 2026-03-26 11:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-23T10:31:33+00:00\n"
-"PO-Revision-Date: 2026-03-23 11:35+0100\n"
-"Language: de\n"
 "X-Generator: Poedit 3.8\n"
 "X-Domain: pslzme\n"
 
 #. Plugin Name of the plugin
-#: pslzme.php
-#: admin/pslzme-admin.php:406
-#: public/pslzme-public.php:248
+#: pslzme.php admin/pslzme-admin.php:406 public/pslzme-public.php:248
 msgid "Pslzme"
 msgstr "Pslzme"
 
@@ -166,56 +164,47 @@ msgid "Pslzme 3D Text Widget"
 msgstr "Pslzme 3D Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:64
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:44
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:44
 msgid "Pslzme 3D Text configuration"
 msgstr "Pslzme 3D Text Konfiguration"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:72
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:46
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:46
 msgid "Pslzme 3D personalized text"
 msgstr "Personalisierter 3D Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:80
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:52
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:52
 msgid "Pslzme 3D unpersonalized text"
 msgstr "Unpersonalisierter 3D Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:91
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:185
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:196
 msgid "Pslzme 3D Text color configuration"
 msgstr "Pslzme 3D Text Farbanpassungen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:99
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:187
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:198
 msgid "Pslzme 3D scene background color"
 msgstr "Hintergrundfarbe der 3D Szene"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:108
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:195
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:206
 msgid "Pslzme 3D highlight color 1"
 msgstr "Highlightfarbe 1"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:117
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:206
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:217
 msgid "Pslzme 3D highlight color 2"
 msgstr "Highlightfarbe 2"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:126
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:217
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:228
 msgid "Pslzme 3D highlight color 3"
 msgstr "Highlightfarbe 3"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:137
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:58
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:58
 msgid "Pslzme 3D Text camera configuration"
 msgstr "Kameraoptionen"
 
@@ -229,10 +218,10 @@ msgstr "Debug UI einschalten"
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:277
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:290
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:304
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:333
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:125
 #: public/partials/pslzme-public-cookiebanner.php:52
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:36
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:36
 msgid "Yes"
 msgstr "Ja"
 
@@ -242,64 +231,55 @@ msgstr "Ja"
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:278
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:291
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:305
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:334
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:126
 #: public/partials/pslzme-public-cookiebanner.php:53
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:32
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:32
 msgid "No"
 msgstr "Nein"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:158
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:69
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:69
 msgid "Pslzme 3D camera position x"
 msgstr "Kameraposition x"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:169
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:76
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:76
 msgid "Pslzme 3D camera position y"
 msgstr "Kameraposition y"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:180
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:83
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:83
 msgid "Pslzme 3D camera position z"
 msgstr "Kameraposition z"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:192
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:91
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:91
 msgid "Pslzme 3D camera target x"
 msgstr "Kamera Target Position x"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:203
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:99
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:99
 msgid "Pslzme 3D camera target y"
 msgstr "Kamera Target Position y"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:214
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:107
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:107
 msgid "Pslzme 3D camera target z"
 msgstr "Kamera Target Position z"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:227
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:115
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:115
 msgid "Pslzme 3D Text custom options"
 msgstr "Weitere Anpassungen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:235
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:117
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:117
 msgid "Pslzme 3D fog enabled"
 msgstr "Nebel aktiviert"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:248
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:127
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:127
 msgid "Pslzme 3D fog color"
 msgstr "Nebelfarbe"
 
@@ -308,56 +288,57 @@ msgid "Pslzme 3D mirrored"
 msgstr "3D Text spiegeln"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:273
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:145
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:145
 msgid "Pslzme 3D draggable"
 msgstr "3D Text greifbar"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:286
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:154
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:154
 msgid "Pslzme 3D moving light"
 msgstr "Bewegendes Licht"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:300
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:163
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:163
 msgid "Pslzme 3D rotation"
 msgstr "Rotation"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:313
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:173
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:173
 msgid "Pslzme 3D rotation direction"
 msgstr "Rotationsrichtung"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:317
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:100
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:228
 #: public/elementor/pslzme-public-elementor-pslzme-marquee.php:95
-#: build/pslzme-marquee/index.js:1
-#: src/pslzme-marquee/edit.js:42
+#: build/pslzme-marquee/index.js:1 src/pslzme-marquee/edit.js:42
 msgid "Right"
 msgstr "Rechts"
 
 #: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:318
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:92
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:220
 #: public/elementor/pslzme-public-elementor-pslzme-marquee.php:94
-#: build/pslzme-marquee/index.js:1
-#: src/pslzme-marquee/edit.js:41
+#: build/pslzme-marquee/index.js:1 src/pslzme-marquee/edit.js:41
 msgid "Left"
 msgstr "Links"
 
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:333
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:329
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:183
+msgid "Pslzme 3D floor enabled"
+msgstr "Boden anzeigen"
+
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:346
 msgid "Pslzme 3D Text Style Section"
 msgstr "3D Text Stil"
 
-#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:341
-#: build/pslzme-3d-text/index.js:1
-#: src/pslzme-3d-text/edit.js:225
+#: public/elementor/pslzme-public-elementor-pslzme-3d-text.php:354
+#: build/pslzme-3d-text/index.js:1 src/pslzme-3d-text/edit.js:236
 msgid "Pslzme 3D Text border radius"
 msgstr "3D Text Radius"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:19
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:307
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:307
 msgid "Pslzme Content Widget"
 msgstr "Pslzme Content"
 
@@ -366,116 +347,97 @@ msgid "Content Type"
 msgstr "Inhaltstyp"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:75
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:44
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:44
 msgid "Pslzme content type"
 msgstr "Inhaltstyp"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:79
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:47
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:47
 msgid "Image"
 msgstr "Bild"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:80
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:48
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:48
 msgid "Video"
 msgstr "Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:100
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:57
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:57
 msgid "Pslzme content personalized image settings"
 msgstr "Personalisierter Bild Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:111
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:70
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:70
 msgid "Pslzme content personalized image"
 msgstr "Personalisiertes Bild"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:120
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:89
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:89
 msgid "Pslzme content personalized image alt text"
 msgstr "Alternativer Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:129
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:95
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:95
 msgid "Pslzme content personalized image size"
 msgstr "Bildgröße"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:139
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:102
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:102
 msgid "Pslzme content personalized image caption"
 msgstr "Bildunterschrift"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:148
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:109
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:109
 msgid "Pslzme content personalized image link"
 msgstr "Bildlink-Adresse"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:160
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:120
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:120
 msgid "Pslzme content unpersonalized image settings"
 msgstr "Unpersonalisierter Bild Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:171
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:133
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:133
 msgid "Pslzme content unpersonalized image"
 msgstr "Unpersonalisiertes Bild"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:180
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:152
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:152
 msgid "Pslzme content unpersonalized image alt text"
 msgstr "Alternativer Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:189
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:158
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:158
 msgid "Pslzme content unpersonalized image size"
 msgstr "Bildgröße"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:199
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:165
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:165
 msgid "Pslzme content unpersonalized image caption"
 msgstr "Bildunterschrift"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:208
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:172
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:172
 msgid "Pslzme content unpersonalized image link"
 msgstr "Bildlink-Adresse"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:227
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:187
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:187
 msgid "Pslzme content personalized video settings"
 msgstr "Personalisierter Video Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:238
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:199
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:199
 msgid "Pslzme content personalized video"
 msgstr "Personalisiertes Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:248
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:218
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:218
 msgid "Pslzme content personalized video width"
 msgstr "Video-Player Breite"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:260
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:224
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:224
 msgid "Pslzme content personalized video height"
 msgstr "Video-Player Höhe"
 
@@ -485,60 +447,51 @@ msgstr "Player-Optionen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:276
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:340
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:29
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:29
 msgid "Autoplay"
 msgstr "Autoplay"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:277
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:341
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:30
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:30
 msgid "Hide control options"
 msgstr "Steuerelemente verbergen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:278
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:342
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:31
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:31
 msgid "Play in loop"
 msgstr "In einer Schleife abspielen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:279
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:343
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:32
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:32
 msgid "Inline play (no fullscreen mode)"
 msgstr "Inline abspielen (kein Vollbildmodus)"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:280
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:344
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:33
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:33
 msgid "Mute audio output"
 msgstr "Die Audioausgabe Stummschalten"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:291
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:245
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:245
 msgid "Pslzme content unpersonalized video settings"
 msgstr "Unpersonalisierter Video Inhalt"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:302
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:258
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:258
 msgid "Pslzme content unpersonalized video"
 msgstr "Unpersonalisiertes Video"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:312
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:277
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:277
 msgid "Pslzme content unpersonalized video width"
 msgstr "Video-Player Breite"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:324
-#: build/pslzme-content/index.js:1
-#: src/pslzme-content/edit.js:283
+#: build/pslzme-content/index.js:1 src/pslzme-content/edit.js:283
 msgid "Pslzme content unpersonalized video height"
 msgstr "Video-Player Höhe"
 
@@ -547,22 +500,22 @@ msgid "Pslzme content unpersonalized video options"
 msgstr "Player-Optionen"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:362
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:311
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:528
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:363
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:312
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:529
 msgid "Medium"
 msgstr "Medium"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:364
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:313
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:530
 msgid "Large"
 msgstr "Groß"
 
 #: public/elementor/pslzme-public-elementor-pslzme-content.php:365
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:314
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:531
 msgid "Full"
 msgstr "Volle Breite"
 
@@ -571,116 +524,160 @@ msgid "— No Link —"
 msgstr "Keine Bildlink-Adresse"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:19
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:316
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:316
 msgid "Pslzme Image Widget"
 msgstr "Pslzme Image"
 
 #: public/elementor/pslzme-public-elementor-pslzme-image.php:68
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:38
-msgid "Pslzme Image Section"
-msgstr "Personalisierter Bild Inhalt"
+msgid "Pslzme Image Unpersonalized Section"
+msgstr "Unpersonalisierte Konfiguration"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:75
-#: public/elementor/pslzme-public-elementor-pslzme-marquee.php:75
-#: public/elementor/pslzme-public-elementor-pslzme-text.php:97
-#: build/pslzme-image/index.js:1
-#: build/pslzme-marquee/index.js:1
-#: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:329
-#: src/pslzme-marquee/edit.js:26
-#: src/pslzme-text/edit.js:14
-msgid "Personalized Text"
-msgstr "Personalisierter Text"
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:76
+msgid "Unpersonalized Texts"
+msgstr "Unpersonalisierte Texte"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:83
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:81
 #: public/elementor/pslzme-public-elementor-pslzme-marquee.php:83
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:115
-#: build/pslzme-image/index.js:1
-#: build/pslzme-marquee/index.js:1
-#: build/pslzme-text/index.js:1
-#: src/pslzme-image/edit.js:344
-#: src/pslzme-marquee/edit.js:32
-#: src/pslzme-text/edit.js:23
+#: build/pslzme-image/index.js:1 build/pslzme-marquee/index.js:1
+#: build/pslzme-text/index.js:1 src/pslzme-image/edit.js:344
+#: src/pslzme-marquee/edit.js:32 src/pslzme-text/edit.js:23
 msgid "Unpersonalized Text"
 msgstr "Unpersonalisierter Text"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:91
-msgid "Pslzme image dimensions"
-msgstr "Bildabstände"
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:83
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:211
+msgid "Personalized text"
+msgstr "Personalisierter Text"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:111
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:109
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:88
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:216
+msgid "Horizontal Position"
+msgstr "Horizontale Position"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:96
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:224
+msgid "Center"
+msgstr "Zentriert"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:109
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:237
+msgid "Vertical Position"
+msgstr "Vertikale Position"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:113
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:241
+msgid "Top"
+msgstr "Oben"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:117
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:245
+msgid "Middle"
+msgstr "Mitte"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:121
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:249
+msgid "Bottom"
+msgstr "Unten"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:130
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:258
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:109
 msgid "Pslzme image text spacing"
 msgstr "Textabstände"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:137
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:167
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:144
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:272
+msgid "Pslzme image text padding"
+msgstr "Text padding"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:165
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:293
+msgid "Unpersonalized text example #1"
+msgstr "Unpersonalisiertes Text Beispiel"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:196
+msgid "Pslzme Image Personalized Section"
+msgstr "Personalisierte Konfiguration"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:204
+msgid "Personalized Texts"
+msgstr "Personalisierte Texte"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:209
+#: public/elementor/pslzme-public-elementor-pslzme-marquee.php:75
+#: public/elementor/pslzme-public-elementor-pslzme-text.php:97
+#: build/pslzme-image/index.js:1 build/pslzme-marquee/index.js:1
+#: build/pslzme-text/index.js:1 src/pslzme-image/edit.js:329
+#: src/pslzme-marquee/edit.js:26 src/pslzme-text/edit.js:14
+msgid "Personalized Text"
+msgstr "Personalisierter Text"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:325
+msgid "Pslzme Image Settings"
+msgstr "Bild Konfiguration"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:333
+msgid "Pslzme image dimensions"
+msgstr "Bildabstände"
+
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:354
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:167
 msgid "Pslzme image background"
 msgstr "Hintergrundbild"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:148
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:186
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:365
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:186
 msgid "Pslzme image background size"
 msgstr "Hintergrundbildgröße"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:158
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:193
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:375
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:193
 msgid "Pslzme image background alt text"
 msgstr "Alternativer Text des Hintergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:167
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:199
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:384
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:199
 msgid "Pslzme image background title"
 msgstr "Titel des Hintergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:176
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:215
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:393
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:215
 msgid "Pslzme image foreground"
 msgstr "Vordergrundbild"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:187
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:234
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:404
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:234
 msgid "Pslzme image foreground size"
 msgstr "Vordergrundbildgröße"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:197
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:241
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:414
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:241
 msgid "Pslzme image foreground alt text"
 msgstr "Alternativer Text des Vordergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:206
-#: build/pslzme-image/index.js:1
-#: src/pslzme-image/edit.js:247
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:423
+#: build/pslzme-image/index.js:1 src/pslzme-image/edit.js:247
 msgid "Pslzme image foreground title"
 msgstr "Titel des Vordergrundbildes"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:219
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:436
 msgid "Pslzme Image Style Section"
 msgstr "Pslzme Image Style"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:235
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:452
 msgid "Pslzme image width"
 msgstr "Breite"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:251
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:468
 msgid "Pslzme image max width"
 msgstr "Maximale Breite"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:267
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:484
 msgid "Pslzme image height"
 msgstr "Höhe"
 
-#: public/elementor/pslzme-public-elementor-pslzme-image.php:285
+#: public/elementor/pslzme-public-elementor-pslzme-image.php:502
 msgid "Pslzme image border radius"
 msgstr "Radius"
 
@@ -690,10 +687,8 @@ msgstr "Pslzme Marquee"
 
 #: public/elementor/pslzme-public-elementor-pslzme-marquee.php:67
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:89
-#: build/pslzme-marquee/index.js:1
-#: build/pslzme-text/index.js:1
-#: src/pslzme-marquee/edit.js:24
-#: src/pslzme-text/edit.js:12
+#: build/pslzme-marquee/index.js:1 build/pslzme-text/index.js:1
+#: src/pslzme-marquee/edit.js:24 src/pslzme-text/edit.js:12
 msgid "Personalized Text Section"
 msgstr "Personalisierter Text Inhalt"
 
@@ -703,8 +698,7 @@ msgid "Text Styling"
 msgstr "Text Style"
 
 #: public/elementor/pslzme-public-elementor-pslzme-marquee.php:118
-#: build/pslzme-marquee/index.js:1
-#: src/pslzme-marquee/edit.js:54
+#: build/pslzme-marquee/index.js:1 src/pslzme-marquee/edit.js:54
 msgid "Marquee Text Color"
 msgstr "Textfarbe"
 
@@ -713,20 +707,17 @@ msgid "Marquee background Color"
 msgstr "Hintergrundfarbe"
 
 #: public/elementor/pslzme-public-elementor-pslzme-marquee.php:149
-#: build/pslzme-marquee/index.js:1
-#: src/pslzme-marquee/edit.js:116
+#: build/pslzme-marquee/index.js:1 src/pslzme-marquee/edit.js:116
 msgid "Marquee container height"
 msgstr "Container Höhe"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:19
-#: build/pslzme-text/index.js:1
-#: src/pslzme-text/edit.js:36
+#: build/pslzme-text/index.js:1 src/pslzme-text/edit.js:36
 msgid "Pslzme Text Widget"
 msgstr "Pslzme Text"
 
 #: public/elementor/pslzme-public-elementor-pslzme-text.php:107
-#: build/pslzme-text/index.js:1
-#: src/pslzme-text/edit.js:21
+#: build/pslzme-text/index.js:1 src/pslzme-text/edit.js:21
 msgid "Unpersonalized Text Section"
 msgstr "Unpersonalisierter Text Inhalt"
 
@@ -784,189 +775,151 @@ msgstr "Unser System ist dabei so aufgebaut, dass alle Informationen unter Einsa
 
 #: public/partials/pslzme-public-elementor-pslzme-content.php:126
 #: public/partials/pslzme-public-elementor-pslzme-content.php:163
-#: public/pslzme-public.php:376
-#: public/pslzme-public.php:396
+#: public/pslzme-public.php:376 public/pslzme-public.php:396
 msgid "Your browser does not support the video tag."
 msgstr "Ihr Browser unterstützt das Video HTML Tag nicht."
 
-#: build/pslzme-3d-text/block.json
-#: src/pslzme-3d-text/block.json
+#: build/pslzme-3d-text/block.json src/pslzme-3d-text/block.json
 msgctxt "block title"
 msgid "Pslzme 3D Text"
 msgstr "Pslzme 3D Text"
 
-#: build/pslzme-3d-text/block.json
-#: build/pslzme-content/block.json
-#: build/pslzme-image/block.json
-#: build/pslzme-marquee/block.json
-#: build/pslzme-text/block.json
-#: src/pslzme-3d-text/block.json
-#: src/pslzme-content/block.json
-#: src/pslzme-image/block.json
-#: src/pslzme-marquee/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-3d-text/block.json build/pslzme-content/block.json
+#: build/pslzme-image/block.json build/pslzme-marquee/block.json
+#: build/pslzme-text/block.json src/pslzme-3d-text/block.json
+#: src/pslzme-content/block.json src/pslzme-image/block.json
+#: src/pslzme-marquee/block.json src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "Pslzme"
 msgstr "Pslzme"
 
-#: build/pslzme-3d-text/block.json
-#: build/pslzme-content/block.json
-#: build/pslzme-image/block.json
-#: build/pslzme-marquee/block.json
-#: build/pslzme-text/block.json
-#: src/pslzme-3d-text/block.json
-#: src/pslzme-content/block.json
-#: src/pslzme-image/block.json
-#: src/pslzme-marquee/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-3d-text/block.json build/pslzme-content/block.json
+#: build/pslzme-image/block.json build/pslzme-marquee/block.json
+#: build/pslzme-text/block.json src/pslzme-3d-text/block.json
+#: src/pslzme-content/block.json src/pslzme-image/block.json
+#: src/pslzme-marquee/block.json src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "pslzme"
 msgstr "pslzme"
 
-#: build/pslzme-3d-text/block.json
-#: build/pslzme-text/block.json
-#: src/pslzme-3d-text/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-3d-text/block.json build/pslzme-text/block.json
+#: src/pslzme-3d-text/block.json src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "Text"
 msgstr "Text"
 
-#: build/pslzme-3d-text/block.json
-#: build/pslzme-text/block.json
-#: src/pslzme-3d-text/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-3d-text/block.json build/pslzme-text/block.json
+#: src/pslzme-3d-text/block.json src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "text"
 msgstr "text"
 
-#: build/pslzme-3d-text/block.json
-#: src/pslzme-3d-text/block.json
+#: build/pslzme-3d-text/block.json src/pslzme-3d-text/block.json
 msgctxt "block keyword"
 msgid "3D"
 msgstr "3D"
 
-#: build/pslzme-3d-text/block.json
-#: src/pslzme-3d-text/block.json
+#: build/pslzme-3d-text/block.json src/pslzme-3d-text/block.json
 msgctxt "block keyword"
 msgid "3d"
 msgstr "3d"
 
-#: build/pslzme-3d-text/block.json
-#: src/pslzme-3d-text/block.json
+#: build/pslzme-3d-text/block.json src/pslzme-3d-text/block.json
 msgctxt "block keyword"
 msgid "Pslzme 3D Text"
 msgstr "Pslzme 3D Text"
 
-#: build/pslzme-3d-text/block.json
-#: src/pslzme-3d-text/block.json
+#: build/pslzme-3d-text/block.json src/pslzme-3d-text/block.json
 msgctxt "block keyword"
 msgid "pslzme 3d text"
 msgstr "pslzme 3d text"
 
-#: build/pslzme-content/block.json
-#: src/pslzme-content/block.json
+#: build/pslzme-content/block.json src/pslzme-content/block.json
 msgctxt "block title"
 msgid "Pslzme Content"
 msgstr "Pslzme Content"
 
-#: build/pslzme-content/block.json
-#: src/pslzme-content/block.json
+#: build/pslzme-content/block.json src/pslzme-content/block.json
 msgctxt "block keyword"
 msgid "Content"
 msgstr "Content"
 
-#: build/pslzme-content/block.json
-#: src/pslzme-content/block.json
+#: build/pslzme-content/block.json src/pslzme-content/block.json
 msgctxt "block keyword"
 msgid "content"
 msgstr "content"
 
-#: build/pslzme-content/block.json
-#: src/pslzme-content/block.json
+#: build/pslzme-content/block.json src/pslzme-content/block.json
 msgctxt "block keyword"
 msgid "Pslzme Content"
 msgstr "Pslzme Content"
 
-#: build/pslzme-content/block.json
-#: src/pslzme-content/block.json
+#: build/pslzme-content/block.json src/pslzme-content/block.json
 msgctxt "block keyword"
 msgid "pslzme content"
 msgstr "pslzme content"
 
-#: build/pslzme-image/block.json
-#: src/pslzme-image/block.json
+#: build/pslzme-image/block.json src/pslzme-image/block.json
 msgctxt "block title"
 msgid "Pslzme Image"
 msgstr "Pslzme Image"
 
-#: build/pslzme-image/block.json
-#: src/pslzme-image/block.json
+#: build/pslzme-image/block.json src/pslzme-image/block.json
 msgctxt "block keyword"
 msgid "Image"
 msgstr "Image"
 
-#: build/pslzme-image/block.json
-#: src/pslzme-image/block.json
+#: build/pslzme-image/block.json src/pslzme-image/block.json
 msgctxt "block keyword"
 msgid "image"
 msgstr "image"
 
-#: build/pslzme-image/block.json
-#: src/pslzme-image/block.json
+#: build/pslzme-image/block.json src/pslzme-image/block.json
 msgctxt "block keyword"
 msgid "Pslzme Image"
 msgstr "Pslzme Image"
 
-#: build/pslzme-image/block.json
-#: src/pslzme-image/block.json
+#: build/pslzme-image/block.json src/pslzme-image/block.json
 msgctxt "block keyword"
 msgid "pslzme image"
 msgstr "pslzme image"
 
-#: build/pslzme-marquee/block.json
-#: src/pslzme-marquee/block.json
+#: build/pslzme-marquee/block.json src/pslzme-marquee/block.json
 msgctxt "block title"
 msgid "Pslzme Marquee"
 msgstr "Pslzme Marquee"
 
-#: build/pslzme-marquee/block.json
-#: src/pslzme-marquee/block.json
+#: build/pslzme-marquee/block.json src/pslzme-marquee/block.json
 msgctxt "block keyword"
 msgid "Marquee"
 msgstr "Marquee"
 
-#: build/pslzme-marquee/block.json
-#: src/pslzme-marquee/block.json
+#: build/pslzme-marquee/block.json src/pslzme-marquee/block.json
 msgctxt "block keyword"
 msgid "marquee"
 msgstr "Marquee"
 
-#: build/pslzme-marquee/block.json
-#: src/pslzme-marquee/block.json
+#: build/pslzme-marquee/block.json src/pslzme-marquee/block.json
 msgctxt "block keyword"
 msgid "Pslzme Marquee"
 msgstr "Pslzme Marquee"
 
-#: build/pslzme-marquee/block.json
-#: src/pslzme-marquee/block.json
+#: build/pslzme-marquee/block.json src/pslzme-marquee/block.json
 msgctxt "block keyword"
 msgid "pslzme marquee"
 msgstr "pslzme marquee"
 
-#: build/pslzme-text/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-text/block.json src/pslzme-text/block.json
 msgctxt "block title"
 msgid "Pslzme Text"
 msgstr "Pslzme Text"
 
-#: build/pslzme-text/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-text/block.json src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "Pslzme Text"
 msgstr "Pslzme Text"
 
-#: build/pslzme-text/block.json
-#: src/pslzme-text/block.json
+#: build/pslzme-text/block.json src/pslzme-text/block.json
 msgctxt "block keyword"
 msgid "pslzme text"
 msgstr "pslzme text"

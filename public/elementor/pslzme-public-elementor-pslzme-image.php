@@ -96,7 +96,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                                 'title' => esc_html__('Center', 'pslzme'),
                                 'icon' => 'eicon-h-align-center',
                             ],
-                            'end' => [
+                            'right' => [
                                 'title' => esc_html__('Right', 'pslzme'),
                                 'icon' => 'eicon-h-align-right',
                             ],
@@ -105,31 +105,10 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                         'toggle' => true,
                     ],
                     [
-                        'name' => 'vertical_position',
-                        'label' => esc_html__('Vertical Position', 'pslzme'),
-                        'type' => \Elementor\Controls_Manager::CHOOSE,
-                        'options' => [
-                            'start' => [
-                                'title' => esc_html__('Top', 'pslzme'),
-                                'icon' => 'eicon-v-align-top',
-                            ],
-                            'center' => [
-                                'title' => esc_html__('Middle', 'pslzme'),
-                                'icon' => 'eicon-v-align-middle',
-                            ],
-                            'end' => [
-                                'title' => esc_html__('Bottom', 'pslzme'),
-                                'icon' => 'eicon-v-align-bottom',
-                            ],
-                        ],
-                        'default' => 'start',
-                        'toggle' => true,
-                    ],
-                    [
                         'name' => 'text_spacing',
                         'label' => esc_html__('Pslzme image text spacing', 'pslzme'),
                         'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                        'size_units' => [ 'px', '%', 'em', 'rem' ],
+                        'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'vh' ],
                         'default' => [
                             'top' => 0,
                             'right' => 0,
@@ -143,7 +122,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                         'name' => 'text_padding',
                         'label' => esc_html__('Pslzme image text padding', 'pslzme'),
                         'type' =>  \Elementor\Controls_Manager::DIMENSIONS,
-                        'size_units' => [ 'px', '%', 'em', 'rem' ],
+                        'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'vh' ],
                         'default' => [
                             'top' => 0,
                             'right' => 0,
@@ -164,7 +143,6 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                     [
                         'text' => esc_html__('Unpersonalized text example #1', 'pslzme'),
                         'horizontal_position' => 'left',
-                        'vertical_position' => 'start',
                         'text_spacing' => [
                             'top' => 0,
                             'right' => 0,
@@ -224,7 +202,7 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                                 'title' => esc_html__('Center', 'pslzme'),
                                 'icon' => 'eicon-h-align-center',
                             ],
-                            'end' => [
+                            'right' => [
                                 'title' => esc_html__('Right', 'pslzme'),
                                 'icon' => 'eicon-h-align-right',
                             ],
@@ -233,31 +211,10 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                         'toggle' => true,
                     ],
                     [
-                        'name' => 'vertical_position',
-                        'label' => esc_html__('Vertical Position', 'pslzme'),
-                        'type' => \Elementor\Controls_Manager::CHOOSE,
-                        'options' => [
-                            'start' => [
-                                'title' => esc_html__('Top', 'pslzme'),
-                                'icon' => 'eicon-v-align-top',
-                            ],
-                            'center' => [
-                                'title' => esc_html__('Middle', 'pslzme'),
-                                'icon' => 'eicon-v-align-middle',
-                            ],
-                            'end' => [
-                                'title' => esc_html__('Bottom', 'pslzme'),
-                                'icon' => 'eicon-v-align-bottom',
-                            ],
-                        ],
-                        'default' => 'start',
-                        'toggle' => true,
-                    ],
-                    [
                         'name' => 'text_spacing',
                         'label' => esc_html__('Pslzme image text spacing', 'pslzme'),
                         'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                        'size_units' => [ 'px', '%', 'em', 'rem' ],
+                        'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'vh' ],
                         'default' => [
                             'top' => 0,
                             'right' => 0,
@@ -292,7 +249,6 @@ class ElementorWidgetPslzmeImage extends \Elementor\Widget_Base {
                     [
                         'text' => esc_html__('Unpersonalized text example #1', 'pslzme'),
                         'horizontal_position' => 'left',
-                        'vertical_position' => 'start',
                         'text_spacing' => [
                             'top' => 0,
                             'right' => 0,

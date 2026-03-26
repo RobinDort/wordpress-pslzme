@@ -53,12 +53,9 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
 
     <?php if($varsSet && !empty($personalized_texts)): ?>
 
-        <div class="pslzme-image-flex-container">
-
             <?php foreach ($personalized_texts as $ptItem):
                 $ptext = $ptItem['text'] ?? '';
                 $horizontal_alignment = $ptItem['horizontal_position'] ?? 'left';
-                $vertical_alignment = $ptItem['vertical_position'] ?? 'start';
                 $text_color = $uptItem['text_color'] ?? '#000000';
                 $text_spacing = $uptItem['text_spacing'] ?? [];
                 $unit = $text_spacing['unit'] ?? 'px';
@@ -74,15 +71,14 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
                 $pleft = $text_padding['left'] ?? 0;
             ?>
 
-                <div class="pslzme_image ce_text block layered-text"
-                    style="display: flex;
-                    justify-content: <?= esc_attr($horizontal_alignment); ?>;
-                    align-items: <?= esc_attr($vertical_alignment); ?>;
+                <div class="pslzme_image ce_text layered-text"
+                style="
+                    text-align: <?= esc_attr($horizontal_alignment); ?>;
                     color: <?= esc_attr($text_color); ?>;
-                    margin: <?= esc_attr($top) . esc_attr($unit) ?> 
-                            <?= esc_attr($right) . esc_attr($unit) ?> 
-                            <?= esc_attr($bottom) . esc_attr($unit) ?> 
-                            <?= esc_attr($left) . esc_attr($unit) ?>;
+                    top: <?= esc_attr($top) . esc_attr($unit) ?>;
+                    right: <?= esc_attr($right) . esc_attr($unit) ?>;
+                    bottom: <?= esc_attr($bottom) . esc_attr($unit) ?>;
+                    left: <?= esc_attr($left) . esc_attr($unit) ?>;
                     padding:<?= esc_attr($ptop) . esc_attr($punit) ?> 
                             <?= esc_attr($pright) . esc_attr($punit) ?> 
                             <?= esc_attr($pbottom) . esc_attr($punit) ?> 
@@ -92,15 +88,11 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
 
             <?php endforeach; ?>
 
-        </div>
     <?php else: ?>
-
-        <div class="pslzme-image-flex-container">
 
             <?php foreach ($unpersonalized_texts as $uptItem):
                 $upText = $uptItem['text'];
                 $horizontal_alignment = $uptItem['horizontal_position'] ?? 'left';
-                $vertical_alignment = $uptItem['vertical_position'] ?? 'start';
                 $text_spacing = $uptItem['text_spacing'] ?? [];
                 $text_color = $uptItem['text_color'] ?? '#000000';
                 $unit = $text_spacing['unit'] ?? 'px';
@@ -115,15 +107,14 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
                 $pbottom = $text_padding['bottom'] ?? 0;
                 $pleft = $text_padding['left'] ?? 0;
             ?>
-                <div class="pslzme_image ce_text block layered-text" 
-                    style="display: flex;
-                    justify-content: <?= esc_attr($horizontal_alignment); ?>;
-                    align-items: <?= esc_attr($vertical_alignment); ?>;
+                <div class="pslzme_image ce_text layered-text" 
+                style="
+                    text-align: <?= esc_attr($horizontal_alignment); ?>;
                     color: <?= esc_attr($text_color); ?>;
-                    margin: <?= esc_attr($top) . esc_attr($unit) ?> 
-                            <?= esc_attr($right) . esc_attr($unit) ?> 
-                            <?= esc_attr($bottom) . esc_attr($unit) ?> 
-                            <?= esc_attr($left) . esc_attr($unit) ?>;
+                    top: <?= esc_attr($top) . esc_attr($unit) ?>;
+                    right: <?= esc_attr($right) . esc_attr($unit) ?>;
+                    bottom: <?= esc_attr($bottom) . esc_attr($unit) ?>;
+                    left: <?= esc_attr($left) . esc_attr($unit) ?>;
                     padding:<?= esc_attr($ptop) . esc_attr($punit) ?> 
                         <?= esc_attr($pright) . esc_attr($punit) ?> 
                         <?= esc_attr($pbottom) . esc_attr($punit) ?> 
@@ -133,7 +124,6 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
 
             <?php endforeach; ?>
 
-        </div>
     <?php endif; ?>
 
     <?php if($foreground_image_url) : ?>

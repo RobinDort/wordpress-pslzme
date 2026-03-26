@@ -40,20 +40,16 @@
 }
 
 .pslzme-ov-image-container .layered-text {
+	position: absolute;
+	top: 0%;
+	left: 0;
+	z-index: 2;
 	text-transform: uppercase;
-	width: 100%;
 	font-weight: bold;
 }
 
-.pslzme-image-flex-container {
-	display: flex;
-	flex-direction: row;
-	position: absolute;
-	top: 0%;
-	left: 0%;
+.pslzme-ov-image-container .layered-text p {
 	width: 100%;
-	height: 100%;
-	z-index: 2;
 }
 
 .pslzme-marquee {
