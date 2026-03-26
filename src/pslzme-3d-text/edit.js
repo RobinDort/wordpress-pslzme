@@ -176,6 +176,17 @@ export default function Edit({ attributes, setAttributes }) {
 								onChange={(value) => setAttributes({ rotation_direction: value.selectedItem.key })}
 							/>
 						)}
+
+						<Spacer marginY={5} />
+
+						<CustomSelectControl
+							label={__("Pslzme 3D floor enabled", "pslzme")}
+							options={boolOptions}
+							value={attributes.floor_enabled}
+							onChange={(value) => setAttributes({ floor_enabled: value.selectedItem.key })}
+						/>
+
+						<Spacer marginY={5} />
 					</PanelBody>
 				</Panel>
 			</InspectorControls>

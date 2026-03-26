@@ -76,6 +76,9 @@
 		"text_rotation": {
 			"type": "string"
 		},
+		"floor_enabled": {
+			"type": "string"
+		},
 		"rotation_direction": {
 			"type": "string"
 		},
