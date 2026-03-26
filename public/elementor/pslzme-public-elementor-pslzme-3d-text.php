@@ -323,6 +323,19 @@ class ElementorWidgetPslzme3DText extends \Elementor\Widget_Base {
             ]
         );
 
+        $this->add_control(
+            'pslzme_3d_floor_enabled',
+            [
+                'label' => esc_html__("Pslzme 3D floor enabled", "pslzme"),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'options' => [
+                    'yes' => esc_html__('Yes', 'pslzme'),
+                    'no' => esc_html__('No', 'pslzme'),
+                ],
+            ]
+        );
+
         $this->end_controls_section();
     }
 

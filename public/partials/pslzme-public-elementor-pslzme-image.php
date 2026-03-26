@@ -53,41 +53,46 @@ $foreground_image_title = $settings['pslzme_image_foreground_title'] ?? '';
 
     <?php if($varsSet && !empty($personalized_texts)): ?>
 
-        <?php foreach ($personalized_texts as $ptItem):
-            $ptext = $ptItem['text'] ?? '';
-            $horizontal_alignment = $ptItem['horizontal_position'] ?? 'left';
-            $vertical_alignment = $ptItem['vertical_position'] ?? 'start';
-            $text_color = $uptItem['text_color'] ?? '#000000';
-            $text_spacing = $uptItem['text_spacing'] ?? [];
-            $unit = $text_spacing['unit'] ?? 'px';
-            $top = $text_spacing['top'] ?? 0;
-            $right = $text_spacing['right'] ?? 0;
-            $bottom = $text_spacing['bottom'] ?? 0;
-            $left = $text_spacing['left'] ?? 0;
-            $text_padding = $uptItem['text_padding'] ?? [];
-            $punit = $text_padding['unit'] ?? 'px';
-            $ptop = $text_padding['top'] ?? 0;
-            $pright = $text_padding['right'] ?? 0;
-            $pbottom = $text_padding['bottom'] ?? 0;
-            $pleft = $text_padding['left'] ?? 0;
-        ?>
-            <div class="pslzme_image ce_text block layered-text"
-                style="display: flex;
-                justify-content: <?= esc_attr($horizontal_alignment); ?>;
-                align-items: <?= esc_attr($vertical_alignment); ?>;
-                color: <?= esc_attr($text_color); ?>;
-                margin: <?= esc_attr($top) . esc_attr($unit) ?> 
-                        <?= esc_attr($right) . esc_attr($unit) ?> 
-                        <?= esc_attr($bottom) . esc_attr($unit) ?> 
-                        <?= esc_attr($left) . esc_attr($unit) ?>;
-                padding:<?= esc_attr($ptop) . esc_attr($punit) ?> 
-                        <?= esc_attr($pright) . esc_attr($punit) ?> 
-                        <?= esc_attr($pbottom) . esc_attr($punit) ?> 
-                        <?= esc_attr($pleft) . esc_attr($punit) ?>;">
-                <?= wp_kses_post($ptext) ?>
-            </div>
+        <div class="pslzme-image-flex-container">
 
-        <?php endforeach; ?>
+            <?php foreach ($personalized_texts as $ptItem):
+                $ptext = $ptItem['text'] ?? '';
+                $horizontal_alignment = $ptItem['horizontal_position'] ?? 'left';
+                $vertical_alignment = $ptItem['vertical_position'] ?? 'start';
+                $text_color = $uptItem['text_color'] ?? '#000000';
+                $text_spacing = $uptItem['text_spacing'] ?? [];
+                $unit = $text_spacing['unit'] ?? 'px';
+                $top = $text_spacing['top'] ?? 0;
+                $right = $text_spacing['right'] ?? 0;
+                $bottom = $text_spacing['bottom'] ?? 0;
+                $left = $text_spacing['left'] ?? 0;
+                $text_padding = $uptItem['text_padding'] ?? [];
+                $punit = $text_padding['unit'] ?? 'px';
+                $ptop = $text_padding['top'] ?? 0;
+                $pright = $text_padding['right'] ?? 0;
+                $pbottom = $text_padding['bottom'] ?? 0;
+                $pleft = $text_padding['left'] ?? 0;
+            ?>
+
+                <div class="pslzme_image ce_text block layered-text"
+                    style="display: flex;
+                    justify-content: <?= esc_attr($horizontal_alignment); ?>;
+                    align-items: <?= esc_attr($vertical_alignment); ?>;
+                    color: <?= esc_attr($text_color); ?>;
+                    margin: <?= esc_attr($top) . esc_attr($unit) ?> 
+                            <?= esc_attr($right) . esc_attr($unit) ?> 
+                            <?= esc_attr($bottom) . esc_attr($unit) ?> 
+                            <?= esc_attr($left) . esc_attr($unit) ?>;
+                    padding:<?= esc_attr($ptop) . esc_attr($punit) ?> 
+                            <?= esc_attr($pright) . esc_attr($punit) ?> 
+                            <?= esc_attr($pbottom) . esc_attr($punit) ?> 
+                            <?= esc_attr($pleft) . esc_attr($punit) ?>;">
+                    <?= wp_kses_post($ptext) ?>
+                </div>
+
+            <?php endforeach; ?>
+
+        </div>
     <?php else: ?>
 
         <div class="pslzme-image-flex-container">

@@ -31,6 +31,7 @@ $movingLight = $settings['pslzme_3d_moving_light'] ?? 'yes';
 $rotationEnabled = $settings['pslzme_3d_rotation'] ?? 'yes';
 $rotationDirection = $settings['pslzme_3d_rotation_direction'] ?? 'left';
 $draggable = $settings['pslzme_3d_draggable'] ?? 'yes';
+$floorEnabled = $settings['pslzme_3d_floor_enabled'] ?? 'yes';
 $debugUiEnabled = $settings['pslzme_3d_debug_ui'] ?? 'no';
 $cameraPositionX = $settings['pslzme_3d_camera_position_x'] ?? 0;
 $cameraPositionY = $settings['pslzme_3d_camera_position_y'] ?? 150;
@@ -55,6 +56,7 @@ $usedText = $varsSet && !empty($personalized_text) ? $personalized_text : $unper
     data-rotation-enabled="<?= esc_attr( $rotationEnabled) ?>"
     data-rotation-direction="<?= esc_attr( $rotationDirection ) ?>"
     data-draggable="<?= esc_attr( $draggable ) ?>"
+    data-floor-enabled="<?= esc_attr( $floorEnabled) ?>"
     data-debug-ui="<?= esc_attr( $debugUiEnabled ) ?>"
     data-camera-pos-x="<?= esc_attr($cameraPositionX) ?>"
     data-camera-pos-x-tablet="<?= esc_attr($settings['pslzme_3d_camera_position_x_tablet'] ?? $cameraPositionX) ?>"

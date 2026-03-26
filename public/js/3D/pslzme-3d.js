@@ -24,6 +24,7 @@ class Pslzme3DText {
 		this.rotationEnabled = data.dataRotationEnabled === "yes" ? true : false;
 		this.rotationDirection = data.dataRotationDirection === "right" ? -1 : 1;
 		this.dataDraggable = data.dataDraggable === "yes" ? true : false;
+		this.dataFloorEnabled = data.dataFloorEnabled === "yes" ? true : false;
 		this.debugUIEnabled = data.dataDebugUiEnabled === "yes" ? true : false;
 
 		this.cameraPositionX = parseFloat(data.dataCameraPosX) || 0;
@@ -102,10 +103,12 @@ class Pslzme3DText {
 		}); // get the font passed from wp_localize_script in pslzme-public.php
 
 		// CREATE PLANE
-		const plane = new THREE.Mesh(new THREE.PlaneGeometry(10000, 10000), new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.8, transparent: true }));
-		plane.position.y = 100;
-		plane.rotation.x = -Math.PI / 2;
-		this.scene.add(plane);
+		if (this.dataFloorEnabled) {
+			const plane = new THREE.Mesh(new THREE.PlaneGeometry(10000, 10000), new THREE.MeshBasicMaterial({ color: 0xffffff, opacity: 0.8, transparent: true }));
+			plane.position.y = 100;
+			plane.rotation.x = -Math.PI / 2;
+			this.scene.add(plane);
+		}
 
 		// MOVING PARTICLE LIGHT
 		if (this.movingLight) {
@@ -302,6 +305,7 @@ document.querySelectorAll(".pslzme-3d-text").forEach((textElement) => {
 	const dataRotationEnabled = textElement.getAttribute("data-rotation-enabled");
 	const dataRotationDirection = textElement.getAttribute("data-rotation-direction");
 	const dataDraggable = textElement.getAttribute("data-draggable");
+	const dataFloorEnabled = textElement.getAttribute("data-floor-enabled");
 	const dataDebugUiEnabled = textElement.getAttribute("data-debug-ui");
 
 	const data = {
@@ -317,6 +321,7 @@ document.querySelectorAll(".pslzme-3d-text").forEach((textElement) => {
 		dataRotationEnabled,
 		dataRotationDirection,
 		dataDraggable,
+		dataFloorEnabled,
 		dataDebugUiEnabled,
 		dataCameraPosX: getResponsiveValue(textElement, "cameraPosX"),
 		dataCameraPosY: getResponsiveValue(textElement, "cameraPosY"),
