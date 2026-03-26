@@ -68,6 +68,22 @@
 			"type": "string",
 			"default": "px"
 		},
+		"text_padding_top": {
+			"type": "string"
+		},
+		"text_padding_right": {
+			"type": "string"
+		},
+		"text_padding_bottom": {
+			"type": "string"
+		},
+		"text_padding_left": {
+			"type": "string"
+		},
+		"text_padding_unit": {
+			"type": "string",
+			"default": "px"
+		},
 		"background_image": {
 			"type": "object",
 			"default": {

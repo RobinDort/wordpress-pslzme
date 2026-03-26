@@ -435,6 +435,12 @@ class Pslzme_Public {
 		$textDimensionLeft = $attributes['text_dimension_left'] ?? '0';
 		$textDimensionUnit = $attributes['text_dimension_unit'] ?? 'px';
 
+		$textPaddingTop = $attributes['text_padding_top'] ?? '0';
+		$textPaddingRight = $attributes['text_padding_right'] ?? '0';
+		$textPaddingBottom = $attributes['text_padding_bottom'] ?? '0';
+		$textPaddingLeft = $attributes['text_padding_left'] ?? '0';
+		$textPaddingUnit = $attributes['text_padding_unit'] ?? 'px';
+
 		$backgroundImageID = $attributes['background_image']['id'] ?? '';
 		$backgroundImageSize = $attributes['background_image_size'] ?? '';
 		$backgroundImageAlt = $attributes['background_image_alt'] ?? '';
@@ -494,10 +500,15 @@ class Pslzme_Public {
 							text-align: <?= esc_attr($personalizedTextAlignment) ?>;
 							font-size: <?= esc_attr($personalizedTextFontSize); ?>;
 							color: <?= esc_attr($personalizedTextColor) ?>;
-							margin-top: <?= esc_attr($textDimensionTop) ?><?= esc_attr($textDimensionUnit)?>;
-							margin-right: <?= esc_attr($textDimensionRight) ?><?= esc_attr($textDimensionUnit)?>;
-							margin-bottom: <?= esc_attr($textDimensionBottom) ?><?= esc_attr($textDimensionUnit)?>;
-							margin-left: <?= esc_attr($textDimensionLeft) ?><?= esc_attr($textDimensionUnit)?>;
+							top: <?= esc_attr($textDimensionTop) ?><?= esc_attr($textDimensionUnit)?>;
+							right: <?= esc_attr($textDimensionRight) ?><?= esc_attr($textDimensionUnit)?>;
+							bottom: <?= esc_attr($textDimensionBottom) ?><?= esc_attr($textDimensionUnit)?>;
+							left: <?= esc_attr($textDimensionLeft) ?><?= esc_attr($textDimensionUnit)?>;
+							padding: 
+								<?= esc_attr($textPaddingTop) ?><?= esc_attr($textPaddingUnit) ?>
+								<?= esc_attr($textPaddingRight) ?><?= esc_attr($textPaddingUnit) ?>
+								<?= esc_attr($textPaddingBottom) ?><?= esc_attr($textPaddingUnit) ?>
+								<?= esc_attr($textPaddingLeft) ?><?= esc_attr($textPaddingUnit) ?>
 						">
 							<?= esc_html($personalizedText) ?>
 						</div>
@@ -510,10 +521,15 @@ class Pslzme_Public {
 							text-align: <?= esc_attr($unpersonalizedTextAlignment) ?>;
 							font-size: <?= esc_attr($unpersonalizedTextFontSize) ?>;
 							color: <?= esc_attr($unpersonalizedTextColor) ?>;
-							margin-top: <?= esc_attr($textDimensionTop) ?><?= esc_attr($textDimensionUnit)?>;
-							margin-right: <?= esc_attr($textDimensionRight) ?><?= esc_attr($textDimensionUnit)?>;
-							margin-bottom: <?= esc_attr($textDimensionBottom) ?><?= esc_attr($textDimensionUnit)?>;
-							margin-left: <?= esc_attr($textDimensionLeft) ?><?= esc_attr($textDimensionUnit)?>;
+							top: <?= esc_attr($textDimensionTop) ?><?= esc_attr($textDimensionUnit)?>;
+							right: <?= esc_attr($textDimensionRight) ?><?= esc_attr($textDimensionUnit)?>;
+							bottom: <?= esc_attr($textDimensionBottom) ?><?= esc_attr($textDimensionUnit)?>;
+							left: <?= esc_attr($textDimensionLeft) ?><?= esc_attr($textDimensionUnit)?>;
+							padding:
+								<?= esc_attr($textPaddingTop) ?><?= esc_attr($textPaddingUnit) ?>
+								<?= esc_attr($textPaddingRight) ?><?= esc_attr($textPaddingUnit) ?>
+								<?= esc_attr($textPaddingBottom) ?><?= esc_attr($textPaddingUnit) ?>
+								<?= esc_attr($textPaddingLeft) ?><?= esc_attr($textPaddingUnit) ?>
 						">
 							<?= esc_html($unpersonalizedText) ?>
 						</div>

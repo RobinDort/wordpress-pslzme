@@ -143,7 +143,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 						<SelectControl
 							label={__("Pslzme text dimension Unit", "pslzme")}
-							value={attributes.image_dimension_unit}
+							value={attributes.text_dimension_unit}
 							options={[
 								{ label: "px", value: "px" },
 								{ label: "%", value: "%" },
@@ -151,6 +151,55 @@ export default function Edit({ attributes, setAttributes }) {
 								{ label: "rem", value: "rem" },
 							]}
 							onChange={(value) => setAttributes({ text_dimension_unit: value })}
+						/>
+
+						<Spacer marginY={10} />
+
+						<BaseControl label={__("Pslzme image text padding", "pslzme")}>
+							<Flex expanded>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text padding Top", "pslzme")}
+										value={attributes.text_padding_top}
+										onChange={(value) => setAttributes({ text_padding_top: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text padding Right", "pslzme")}
+										value={attributes.text_padding_right}
+										onChange={(value) => setAttributes({ text_padding_right: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text padding Bottom", "pslzme")}
+										value={attributes.text_padding_bottom}
+										onChange={(value) => setAttributes({ text_padding_bottom: value })}
+									/>
+								</FlexItem>
+								<FlexItem>
+									<TextControl
+										label={__("Pslzme text padding Left", "pslzme")}
+										value={attributes.text_padding_left}
+										onChange={(value) => setAttributes({ text_padding_left: value })}
+									/>
+								</FlexItem>
+							</Flex>
+						</BaseControl>
+
+						<Spacer marginY={5} />
+
+						<SelectControl
+							label={__("Pslzme text padding Unit", "pslzme")}
+							value={attributes.text_padding_unit}
+							options={[
+								{ label: "px", value: "px" },
+								{ label: "%", value: "%" },
+								{ label: "em", value: "em" },
+								{ label: "rem", value: "rem" },
+							]}
+							onChange={(value) => setAttributes({ text_padding_unit: value })}
 						/>
 
 						<Spacer marginY={10} />
@@ -387,10 +436,14 @@ export default function Edit({ attributes, setAttributes }) {
 						textAlign: attributes.unpersonalized_text_alignment || "left",
 						fontSize: attributes.unpersonalized_text_font_size,
 						color: attributes.unpersonalized_text_color,
-						marginTop: `${attributes.text_dimension_top}${attributes.text_dimension_unit}`,
-						marginRight: `${attributes.text_dimension_right}${attributes.text_dimension_unit}`,
-						marginBottom: `${attributes.text_dimension_bottom}${attributes.text_dimension_unit}`,
-						marginLeft: `${attributes.text_dimension_left}${attributes.text_dimension_unit}`,
+						top: `${attributes.text_dimension_top}${attributes.text_dimension_unit}`,
+						right: `${attributes.text_dimension_right}${attributes.text_dimension_unit}`,
+						bottom: `${attributes.text_dimension_bottom}${attributes.text_dimension_unit}`,
+						left: `${attributes.text_dimension_left}${attributes.text_dimension_unit}`,
+						padding: `${attributes.text_padding_top}${attributes.text_padding_unit}
+							${attributes.text_padding_right}${attributes.text_padding_unit}
+							${attributes.text_padding_bottom}${attributes.text_padding_unit}
+							${attributes.text_padding_left}${attributes.text_padding_unit}`,
 					}}>
 					{attributes.unpersonalized_text}
 				</div>
